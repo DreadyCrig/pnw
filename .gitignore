@@ -27,7 +27,7 @@ Thumbs.db
 
 # Codekit
 .codekit-cache
-config.codekit
+#config.codekit
 
 #PHPStorm
 *.iml
