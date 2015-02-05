@@ -1,0 +1,37 @@
+.DS_Store
+.DS_Store?
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Images
+#images/avatars/
+#images/captchas/
+#images/smileys/
+#images/member_photos/
+#images/signature_attachments/
+#images/pm_attachments/
+#images/uploads/
+#assets/videos/
+
+# Caches
+#sized/
+#thumbs/
+#_thumbs/
+#*/expressionengine/cache/*
+#*/expressionengine/config/config.php
+
+# SASS
+.sass-cache
+
+# Codekit
+.codekit-cache
+config.codekit
+
+#PHPStorm
+*.iml
+## Directory-based project format:
+.idea/
+# Local Database File
+#env/config.local.php
