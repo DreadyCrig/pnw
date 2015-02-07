@@ -6,20 +6,20 @@ ehthumbs.db
 Thumbs.db
 
 # Images
-#images/avatars/
-#images/captchas/
-#images/smileys/
-#images/member_photos/
-#images/signature_attachments/
-#images/pm_attachments/
-#images/uploads/
+images/avatars/
+images/captchas/
+images/smileys/
+images/member_photos/
+images/signature_attachments/
+images/pm_attachments/
+images/uploads/
 #assets/videos/
 
 # Caches
-#sized/
-#thumbs/
-#_thumbs/
-#*/expressionengine/cache/*
+sized/
+thumbs/
+_thumbs/
+*/expressionengine/cache/*
 #*/expressionengine/config/config.php
 
 # SASS
