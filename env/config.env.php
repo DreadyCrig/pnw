@@ -33,6 +33,12 @@ if ( ! defined('ENV'))
 			define('ENV_DEBUG', FALSE);
 		break;
 
+		case 'pnw-dev.dev' :
+			define('ENV', 'local-dev');
+			define('ENV_FULL', 'Local Dev');
+			define('ENV_DEBUG', FALSE);
+		break;
+
 		default :
 			define('ENV', 'local');
 			define('ENV_FULL', 'Local');

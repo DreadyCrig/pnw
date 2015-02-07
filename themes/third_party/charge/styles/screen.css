@@ -1,0 +1,131 @@
+/*
+* Author: 		Leevi Grahan
+* Contact:		leevi@newism.com.au
+* Version:		0.1
+* Updated:		04/02/2010
+* Notes:		This is the core scren file for the entire site.
+*
+* CONTENTS
+* -------------------------
+* ==@import 		Imported CSS fields
+*/
+/* ==@import
+------------------------------------------------------------------------------*/
+@import url(screen/base.css);
+@import url(screen/icons.css);
+@import url(screen/buttons.css);
+@import url(screen/typography.css);
+@import url(screen/forms.css);
+@import url(screen/tables.css);
+@import url(screen/navigation.css);
+@import url(screen/alerts.css);
+@import url(screen/pagination.css);
+
+
+#charge_container .tg .tg{
+	margin:10px; background-color: #fff;
+}
+
+
+#charge_container .plan_value {
+	font-size : 1.4em;
+	width : 15%;
+	text-align: center;
+}
+
+#charge_container .plan_amount {
+	font-size : 1.2em;
+	font-weight: bold;
+}
+
+#charge_container .card_details {
+	width : 143px;
+	margin : 0 auto;
+}
+
+
+#charge_container .stripe_card {
+	display:block; padding : 10px 5px;
+	margin-bottom : 5px; background : #ECF1F4;
+	width : 100px; border:1px solid #B0B9BF; border-radius : 6px;
+	text-align: center;
+	padding-left : 35px;
+}
+
+#charge_container .stripe_card.type_Visa {
+	background : #ECF1F4 url(../images/visa.png) 6px 7px no-repeat;
+}
+#charge_container .stripe_card.type_American {
+	background : #ECF1F4 url(../images/amex.png) 6px 7px no-repeat;
+}
+#charge_container .stripe_card.type_Diners {
+	background : #ECF1F4 url(../images/diners.png) 6px 7px no-repeat;
+}
+#charge_container .stripe_card.type_Discover {
+	background : #ECF1F4 url(../images/discover.png) 6px 7px no-repeat;
+}
+#charge_container .stripe_card.type_JCB	 {
+	background : #ECF1F4 url(../images/jcb.png) 6px 7px no-repeat;
+}
+#charge_container .stripe_card.type_MasterCard {
+	background : #ECF1F4 url(../images/mastercard.png) 6px 7px no-repeat;
+}
+
+#charge_container .stripe_card_owner {
+	text-align: center;
+}
+
+#charge_container .test_mode {
+	background : #FFFCBF;
+}
+
+
+#charge_container .extended_data_body {
+    display             : block;
+    margin-bottom       : 5px;
+}
+
+#charge_container td em {
+	color : #5F6C74;
+}
+#charge_container td em.error {
+	color : #E11842; font-size : 1em; display:block; padding-top: 3px;
+}
+
+#charge_container .pull_right {
+	float:right;
+}
+#charge_container .export_button {
+	margin-top : -4px;
+	font-weight: normal;
+}
+
+#charge_container td.sub-table {
+	padding : 0; vertical-align: top;
+}
+
+#charge_container td.sub-table table {
+	border-bottom : 0;
+}
+
+
+#charge_container td.sub-table tr.inactive {
+	opacity : 0.3;
+}
+
+#charge_container .cancelled_payment {
+	color : #D91350 ;
+}
+
+#charge_container .hidden {
+	display : none;
+}
+
+.roland_table td.roland_drag_handle {background-image: url(../images/gfx/drag.png); background-repeat: no-repeat; background-position: 50% 50%; padding: 5px 15px;}
+.roland_table .ui-sortable-helper {display: block; -webkit-box-shadow:  2px 2px 3px rgba(0,0,0,0.4); -moz-box-shadow:  0 0 5px rgba(0,0,0,0.4); box-shadow:  0 0 5px rgba(0,0,0,0.4); border-top: 1px solid #fff; opacity: 0.8;}
+.roland_table td.roland_drag_handle:hover {cursor: move;}
+.roland_table a.add_row,
+.roland_table a.remove_row {display: block; width: 16px; height: 16px; text-indent: -3000px; display: inline-block; }
+.roland_table a.add_row {background: url(../images/gfx/plus.png); margin-right: 5px;}
+.roland_table a.remove_row {background: url(../images/gfx/minus.png);}
+.roland_table .roland_nav {white-space: nowrap; text-align: center; vertical-align: middle; line-height: 16px;}

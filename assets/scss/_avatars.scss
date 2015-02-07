@@ -1,0 +1,28 @@
+.director {
+	a {
+		display: block;
+	}
+	border-bottom: 1px solid #eee;
+}
+.director__identity, .director__avatar, .director__slot {
+	display: inline-block;
+	padding: 20px;
+}
+.director__identity {
+	vertical-align: top;
+	font-size: em(36);
+	padding-top: 32px;
+}
+.director__slot {
+	float: right;
+	padding-right: 40px;
+}
+.director__avatar {
+	padding-right: 0;
+	img {
+		width: 84px;
+		height: 84px;
+		border-radius: 128px;
+		border: 2px solid #ddd;
+	}
+}
