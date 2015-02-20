@@ -1,0 +1,16 @@
+.membership-header {
+	@include outer-container(40%);
+	padding-top: 2.5em;
+	padding-bottom: 2.5em;
+	h2 {
+		text-align: center;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		font-weight: 600;
+	}
+
+	.intro-section {
+		text-align: center;
+		font-size: rem(18);
+	}
+}

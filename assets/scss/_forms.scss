@@ -32,7 +32,7 @@ textarea {
   background-color: $base-background-color;
   border: $base-border;
   border-radius: $base-border-radius;
-  box-shadow: $form-box-shadow;
+  // box-shadow: $form-box-shadow;
   box-sizing: border-box;
   font-family: $base-font-family;
   font-size: $base-font-size;
@@ -75,4 +75,37 @@ select {
   margin-bottom: $base-spacing;
   max-width: 100%;
   width: auto;
+}
+
+.form-group {
+  margin-bottom: 1.5em;
+}
+
+.inline-form-group {
+  @include row();
+  margin-bottom: .5em;
+  .form-group--half {
+    @include span-columns(6);
+    margin-bottom: 0;
+  }
+  .form-group--3-quarters {
+    @include span-columns(7);
+    margin-bottom: 0;
+  }
+  .form-group--1-quarter {
+    @include span-columns(3);
+    float: right;
+    margin-bottom: 0;
+  }
+  .card_exp_month, .card_exp_year {
+    width: 40%;
+    display: inline-block;
+  }
+}
+
+.form-group--button {
+  margin-top: 2em;
+}
+.form-group--center {
+  text-align: center;
 }

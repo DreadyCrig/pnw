@@ -1,0 +1,37 @@
+{layout="layouts/index"}
+<nav class="signup-breadcrumb">
+	<ul class="signup-breadcrumb__list">
+		<li class="active">Create an Account</li>
+		<li>Make Payment</li>
+	</ul>
+</nav>
+<header class="membership-header">
+	<h2>Create an Account</h2>
+	<section class="intro-section">
+		<p>We're thrilled that you've decided to join! Let's start by creating your account. Your payment details will be collected in the next step.</p>
+	</section>
+</header>
+
+{exp:zoo_visitor:registration_form return="/signup/make-payment/{segment_3}" id="createMemberForm" class="membership-form" include_jquery="no"}
+	<div class="inline-form-group">
+		<div class="form-group form-group--half">
+	    <label for="firstName">First Name</label>
+	    <input type="text" class="form-control" id="firstName" placeholder="Enter your first name" name="member_first_name">
+	  </div>
+	  <div class="form-group form-group--half">
+	    <label for="lastName">Last Name</label>
+	    <input type="text" class="form-control" id="lastName" placeholder="Enter your last name" name="member_last_name">
+	  </div>
+	</div>
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="email" class="form-control" id="email" placeholder="Enter your email" name="email">
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" class="form-control" id="password" placeholder="Choose password" name="password">
+  </div>
+  <div class="form-group form-group--button form-group--center">
+    <button class="btn btn--secondary" type="submit">Create Account</button>
+  </div>
+{/exp:zoo_visitor:registration_form}

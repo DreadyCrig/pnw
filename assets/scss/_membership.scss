@@ -1,0 +1,15 @@
+.membership-form {
+	@include outer-container(40%);
+	&.membership-form--payment {
+		@include outer-container(35%);
+	}
+}
+
+.button-group {
+	@include outer-container();
+	text-align: center;
+ 	.btn {
+ 		margin-right: 0.5em;
+ 		margin-left: 0.5em; 
+ 	}
+}

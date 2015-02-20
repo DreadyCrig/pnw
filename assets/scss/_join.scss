@@ -1,0 +1,79 @@
+.join {
+	padding-top: 150px; /* Temp */
+	@include outer-container;
+
+	&__plans {
+		@include row();
+		display: table;
+		@include display-context(table) {
+			border-collapse: collapse;
+			.plan {
+				@include span-columns(3);
+			}
+		}
+	}
+
+} /* Join End */
+
+.plan {
+	border: 1px solid #ddd;
+	text-align: center;
+	@include pad(30px default);
+	&.plan--popular {
+		border: 5px solid #E3EDF7;
+		background-color: #F7FBFF;
+	}
+}
+
+.plan__header {
+	h2 {
+		text-transform: uppercase;
+		font-size: rem(24);
+		font-weight: 500;
+		letter-spacing: 1px;
+		&:after {
+			content: 'membership';
+			display: block;
+			color: $blue;
+			font-size: rem(14);
+			font-weight: 600;
+			line-height: 2;
+		}
+	}
+}
+
+.plan-price {
+	color: $blue;
+	font-size: rem(54);
+	font-weight: 600;
+	margin-bottom: rem(30);
+	sub, sup {
+		font-size: rem(22);
+		color: lighten($blue, 20%);
+	}
+	sub {
+		bottom: 0;
+		margin-left: 2px;
+	}
+	sup {
+		top: -0.8em;
+		margin-right: 2px;
+	}
+}
+.plan-description {
+	margin-bottom: 2.5em;
+}
+.plan-details {
+	a {
+		text-transform: uppercase;
+		border-bottom: 1px solid;
+		font-size: rem(14);
+	}
+}
+
+.plan__footer {
+	padding-top: rem(72);
+	a {
+		vertical-align: bottom;
+	}
+}

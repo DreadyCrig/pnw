@@ -1,0 +1,30 @@
+{layout="layouts/index"}
+
+<section class="join">
+	<div class="join__plans">
+		{exp:channel:entries
+			channel="membership"
+			disable="categories|category_fields|member_data|pagination|trackbacks"
+			dynamic="off"
+			sort="asc"
+		}
+		<div class="plan {if membership_popular}plan--popular{/if}">
+			<header class="plan__header">
+				<h2>{title}</h2>
+			</header>
+			<div class="plan__body">
+				<div class="plan-price"><sup>$</sup>{membership_price}<sub>/yr</sub></div>
+				<p class="plan-description">
+					{membership_excerpt}
+				</p>
+				<div class="plan-details">
+					<a href="/signup/">View Plan Details</a>
+				</div>
+			</div>
+			<footer class="plan__footer">
+				<a href="/signup/create-account/{url_title}" class="btn btn--secondary btn--rounded">Sign Up</a>
+			</footer>
+		</div>
+		{/exp:channel:entries}
+	</div>
+</section>
