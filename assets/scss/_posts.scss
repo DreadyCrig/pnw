@@ -1,0 +1,81 @@
+.post {
+	@include row();
+	@include pad(30px 20px);
+	&.post--micro {
+		@include pad(20px);
+	}
+	border-bottom: solid 1px #eee;
+	&:last-of-type { border: none; }
+	&--with-thumb {
+		.post__thumb {
+			@include span-columns(4);
+			a { display: block; }
+			img { border-radius: 4px;}
+		}
+		.post__body {
+			@include span-columns(8);
+		}
+	}
+	&--micro {
+		.post__thumb {
+			@include span-columns(12);
+			a { margin-bottom: rem(15); }
+			img { max-height: 120px; }
+		}
+		.post__body {
+			@include span-columns(12);
+		}
+	}
+}
+
+.post-title {
+	margin-bottom: rem(5);
+	a {
+		color: $dark-gray;
+		font-weight: 600;
+		font-size: rem(20);
+		&:hover, &:focus {
+			color: $red;
+		}
+	}
+	.post--micro & {
+		a { font-size: rem(16); }
+	}
+}
+
+.post-meta {
+	margin-bottom: rem(5);
+	.post--micro & {
+		margin-bottom: rem(3);
+	}
+}
+
+.post-author {
+	color: $blue;
+	margin-bottom: rem(5);
+}
+
+.post-date {
+	color: $red;
+	font-size: rem(14);
+	text-transform: uppercase;
+	.post--micro & {
+		color: $blue;
+		font-size: rem(12);
+		font-weight: 600;
+		letter-spacing: 1.2px
+	}
+	time {
+		display: block;
+		font-weight: 500;
+		color: $red;
+	}
+}
+
+.post-excerpt {
+	color: $alt-text-color;
+	font-family: $serif-font-family;
+	.post--micro & {
+		font-size: rem(14);
+	}
+} 

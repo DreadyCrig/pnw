@@ -1,0 +1,14 @@
+.social-links {
+	@include row(table);
+	max-width: 220px;
+	li {
+		display: table-cell;
+		text-align: right;
+		&:first-child {
+			font-size: rem(14);
+			width: 65px;
+			position: relative;
+			top: -3px;
+		}
+	}
+}

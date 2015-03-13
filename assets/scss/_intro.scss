@@ -1,0 +1,27 @@
+.intro {
+	background-color: #fff;
+	border-bottom: 1px solid $lighter-gray;
+}
+
+.intro-container {
+	@include outer-container();
+	
+}
+
+.intro-block {
+	vertical-align: middle;
+	&:first-child {
+		@include span-columns(8);
+		@include pad(rem(22) rem(200) rem(25) rem(20));
+	}
+	&:last-child {
+		@include span-columns(4);
+		text-align: center;
+	}
+	p {
+		margin: 0;
+		font-size: rem(18);
+		font-weight: 600;
+		color: $blue;
+	}
+}

@@ -1,0 +1,59 @@
+.card {
+	background-color: #fff;
+	border-radius: 4px;
+	box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.15);
+	margin-bottom: rem(30);
+
+	&__header {
+		@include pad(rem(20) rem(20) rem(18));
+		border-bottom: 1px solid #eee;
+		position: relative;
+		&--image {
+			border-bottom: none;
+			padding: 0;
+			img {
+				display: block;
+				border-top-left-radius: 4px;
+				border-top-right-radius: 4px;
+			} 
+		}
+		h2 {
+			font-size: rem(14);
+			font-weight: 600;
+			letter-spacing: 1.5px;
+			margin-bottom: 0;
+			text-transform: uppercase;
+		}
+	}
+	&__body {
+		&--padded {
+			@include pad(rem(20));
+		}
+	}
+	&__footer {
+		border-top: 1px solid #eee;
+		@include pad(rem(20));
+		position: relative;
+		a {
+			font-size: rem(14);
+			font-weight: 600;
+			letter-spacing: 1.5px;
+			line-height: normal;
+			text-transform: uppercase;
+		}
+	}
+}
+
+.card-icon {
+	position: absolute;
+	right: 20px;
+	&--top {top: 0;}
+	&--middle {
+		top: 16px;
+	}
+}
+
+// Bullshit Helper
+.card-copy {
+	@include pad(rem(20));
+}

@@ -1,0 +1,37 @@
+.components {
+	@include clearfix();
+	background-color: #F9F9F9;
+}
+
+.components__container {
+	@include outer-container();
+	@include pad(54px default);
+}
+
+.components-header {
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	border-bottom: 1px solid #ddd;
+	padding-bottom: rem(18);
+	margin-bottom: rem(36);
+}
+
+.component-section {
+	padding-bottom: rem(36);
+	margin-bottom: rem(36);
+}
+
+// Section Specific
+.component-cards {
+	background-color: #F9F9F9;
+	
+	@include span-columns(8);
+}
+
+.component-post { @include row(); }
+.component-editorial {
+	@include span-columns(8);
+}
+.component-events, .component-column {
+	@include span-columns(4);
+}

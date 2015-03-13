@@ -1,0 +1,32 @@
+body {
+	background-color: #F9F9F9;
+}
+
+.main {
+	@include pad(rem(30) 0);
+	background: url('/assets/img/cityscape.png') no-repeat top center;
+}
+
+.main-container {
+	@include outer-container();
+}
+
+.section-row {
+	@include row();
+}
+
+.home-editorial, .home-newsletter {
+	@include span-columns(8);	
+}
+
+.home-aside, .home-twitter {
+	@include span-columns(4);	
+}
+
+.home-newsletter .card, .home-twitter .card {
+	min-height: 240px;
+}
+
+.home-member-logos {
+	@include span-columns(12);
+}

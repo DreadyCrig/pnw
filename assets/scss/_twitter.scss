@@ -1,0 +1,35 @@
+.card--twitter {
+	background: #fff url('/assets/img/twitter-background.png') no-repeat bottom right;
+	.card__header {
+		a {
+			font-family: $serif;
+			font-weight: normal;
+			font-style: italic;
+			margin-left: 5px;
+			text-transform: none;
+			letter-spacing: 0;
+		}
+	}
+}
+
+.tweet {
+	font-family: $serif;
+	font-size: rem(14);
+	color: $alt-text-color;
+}
+
+.tweet-meta {
+	margin: rem(15) 0;
+}
+
+.tweet-date {
+	font-family: $serif;
+	font-style: italic;
+	font-size: rem(14);
+	color: $alt-text-color;
+	.iconic--time {
+		position: relative;
+		top: 3px;
+		margin-right: 3px;
+	}
+}

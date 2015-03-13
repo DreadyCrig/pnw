@@ -1,0 +1,16 @@
+.main-footer {
+	background-color: #FFFFFF;
+	border-top: 4px solid #F5F5F5;
+	width: 100%;
+	@include clearfix();
+	&__container{
+		@include outer-container();
+		@include pad(rem(40) 0);
+	}
+	&__info {
+		span {
+			font-size: rem(14);
+			margin-right: 20px;
+		}
+	}
+}

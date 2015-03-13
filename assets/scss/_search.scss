@@ -1,0 +1,32 @@
+.search {
+	background-color: #fff;
+	.form-group {
+		display: table;
+		margin-bottom: 0;
+		table-layout: fixed;
+		float: right;
+		input, label {
+			display: table-cell;
+			vertical-align: middle;
+		}
+		label {
+			padding-left: 10px; 
+			margin-bottom: 0;
+			position: relative;
+			top: 3px;
+			cursor: pointer;
+		}
+		input {
+			line-height: normal;
+			font-size: rem(14);
+			border: none;
+			border-radius: 0;
+			margin-bottom: 0;
+			margin-right: 5px;
+			@include placeholder {
+		    color: #bbb;
+		    text-transform: uppercase;
+		  }
+		}
+	}
+}

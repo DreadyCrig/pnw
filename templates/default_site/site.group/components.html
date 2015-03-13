@@ -1,0 +1,441 @@
+{layout="layouts/index"}
+
+<main class="components">
+	
+	<!-- Cards -->
+	<div class="components__container">
+		<h2 class="components-header">Cards</h2>
+		<section class="component-section component-cards">
+			
+			<!-- Card with no header or footer -->
+			<div class="card">
+				<div class="card__body">
+					<p class="card-copy">
+						Here's your revoution. Take care of it!
+					</p>
+				</div>
+			</div>
+			
+			<!-- Card with header and footer -->
+			<div class="card">
+				<header class="card__header text-center">
+					<h2>Upcoming Events</h2>
+				</header>
+				<div class="card__body card__body--padded">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+					Cras tincidunt pellentesque lorem, id suscipit dolor rutrum id. Morbi facilisis porta volutpat.
+				</div>
+				<footer class="card__footer text-center">
+					<a href="#">More Events</a>
+				</footer>
+			</div>
+
+			<!-- Card with image -->
+			<div class="card">
+				<header class="card__header card__header--image">
+					<img src="/assets/img/soy.jpg" alt="Soy Sauce">
+				</header>
+				<div class="card__body card__body--padded">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+					Cras tincidunt pellentesque lorem, id suscipit dolor rutrum id. Morbi facilisis porta volutpat.
+				</div>
+				<footer class="card__footer text-center">
+					<a href="#">More Events</a>
+				</footer>
+			</div>
+
+			<!-- Card with icon on top -->
+			<div class="card">
+				<header class="card__header">
+					<h2>Upcoming Events</h2>
+					<span class="card-icon card-icon--top">
+						<a href="#">
+							<img data-src="/assets/svg/bookmark.svg" class="iconic iconic-md iconic--bookmark" alt="bookmark">
+						</a>
+					</span>
+				</header>
+			</div>
+
+			<!-- Card with icon on middle -->
+			<div class="card">
+				<header class="card__header">
+					<h2>News &amp; Featured Articles</h2>
+					<span class="card-icon card-icon--middle">
+						<a href="#">
+							<img data-src="/assets/svg/rss-alt.svg" class="iconic iconic-sm iconic--rss" alt="rss">
+						</a>
+					</span>
+				</header>
+			</div>
+
+			<!-- Twitter Card -->
+			<div class="card card--twitter">
+				<header class="card__header">
+					<h2>From Twitter <a href="http://twitter.com/babcpnw" target="_blank">@babcpnw</a></h2>
+				</header>
+				<div class="card__body card__body--padded">
+					<div class="tweet">
+						2 night at <a href="#">@museumofflight</a> <a href="#">@RAeSSeattle</a> features discussion on Boeing's newest single-aisle airplane. Free admission. <a href="#">http://bit.ly/1vdEfQ3 </a>
+					</div>
+					<div class="tweet-meta">
+						<span class="tweet-date"><img data-src="/assets/svg/clock.svg" class="iconic iconic--time iconic-sm" alt="clock"> 9 min ago</span>
+					</div>
+				</div>
+			</div>
+			
+			<!-- Newsletter Card -->
+			<div class="card card--newsletter">
+				<header class="card__header">
+					<h2>Signup for our newsletter</h2>
+				</header>
+				<div class="card__body card__body--padded">
+					<p>You’ll receive news and event updates, community perspectives and much more!</p>
+					<div class="newsletter">
+						<form action="#" class="newsletter__form">
+							<div class="form-group inline-form-group">
+								<input type="text" class="form-control inline-control newsletter-control" placeholder="Enter your email">
+								<button type="submit" class="btn--newsletter">Subscribe</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+
+			<!-- Carousel Card -->
+			<div class="card">
+				<header class="card__header">
+					<h2>Member Opportunities</h2>
+				</header>
+				<div class="card__body card__body--padded">
+					<div class="card__carousel">
+						<div class="carousel-item">
+							<div class="ad">
+								<div class="ad__image">
+									<a href="#"><img src="/assets/img/ad-1.jpg"></a>
+								</div>
+							</div>
+						</div>
+						<div class="carousel-item">
+							<div class="ad">
+								<div class="ad__image">
+									<a href="#"><img src="/assets/img/ad-2.png"></a>
+								</div>
+							</div>
+						</div>
+						<div class="carousel-item">
+							<div class="ad">
+								<div class="ad__image">
+									<a href="#"><img src="/assets/img/ad-3.png"></a>
+								</div>
+							</div>
+						</div>
+						<div class="carousel-item">
+							<div class="ad">
+								<div class="ad__image">
+									<a href="#"><img src="/assets/img/ad-4.png"></a>
+								</div>
+							</div>
+						</div>
+						<div class="carousel-item">
+							<div class="ad">
+								<div class="ad__image">
+									<a href="#"><img src="/assets/img/ad-5.png"></a>
+								</div>
+							</div>
+						</div>
+						<div class="carousel-item">
+							<div class="ad">
+								<div class="ad__image">
+									<a href="#"><img src="/assets/img/ad-6.jpg"></a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</section>
+	</div>
+
+	<!-- Posts -->
+	<div class="components__container">
+		<h2 class="components-header">Posts</h2>
+		<section class="component-section component-posts">
+			<div class="component-editorial">
+				<div class="card">
+					<header class="card__header">
+						<h2>News &amp; Featured Articles</h2>
+						<span class="card-icon card-icon--middle">
+							<a href="#">
+								<img data-src="/assets/svg/rss-alt.svg" class="iconic iconic-sm iconic--rss" alt="rss">
+							</a>
+						</span>
+					</header>
+					<div class="card__body">
+						<!-- Standard Post -->
+						<div class="post post--with-thumb">
+							<div class="post__thumb">
+								<a href="#"><img src="/assets/img/england.jpg" alt="Telephone Booth"></a>
+							</div>
+							<div class="post__body">
+								<h3 class="post-title">
+									<a href="#">Britain is Open for Business</a>
+								</h3>
+								<div class="post-meta">
+									<div class="post-author">By: Priya Guha, British Consulate General</div>
+									<div class="post-date">Posted on: February 11, 2015</div>
+								</div>
+								<p class="post-excerpt">
+									You don’t have to look far in the Pacific North West to see its strong business ties to Britain.
+								</p>
+							</div>
+						</div>
+
+						<div class="post">
+							<div class="post__body">
+								<h3 class="post-title">
+									<a href="#">Britain is Open for Business</a>
+								</h3>
+								<div class="post-meta">
+									<div class="post-author">By: Priya Guha, British Consulate General</div>
+									<div class="post-date">Posted on: February 11, 2015</div>
+								</div>
+								<p class="post-excerpt">
+									You don’t have to look far in the Pacific North West to see its strong business ties to Britain.
+								</p>
+							</div>
+						</div>
+
+						<div class="post post--with-thumb">
+							<div class="post__thumb">
+								<a href="#"><img src="/assets/img/england.jpg" alt="Telephone Booth"></a>
+							</div>
+							<div class="post__body">
+								<h3 class="post-title">
+									<a href="#">Britain is Open for Business</a>
+								</h3>
+								<div class="post-meta">
+									<div class="post-author">By: Priya Guha, British Consulate General</div>
+									<div class="post-date">Posted on: February 11, 2015</div>
+								</div>
+								<p class="post-excerpt">
+									You don’t have to look far in the Pacific North West to see its strong business ties to Britain.
+								</p>
+							</div>
+						</div>
+					</div>
+					<footer class="card__footer text-center">
+						<a href="#">More Articles</a>
+					</footer>
+				</div>
+			</div>
+			<aside class="component-events">
+				<div class="card">
+					<header class="card__header text-center">
+						<h2>Upcoming Events</h2>
+						<span class="card-icon card-icon--top">
+							<a href="#">
+								<img data-src="/assets/svg/bookmark.svg" class="iconic iconic-md iconic--bookmark" alt="bookmark">
+							</a>
+						</span>
+					</header>
+					<div class="card__body">
+						<!-- Micro Post -->
+						<div class="post post--micro post--with-thumb">
+							<div class="post__thumb">
+								<a href="#"><img src="/assets/img/space-needle.jpg" alt="space-needle"></a>
+							</div>
+							<div class="post__body">
+								<div class="post-meta">
+									<div class="post-date">February 10 - 12</div>
+								</div>
+								<h3 class="post-title">
+									<a href="#">PNAA’s 14 Annual Aerospace Conference</a>
+								</h3>
+							</div>
+						</div>
+						<div class="post post--micro">
+							<div class="post__body">
+								<div class="post-meta">
+									<div class="post-date">
+										February 15
+									</div>
+								</div>
+								<h3 class="post-title">
+									<a href="#">Six Nations Rugby</a>
+								</h3>
+								<p class="post-excerpt">
+									The Ghost Bring Lush Psych-Pop to the Bowery Ballroom
+								</p>
+							</div>
+						</div>
+						<div class="post post--micro">
+							<div class="post__body">
+								<div class="post-meta">
+									<div class="post-date">
+										February 18
+										<time>5:30PM - 7:00PM</time>
+									</div>
+								</div>
+								<h3 class="post-title">
+									<a href="#">February Social with Florin Pensions</a>
+								</h3>
+								<p class="post-excerpt">
+									Courtyard Marriott Downtown Seattle
+								</p>
+							</div>
+						</div>
+					</div>
+					<footer class="card__footer text-center">
+						<a href="#">More Events</a>
+					</footer>
+				</div>
+			</aside>
+		</section>
+	</div>
+
+	<!-- Buttons -->
+	<div class="components__container">
+		<h2 class="components-header">Buttons</h2>
+		<section class="component-section component-buttons">
+			<button>Using the button tag</button> <button>Subscribe</button>
+			<a href="#" class="btn">Using an anchor</a>
+			<a href="#" class="btn btn--outline">Using an anchor</a> 
+			<a href="#" class="btn btn--secondary">Secondary</a>
+			<div class="margin-bottom"></div>
+			<a href="#" class="btn btn--secondary btn--outline">Secondary Outline</a>
+			<a href="#" class="btn btn--md">Medium Button</a>
+			<a href="#" class="btn btn--secondary btn--sm">Small Button</a>
+			<a href="#" class="btn btn--secondary btn--link">Link Button</a>
+			<div class="margin-bottom"></div>
+			<a href="#" class="btn btn--secondary btn--rounded btn--pill">Join BABC</a>
+			<a href="#" class="btn btn--outline btn--rounded btn--pill">Member Login</a>
+
+		</section>
+	</div>
+
+	<!-- Hero -->
+	<div class="components__container">
+		<h2 class="components-header">Hero</h2>
+		<section class="component-section component-hero">
+			<div class="hero">
+				<div class="hero-item" style="background-image: url('/assets/img/transatlantic.jpg');">
+					<div class="hero-content">
+						<h2>BABC Annual Transatlantic Business Conference</h2>
+						<p>MAY 13th - 14th 2015 | New York City</p>
+						<div class="hero-cta">
+							<a href="#" class="btn btn--lg">Register Today</a>
+						</div>
+					</div>
+				</div>
+				<div class="hero-item">
+					<div class="hero-content">
+						<h2>NFL VS RUGBY</h2>
+						<p>MAY 8th, 2015 | Union Station - Seattle, Washington</p>
+						<div class="hero-cta">
+							<a href="#" class="btn btn--lg">Register Now</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+
+	<!-- Navigation Bar -->
+	<div class="components__container">
+		<h2 class="components-header">Navigation Bar</h2>
+		<section class="component-section component-hero">
+		<nav class="main-navigation">
+			<ul class="navigation navigation--bar">
+				<li class="active"><a href="#">Home</a></li>
+				<li><a href="#">About</a></li>
+				<li><a href="#">Events</a></li>
+				<li><a href="#">New</a></li>
+				<li><a href="#">Resources</a></li>
+				<li><a href="#">Contact</a></li>
+				<li><a href="#">J1 Visa</a></li>
+			</ul>
+		</nav>
+		</section>
+	</div>
+
+	<!-- Social Links -->
+	<div class="components__container">
+		<h2 class="components-header">Social Links</h2>
+		<section class="component-section component-social">
+			<ul class="social-links">
+				<li>Follow Us</li>
+				<li>
+					<a href="#">
+						<img data-src="/assets/svg/social.svg" data-type="facebook" class="iconic iconic-sm iconic--social" alt="Facebook">
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img data-src="/assets/svg/social.svg" data-type="twitter" class="iconic iconic-sm iconic--social" alt="Twitter">
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img data-src="/assets/svg/social.svg" data-type="instagram" class="iconic iconic-sm iconic--social" alt="Instagram">
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img data-src="/assets/svg/rss-alt.svg" data-type="instagram" class="iconic iconic-sm iconic--social" alt="RSS">
+					</a>
+				</li>
+			</ul>
+		</section>
+	</div>
+	
+	<!-- Search -->
+	<div class="components__container">
+		<h2 class="components-header">Search</h2>
+		<section class="component-section component-search">
+			<div class="search">
+				<form action="#" class="search__form">
+					<div class="form-group">
+						<input type="search" class="form-control" id="search" placeholder="Search">
+						<label for="search">
+							<img data-src="/assets/svg/magnifying-glass.svg" class="iconic iconic-sm iconic--search" alt="Search">
+						</label>
+					</div>
+				</form>
+			</div>
+		</section>
+	</div>
+	
+	<!-- Consul's Column -->
+	<div class="components__container">
+		<h2 class="components-header">Consul Column</h2>
+		<section class="component-section component-column">
+			<div class="card">
+				<header class="card__header text-center">
+					<h2>Consul's Desk</h2>
+				</header>
+				<div class="card__body">
+					<div class="consul-photo">
+						<img src="/assets/img/robin.jpg" alt="Robin Twyman">
+					</div>
+					<div class="consul-post">
+						<blockquote>
+							<span class="quote-mark"><img data-src="/assets/svg/double-quote-serif.svg" class="iconic iconic--quote iconic-sm" alt="double-quote-serif"></span>
+							<p>
+								The British Embassy in Washington DC has created an interactive trade map showing the wealth of trade and investment between the UK and the US, including at state level... <a href="#">Read More</a>
+							</p>
+						</blockquote>
+					</div>
+					<div class="consul-meta">
+						<h4 class="consul-name">Robin Twyman</h4>
+						<p class="consul-title">British Consul (Business &amp; Government Affairs) Seattle.</p>
+					</div>
+				</div>
+				<div class="card__footer text-center">
+					<a href="#">Visit the Column</a>
+				</div>
+			</div>
+		</section>
+	</div>
+
+</main>

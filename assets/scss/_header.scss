@@ -1,0 +1,67 @@
+// Brand
+.main-header {
+	background-color: #fff;
+	box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.10);
+}
+.header-block {
+	@include outer-container(1200px);
+}
+
+.brand {
+	float: left;
+	border-right: 1px solid $lighter-gray;
+	min-width: 299px;
+}
+
+.logo {
+	display: block;
+	@include pad(rem(25) rem(60) rem(26));
+}
+
+// Global Navigation Controls
+.global-navigation {
+	float: left;
+	min-width: 900px;
+	border-right: 1px solid $lighter-gray;
+}
+
+.utilities, .site-menu {
+	display: table;
+	table-layout: fixed;
+}
+.utilities {
+	border-bottom: 1px solid $lighter-gray;
+	width: 900px;
+}
+
+.utility-block, .menu-block {
+	display: table-cell;
+	vertical-align: middle;
+	&:first-child {
+		border-right: 1px solid $lighter-gray;
+	}
+}
+
+.menu-block:last-child {
+	padding-left: 20px;
+}
+
+.utility-block {
+	padding: rem(21) rem(30);
+	&:first-child {
+		width: 60%;
+	}
+}
+
+.member-corner, .social-links, .search {
+	float: right;
+}
+
+.member-corner {
+	a:first-child {
+		margin-right: 10px;
+		padding-right: rem(30);
+		padding-left: rem(30);
+	}
+}
+

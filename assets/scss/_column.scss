@@ -1,0 +1,46 @@
+.consul-photo {
+	background-color: #f5f5f5;
+	@include pad(rem(20) rem(30));
+	text-align: center;
+	img {
+		width: 108px;
+		height: 108px;
+		border-radius: 100px;
+	}
+}
+.consul-post {
+	@include pad(rem(20) rem(30) 0);
+	blockquote {
+		margin: 0;
+		text-align: center;
+	}
+	p {
+		font-family: $serif;
+		font-size: rem(14);
+		color: $alt-text-color;
+		a {
+			display: block;
+			margin-top: rem(5);
+		}
+	}
+	.read-more {
+		display: block;
+	}
+}
+.consul-meta {
+	text-align: center;
+	@include pad(rem(20) rem(30));
+}
+.consul-name {
+	font-weight: 600;
+	text-transform: uppercase;
+	margin-bottom: rem(5);
+}
+.consul-title {
+	font-size: rem(14);
+	@include pad(0 rem(30));
+}
+.quote-mark {
+	margin-bottom: rem(10);
+	display: block;
+}

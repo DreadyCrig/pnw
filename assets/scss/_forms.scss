@@ -101,6 +101,22 @@ select {
     width: 40%;
     display: inline-block;
   }
+  .inline-control {
+    display: inline-block;
+    width: auto;
+    vertical-align: top;
+  }
+  .newsletter-control {
+    background-color: #2E6590;
+    border: none;
+    margin: 0 10px 0 0;
+    padding-left: 10px;
+    height: 44px;
+    width: 330px;
+    @include placeholder {
+      color: #fff;
+    }
+  }
 }
 
 .form-group--button {
