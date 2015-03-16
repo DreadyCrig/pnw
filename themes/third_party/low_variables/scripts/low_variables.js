@@ -4,7 +4,7 @@
  * @package        low_variables
  * @author         Lodewijk Schutte <hi@gotolow.com>
  * @link           http://gotolow.com/addons/low-variables
- * @copyright      Copyright (c) 2009-2013, Low
+ * @copyright      Copyright (c) 2009-2015, Low
  */
 
 (function($){
@@ -150,56 +150,148 @@ $.fn.lowTable = function(){
  */
 $.fn.lowManageList = function(){
 
-	// Reference to table element
-	var el;
+	// Just one list
+	if (this.length != 1) return;
 
-	if ( ! (el = $(this).get(0))) return;
+	var $table     = this,
+		table      = $table.get(0),
+		vars       = [],
+		stack      = [],
+		ajaxUrl    = location.href.replace('method=manage', 'method=ajax_update'),
+		properties = {
+			hidden: 'is_hidden',
+			early:  'early_parsing',
+			file:   'save_as_file'
+		};
 
-	// On/Off toggles
-	$(this).find('a.onoff').click(function(event){
-		event.preventDefault();
-		var $link = $(this),
-			type = this.href.split('#')[1],
-			url = location.href.replace('method=manage', 'method=ajax_update'),
-			id = $link.parents('tr').find('td:first-child').text();
+	// Define row as object
+	var Var = function(tr, i) {
+		var self     = this,
+			$tr      = $(tr),
+			$box     = $tr.find(':checkbox'),
+			box      = $box.get(0),
+			$name    = $tr.find('.low-var-name'),
+			isHidden = $tr.data('hidden'),
+			isEarly  = $tr.data('early'),
+			isFile   = $tr.data('file');
 
-		if (type) {
-			$.post(url, {
-				XID: EE.XID,
-				var_id: id,
-				type: type,
-				status: ($link.hasClass('on') ? 'n' : 'y')
-			}, function(){
-				$link.toggleClass('on');
-			});
-		}
+		// The var ID
+		this.id = $tr.data('id');
+		this.index = i;
+
+		// Show variable on alt-click
+		$name.on('click', function(event){
+			if (event.altKey) {
+				prompt('Code:', '{'+ $.trim($name.text()) +'}');
+				event.preventDefault();
+			}
+		});
+
+		// Toggle Property links
+		var Prop = function(td) {
+			var $td      = $(td),
+				$link    = $td.find('a'),
+				prop     = $td.data('prop'),
+				disabled = $td.data('disabled'),
+				dbProp   = properties[prop],
+				status   = $link.hasClass('on'),
+				data     = {
+					CSRF_TOKEN: EE.CSRF_TOKEN,
+					XID: EE.XID,
+					var_id: self.id,
+					type: dbProp
+				};
+
+			if (disabled === true) {
+				$link.css({
+					cursor: 'default',
+					opacity: 0.4
+				});
+			}
+
+			this.toggle = function(event) {
+				if (disabled === true) return false;
+				if (event) event.preventDefault();
+				data.status = status ? 'n' : 'y';
+				$.post(ajaxUrl, data, wrapUp);
+			};
+
+			var wrapUp = function(response) {
+				status = !status;
+				$tr.data(prop, status);
+				$link[status ? 'addClass' : 'removeClass']('on');
+			};
+
+			$link.on('click', this.toggle);
+
+			return this;
+		};
+
+		$tr.find('.low-toggle-prop').each(function(){
+			new Prop(this);
+		});
+
+		this.on = function() {
+			box.checked = true;
+			hilite(true);
+		};
+
+		this.off = function() {
+			box.checked = false;
+			hilite(false);
+		};
+
+		this.isOn = function() {
+			return box.checked;
+		};
+
+		this.getProp = function(prop) {
+			return $tr.data(prop);
+		};
+
+		var hilite = function(on) {
+			$tr[on ? 'addClass' : 'removeClass']('selected');
+		};
+
+		// Pre-select this box
+		if (box.checked) hilite(true);
+
+		// Fires onchange of checkbox
+		var toggleBox = function() {
+			hilite(this.checked);
+			if (this.checked) {
+				stack.push(self.index);
+				stack = stack.slice(-2);
+			}
+		};
+
+		// Hilite on box change
+		$box.on('change', toggleBox);
+
+		// What happens on row click?
+		$tr.on('click', function(event){
+			var tag = event.target.tagName.toLowerCase();
+			if (tag == 'a' || tag == 'input') return;
+			box.checked = ! box.checked;
+			$box.trigger('change');
+		});
+
+		return this;
+	};
+
+	// Create Vars from table rows
+	$table.find('tbody tr').each(function(i){
+		vars.push(new Var(this, i));
 	});
 
-	// Make it not selectable
-	el.onselectstart = function() { return false; };
+	// Shift-click on the table body,
+	// Make sure the table is not selectable
+	// And the default cursor
+	$table.find('tbody').on('click', function(event) {
 
-	// Select already checked rows (looking at you, firefox!)
-	$(':checked', el).closest('tr').addClass('selected');
+		var l = stack.length;
 
-	// Get all checkboxes in this table
-	var $boxes = $('tbody input[type=checkbox]', el);
-
-	// (de)selects a single row
-	$boxes.change(function(event) {
-
-		var box  = this,
-			$box = $(box);
-
-		// Get parent TR
-		var $tr = $box.closest('tr');
-
-		// (de)select row depending on box status
-		$tr[(box.checked ? 'addClass' : 'removeClass')]('selected');
-
-	});
-
-	// Catches click on a row
-	$('tbody tr', el).click(function(event) {
+		if ( ! (event.shiftKey && l >= 2)) return true;
 
 		// Prevent text selection
 		if (document.selection && document.selection.empty) {
@@ -208,85 +300,28 @@ $.fn.lowManageList = function(){
 			window.getSelection().removeAllRanges();
 		}
 
-		// Get clicked element name
-		var clicked = event.target.tagName.toLowerCase(),
-			$target = $(event.target);
+		var a = stack[l - 1],
+			b = stack[l - 2];
 
-		// Bail out if it's a link
-		if (clicked == 'a') return;
+		if (a < b) {
+			while (a < b) vars[++a].on();
+		} else {
+			while (a > b) vars[--a].on();
+		}
 
-		// Get checkbox in this row
-		var $box = $('input[type=checkbox]', this),
-			box  = $box.get(0);
+	}).on('selectstart', function() {
+		return false;
+	}).css('cursor', 'default');
 
-		// Trigger click if not clicked itself
-		if (clicked != 'input') $box.click();
-
-		// Select range of boxes with shift-click
-		if (event.shiftKey && box.checked) {
-
-			// Get current box index and init other index
-			var boxIndex   = $boxes.index(box);
-			var otherIndex = -1;
-
-			// Get nearest checked box index above it
-			for (var i = boxIndex - 1; i >= 0; i--) {
-				if ($boxes[i].checked) {
-					otherIndex = i;
-					break;
-				}
-			}
-
-			// If there is one, check all boxes in between 'em
-			if (otherIndex >= 0) {
-
-				while (--boxIndex > otherIndex) {
-					$boxes[boxIndex].click();
-				}
-
-			// If there isn't...
-			} else {
-
-				// ...look down for the first checked box index
-				for (var i = boxIndex + 1; i < $boxes.length; i++) {
-					if ($boxes[i].checked) {
-						otherIndex = i;
-						break;
-					}
-				}
-
-				// And check each of those in between
-				while (++boxIndex < otherIndex) {
-					$boxes[boxIndex].click();
-				}
-			}
-
-		} // End shift-range click
-
-	});
-
-	// Show variable code on alt-click
-	$('.low-var-name', el).click(function(event) {
-		if (event.altKey) {
-			prompt('Code:', '{'+ $.trim($(this).text()) +'}');
-			event.preventDefault();
+	// Check all vars with a certain property: Hidden, Early or File
+	$table.find('.low-check-all').on('click', function(event){
+		event.preventDefault();
+		var prop = $(this).data('prop');
+		for (var i in vars) {
+			var v = vars[i]
+			v.getProp(prop) ? v.on() : v.off();
 		}
 	});
-
-	// Toggle all checkboxes
-	$('#low-toggle-all').change(function(){
-		var all = this;
-
-		$boxes.each(function(){
-			console.log(all);
-			if (all.checked != this.checked) {
-				this.checked = all.checked;
-				var method = this.checked ? 'addClass' : 'removeClass';
-				$(this).parents('tr')[method]('selected');
-			}
-		});
-	});
-
 };
 
 /**

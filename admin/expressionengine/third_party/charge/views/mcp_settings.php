@@ -122,9 +122,59 @@
 
 		</tbody>
 	</table>
-	</div>
 
-	<?php if($subscriptions_enabled == true) : ?>
+        <table class="data">
+            <thead>
+            <tr style="background-color:transparent">
+                <th style="width:40%; text-align:left;">Email Options</th>
+                <th style="width:60%; text-align:left;"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Send Emails From Address<br/>
+                    <em>This is the address emails will be sent from</em></td>
+                <td>
+                    <input type="text" name="charge_email_send_from" id="charge_email_send_from" placeholder="eg. admin@thissite.com" value="<?=$charge_email_send_from?>"/>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Send Emails From Name<br/>
+                    <em>Optionally set a name for the emails to be sent from</em></td>
+                <td>
+                    <input type="text" name="charge_email_send_name" id="charge_email_send_name" placeholder="eg. Our Site" value="<?=$charge_email_send_name?>"/>
+                </td>
+            </tr>
+
+
+
+            <tr>
+                <td>Send Emails Reply-to<br/>
+                    <em>Optionally set a reply-to value on the sent emails</em></td>
+                <td>
+                    <input type="text" name="charge_email_send_reply_to" id="charge_email_send_reply_to" placeholder="eg. support@thissite.com" value="<?=$charge_email_send_reply_to?>"/>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td>Send Emails Reply-to Name<br/>
+                    <em>Optionally set a reply-to name value on the sent emails</em></td>
+                <td>
+                    <input type="text" name="charge_email_send_reply_to_name" id="charge_email_send_reply_to_name" placeholder="eg. Sales Support" value="<?=$charge_email_send_reply_to_name?>"/>
+                </td>
+            </tr>
+
+
+
+
+            </tbody>
+        </table>
+</div>
+
+
+<?php if($subscriptions_enabled == true) : ?>
 
 	<div class="tg">
 		<h2>Stripe Webhooks</h2>

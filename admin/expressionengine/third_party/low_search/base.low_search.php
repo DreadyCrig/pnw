@@ -68,6 +68,17 @@ abstract class Low_search_base {
 	protected $site_id;
 
 	/**
+	 * Libraries used
+	 *
+	 * @var        array
+	 * @access     protected
+	 */
+	protected $libraries = array(
+		'Low_multibyte',
+		'Low_search_settings'
+	);
+
+	/**
 	 * Models used
 	 *
 	 * @var        array
@@ -75,11 +86,12 @@ abstract class Low_search_base {
 	 */
 	protected $models = array(
 		'low_search_collection_model',
+		'low_search_group_model',
 		'low_search_index_model',
 		'low_search_log_model',
 		'low_search_replace_log_model',
-		'low_search_group_model',
-		'low_search_shortcut_model'
+		'low_search_shortcut_model',
+		'low_search_word_model'
 	);
 
 	// --------------------------------------------------------------------
@@ -101,21 +113,11 @@ abstract class Low_search_base {
 		ee()->load->add_package_path(PATH_THIRD.$this->package);
 
 		// -------------------------------------
-		//  Load helper
+		//  Load helper, libraries and models
 		// -------------------------------------
 
 		ee()->load->helper($this->package);
-
-		// -------------------------------------
-		//  Libraries
-		// -------------------------------------
-
-		ee()->load->library('Low_search_settings');
-
-		// -------------------------------------
-		//  Load the models
-		// -------------------------------------
-
+		ee()->load->library($this->libraries);
 		ee()->load->model($this->models);
 
 		// -------------------------------------

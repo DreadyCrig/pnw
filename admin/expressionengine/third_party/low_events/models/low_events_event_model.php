@@ -253,8 +253,8 @@ class Low_events_event_model extends Low_events_model {
 			if ( ! $passed)
 			{
 				$where[] = $this->_or(array(
-					"(end_date > {$now_date})",
-					"(end_date = {$now_date} AND IFNULL(end_time, '23:59:59') > '{$now_time}')"
+					"(end_date > '{$now_date}')",
+					"(end_date = '{$now_date}' AND IFNULL(end_time, '23:59:59') > '{$now_time}')"
 				));
 			}
 
@@ -265,8 +265,8 @@ class Low_events_event_model extends Low_events_model {
 			if ( ! $upcoming)
 			{
 				$where[] = $this->_or(array(
-					"(start_date < {$now_date})",
-					"(start_date = {$now_date} AND IFNULL(start_time, '00:00:00') < '{$now_time}')"
+					"(start_date < '{$now_date}')",
+					"(start_date = '{$now_date}' AND IFNULL(start_time, '00:00:00') < '{$now_time}')"
 				));
 			}
 

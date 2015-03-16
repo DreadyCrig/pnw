@@ -1,0 +1,149 @@
+
+.headline {
+	&--rich {
+		background-color: $blue;
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-positon: center;
+		min-height: 316px;
+		position: relative;
+		.overlay {
+			position: absolute;
+			width: 100%;
+			top: 0;
+			bottom: 0;
+			right: 0;
+			left: 0;
+		}
+		.headline__content {
+			@include outer-container();
+			text-align: center;
+			padding-top: rem(60);
+			h1 {
+				color: #fff;
+				font-size: rem(52);
+				max-width: 710px;
+				margin: auto auto rem(32);
+			}
+			.headline__meta {
+				color: #fff;
+				.date {
+					line-height: normal;
+					text-transform: uppercase;
+					letter-spacing: 1.5px;
+					.iconic {
+						vertical-align: middle;
+						margin-right: 3px;
+					}
+				}
+			}
+		}
+	}
+}
+.article {
+	@include row();
+	.author {
+		text-align: center;
+	}
+	.author__aside {
+		@include span-columns(3);
+		.author__picture {
+			@include pad(rem(30) 0 rem(5));
+			text-align: center;
+			img {
+				border-radius: 100px;
+				width: 104px;
+				height: 104px;
+			}
+		}
+		.author__meta {
+			@include pad(0 rem(20) rem(30));
+		}
+		.author-name {
+			font-weight: 600;
+		}
+		.author-title {
+			font-size: rem(14);
+			font-family: $serif;
+			color: $medium-gray;
+		}
+		.author__links {
+			display: table;
+			width: 100.1%;
+			table-layout: fixed;
+			border-top: 1px solid #eee;
+			border-collapse: collapse;
+			a {
+				display: table-cell;
+				vertical-align: middle;
+				text-align: center;
+				@include pad(rem(10) rem(15));
+				border-right: 1px solid #eee;
+				color: $blue;
+				@include transition(all .25s ease-in-out);
+				&:last-child {
+					border: none;
+				}
+				&:hover {
+					background-color: #fafafa;
+					color: $blue-hover;
+				}
+			}
+		}
+	}
+
+	&__body {
+		@include span-columns(7);
+		@include pad(0 0 0 rem(20));
+	}
+	p {
+		font-family: $serif;
+		color: $gray;
+		margin-bottom: rem(32);
+		&.lead {
+			font-family: $san-serif;
+			font-size: rem(22);
+			font-weight: 600;
+			margin-bottom: rem(40);
+		}
+	}
+	h2 {}
+	h3 {
+		text-transform: uppercase;
+		font-size: rem(14);
+		letter-spacing: 2px;
+	}
+	blockquote {
+		border-top: 1px solid $light-gray;
+		border-bottom: 1px solid $light-gray;
+		font-size: rem(22);
+		margin: rem(40) 0;
+		padding: rem(24) 0;
+		p { 
+			margin: 0; 
+			color: $dark-gray;
+		}
+	}
+	.share-bar {
+		@include pad(rem(22) 0);
+		a:first-child {
+			margin-right: 5px;
+		}
+	}
+}
+
+.headline-categories {
+	margin-bottom: rem(12);
+	a {
+		color: #fff;
+		display: inline-block;
+		border: solid 1px #fff;
+		border-radius: 4px;
+		text-transform: uppercase;
+		font-size: rem(14);
+		letter-spacing: 1.5px;
+		line-height: normal;
+		@include pad(rem(3) rem(12));
+
+	}
+}

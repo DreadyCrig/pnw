@@ -97,7 +97,7 @@ class Low_search_ext extends Low_search_base {
 	{
 		// Use the index lib to rebuild this entry
 		ee()->load->library('Low_search_index');
-		ee()->low_search_index->build(FALSE, $entry_id);
+		ee()->low_search_index->build_by_entry($entry_id);
 	}
 
 	/**
@@ -157,11 +157,21 @@ class Low_search_ext extends Low_search_base {
 		}
 
 		// -------------------------------------------
+		// Get pipe-separated list of entries
+		// -------------------------------------------
+
+		$entry_ids = ee()->low_search_filters->entry_ids();
+		$entry_ids = empty($entry_ids) ? '' : implode('|', $entry_ids);
+
+		// -------------------------------------------
 		// Loop through entries and add items
 		// -------------------------------------------
 
 		foreach ($query AS &$row)
 		{
+			// Add the filter's entry IDs to the row
+			$row[ee()->low_search_settings->prefix.'entry_ids'] = $entry_ids;
+
 			// Add all search parameters to entry
 			$row = array_merge($row, $vars);
 		}
@@ -277,7 +287,7 @@ class Low_search_ext extends Low_search_base {
 		if ($entry_ids)
 		{
 			ee()->load->library('Low_search_index');
-			ee()->low_search_index->build(FALSE, $entry_ids);
+			ee()->low_search_index->build_by_entry($entry_ids);
 		}
 	}
 }

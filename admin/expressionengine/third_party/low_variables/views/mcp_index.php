@@ -68,9 +68,9 @@
 		</table>
 	</div>
 
-	<div id="low-varlist">
-
 <?php endif; ?>
+
+	<div id="low-varlist"<?php if ( ! $show_groups): ?> class="no-group"<?php endif; ?>>
 
 		<?php foreach ($group_ids AS $i => $gid): ?>
 			<table class="mainTable low-vargroup" cellspacing="0" cellpadding="0" id="group-<?=$gid?>">
@@ -145,6 +145,6 @@
 			</label>
 		<?php endif; ?>
 
-<?php if ($show_groups): ?></div><?php endif; ?>
+	</div>
 
 </form>

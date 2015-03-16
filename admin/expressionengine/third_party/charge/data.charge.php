@@ -8,10 +8,10 @@ include PATH_THIRD.'charge/config'.EXT;
  * Charge Data Class
  *
  * @package         charge_ee_addon
- * @version         1.8.12
+ * @version         1.9.0
  * @author          Joel Bradbury ~ <joel@squarebit.co.uk>
- * @link            http://squarebit.co.uk/addons/charge
- * @copyright       Copyright (c) 2014, Joel Bradbury/Square Bit
+ * @link            http://squarebit.co.uk/software/expressionengine/charge
+ * @copyright       Copyright (c) 2015, Joel Bradbury/Square Bit
  */
 
 

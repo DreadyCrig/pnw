@@ -1,11 +1,14 @@
 <div id="low-search-index">
 
-	<?php if ($member_can_manage || $member_can_view_search_log || $member_can_manage_shortcuts): ?>
+	<?php if ($member_can_manage || $member_can_manage_lexicon || $member_can_view_search_log || $member_can_manage_shortcuts): ?>
 		<fieldset>
 			<h3><?=lang('site_search')?></h3>
 			<ul>
 				<?php if ($member_can_manage): ?>
 					<li><a href="<?=$base_url?>&amp;method=collections"><?=lang('collections')?></a></li>
+				<?php endif; ?>
+				<?php if ($member_can_manage_lexicon): ?>
+					<li><a href="<?=$base_url?>&amp;method=lexicon"><?=lang('lexicon')?></a></li>
 				<?php endif; ?>
 				<?php if ($member_can_manage_shortcuts): ?>
 					<li><a href="<?=$base_url?>&amp;method=groups"><?=lang('shortcuts')?></a></li>

@@ -33,7 +33,7 @@
 
 		<?php if(count($charges) == 0) : ?>
 			<div class="alert">
-				No charges recorded just yet. Need a hand getting started? <a href="http://squarebit.co.uk/addons/charge">Full Documentation is here</a> or <a href="mailto:support@squarebit.co.uk">Email support and we'll help you out</a>.
+				No charges recorded just yet. Need a hand getting started? <a href="http://squarebit.co.uk/software/expressionengine/charge">Full Documentation is here</a> or <a href="mailto:support@squarebit.co.uk">Email support and we'll help you out</a>.
 			</div>
 		<?php endif; ?>
 
@@ -44,11 +44,11 @@
 				<tbody>
 				<?php if($charge['mode'] == 'test') : ?>
 				<tr class="test_mode">
-					<td colspan="4"><strong>Test Mode Transaction</strong>, no real payments made</td>
+					<td colspan="5"><strong>Test Mode Transaction</strong>, no real payments made</td>
 				</tr>
 				<?php endif; ?>
 				<tr>
-					<td colspan="4"><?=$charge['time_wordy']?><?php if($charge['state'] == 'cancelled') : ?>, <em class="cancelled_payment">cancelled on <?=$charge['ended_on_wordy']?></em><?php endif?></td>
+					<td colspan="5"><?=$charge['time_wordy']?><?php if($charge['state'] == 'cancelled') : ?>, <em class="cancelled_payment">cancelled on <?=$charge['ended_on_wordy']?></em><?php endif?></td>
 				</tr>
 				<tr>
 					<td class="plan_value" width="10%">
@@ -72,7 +72,7 @@
 								<?php if($charge['card_address_country'] != '') : ?><?=$charge['card_address_country']?><br/><?php endif; ?>
 							</div>
 					</td>
-					<td class="customer_details" width="40%">
+					<td class="customer_details" width="30%">
 						<strong>Name : </strong> <?=$charge['customer_name']?><br/>
 						<strong>Email : </strong> <?=$charge['customer_email']?><br/>
 
@@ -86,12 +86,18 @@
 							<a href="#">View Member &rarr;</a>
 						<?php endif; ?>-->
 					</td>
-					<td class="transaction_details" width="40%">
+					<td class="transaction_details" width="30%">
 						Id : <strong><?=$charge['id']?></strong><br/>
 						Our Hash : <strong><?=$charge['hash']?></strong><br/>
 						Source Url : <strong><?=$charge['source_url']?></strong><br/>
 
 					</td>
+
+                    <td class="transaction_details" width="20%">
+                        Stripe Customer : <a href="https://dashboard.stripe.com/<?php if($charge['mode'] == 'test') : ?>test/<?php endif; ?>customers/<?=$charge['customer_id']?>"><?=$charge['customer_id']?></a><br/>
+                        <?php if($charge['payment_id'] != '') : ?>Stripe Payment : <a href="https://dashboard.stripe.com/<?php if($charge['mode'] == 'test') : ?>test/<?php endif; ?>payment/<?=$charge['payment_id']?>"><?=$charge['payment_id']?></a><br/><?php endif; ?>
+
+                    </td>
 				</tr>
 				</tbody>
 			</table>

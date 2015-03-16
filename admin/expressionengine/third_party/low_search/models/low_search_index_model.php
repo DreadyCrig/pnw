@@ -17,30 +17,6 @@ if ( ! class_exists('Low_search_model'))
 class Low_search_index_model extends Low_search_model {
 
 	// --------------------------------------------------------------------
-	// CONSTANTS
-	// --------------------------------------------------------------------
-
-	const WEIGHT_SEPARATOR = ' | ';
-
-	// --------------------------------------------------------------------
-
-	/**
-	 * Encountered fields
-	 *
-	 * @access      private
-	 * @var         array
-	 */
-	private $fields = array();
-
-	/**
-	 * Encountered collections and their site ids
-	 *
-	 * @access      private
-	 * @var         array
-	 */
-	private $collections = array();
-
-	// --------------------------------------------------------------------
 	// METHODS
 	// --------------------------------------------------------------------
 
@@ -95,221 +71,14 @@ class Low_search_index_model extends Low_search_model {
 	// --------------------------------------------------------------
 
 	/**
-	 * Builds an index for a given collection and entry
+	 * Replace into, rather than insert into
 	 *
 	 * @access      public
 	 * @param       array
-	 * @param       array
 	 * @return      void
 	 */
-	public function build($collection = array(), $entry = array())
+	public function replace($data)
 	{
-		// --------------------------------------
-		// Check parameters
-		// --------------------------------------
-
-		$collection_id = $collection['collection_id'];
-		$settings = $collection['settings'];
-
-		if ( ! is_array($settings))
-		{
-			$settings = low_search_decode($settings, FALSE);
-		}
-
-		$settings = array_filter($settings);
-		$entry_id = $entry['entry_id'];
-
-		// --------------------------------------
-		// Load addon/fieldtype files
-		// --------------------------------------
-
-		ee()->load->library('addons');
-
-		// Include EE Fieldtype class
-		if ( ! class_exists('EE_Fieldtype'))
-		{
-			include_once (APPPATH.'fieldtypes/EE_Fieldtype'.EXT);
-		}
-
-		// --------------------------------------
-		// Initiate fieldtypes var
-		// --------------------------------------
-
-		static $fieldtypes;
-
-		// Init field ids
-		$field_ids = array();
-
-		// Set fieldtypes
-		if ($fieldtypes === NULL)
-		{
-			$fieldtypes = ee()->addons->get_installed('fieldtypes');
-		}
-
-		// --------------------------------------
-		// Get the field ids for these settings, minus title
-		// --------------------------------------
-
-		foreach (array_filter(array_keys($settings)) AS $field_id)
-		{
-			if (is_numeric($field_id)) $field_ids[] = $field_id;
-		}
-
-		// --------------------------------------
-		// Check for ids we haven't dealt with yet
-		// --------------------------------------
-
-		if ($not_encountered = (array_diff($field_ids, array_keys($this->fields))))
-		{
-			// Get the details for given fields
-			$query = ee()->db->select()
-			       ->from('channel_fields')
-			       ->where_in('field_id', $not_encountered)
-			       ->get();
-
-			foreach ($query->result_array() AS $row)
-			{
-				// Shortcut to fieldtype
-				$ftype = $fieldtypes[$row['field_type']];
-
-				// Include the file if it doesn't yet exist
-				if ( ! class_exists($ftype['class']))
-				{
-					require $ftype['path'].$ftype['file'];
-				}
-
-				// Record it so we don't query again
-				$this->fields[$row['field_id']] = TRUE;
-
-				// Only initiate the fieldtypes that have the necessary method
-				// Either low_search_index or third_party_search_index
-				if (method_exists($ftype['class'], 'low_search_index') || method_exists($ftype['class'], 'third_party_search_index'))
-				{
-					// Initiate this fieldtype
-					$this->fields[$row['field_id']] = new $ftype['class'];
-
-					// Decode settings
-					if ($field_settings = @unserialize(base64_decode($row['field_settings'])))
-					{
-						$row = array_merge($row, $field_settings);
-					}
-
-					// Add details to settings
-					$row['low_search_collection_id'] = $collection_id;
-					$row['field_name'] = 'field_id_'.$row['field_id'];
-					$row['search_index_method'] = (method_exists($ftype['class'], 'low_search_index') ? 'low' : 'third_party').'_search_index';
-
-					// Set this instance's settings
-					$this->fields[$row['field_id']]->settings = $row;
-				}
-			}
-		}
-
-		// --------------------------------------
-		// Init text array which will contain the index
-		// --------------------------------------
-
-		$text = array();
-
-		// --------------------------------------
-		// Loop through settings and add weight to field by repeating string
-		// --------------------------------------
-
-		foreach ($settings AS $field_id => $field_weight)
-		{
-			// --------------------------------------
-			// Determine proper field id name
-			// --------------------------------------
-
-			$field_name = is_numeric($field_id) ? 'field_id_'.$field_id : $field_id;
-
-			// --------------------------------------
-			// Check fieldtype
-			// --------------------------------------
-
-			if (array_key_exists($field_name, $entry))
-			{
-				if (array_key_exists($field_id, $this->fields) && is_object($this->fields[$field_id]))
-				{
-					// Update entry id for this fieldtype
-					$this->fields[$field_id]->settings['entry_id'] = $entry_id;
-
-					// Which method should we use
-					$method = $this->fields[$field_id]->settings['search_index_method'];
-
-					// If fieldtype exists, it will have the correct method, so call that
-					$str = $this->fields[$field_id]->$method($entry[$field_name]);
-				}
-				else
-				{
-					// If it doesn't, just use the raw data
-					$str = $entry[$field_name];
-				}
-			}
-
-			// --------------------------------------
-			// If we have a string or array of strings,
-			// add it to the text array
-			// --------------------------------------
-
-			if ( ! empty($str))
-			{
-				// Force output into an array
-				if ( ! is_array($str)) $str = array($str);
-
-				// And clean/filter it
-				$str = array_filter(array_map('low_clean_string', $str));
-
-				// Then add each line to text
-				foreach ($str AS $s)
-				{
-					// Create pipe-separated weighted string
-					$text[] = trim(
-						self::WEIGHT_SEPARATOR.str_repeat($s.self::WEIGHT_SEPARATOR, $field_weight)
-					);
-				}
-			}
-		}
-
-		// --------------------------------------
-		// Keep track of collection and their site ids
-		// --------------------------------------
-
-		if ( ! isset($this->collections[$collection_id]))
-		{
-			$this->collections[$collection_id]
-				= isset($collection['site_id'])
-				? $collection['site_id']
-				: $this->site_id;
-		}
-
-		// --------------------------------------
-		// Data to insert
-		// --------------------------------------
-
-		$data = array(
-			'collection_id' => $collection_id,
-			'entry_id'      => $entry_id,
-			'site_id'       => $this->collections[$collection_id],
-			'index_text'    => implode("\n", $text),
-			'index_date'    => ee()->localize->now
-		);
-
-		// --------------------------------------
-		// 'low_search_update_index' hook
-		// - Add additional attributes to the index
-		// --------------------------------------
-
-		if (ee()->extensions->active_hook('low_search_update_index') === TRUE)
-		{
-			$ext_data = ee()->extensions->call('low_search_update_index', $data, $entry);
-
-			if (is_array($ext_data) && ! empty($ext_data))
-			{
-				$data = array_merge($data, $ext_data);
-			}
-		}
-
 		// --------------------------------------
 		// Get insert sql
 		// --------------------------------------
@@ -321,6 +90,51 @@ class Low_search_index_model extends Low_search_model {
 		// --------------------------------------
 
 		ee()->db->query(preg_replace('/^INSERT/', 'REPLACE', $sql));
+	}
+
+
+	// --------------------------------------------------------------
+
+	/**
+	 * Replace into for multiple rows
+	 *
+	 * @access      public
+	 * @param       array
+	 * @return      void
+	 */
+	public function replace_batch($data)
+	{
+		// --------------------------------------
+		// Get table attributes
+		// --------------------------------------
+
+		$attrs  = array_keys(current($data));
+		$fields = implode(', ', $attrs);
+		$values = '';
+
+		// --------------------------------------
+		// Collect values
+		// --------------------------------------
+
+		foreach ($data AS $row)
+		{
+			$values .= "\n(";
+
+			foreach ($row AS $val)
+			{
+				$values .= "'". ee()->db->escape_str($val) ."',";
+			}
+
+			$values = rtrim($values, ',') .'),';
+		}
+
+		// --------------------------------------
+		// Define SQL
+		// --------------------------------------
+
+		$sql = "REPLACE INTO {$this->table()} ({$fields}) VALUES". rtrim($values, ',');
+
+		ee()->db->query($sql);
 	}
 
 	// --------------------------------------------------------------

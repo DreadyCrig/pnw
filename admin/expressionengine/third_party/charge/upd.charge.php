@@ -7,10 +7,10 @@ include PATH_THIRD.'charge/config'.EXT;
  * Charge Update Class
  *
  * @package         charge_ee_addon
- * @version         1.8.12
+ * @version         1.9.0
  * @author          Joel Bradbury ~ <joel@squarebit.co.uk>
- * @link            http://squarebit.co.uk/addons/charge
- * @copyright       Copyright (c) 2014, Joel Bradbury/Square Bit
+ * @link            http://squarebit.co.uk/software/expressionengine/charge
+ * @copyright       Copyright (c) 2015, Joel Bradbury/Square Bit
  */
 class Charge_upd {
 
@@ -70,7 +70,7 @@ class Charge_upd {
         ee()->lang->loadfile('charge');
 		// Load base model
         if(!class_exists('Charge_model')) ee()->load->library('Charge_model');
-        if(!isset(ee()->charge_stripe)) Charge_model::load_models();
+        if(!isset(ee()->charge_stripe)) ee()->charge_model->load_models();
 
     //	ee()->load->remove_package_path(PATH_THIRD.'charge');
 	}
@@ -258,9 +258,15 @@ class Charge_upd {
 			$this->_update_from_1811();
 		}
 
+        if( version_compare( $current, '1.8.14' ) < 1 )
+        {
+            $this->_update_from_1814();
+        }
 
 
-		// Get the current actions list and compare to the actions list up top.
+
+
+        // Get the current actions list and compare to the actions list up top.
 		$current_actions = ee()->db->where('class', CHARGE_CLASS_NAME)->get('actions')->result_array();
 
 		$actions = $this->actions;
@@ -308,6 +314,16 @@ class Charge_upd {
 			ee()->db->query($s);
 		}
 	}
+
+    private function _update_from_1814()
+    {
+        $sql = array();
+        $sql[] = "ALTER TABLE  `exp_charge_stripe` ADD  `payment_id` varchar(100) NOT NULL DEFAULT ''";
+
+        foreach($sql as $s) {
+            ee()->db->query($s);
+        }
+    }
 
 
 	private function _update_from_1811()

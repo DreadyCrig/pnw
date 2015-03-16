@@ -107,21 +107,6 @@
 		</thead>
 		<tbody>
 			<tr class="<?=low_zebra()?>">
-				<td>
-					<label for="default_search_mode"><?=lang('default_search_mode')?></label>
-					<p><?=lang('default_search_mode_help')?></p>
-				</td>
-				<td>
-					<select name="default_search_mode" id="default_search_mode">
-					<?php foreach ($search_modes AS $mode): ?>
-						<option value="<?=$mode?>"<?php if ($mode == $default_search_mode): ?> selected="selected"<?php endif; ?>>
-							<?=lang($mode.'_mode')?>
-						</option>
-					<?php endforeach; ?>
-					</select>
-				</td>
-			</tr>
-			<tr class="<?=low_zebra()?>">
 				<td class="multiple">
 					<label for="excerpt_hilite"><?=lang('excerpt_hilite')?></label>
 					<p><?=lang('excerpt_hilite_help')?></p>
@@ -174,15 +159,8 @@
 	</table>
 
 	<?php if ($groups): ?>
-	<table cellpadding="0" cellspacing="0" style="width:100%" class="mainTable low-extension-settings">
+	<table cellpadding="0" cellspacing="0" class="mainTable low-permissions">
 		<caption><?=lang('permissions')?></caption>
-		<colgroup>
-			<col style="width:16.67%" />
-			<col style="width:16.67%" />
-			<col style="width:16.67%" />
-			<col style="width:16.67%" />
-			<col style="width:16.67%" />
-		</colgroup>
 		<thead>
 			<tr>
 				<th scope="col"><?=lang('member_group')?></th>

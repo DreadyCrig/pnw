@@ -12,7 +12,7 @@ if ( ! class_exists('Low_variables_base'))
  * @package        low_variables
  * @author         Lodewijk Schutte <hi@gotolow.com>
  * @link           http://gotolow.com/addons/low-variables
- * @copyright      Copyright (c) 2009-2013, Low
+ * @copyright      Copyright (c) 2009-2015, Low
  */
 class Low_variables_mcp extends Low_variables_base
 {
@@ -607,28 +607,17 @@ class Low_variables_mcp extends Low_variables_base
 					$row['variable_type'] = lang('unknown_type');
 				}
 
-				// Early parsing value
-				if ($this->settings['register_globals'] != 'n')
-				{
-					$row['early_parsing'] = $this->_onoff('early_parsing', $row['early_parsing']);
-				}
-				else
-				{
-					$row['early_parsing'] = '--';
-				}
 
-				// Save as file value
-				if ($this->settings['save_as_files'] == 'y')
-				{
-					$row['save_as_file'] = $this->_onoff('save_as_file', $row['save_as_file']);
-				}
-				else
-				{
-					$row['save_as_file'] = '--';
-				}
+				// For data attrs
+				$row['hidden'] = $row['is_hidden'] == 'y' ? 'true' : 'false';
+				$row['early'] = $row['early_parsing'] == 'y' ? 'true' : 'false';
+				$row['file'] = $row['save_as_file'] == 'y' ? 'true' : 'false';
 
-				// Is hidden value
-				$row['is_hidden'] = $this->_onoff('is_hidden', $row['is_hidden']);
+				// On/off properties
+				foreach (array('early_parsing', 'save_as_file', 'is_hidden') AS $prop)
+				{
+					$row[$prop] = $this->_onoff($prop, $row[$prop]);
+				}
 
 				// Group id
 				if ($row['group_id'])
@@ -684,6 +673,12 @@ class Low_variables_mcp extends Low_variables_base
 			{
 				// Show delete confirmation
 				return $this->_delete_conf($vars);
+			}
+			elseif ($action == 'sync')
+			{
+				// Manual sync to file
+				$this->sync_files($vars);
+				ee()->session->set_flashdata('msg', 'low_variables_synced');
 			}
 			elseif (in_array($action, array_keys($this->types)))
 			{

@@ -8,10 +8,10 @@ include PATH_THIRD.'charge/config'.EXT;
  * Charge Module Class
  *
  * @package         charge_ee_addon
- * @version         1.8.12
+ * @version         1.9.0
  * @author          Joel Bradbury ~ <joel@squarebit.co.uk>
- * @link            http://squarebit.co.uk/addons/charge
- * @copyright       Copyright (c) 2014, Joel Bradbury/Square Bit
+ * @link            http://squarebit.co.uk/software/expressionengine/charge
+ * @copyright       Copyright (c) 2015, Joel Bradbury/Square Bit
  */
 
 class Charge {
@@ -45,7 +45,7 @@ class Charge {
     private $protected_input_name = 'P';
     private $protected = array();
     private $rules = array('customer' =>
-                        array(  'name' => 'required',
+                        array(  'name' => 'required|alphanumeric',
                                 'email' => 'required|email'),
                             'plan' =>
                         array(  'amount' => 'required|numeric',
@@ -100,7 +100,7 @@ class Charge {
         ee()->lang->loadfile('charge');
         // Load base model
         if(!class_exists('Charge_model')) ee()->load->library('Charge_model');
-        if(!isset(ee()->charge_stripe)) Charge_model::load_models();
+        if(!isset(ee()->charge_stripe)) ee()->charge_model->load_models();
 
       //  ee()->load->remove_package_path(PATH_THIRD.'charge');
 
@@ -1080,6 +1080,7 @@ class Charge {
         if(isset($this->protected[$post_name])) $val = $this->protected[$post_name];
         else $val = ee()->input->get_post($post_name);
 
+
         foreach(explode('|', $rules) as $rule) {
             switch($rule) {
                 case 'required' :
@@ -1109,6 +1110,12 @@ class Charge {
                         $this->errors[$post_name] = lang('charge_error_email');
                     }
                 break;
+                case 'alphanumeric'  :
+                    preg_match("/[^a-zA-Z\d\s]/", $val, $matches);
+                    if(!empty($matches)) {
+                        $valid = FALSE;
+                        $this->errors[$post_name] = lang('charge_error_not_alphanumeric');
+                    }
                 default :
                     $rule = explode(':', $rule);
                     $rule_type = current($rule);

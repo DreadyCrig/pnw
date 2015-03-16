@@ -160,7 +160,7 @@ if ( ! function_exists('low_hilite'))
 // --------------------------------------------------------------------
 
 /**
- * Strip string from unwanted chars for better sorting
+ * Legacy function, here for backward compat.
  *
  * @param      string    String to clean up
  * @param      array     Array of words to ignore (strip out)
@@ -168,114 +168,20 @@ if ( ! function_exists('low_hilite'))
  */
 if ( ! function_exists('low_clean_string'))
 {
-	function low_clean_string($str, $ignore = array())
+	function low_clean_string($str, $ignore = NULL)
 	{
-		static $chars = array();
-
-		// --------------------------------------
-		// Empty string? Don't bother...
-		// --------------------------------------
-
 		if (empty($str)) return $str;
 
-		// --------------------------------------
-		// Get translation array from native foreign_chars.php file
-		// --------------------------------------
+		ee()->load->library('low_search_words');
 
-		if ( ! $chars && file_exists(APPPATH.'config/foreign_chars.php'))
-		{
-			// This will replace accented chars with non-accented chars
-			include APPPATH.'config/foreign_chars.php';
+		// Force bool
+		$ignore = ! empty($ignore);
 
-			if (isset($foreign_characters) && is_array($foreign_characters))
-			{
-				foreach ($foreign_characters AS $k => $v)
-				{
-					$chars[low_chr($k)] = $v;
-				}
-			}
-		}
+		// Clean and strip
+		$str = ee()->low_search_words->clean($str, $ignore);
+		$str = ee()->low_search_words->remove_diacritics($str);
 
-		// --------------------------------------
-		// Change brs to spaces
-		// --------------------------------------
-
-		$str = preg_replace('#<br\s?/?>#i', ' ', $str);
-
-		// --------------------------------------
-		// Get rid of tags
-		// --------------------------------------
-
-		$str = strip_tags($str);
-
-		// --------------------------------------
-		// Convert non-breaking spaces entities to regular ones
-		// --------------------------------------
-
-		$str = str_replace(array('&nbsp;', '&#160;', '&#xa0;') , ' ', $str);
-
-		// --------------------------------------
-		// Get rid of entities
-		// --------------------------------------
-
-		$str = html_entity_decode($str, ENT_QUOTES, 'UTF-8');
-
-		// --------------------------------------
-		// Change to lowercase
-		// --------------------------------------
-
-		$str = function_exists('mb_strtolower') ? mb_strtolower($str) : strtolower($str);
-
-		// --------------------------------------
-		// Replace accented chars with unaccented versions
-		// Options explored:
-		// - CI's convert_accented_characters() with a preg_replace_callback ==> Very slow
-		// - Static array with 'accented char' => 'unaccented char' and a strtr() ==> Missing chars
-		//   But using the native foreign_chars.php file, users can edit the array themselves
-		// - iconv seems to work nicely: http://stackoverflow.com/questions/3542717/
-		//   but leads to unexpected results.
-		// --------------------------------------
-
-		if ($chars)
-		{
-			$str = strtr($str, $chars);
-		}
-
-		// --------------------------------------
-		// Strip out non-alphanumeric characters with unicode regex
-		// --------------------------------------
-
-		$str = preg_replace('/([^\w]|_)+/iu', ' ', $str);
-
-		// --------------------------------------
-		// Ignore words
-		// --------------------------------------
-
-		if ($ignore)
-		{
-			if ( ! is_array($ignore))
-			{
-				$ignore = explode(' ', $ignore);
-			}
-
-			foreach ($ignore AS $word)
-			{
-				$str = preg_replace('#\b'.preg_quote($word).'\b#', '', $str);
-			}
-		}
-
-		// --------------------------------------
-		// Strip out new lines and superfluous spaces
-		// --------------------------------------
-
-		$str = preg_replace('/[\n\r]+/', ' ', $str);
-		$str = preg_replace('/\s{2,}/', ' ', $str);
-
-		// --------------------------------------
-		// Return trimmed
-		// --------------------------------------
-
-		return trim($str);
+		return $str;
 	}
 }
 
@@ -310,8 +216,8 @@ if ( ! function_exists('low_prep_word_list'))
 {
 	function low_prep_word_list($str = '')
 	{
-		$str = strtolower($str);
-		$str = preg_replace("/[^a-z0-9'\s\n]/", '', $str);
+		$str = ee()->low_multibyte->strtolower($str);
+		$str = preg_replace('/[^\w\'\s\n]/iu', '', $str);
 		$str = array_unique(array_filter(preg_split('/(\s|\n)/', $str)));
 		sort($str);
 
@@ -423,129 +329,6 @@ if ( ! function_exists('low_param_string'))
 
 		// Return the string
 		return implode(' ', $out);
-	}
-}
-
-/**
- * Converts EE parameter to workable php vars
- *
- * @access     public
- * @param      string    String like 'not 1|2|3' or '40|15|34|234'
- * @return     array     [0] = array of ids, [1] = boolean whether to include or exclude: TRUE means include, FALSE means exclude
- */
-if ( ! function_exists('low_explode_param'))
-{
-	function low_explode_param($str)
-	{
-		// --------------------------------------
-		// Initiate $in var to TRUE
-		// --------------------------------------
-
-		$in = TRUE;
-
-		// --------------------------------------
-		// Check if parameter is "not bla|bla"
-		// --------------------------------------
-
-		if (strtolower(substr($str, 0, 4)) == 'not ')
-		{
-			// Change $in var accordingly
-			$in = FALSE;
-
-			// Strip 'not ' from string
-			$str = substr($str, 4);
-		}
-
-		// --------------------------------------
-		// Return two values in an array
-		// --------------------------------------
-
-		return array(preg_split('/(&&?|\|)/', $str), $in);
-	}
-}
-
-/**
- * Converts array to EE parameter
- *
- * @access     public
- * @param      array
- * @param      bool
- * @param      string
- * @return     string
- */
-if ( ! function_exists('low_implode_param'))
-{
-	function low_implode_param($array = array(), $in = TRUE, $sep = '|')
-	{
-		// --------------------------------------
-		// Initiate string
-		// --------------------------------------
-
-		$str = '';
-
-		// --------------------------------------
-		// Implode array
-		// --------------------------------------
-
-		if ( ! empty($array))
-		{
-			$str = implode($sep, $array);
-
-			// Prepend 'not '
-			if ($in === FALSE) $str = 'not '.$str;
-		}
-
-		// --------------------------------------
-		// Return string
-		// --------------------------------------
-
-		return $str;
-	}
-}
-
-/**
- * Merges two parameters; first one is leading
- *
- * @access     public
- * @param      mixed
- * @param      mixed
- * @param      bool
- * @return     string
- */
-if ( ! function_exists('low_merge_params'))
-{
-	function low_merge_params($haystack, $needles, $as_param = FALSE)
-	{
-		// Prep the haystack
-		if ( ! is_array($haystack))
-		{
-			// Explode the param, forget about the 'not '
-			list($haystack, ) = low_explode_param($haystack);
-		}
-
-		// Prep the needles
-		if ( ! is_array($needles))
-		{
-			list($needles, $in) = low_explode_param($needles);
-		}
-		else
-		{
-			$in = TRUE;
-		}
-
-		// Choose function to merge
-		$method = $in ? 'array_intersect' : 'array_diff';
-
-		// Do the merge thing
-		$merged = $method($haystack, $needles);
-
-		// Change back to parameter syntax if necessary
-		if ($as_param)
-		{
-			$merged = low_implode_param($merged);
-		}
-
-		return $merged;
 	}
 }
 

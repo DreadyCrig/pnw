@@ -164,7 +164,7 @@ class Low_search_collection_model extends Low_search_model {
 	 */
 	public function get_by_param($param, $cols = NULL)
 	{
-		list($ids, $in) = low_explode_param($param);
+		list($ids, $in) = ee()->low_search_params->explode($param);
 
 		$attr = low_array_is_numeric($ids) ? $this->pk() : 'collection_name';
 
@@ -190,7 +190,7 @@ class Low_search_collection_model extends Low_search_model {
 		// By collection_lang
 		if ($lang = ee()->low_search_params->get('collection_lang'))
 		{
-			list($vals, $in) = low_explode_param($lang);
+			list($vals, $in) = ee()->low_search_params->explode($lang);
 			$rows = $this->get_by_language($vals, $in, $rows);
 		}
 

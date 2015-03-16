@@ -19,30 +19,28 @@ class Low_search_filter_keywords extends Low_search_filter {
 	 * Current collections
 	 */
 	private $_collections;
-	private $_col_order = array();
 
 	/**
-	 * Keywords
+	 * Items we need to keep track of
 	 */
-	private $_terms = array();
-	private $_keywords = array();
-	private $_fulltext;
-
-	/**
-	 * Search results for this filter
-	 */
-	private $_results;
-
-	/**
-	 * Fixed results?
-	 */
-	private $_fixed = FALSE;
-
-	/**
-	 * Excerpt and url mapping
-	 */
+	private $_colorder = array();
 	private $_excerpts = array();
-	private $_urls = array();
+	private $_results  = array();
+	private $_score    = array();
+	private $_terms    = array();
+	private $_urls     = array();
+
+	/**
+	 * Bools
+	 */
+	private $_fulltext;
+	private $_fixed;
+
+	/**
+	 * Allowed modes and loose ends, default first
+	 */
+	private $_modes = array('auto', 'any', 'all', 'exact');
+	private $_loose = array('no', 'left', 'right', 'both');
 
 	// --------------------------------------------------------------------
 
@@ -56,8 +54,8 @@ class Low_search_filter_keywords extends Low_search_filter {
 	{
 		parent::__construct();
 
-		// Load multibyte lib
-		ee()->load->library('low_multibyte');
+		// Load libs
+		ee()->load->library('low_search_words');
 
 		// Load term classes
 		if ( ! class_exists('Low_search_term'))
@@ -73,7 +71,8 @@ class Low_search_filter_keywords extends Low_search_filter {
 	 * Allows for keywords="" parameter, along with its associated params
 	 *
 	 * @access     public
-	 * @return     void
+	 * @param      mixed     NULL or Array
+	 * @return     mixed     NULL or Array
 	 */
 	public function filter($entry_ids)
 	{
@@ -84,10 +83,14 @@ class Low_search_filter_keywords extends Low_search_filter {
 		$this->_log('Applying '.__CLASS__);
 
 		// --------------------------------------
-		// Set internal collections array based on param
+		// Set parameters to default
 		// --------------------------------------
 
 		$this->_collections = ee()->low_search_collection_model->get_by_params();
+		$this->_fixed       = FALSE;
+		$this->_fulltext    = TRUE;
+		$this->_results     = array();
+		$this->_score       = array();
 
 		// --------------------------------------
 		// Collection params given, but not valid
@@ -100,35 +103,12 @@ class Low_search_filter_keywords extends Low_search_filter {
 		}
 
 		// --------------------------------------
-		// Check validity of search mode
+		// Set words language
 		// --------------------------------------
 
-		if ( ! in_array($this->params->get('search_mode'), ee()->low_search_settings->search_modes))
+		if ($lang = $this->params->get('keywords:lang'))
 		{
-			$this->params->set('search_mode', ee()->low_search_settings->get('default_search_mode'));
-		}
-
-		// --------------------------------------
-		// Check validity of loose ends
-		// --------------------------------------
-
-		switch ($this->params->get('loose_ends'))
-		{
-			case 'left':
-			case 'right':
-			case 'both':
-				// We're OK!
-			break;
-
-			// Backwards compatibility
-			case 'yes':
-				$this->params->set('loose_ends', 'right');
-			break;
-
-			// Other values are equal to "no"
-			default:
-				$this->params->set('loose_ends', NULL);
-			break;
+			ee()->low_search_words->set_language($lang);
 		}
 
 		// --------------------------------------
@@ -149,19 +129,90 @@ class Low_search_filter_keywords extends Low_search_filter {
 		}
 
 		// --------------------------------------
-		// Reset results
+		// Optionally stem the keywords
 		// --------------------------------------
 
-		$this->_results = array();
+		if ($this->params->get('keywords:stem') == 'yes')
+		{
+			$this->_log('Extending keywords with stems');
+			$this->_extend_terms('_get_stems');
+		}
+
+		// --------------------------------------
+		// Optionally inflect the keywords
+		// --------------------------------------
+
+		if ($this->params->get('keywords:inflect') == 'yes')
+		{
+			$this->_log('Extending keywords with inflections');
+			$this->_extend_terms('_get_inflections');
+		}
+
+		// --------------------------------------
+		// Optionally get phonetically similar keywords
+		// Undocumented, as I'm not happy with it:
+		// it slows down the search significantly. For now,
+		// just offer suggestions based on soundex instead.
+		// --------------------------------------
+
+		if ($this->params->get('keywords:sound') == 'yes')
+		{
+			$this->_log('Extending keywords with phonetics');
+			$this->_extend_terms('_get_sounds');
+		}
+
+		// --------------------------------------
+		// Get the 'dirty' variations for the keywords
+		// One extra query for the sake of diacritic-insensitive word-highlighting
+		// --------------------------------------
+
+		if (ee()->low_search_settings->get('excerpt_hilite'))
+		{
+			$this->_log('Extending keywords with diacritics');
+			$this->_extend_terms('_get_dirty');
+		}
+
+		// --------------------------------------
+		// Set the min score
+		// --------------------------------------
+
+		if (($score = $this->params->get('keywords:score', $this->params->get('min_score'))) &&
+			preg_match('/^([<>]?=?)?([\d\.]+)$/', $score, $match))
+		{
+			// Get the matches
+			list( , $a, $b) = $match;
+
+			// Change the operator if necessary
+			if ($a == '=' || $a == '') $a = '>=';
+
+			// Set the score
+			$this->_score = array($a, $b);
+		}
+
+		// --------------------------------------
+		// Get and log the keywords
+		// --------------------------------------
+
+		$keywords = $this->_keywords(TRUE);
+		$this->_log('Keywords: '.$keywords);
+
+		// --------------------------------------
+		// Select what?
+		// --------------------------------------
+
+		// Always this
+		$select = array('`entry_id`', '`collection_id`');
+
+		// This depends on FT
+		$select[] = $this->_fulltext
+			? ("MATCH(`index_text`) AGAINST('{$keywords}') AS `score`")
+			: ($keywords ? '`index_text`' : '0 AS `score`');
 
 		// --------------------------------------
 		// Begin composing query
 		// --------------------------------------
 
-		ee()->db->select(($this->_fulltext
-			? "entry_id, collection_id, MATCH(index_text) AGAINST('{$this->_query()}') AS score"
-			: 'entry_id, collection_id, index_text'), FALSE)
-			->from(ee()->low_search_index_model->table());
+		ee()->db->select($select, FALSE)->from(ee()->low_search_index_model->table());
 
 		// --------------------------------------
 		// Filters used by both searches
@@ -194,10 +245,9 @@ class Low_search_filter_keywords extends Low_search_filter {
 			ee()->db->order_by('score', 'desc');
 
 			// Limit by min_score
-			if ($this->params->get('min_score'))
+			if ($this->_score)
 			{
-				list($score, $include) = $this->_min_score();
-				$oper = $include ? '>=' : '>';
+				list($oper, $score) = $this->_score;
 				ee()->db->having("score {$oper}", $score);
 			}
 		}
@@ -212,7 +262,7 @@ class Low_search_filter_keywords extends Low_search_filter {
 			{
 				if (ee()->db->field_exists($field, ee()->low_search_index_model->table()))
 				{
-					list($items, $in) = low_explode_param($val);
+					list($items, $in) = $this->params->explode($val);
 					ee()->db->{($in ? 'where_in' : 'where_not_in')}($field, $val);
 				}
 				else
@@ -235,7 +285,7 @@ class Low_search_filter_keywords extends Low_search_filter {
 
 		if ($query->num_rows == 0)
 		{
-			$this->_log('Searched but found nothing. Returning no results.');
+			$this->_log('Searched but found nothing');
 			return array();
 		}
 
@@ -243,8 +293,8 @@ class Low_search_filter_keywords extends Low_search_filter {
 		// If we do have results, continue
 		// --------------------------------------
 
-		$this->_results = $this->_fulltext
-			? low_associate_results($query->result_array(), 'entry_id')
+		$this->_results = ($this->_fulltext || empty($keywords))
+			? (low_associate_results($query->result_array(), 'entry_id'))
 			: $this->_get_fallback_results($query);
 
 		// Bail out if no entry falls above the min_score threshold
@@ -259,18 +309,16 @@ class Low_search_filter_keywords extends Low_search_filter {
 		// --------------------------------------
 
 		if (is_array($this->_collections) &&
-			($modifiers = array_unique(low_flatten_results($this->_collections, 'modifier'))))
+			($modifiers = array_unique(low_flatten_results($this->_collections, 'modifier'))) &&
+			! (count($modifiers) == 1 && $modifiers[0] == 1.0))
 		{
-			if ( ! (count($modifiers) == 1 && $modifiers[0] == 1.0))
-			{
-				$this->_log('Applying collection modifier to search results');
+			$this->_log('Applying collection modifier to search results');
 
-				foreach ($this->_results AS &$row)
+			foreach ($this->_results AS &$row)
+			{
+				if ($mod = (float) $this->_collections[$row['collection_id']]['modifier'])
 				{
-					if ($mod = (float) $this->_collections[$row['collection_id']]['modifier'])
-					{
-						$row['score'] = $row['score'] * $mod;
-					}
+					$row['score'] = $row['score'] * $mod;
 				}
 			}
 		}
@@ -314,20 +362,16 @@ class Low_search_filter_keywords extends Low_search_filter {
 			// An array to map collection names to IDs
 			$map = low_flatten_results($this->_collections, 'collection_id', 'collection_name');
 
-			// Set the _col_order to the given order
+			// Set the _colorder to the given order
 			foreach (explode(',', substr($orderby, strlen($prefix))) AS $col)
 			{
 				if ( ! array_key_exists($col, $map)) continue;
-				$this->_col_order[] = $map[$col];
+				$this->_colorder[] = $map[$col];
 			}
 
 			// And sort by collection first, score second
-			uasort($this->_results, array($this, '_by_col_order'));
+			uasort($this->_results, array($this, '_by_colorder'));
 			$this->_fixed = TRUE;
-		}
-		else
-		{
-			$this->_fixed = FALSE;
 		}
 
 		// --------------------------------------
@@ -354,19 +398,19 @@ class Low_search_filter_keywords extends Low_search_filter {
 	}
 
 	/**
-	 * Comparison function to order results by given collectio, then score
+	 * Comparison function to order results by given collection, then score
 	 *
 	 * @access     private
 	 * @param      array     result row
 	 * @param      array     result row
 	 * @return     int
 	 */
-	private function _by_col_order($a, $b)
+	private function _by_colorder($a, $b)
 	{
-		$x = array_search($a['collection_id'], $this->_col_order);
-		$y = array_search($b['collection_id'], $this->_col_order);
-		if ($x === FALSE) $x = count($this->_col_order);
-		if ($y === FALSE) $y = count($this->_col_order);
+		$x = array_search($a['collection_id'], $this->_colorder);
+		$y = array_search($b['collection_id'], $this->_colorder);
+		if ($x === FALSE) $x = count($this->_colorder);
+		if ($y === FALSE) $y = count($this->_colorder);
 
 		if ($x === $y)
 		{
@@ -419,7 +463,7 @@ class Low_search_filter_keywords extends Low_search_filter {
 		// Also filter by channel param
 		if ($channel_param = $this->params->get('channel'))
 		{
-			list($channel, $in) = low_explode_param($channel_param);
+			list($channel, $in) = $this->params->explode($channel_param);
 			ee()->db->{$in ? 'where_in' : 'where_not_in'}('channel_name', $channel);
 		}
 
@@ -443,7 +487,7 @@ class Low_search_filter_keywords extends Low_search_filter {
 		if ($this->_collections && $channels && ! $channel_param)
 		{
 			$channels = array_unique(low_flatten_results($channels, 'channel_name'));
-			$this->params->set('channel', low_implode_param($channels));
+			$this->params->set('channel', implode('|', $channels));
 		}
 
 		// --------------------------------------
@@ -484,34 +528,54 @@ class Low_search_filter_keywords extends Low_search_filter {
 
 	/**
 	 * Populate internal Terms array
+	 *
+	 * @access     private
+	 * @return     void
 	 */
 	private function _set_terms()
 	{
 		// --------------------------------------
-		// Local cache of stop words
-		// --------------------------------------
-
-		static $stop_words;
-
-		// --------------------------------------
-		// Initiate fulltext mode to TRUE, reset results
-		// --------------------------------------
-
-		$this->_fulltext = TRUE;
-		$this->_results  = NULL;
-
-		// --------------------------------------
-		// Shortcuts to these params
-		// --------------------------------------
-
-		$mode  = $this->params->get('search_mode');
-		$loose = $this->params->get('loose_ends');
-
-		// --------------------------------------
 		// Reset terms
 		// --------------------------------------
 
-		$this->_terms = $this->_keywords = array();
+		$this->_terms = array();
+
+		// --------------------------------------
+		// Check validity of search mode
+		// --------------------------------------
+
+		$mode = $this->params->get(
+			'keywords:mode',
+			$this->params->get('search_mode')
+		);
+
+		if ( ! in_array($mode, $this->_modes))
+		{
+			$mode = $this->_modes[0];
+		}
+
+		// --------------------------------------
+		// Check validity of loose ends
+		// --------------------------------------
+
+		$loose = $this->params->get(
+			'keywords:loose',
+			$this->params->get('loose_ends')
+		);
+
+		if ( ! in_array($loose, $this->_loose))
+		{
+			$loose = $this->_loose[0];
+		}
+
+		// --------------------------------------
+		// Ignore loose ends when mode="auto"
+		// --------------------------------------
+
+		if ($mode == 'auto')
+		{
+			$loose = FALSE;
+		}
 
 		// --------------------------------------
 		// Get raw keywords from parameters
@@ -541,7 +605,7 @@ class Low_search_filter_keywords extends Low_search_filter {
 				// Thanks http://stackoverflow.com/a/1191598/1769664
 				$words = (strpos($words, '"') === FALSE)
 					? str_replace(' ', ' OR ', $words)
-					: preg_replace('/\s(?=(?:(?:[^"]*+"){2})*+[^"]*+\z)/', ' OR ', $words);
+					: preg_replace('/\s(?=(?:(?:[^"]*+"){2})*+[^"]*+\z)/iu', ' OR ', $words);
 			break;
 		}
 
@@ -553,7 +617,7 @@ class Low_search_filter_keywords extends Low_search_filter {
 		for ($word = strtok($words, ' '); $word !== FALSE; $word = strtok(' '))
 		{
 			// Create new Term Object
-			$term = new Low_search_term();
+			$term = new Low_search_term;
 
 			// Is term part of an OR group
 			$group = FALSE;
@@ -610,107 +674,401 @@ class Low_search_filter_keywords extends Low_search_filter {
 				$term->exact = TRUE;
 			}
 
-			// Non-exact match, strip ignore words from term
-			$ignore = $term->exact
-				? array()
-				: ee()->low_search_settings->get('ignore_words');
-
 			// Record the raw term
 			$term->raw = $word;
 
-			// Get the cleaned search term
-			$term->term = low_clean_string($word, $ignore);
+			// Record the cleaned up term
+			$word = ee()->low_search_words->clean($word, !$term->exact);
+			$word = ee()->low_search_words->remove_diacritics($word);
+
+			$term->clean = $word;
+
+			// This is an original word
+			$term->original = TRUE;
 
 			// Skip the rest if nothing's left
-			if ( ! $term->term) continue;
+			if ( ! $term->clean) continue;
 
 			// Add term object to previous group or general terms
 			$group ? ($prev->terms[] = $term) : ($this->_terms[] = $term);
 
-			// Add whole thing to the keywords array if we're not excluding
-			if ( ! $term->exclude)
-			{
-				$this->_keywords[] = $term->term;
-			}
-
 			// Check if keywords are fulltext-worthy
 			if ($this->_fulltext)
 			{
-				foreach (explode(' ', $term->term) AS $word)
-				{
-					// Get word length
-					$length = ee()->low_multibyte->strlen($word);
-
-					if ($length < ee()->low_search_settings->get('min_word_length'))
-					{
-						$this->_fulltext = FALSE;
-						continue;
-					}
-
-					// Make sure stop words are an array
-					if ( ! is_array($stop_words))
-					{
-						// Clean stopwords and convert into array
-						$stop_words = (array) array_unique(preg_split('/\s+/',
-							low_clean_string(ee()->low_search_settings->get('stop_words'))
-						));
-					}
-
-					if (in_array($word, $stop_words))
-					{
-						$this->_fulltext = FALSE;
-						continue;
-					}
-				}
+				$this->_fulltext = $term->is_fulltext();
 			}
 		}
 
+		// --------------------------------------
 		// Final ckeck to see if we're dealing with fulltext or not:
 		// Empty keywords is sign that there's only negated keywords,
 		// which cannot use fulltext...
-		if ($this->_fulltext && empty($this->_keywords))
+		// --------------------------------------
+
+		if ($this->_fulltext && ! $this->_keywords())
 		{
 			$this->_fulltext = FALSE;
 		}
 	}
 
 	/**
-	 * Cleaned up search query given
+	 * Extend search terms based on given method
+	 *
+	 * @access     private
+	 * @param      string
+	 * @return     void
 	 */
-	private function _query()
+	private function _extend_terms($method)
 	{
-		return implode(' ', $this->_keywords);
+		// --------------------------------------
+		// Initiate the new terms
+		// --------------------------------------
+
+		$new_terms = array();
+
+		// --------------------------------------
+		// Loop through existing terms
+		// --------------------------------------
+
+		foreach ($this->_terms AS $obj)
+		{
+			// If it's a term group...
+			if ($obj instanceof Low_search_term_group)
+			{
+				// ...loop through each term...
+				foreach ($obj->terms AS $term)
+				{
+					// ...call the method, which should return an array of new term objects...
+					if ($terms = $this->$method($term))
+					{
+						// ...which we add to the group.
+						$obj->add($terms);
+					}
+				}
+			}
+			// If it's a non-grouped term...
+			else
+			{
+				// ...call the method, which should return an array of new term objects...
+				if ($terms = $this->$method($obj))
+				{
+					// ...to which we add the original term to the top...
+					$terms = array_merge(array($obj), $terms);
+
+					// ...and then add it to a new term group.
+					$obj = new Low_search_term_group($terms);
+				}
+			}
+
+			// Finally, we add the (extended) object to the new terms
+			$new_terms[] = $obj;
+		}
+
+		// --------------------------------------
+		// Replace the terms
+		// --------------------------------------
+
+		$this->_terms = $new_terms;
 	}
 
 	/**
-	 * Get min score based on param
+	 * For given term, get array of alternative terms based on the stem
+	 *
+	 * @access     private
+	 * @param      object
+	 * @return     array
 	 */
-	private function _min_score()
+	private function _get_stems(Low_search_term $term)
 	{
-		$min_score = $this->params->get('min_score');
-		$include   = FALSE;
+		// --------------------------------------
+		// Initiate terms
+		// --------------------------------------
 
-		// If param starts with =, it's inclusive
-		if (substr($min_score, 0, 1) == '=')
+		$terms = array();
+
+		// --------------------------------------
+		// Skip exact matches or substring matches
+		// --------------------------------------
+
+		if ( ! $term->is_stemmable())
 		{
-			$min_score = substr($min_score, 1);
-			$include   = TRUE;
+			return $terms;
 		}
 
-		return array($min_score, $include);
+		// --------------------------------------
+		// Loop through types
+		// --------------------------------------
+
+		// Get the stem from the raw term
+		$raw   = ee()->low_search_words->stem($term->raw);
+		$clean = ee()->low_search_words->clean($raw, TRUE);
+		$clean = ee()->low_search_words->remove_diacritics($clean);
+
+		// If it's too small, bail out
+		if (ee()->low_multibyte->strlen($clean) <= 1) continue;
+
+		// Otherwise, create a new term object from it
+		$stem = new Low_search_term;
+
+		// Set the term
+		$stem->raw = $raw;
+		$stem->clean = $clean;
+		$stem->loose_right = TRUE;
+		$stem->stem = TRUE;
+
+		// Add it to the terms to return
+		$terms[] = $stem;
+
+		// Keep checking if keywords are fulltext-worthy
+		if ($this->_fulltext)
+		{
+			$this->_fulltext = $stem->is_fulltext();
+		}
+
+		// --------------------------------------
+		// And return the terms
+		// --------------------------------------
+
+		return $terms;
 	}
+
+	/**
+	 * For given term, get array of alternative terms based on inflection
+	 *
+	 * @access     private
+	 * @param      object
+	 * @return     array
+	 */
+	private function _get_inflections(Low_search_term $term)
+	{
+		// --------------------------------------
+		// Initiate terms
+		// --------------------------------------
+
+		$terms = array();
+
+		// --------------------------------------
+		// Skip exact matches or substring matches
+		// --------------------------------------
+
+		if ( ! $term->is_inflectable())
+		{
+			return $terms;
+		}
+
+		// --------------------------------------
+		// Loop through types
+		// --------------------------------------
+
+		foreach (array('singular', 'plural') AS $type)
+		{
+			// Get the inflected term from the raw term
+			$raw   = ee()->low_search_words->inflect($term->raw, $type);
+			$clean = ee()->low_search_words->clean($raw, TRUE);
+			$clean = ee()->low_search_words->remove_diacritics($clean);
+
+			// If it's too small, bail out
+			if (ee()->low_multibyte->strlen($clean) <= 1) continue;
+
+			// Otherwise, create a new term object from it
+			$inflect = new Low_search_term;
+
+			// Set the term
+			$inflect->raw   = $raw;
+			$inflect->clean = $clean;
+
+			// Add it to the terms to return
+			$terms[] = $inflect;
+
+			// Keep checking if keywords are fulltext-worthy
+			if ($this->_fulltext)
+			{
+				$this->_fulltext = $inflect->is_fulltext();
+			}
+		}
+
+		// --------------------------------------
+		// And return the terms
+		// --------------------------------------
+
+		return $terms;
+	}
+
+	/**
+	 * For given term, get array of alternative terms based on soundex
+	 *
+	 * @access     private
+	 * @param      object
+	 * @return     array
+	 */
+	private function _get_sounds(Low_search_term $term)
+	{
+		// --------------------------------------
+		// We need some cache
+		// --------------------------------------
+
+		static $sounds;
+
+		// --------------------------------------
+		// Get sounds for all
+		// --------------------------------------
+
+		if (is_null($sounds))
+		{
+			$sounds = array();
+
+			foreach (ee()->low_search_words->get_sounds($this->_keywords()) AS $row)
+			{
+				$sounds[$row['sound']][] = $row['word'];
+			}
+		}
+
+		// --------------------------------------
+		// Given sound
+		// --------------------------------------
+
+		$soundex = soundex($term->raw);
+
+		// --------------------------------------
+		// If we don't have a dirty variant, bail out
+		// --------------------------------------
+
+		if ( ! array_key_exists($soundex, $sounds)) return array();
+
+		// --------------------------------------
+		// Initiate new terms
+		// --------------------------------------
+
+		$terms = array();
+
+		// --------------------------------------
+		// Loop through the dirty words
+		// --------------------------------------
+
+		foreach ($sounds[$soundex] AS $raw)
+		{
+			$clean = ee()->low_search_words->clean($raw, TRUE);
+			$clean = ee()->low_search_words->remove_diacritics($clean);
+
+			// If it's too small, bail out
+			if (ee()->low_multibyte->strlen($clean) <= 1) continue;
+
+			// Create new term
+			$sound = new Low_search_term;
+
+			// Overwrite the raw term
+			$sound->raw   = $raw;
+			$sound->clean = $clean;
+
+			// Add it to the terms to return
+			$terms[] = $sound;
+
+			// Keep checking if keywords are fulltext-worthy
+			if ($this->_fulltext)
+			{
+				$this->_fulltext = $sound->is_fulltext();
+			}
+		}
+
+		// --------------------------------------
+		// And return the terms
+		// --------------------------------------
+
+		return $terms;
+	}
+
+	/**
+	 * For given term, get array of alternative terms based on dirtiness
+	 *
+	 * @access     private
+	 * @param      object
+	 * @return     array
+	 */
+	private function _get_dirty(Low_search_term $term)
+	{
+		// --------------------------------------
+		// We need some cache
+		// --------------------------------------
+
+		static $mess;
+
+		// --------------------------------------
+		// Get dirty words for all
+		// --------------------------------------
+
+		if (is_null($mess))
+		{
+			$mess = array();
+
+			foreach (ee()->low_search_words->get_dirty($this->_keywords()) AS $row)
+			{
+				$mess[$row['clean']][] = $row['word'];
+			}
+		}
+
+		// --------------------------------------
+		// If we don't have a dirty variant, bail out
+		// --------------------------------------
+
+		if ( ! array_key_exists($term->clean, $mess)) return array();
+
+		// --------------------------------------
+		// Initiate new terms
+		// --------------------------------------
+
+		$terms = array();
+
+		// --------------------------------------
+		// Loop through the dirty words
+		// --------------------------------------
+
+		foreach ($mess[$term->clean] AS $word)
+		{
+			// Clone the term, so we keep the properties
+			$dirty = clone $term;
+
+			// Overwrite the raw term
+			$dirty->raw = $word;
+
+			// It's not an original
+			$dirty->original = FALSE;
+
+			// Add it to the terms to return
+			$terms[] = $dirty;
+
+			// Keep checking if keywords are fulltext-worthy
+			if ($this->_fulltext)
+			{
+				$this->_fulltext = $dirty->is_fulltext();
+			}
+		}
+
+		// --------------------------------------
+		// And return the terms
+		// --------------------------------------
+
+		return $terms;
+	}
+
+	// --------------------------------------------------------------------
 
 	/**
 	 * Get fallback results and calculate score
+	 *
+	 * @access     private
+	 * @param      object
+	 * @return     array
 	 */
 	private function _get_fallback_results($query)
 	{
 		$this->_log('Calculating relevance score');
 
 		// Calculate scores ourselves
-		$results       = array();
-		$pattern       = $this->_get_pattern();
-		$keyword_count = count($this->_keywords);
+		$results = array();
+		$kcount  = count($this->_keywords());
+
+		// Get min score and stuff
+		list($x, $threshold) = $this->_score ? $this->_score : array(NULL, NULL);
 
 		// --------------------------------------
 		// Loop thru results, calculate score
@@ -722,34 +1080,31 @@ class Low_search_filter_keywords extends Low_search_filter {
 			// Calculate score
 			$score = 0;
 
-			// But only if we have valid keywords
-			if ($keyword_count)
+			// Check occurrence of each word in index_text
+			// Added score is number of occurrences / total words / number of keywords * 100
+			if ($found = preg_match_all($this->_get_pattern(), $row->index_text, $m))
 			{
-				// Check occurrence of each word in index_text
-				// Added score is number of occurrences / total words * 10
-				if ($found = preg_match_all($pattern, $row->index_text, $matches))
-				{
-					// Removes weight
-					$text = preg_replace('/^\|(.+?)\|.*$/m', '$1', $row->index_text);
+				// Removes weight
+				$text = preg_replace('/^\|\s(.+?)\s\|.*$/miu', '$1', $row->index_text);
+				$text = str_replace(NL, ' ', $text);
 
-					// Safe word count
-					$word_count = count(explode(' ', trim($text)));
+				// Safe word count
+				$wcount = count(explode(' ', $text));
 
-					// Add score
-					$score = ($found / $word_count) * 100 / $keyword_count;
-				}
-
-				// Skip entries that fall below the threshold
-				if ($this->params->get('min_score'))
-				{
-					list($min_score, $include) = $this->_min_score();
-					if (($include && $score < $min_score) || (!$include && $score <= $min_score)) continue;
-				}
+				// Add score
+				$score = $found / $wcount / $kcount * 100;
 			}
+
+			// Skip entries that fall below the threshold
+			if (($x == '<'  && $threshold <  $score) ||
+				($x == '<=' && $threshold <= $score) ||
+				($x == '>'  && $threshold >  $score) ||
+				($x == '>=' && $threshold >= $score)) continue;
 
 			// Add row to results only if the entry doesn't exist yet
 			// or if existing score is lower than this one
-			if ( ! array_key_exists($row->entry_id, $results) || $results[$row->entry_id]['score'] < $score)
+			if ( ! array_key_exists($row->entry_id, $results) ||
+				$results[$row->entry_id]['score'] < $score)
 			{
 				$results[$row->entry_id] = array(
 					'entry_id'      => $row->entry_id,
@@ -772,38 +1127,16 @@ class Low_search_filter_keywords extends Low_search_filter {
 	 */
 	private function _sql_where_keywords()
 	{
-		$where = array();
-		$tmpl  = $this->_fulltext
-			? "MATCH(index_text) AGAINST('%s' IN BOOLEAN MODE)"
-			: '(index_text %s)';
+		$where  = array();
+		$method = $this->_fulltext ? 'get_fulltext_sql' : 'get_fallback_sql';
 
 		foreach ($this->_terms AS $obj)
 		{
-			if ($obj instanceof Low_search_term_group)
-			{
-				$group = array();
-
-				foreach ($obj->terms AS $term)
-				{
-					$group[] = $this->_fulltext
-						? $term->get_fulltext_term(FALSE)
-						: sprintf($tmpl, $term->get_fallback_term());
-				}
-
-				$where[] = $this->_fulltext
-					? '+('.implode(' ', $group).')'
-					: '('.implode(' OR ', $group).')';
-			}
-			else
-			{
-				$where[] = $this->_fulltext
-					? $obj->get_fulltext_term()
-					: sprintf($tmpl, $obj->get_fallback_term());
-			}
+			$where[] = $obj->$method();
 		}
 
 		$str = $this->_fulltext
-			? sprintf($tmpl, implode(' ', $where))
+			? sprintf("MATCH(index_text) AGAINST('%s' IN BOOLEAN MODE)", implode(' ', $where))
 			: implode("\nAND ", $where);
 
 		return $str;
@@ -813,6 +1146,9 @@ class Low_search_filter_keywords extends Low_search_filter {
 
 	/**
 	 * Set internal collections by results
+	 *
+	 * @access     private
+	 * @return     void
 	 */
 	private function _set_collections_by_results()
 	{
@@ -821,8 +1157,14 @@ class Low_search_filter_keywords extends Low_search_filter {
 		$this->_collections = ee()->low_search_collection_model->get_by_id($col_ids);
 	}
 
+	// --------------------------------------------------------------------
+
 	/**
 	 * Modify a row for a search result for this filter
+	 *
+	 * @access     public
+	 * @param      array
+	 * @return     array
 	 */
 	public function results($rows)
 	{
@@ -890,12 +1232,6 @@ class Low_search_filter_keywords extends Low_search_filter {
 		}
 
 		// -------------------------------------------
-		// Load typography lib
-		// -------------------------------------------
-
-		ee()->load->library('typography');
-
-		// -------------------------------------------
 		// Get all entry ids we're working with
 		// -------------------------------------------
 
@@ -904,6 +1240,9 @@ class Low_search_filter_keywords extends Low_search_filter {
 		// -------------------------------------------
 		// Loop through results and add the excerpt
 		// -------------------------------------------
+
+		// Remember last format
+		$last_fmt = NULL;
 
 		foreach ($rows AS &$row)
 		{
@@ -941,16 +1280,30 @@ class Low_search_filter_keywords extends Low_search_filter {
 				}
 			}
 
+			// Apply the same formatting to the keywords for better matching
+			if ($last_fmt != $fmt)
+			{
+				$this->_format_terms($fmt);
+				$this->_get_pattern(TRUE);
+				$last_fmt = $fmt;
+			}
+
+			// Get the formatted excerpt string
+			$str = $this->_apply_typography($str, $fmt);
+
 			// Overwrite empty excerpt with formatted one
-			$row[$pfx.'excerpt'] = $this->_create_excerpt($str, $fmt);
+			$row[$pfx.'excerpt'] = $this->_create_excerpt($str);
 
 			// Highlight keywords if we have 'em
-			if ($this->_keywords)
+			if ($this->_keywords())
 			{
 				$row[$pfx.'excerpt'] = $this->_highlight($row[$pfx.'excerpt']);
 
 				if (ee()->low_search_settings->get('title_hilite') == 'y')
 				{
+					// Remove entities for better matching
+					$row['title'] = html_entity_decode($row['title'], ENT_QUOTES, 'UTF-8');
+					$row['title'] = htmlspecialchars($row['title']);
 					$row['title'] = $this->_highlight($row['title']);
 				}
 			}
@@ -960,39 +1313,11 @@ class Low_search_filter_keywords extends Low_search_filter {
 	}
 
 	/**
-	 * Get regex pattern for current search terms
-	 */
-	private function _get_pattern()
-	{
-		// Account for non-exact matching
-		$delim = ($this->params->get('search_mode') == 'exact') ? ' ' : '|';
-		$keywords = implode($delim, array_map('preg_quote', $this->_keywords));
-
-		// Loose ends?
-		switch ($this->params->get('loose_ends'))
-		{
-			case 'left':
-				$pattern = "({$keywords})\b";
-			break;
-
-			case 'right':
-				$pattern = "\b({$keywords})";
-			break;
-
-			case 'both':
-				$pattern = "({$keywords})";
-			break;
-
-			default:
-				$pattern = "\b({$keywords})\b";
-			break;
-		}
-
-		return "!{$pattern}!iu";
-	}
-
-	/**
 	 * Get score for entry ID
+	 *
+	 * @access      private
+	 * @param       entry_id
+	 * @return      mixed
 	 */
 	private function _get_score($entry_id)
 	{
@@ -1003,6 +1328,10 @@ class Low_search_filter_keywords extends Low_search_filter {
 
 	/**
 	 * Get collection info for this search result
+	 *
+	 * @access      private
+	 * @param       int
+	 * @return      array
 	 */
 	private function _get_collection_info($entry_id)
 	{
@@ -1044,6 +1373,10 @@ class Low_search_filter_keywords extends Low_search_filter {
 
 	/**
 	 * Get excerpt ID, the field ID to use as excerpt; 0 for title
+	 *
+	 * @access      private
+	 * @param       array
+	 * @return      int
 	 */
 	private function _get_excerpt_id($row)
 	{
@@ -1062,15 +1395,136 @@ class Low_search_filter_keywords extends Low_search_filter {
 	}
 
 	/**
-	 * Add/modify entry in search index
+	 * Create smartly truncated excerpt from string
 	 *
 	 * @access      private
 	 * @param       string
+	 * @return      string
+	 */
+	private function _create_excerpt($str)
+	{
+		// If no excerpt length, bail
+		if ( ! ($length = (int) ee()->low_search_settings->get('excerpt_length')))
+		{
+			return $str;
+		}
+
+		// Multibyte safe checks
+		$str_length = ee()->low_multibyte->strlen($str);
+		$word_count = ee()->low_multibyte->substr_count($str, ' ');
+		$word_count++;
+
+		// Bail out if string is shorter than the amount of words given
+		if ($length >= $str_length || $length >= $word_count) return $str;
+
+		if ($this->_keywords())
+		{
+			// Prep our marker to get the actual position of the first occurrence of the keywords
+			$marker = '[[__KEYWORD__]]';
+
+			// Replace the keywords with the markers...
+			$tmp = preg_replace($this->_get_pattern(), $marker, $str);
+
+			// ...so we can accurately get the position of the first keyword
+			$pos = ee()->low_multibyte->strpos($tmp, $marker);
+
+			// Overwrite the tmp var where we split the string: at the first found keyword
+			list($left, $right) = array(
+				ee()->low_multibyte->substr($str, 0, $pos),
+				ee()->low_multibyte->substr($str, $pos, ee()->low_multibyte->strlen($str))
+			);
+
+			// Left and right words
+			$left_words  = explode(' ', $left);
+			$right_words = explode(' ', $right);
+
+			// If we have a split, check the left part
+			// Amount of words to put on the left
+			$left_count = round($length / 10);
+
+			// Account for little bits on the right
+			if (count($right_words) + $left_count < $length)
+			{
+				$left_count *= 2;
+			}
+
+			// If there are more words on the left than allowed...
+			if (count($left_words) > $left_count)
+			{
+				// ...slice off excess words...
+				$left_words = array_slice($left_words, -$left_count);
+
+				// ...add horizontal ellipsis to the now first word and...
+				$left = '&#8230;'.implode(' ', $left_words);
+			}
+
+			// Now bring the whole excerpt together again...
+			$str = $left.$right;
+
+		}
+
+		// ...and let EE's word limiter do the rest
+		$str = ee()->functions->word_limiter($str, $length);
+
+		return $str;
+	}
+
+	/**
+	 * Highlight keywords in given string
+	 *
+	 * @access      private
 	 * @param       string
 	 * @return      string
 	 */
-	private function _create_excerpt($str = '', $fmt = 'none')
+	private function _highlight($str)
 	{
+		if ($tag = ee()->low_search_settings->get('excerpt_hilite'))
+		{
+			// Case insensitive replace
+			$str = preg_replace($this->_get_pattern(), "<{$tag}>$1</{$tag}>", $str);
+		}
+
+		return $str;
+	}
+
+	// --------------------------------------------------------------------
+
+	/**
+	 * Format the given terms
+	 *
+	 * @access      private
+	 * @param       bool
+	 * @return      mixed
+	 */
+	private function _format_terms($fmt)
+	{
+		// Add all given terms to the array
+		foreach ($this->_terms AS &$obj)
+		{
+			if ($obj instanceof Low_search_term_group)
+			{
+				foreach ($obj->terms AS &$term)
+				{
+					$term->format = $this->_apply_typography($term->raw, $fmt);
+				}
+			}
+			else
+			{
+				$obj->format = $this->_apply_typography($obj->raw, $fmt);
+			}
+		}
+	}
+
+	// --------------------------------------------------------------------
+
+	/**
+	 * Apply typography to string for excerpt and hiliting
+	 */
+	private function _apply_typography($str, $fmt = 'none')
+	{
+		// Load typo lib
+		ee()->load->library('typography');
+
 		// Strip tags first
 		$str = strip_tags($str);
 
@@ -1088,89 +1542,117 @@ class Low_search_filter_keywords extends Low_search_filter {
 		// Strip again and trim it
 		$str = trim(strip_tags($str));
 
+		// Remove non-breaking spaces
+		$str = str_replace('&nbsp;', ' ', $str);
+
+		// Decode entities
+		$str = html_entity_decode($str, ENT_QUOTES, 'UTF-8');
+
+		// Make sure this stuff is encoded
+		$str = htmlspecialchars($str);
+
 		// Clean white space
-		$str = preg_replace('/(&nbsp;|\s)+/', ' ', $str);
-
-		// Limited string
-		if ($length = (int) ee()->low_search_settings->get('excerpt_length'))
-		{
-			// Multibyte safe checks
-			$str_length = ee()->low_multibyte->strlen($str);
-			$word_count = ee()->low_multibyte->substr_count($str, ' ');
-			$word_count++;
-
-			// Bail out if string is shorter than the amount of words given
-			if ($length >= $str_length || $length >= $word_count) return $str;
-
-			if ($this->_keywords)
-			{
-				// Prep our marker to get the actual position of the first occurrence of the keywords
-				$marker = '[[__KEYWORD__]]';
-
-				// Split the excerpt at the first keyword found
-				$tmp = preg_replace($this->_get_pattern(), $marker, $str);
-
-				// Get the position
-				$pos = ee()->low_multibyte->strpos($tmp, $marker);
-
-				// Overwrite the tmp var where we split the string
-				$tmp = array(
-					ee()->low_multibyte->substr($str, 0, $pos),
-					ee()->low_multibyte->substr($str, $pos, ee()->low_multibyte->strlen($str))
-				);
-
-				// If we have a split, check the left part
-				if ($tmp && count($tmp) >= 2)
-				{
-					// Amount of words to put on the left
-					$left_count = round($length / 10);
-
-					// Explode left words into an array
-					$tmp[0] = explode(' ', $tmp[0]);
-
-					// If there are more words on the left than allowed...
-					if (count(array_filter($tmp[0])) > $left_count)
-					{
-						// ...slice off excess words...
-						$tmp[0] = array_slice($tmp[0], -$left_count);
-
-						// ...add horizontal ellipsis to the now first word and...
-						$tmp[0][0] = '&#8230;'.$tmp[0][0];
-					}
-
-					// ...put it together again.
-					$tmp[0] = implode(' ', $tmp[0]);
-
-					// Now bring the whole excerpt together again...
-					$str = implode('', $tmp);
-				}
-			}
-
-			// ...and let EE's word limiter do the rest
-			$str = ee()->functions->word_limiter($str, $length);
-		}
+		$str = preg_replace('/\s+/', ' ', $str);
 
 		return $str;
 	}
+
+	// --------------------------------------------------------------------
 
 	/**
-	 * Highlight keywords in given string
+	 * Get keywords based on current terms
 	 *
 	 * @access      private
-	 * @param       string
-	 * @param       string
-	 * @return      string
+	 * @param       bool
+	 * @return      mixed
 	 */
-	private function _highlight($str)
+	private function _keywords($as_string = FALSE)
 	{
-		if ($tag = ee()->low_search_settings->get('excerpt_hilite'))
+		// Init keywords
+		$keywords = array();
+
+		// Add all given terms to the array
+		foreach ($this->_terms AS $obj)
 		{
-			// Case insensitive replace
-			$str = preg_replace($this->_get_pattern(), "<{$tag}>$1</{$tag}>", $str);
+			if ($obj instanceof Low_search_term_group)
+			{
+				foreach ($obj->terms AS $term)
+				{
+					// Skip excluded terms
+					if ($term->exclude) continue;
+					$keywords[] = $term->clean;
+				}
+			}
+			else
+			{
+				// Skip excluded terms
+				if ($obj->exclude) continue;
+				$keywords[] = $obj->clean;
+			}
 		}
 
-		return $str;
+		// Strip out duplicates
+		$keywords = array_unique($keywords);
+
+		// Return as string or array
+		return $as_string ? implode(' ', $keywords) : $keywords;
 	}
+
+	// --------------------------------------------------------------------
+
+	/**
+	 * Get regex pattern for current search terms
+	 *
+	 * @access      private
+	 * @return      string
+	 */
+	private function _get_pattern($reset = FALSE)
+	{
+		// Local cache
+		static $pattern;
+
+		// Reset?
+		if ($reset) $pattern = NULL;
+
+		// Return it if set
+		if ($pattern) return $pattern;
+
+		// Init full words and partial words
+		$full = $part = array();
+
+		// Add all given terms to the array
+		foreach ($this->_terms AS $obj)
+		{
+			if ($obj instanceof Low_search_term_group)
+			{
+				foreach ($obj->terms AS $term)
+				{
+					// Skip excluded terms
+					if ($term->exclude) continue;
+					($term->loose_left || $term->loose_right)
+						? $part[] = $term->get_pattern()
+						: $full[] = $term->get_pattern();
+
+				}
+			}
+			else
+			{
+				// Skip excluded terms
+				if ($obj->exclude) continue;
+				($obj->loose_left || $obj->loose_right)
+					? $part[] = $obj->get_pattern()
+					: $full[] = $obj->get_pattern();
+
+			}
+		}
+
+		// We want full words to be first in the pattern
+		$pattern = implode('|', array_unique(array_merge($full, $part)));
+		$pattern = "/({$pattern})/ui";
+
+		return $pattern;
+	}
+
 }
-// End of class Low_search_keywords_filter
+// End of class Low_search_filter_keywords
 // End of file lsf.keywords.php

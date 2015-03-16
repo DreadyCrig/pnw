@@ -9,7 +9,7 @@ include(PATH_THIRD.'low_variables/config.php');
  * @package        low_variables
  * @author         Lodewijk Schutte <hi@gotolow.com>
  * @link           http://gotolow.com/addons/low-variables
- * @copyright      Copyright (c) 2009-2013, Low
+ * @copyright      Copyright (c) 2009-2015, Low
  */
 class Low_variables_base
 {
@@ -266,23 +266,25 @@ class Low_variables_base
 	 * @param      array
 	 * @return     void
 	 */
-	protected function sync_files($vars = array())
+	protected function sync_files($ids = array())
 	{
 		// -------------------------------------
-		//  If vars are not given, get them from the DB
+		//  Get vars from DB
 		// -------------------------------------
 
-		if ( ! $vars)
-		{
-			$query = ee()->db->select('ee.variable_id, ee.variable_name, ee.variable_data, low.edit_date')
-			       ->from('global_variables AS ee, low_variables AS low')
-			       ->where('ee.variable_id = low.variable_id')
-			       ->where('ee.site_id', $this->site_id)
-			       ->where('low.save_as_file', 'y')
-			       ->get();
+		ee()->db->select('ee.variable_id, ee.variable_name, ee.variable_data, low.edit_date')
+		        ->from('global_variables AS ee, low_variables AS low')
+		        ->where('ee.variable_id = low.variable_id')
+		        ->where('ee.site_id', $this->site_id)
+		        ->where('low.save_as_file', 'y');
 
-			$vars = $query->result_array();
+		// limit by given ids
+		if ($ids)
+		{
+			ee()->db->where_in('ee.variable_id', $ids);
 		}
+
+		$vars = ee()->db->get()->result_array();
 
 		// -------------------------------------
 		//  Still no vars? Exit
@@ -315,7 +317,7 @@ class Low_variables_base
 		//  Get existing files only for CP requests for performance reasons
 		// -------------------------------------
 
-		$files = (REQ == 'CP') ? get_filenames($path) : array();
+		$files = (REQ == 'CP' || REQ == 'ACTION') ? get_filenames($path) : array();
 
 		// -------------------------------------
 		//  Loop thru save_as_file-variables
@@ -336,7 +338,8 @@ class Low_variables_base
 
 				// If file is younger than DB, read file and update DB
 				// Do the same for one way sync
-				if ($this->settings['one_way_sync'] == 'y' OR $info['date'] > $row['edit_date'])
+				if (($this->settings['one_way_sync'] == 'n' && $info['date']  > $row['edit_date']) ||
+					($this->settings['one_way_sync'] == 'y' && $info['date'] != $row['edit_date']))
 				{
 					// Read the file
 					$file_data = read_file($file);
@@ -358,9 +361,10 @@ class Low_variables_base
 						"variable_id = '{$row['variable_id']}'"
 					);
 				}
-				elseif ($info['date'] < $row['edit_date'])
+				elseif ($this->settings['one_way_sync'] == 'n' && $info['date'] < $row['edit_date'])
 				{
 					// Write to file if server file is older than DB
+					// But only if one way sync is off
 					$write = TRUE;
 				}
 			}

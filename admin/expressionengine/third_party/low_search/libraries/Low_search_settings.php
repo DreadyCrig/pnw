@@ -36,12 +36,13 @@ class Low_search_settings {
 		'excerpt_hilite'      => '',
 		'title_hilite'        => '',
 		'batch_size'          => '100',
-		'default_search_mode' => 'all',
 		'default_result_page' => 'search/results',
 		'search_log_size'     => '500',
-		'stop_words'
+		'ignore_words'        => 'a an and the or of s',
+		'disabled_filters'    => array(),
+		'stop_words'          =>
 			// http://dev.mysql.com/doc/refman/5.5/en/fulltext-stopwords.html
-		=> "a's able about above according accordingly across actually after afterwards again against ain't
+			"a's able about above according accordingly across actually after afterwards again against ain't
 			all allow allows almost alone along already also although always am among amongst an and another
 			any anybody anyhow anyone anything anyway anyways anywhere apart appear appreciate appropriate are
 			aren't around as aside ask asking associated at available away awfully be became because become
@@ -77,11 +78,10 @@ class Low_search_settings {
 			whereupon wherever whether which while whither who who's whoever whole whom whose why will willing
 			wish with within without won't wonder would wouldn't yes yet you you'd you'll you're you've your
 			yours yourself yourselves zero",
-		'ignore_words' => '',
-		'disabled_filters' => array(),
 
 		// Permissions
 		'can_manage'           => array(),
+		'can_manage_lexicon'   => array(),
 		'can_manage_shortcuts' => array(),
 		'can_replace'          => array(),
 		'can_view_search_log'  => array(),
@@ -143,10 +143,50 @@ class Low_search_settings {
 	// --------------------------------------------------------------------
 
 	/**
+	 * cleaned and array'd Stop words
+	 *
+	 * @access     public
+	 * @return     array
+	 */
+	public function stop_words()
+	{
+		return $this->_words('stop');
+	}
+
+	/**
+	 * cleaned and array'd Ignore words
+	 *
+	 * @access     public
+	 * @return     array
+	 */
+	public function ignore_words()
+	{
+		return $this->_words('ignore');
+	}
+
+	/**
+	 * cleaned and array'd words
+	 *
+	 * @access     private
+	 * @return     array
+	 */
+	private function _words($which)
+	{
+		return (array) array_unique(preg_split(
+			'/\s+/',
+			str_replace("'", ' ', $this->get($which.'_words')),
+			NULL,
+			PREG_SPLIT_NO_EMPTY
+		));
+	}
+
+	// --------------------------------------------------------------------
+
+	/**
 	 * Permission options
 	 *
-	 * @var        array
-	 * @access     private
+	 * @access     public
+	 * @return     array
 	 */
 	public function permissions()
 	{

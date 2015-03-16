@@ -135,6 +135,13 @@
 				</td>
 			</tr>
 			<tr class="<?=low_zebra()?>">
+				<td>
+					<label><?=lang('sync_url')?></label>
+					<div class="low-var-notes"><?=lang('sync_url_help')?></div>
+				</td>
+				<td><code><?=$sync_url?></code></td>
+			</tr>
+			<tr class="<?=low_zebra()?>">
 				<td style="vertical-align:top">
 					<strong class="low-label"><?=lang('variable_types')?></strong>
 					<div class="low-var-notes"><?=lang('variable_types_help')?></div>

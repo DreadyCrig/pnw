@@ -33,6 +33,9 @@
 	&__footer {
 		border-top: 1px solid #eee;
 		@include pad(rem(20));
+		&--sm {
+			@include pad(rem(10) rem(20));
+		}
 		position: relative;
 		a {
 			font-size: rem(14);

@@ -441,6 +441,78 @@ class Low_select_files extends Low_variables_type {
 	// --------------------------------------------------------------------
 
 	/**
+	 * Output different versions
+	 *
+	 * @access     public
+	 * @param      string
+	 * @param      array
+	 * @return     string
+	 */
+	public function display_output($tagdata, $var)
+	{
+		// Get the variable's name
+		$name = $var['variable_name'];
+
+		// Get manipulations from var names
+		if ($tagdata && preg_match_all("/\{{$name}:([\w-]+)\}/", $tagdata, $matches))
+		{
+			$manip = array_unique($matches[1]);
+		}
+		// Get manipulation from tag param
+		elseif ($param = ee()->TMPL->fetch_param('manipulation'))
+		{
+			$manip = array($param);
+		}
+		// No manipulations
+		else
+		{
+			$manip = array();
+		}
+
+		// Get the files as an array
+		$files = explode($this->separators[$this->get_setting('separator', $var['variable_settings'])], $var['variable_data']);
+
+		// Initiate rows
+		$rows = array();
+
+		foreach ($files AS $file)
+		{
+			$row = array(
+				$name => $file
+			);
+
+			// Position of the last slash
+			$pos  = strrpos($file, '/');
+			$tmpl = substr($file, 0, $pos).'/_%s'.substr($file, $pos);
+
+			// Add all manipulation vars to the array
+			foreach ($manip AS $dir)
+			{
+				$row[$name.':'.$dir] = sprintf($tmpl, $dir);
+			}
+
+			$rows[] = $row;
+		}
+
+		// Return parsed tagdata if used as var pair
+		if ($tagdata)
+		{
+			return ee()->TMPL->parse_variables($tagdata, $rows);
+		}
+		// Or just return the first thing there
+		else
+		{
+			$key = (count($manip) === 1)
+				? $name.':'.$manip[0]
+				: $name;
+
+			return $rows[0][$key];
+		}
+	}
+
+	// --------------------------------------------------------------------
+
+	/**
 	 * Get Upload Preferences (Cross-compatible between ExpressionEngine 2.0 and 2.4) - By Brandon Kelly
 	 *
 	 * @param  int $group_id Member group ID specified when returning allowed upload directories only for that member group

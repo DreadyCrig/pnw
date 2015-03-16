@@ -67,32 +67,90 @@ $lang = array(
 "edit_preferences" =>
 "Edit Preferences",
 
-"search_index" =>
-"Search Index",
+"index_options" =>
+"Build options",
 
 "build_index" =>
-"Build Index",
+"Build",
 
-"update_index" =>
-"Update Index",
+"index" =>
+"Index",
 
-"rebuild_index" =>
-"Rebuild Index",
+"all_indexes" =>
+"All indexes",
 
 "index_status_empty" =>
-"Collection is new. You can now build the index.",
+"Collection is new. You can now start building the index and lexicon.",
 
 "index_status_old" =>
 "Index does not appear to be up to date. Please rebuild.",
 
-"build_all_indexes" =>
-"Build all indexes",
+"build_all" =>
+"Build all",
 
 "no_entries" =>
 "No entries in this collection.",
 
 "total_entries" =>
 "Total entries",
+
+"both" =>
+"Both",
+
+"everything" =>
+"Everything",
+
+//----------------------------------------
+// Lexicon
+//----------------------------------------
+
+"lexicon" =>
+"Lexicon",
+
+"all_lexicons" =>
+"All lexicons",
+
+"find_words" =>
+"Find words",
+
+"add_words" =>
+"Add words",
+
+"word_placeholder" =>
+"Enter word&hellip;",
+
+"lexicon_status_none" =>
+"The lexicon is empty.",
+
+"lexicon_status_one_one" =>
+"There is one word in the lexicon.",
+
+"lexicon_status_many_one" =>
+"There are currently %s words in the lexicon.",
+
+"lexicon_status_many_many" =>
+"The lexicon currently contains %s words across %s languages.",
+
+"lexicon_found_none" =>
+"Could not find “%s”.",
+
+"lexicon_found_one" =>
+"Found it!",
+
+"lexicon_found_many" =>
+"Found %s matching words.",
+
+"lexicon_add_ok" =>
+'Added “%s” to the lexicon.',
+
+"lexicon_add_existing" =>
+'“%s” already exists in the lexicon.',
+
+"lexicon_add_invalid" =>
+'“%s” is not a valid word.',
+
+"lexicon_removed_word" =>
+"Removed “%s”.",
 
 //----------------------------------------
 // Edit collection page - fields
@@ -108,7 +166,7 @@ $lang = array(
 "Language",
 
 "collection_language_notes" =>
-"Select the language for this collection.",
+"Select the language for this collection. Selecting a language will add the words in this collection to the lexicon.",
 
 "collection_modifier" =>
 "Modifier",
@@ -410,12 +468,6 @@ If you&rsquo;re not sure, leave it on the default value of <strong>4</strong>.",
 "batch_size_help" =>
 "Building a collection index via the Control Panel happens in batches. Enter the number of entries you want to process in one batch.",
 
-"default_search_mode" =>
-"Default search mode",
-
-"default_search_mode_help" =>
-"If a <code>search_mode</code> is not explicitly given, the search will fall back to this mode.",
-
 "all_mode" =>
 "All words",
 
@@ -459,6 +511,9 @@ of these words.",
 
 "can_manage" =>
 "Can manage collections",
+
+"can_manage_lexicon" =>
+"Can manage lexicon",
 
 "can_manage_shortcuts" =>
 "Can manage shortcuts",

@@ -13,7 +13,7 @@ if ( ! defined('LOW_SEARCH_NAME'))
 {
 	define('LOW_SEARCH_NAME',       'Low Search');
 	define('LOW_SEARCH_PACKAGE',    'low_search');
-	define('LOW_SEARCH_VERSION',    '3.5.2');
+	define('LOW_SEARCH_VERSION',    '4.0.1');
 	define('LOW_SEARCH_DOCS',       'http://gotolow.com/addons/low-search');
 	define('LOW_SEARCH_DEBUG',      FALSE);
 	define('LOW_SEARCH_MAX_WEIGHT', 3);

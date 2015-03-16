@@ -4,10 +4,10 @@
  * Charge Log Model class
  *
  * @package         charge_ee_addon
- * @version         1.8.12
+ * @version         1.9.0
  * @author          Joel Bradbury ~ <joel@squarebit.co.uk>
- * @link            http://squarebit.co.uk/addons/charge
- * @copyright       Copyright (c) 2014, Joel Bradbury/Square Bit
+ * @link            http://squarebit.co.uk/software/expressionengine/charge
+ * @copyright       Copyright (c) 2015, Joel Bradbury/Square Bit
  */
 class Charge_log_model extends Charge_model {
 
@@ -249,6 +249,22 @@ class Charge_log_model extends Charge_model {
 		return TRUE;
 
 	}
+
+
+    // --------------------------------------------------------------
+
+    public function log_customer_updated( $data = array() )
+    {
+        //if( empty( $data ) ) return FALSE;
+
+        $log_data					= $data;
+        $log_data['type'] 			= 'charge_customer_updated';
+        $log_data['extended']		= $data;
+
+        $this->log( $log_data );
+        return TRUE;
+
+    }
 
 	// --------------------------------------------------------------
 

@@ -86,7 +86,7 @@ class Charge_model extends CI_Model {
 	 * @access      public
 	 * @return      void
 	 */
-	public function load_models()
+    public function load_models()
 	{
 		$EE =& get_instance();
 

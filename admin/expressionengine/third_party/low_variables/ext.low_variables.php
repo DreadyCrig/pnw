@@ -12,7 +12,7 @@ if ( ! class_exists('Low_variables_base'))
  * @package        low_variables
  * @author         Lodewijk Schutte <hi@gotolow.com>
  * @link           http://gotolow.com/addons/low-variables
- * @copyright      Copyright (c) 2009-2013, Low
+ * @copyright      Copyright (c) 2009-2015, Low
  */
 class Low_variables_ext extends Low_variables_base {
 
@@ -110,6 +110,18 @@ class Low_variables_ext extends Low_variables_base {
 			'y' => lang('register_globals_before'),
 			'a' => lang('register_globals_after')
 		);
+
+		// -------------------------------------
+		// Sync URL
+		// -------------------------------------
+
+		$this->data['sync_url'] = empty($settings['license_key'])
+			? ''
+			: ee()->functions->fetch_site_index(0, 0)
+			. QUERY_MARKER.'ACT='
+			. ee()->cp->fetch_action_id('Low_variables', 'sync')
+			. AMP.'key='
+			. $settings['license_key'];
 
 		// --------------------------------------
 		// Add this extension's name and save path to display data

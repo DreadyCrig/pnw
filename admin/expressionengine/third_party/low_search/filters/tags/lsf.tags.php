@@ -73,7 +73,7 @@ class Low_search_filter_tags extends Low_search_filter {
 			foreach ($tag_names AS $key => $val)
 			{
 				// Get the tags
-				list($tags, $in) = low_explode_param($val);
+				list($tags, $in) = $this->params->explode($val);
 
 				$unique_tags = array_merge($unique_tags, $tags);
 			}
@@ -102,7 +102,7 @@ class Low_search_filter_tags extends Low_search_filter {
 				$ids = array();
 
 				// Read parameter value
-				list($tags, $in) = low_explode_param($val);
+				list($tags, $in) = $this->params->explode($val);
 
 				// Loop through tags and map them to IDs
 				foreach ($tags AS $tag)
@@ -146,7 +146,7 @@ class Low_search_filter_tags extends Low_search_filter {
 			$val = $this->params->prep($key, $val);
 
 			// Get the parameter
-			list($ids, $in) = low_explode_param($val);
+			list($ids, $in) = $this->params->explode($val);
 
 			// Match all?
 			$all = (bool) strpos($val, '&');

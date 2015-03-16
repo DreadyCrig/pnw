@@ -14,7 +14,7 @@ if ( ! class_exists('Low_variables_base'))
  * @package        low_variables
  * @author         Lodewijk Schutte <hi@gotolow.com>
  * @link           http://gotolow.com/addons/low-variables
- * @copyright      Copyright (c) 2009-2013, Low
+ * @copyright      Copyright (c) 2009-2015, Low
  */
 
 class Low_variables extends Low_variables_base
@@ -352,6 +352,40 @@ class Low_variables extends Low_variables_base
 
 		// return parsed data
 		return $this->return_data;
+	}
+
+	// --------------------------------------------------------------------
+	//  ACT METHODS
+	// --------------------------------------------------------------------
+
+	/**
+	 * Sync vars by ACT
+	 *
+	 * @access     public
+	 * @return     void
+	 */
+	public function sync()
+	{
+		// Only ACTions are allowed
+		if (REQ != 'ACTION') return;
+
+		// Get the settings
+		$settings = $this->get_settings();
+
+		// Nope
+		if ($settings['license_key'] !== ee()->input->get_post('key'))
+		{
+			show_error('Action not allowed');
+		}
+
+		// Or else, sync it
+		$this->sync_files();
+
+		// Clear cache too?
+		if (ee()->input->get_post('clear_cache') == 'yes')
+		{
+			ee()->functions->clear_caching('all', '', TRUE);
+		}
 	}
 
 	// --------------------------------------------------------------------

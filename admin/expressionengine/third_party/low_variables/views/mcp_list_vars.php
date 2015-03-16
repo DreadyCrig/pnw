@@ -28,28 +28,25 @@
 				<th scope="col"><?=lang('variable_label')?></th>
 				<th scope="col"><?=lang('variable_group')?></th>
 				<th scope="col"><?=lang('variable_type')?></th>
-				<th scope="col" style="text-align:center"><?=lang('is_hidden_th')?></th>
-				<th scope="col" style="text-align:center"><?=lang('early_parsing_th')?></th>
-				<th scope="col" style="text-align:center"><?=lang('save_as_file_th')?></th>
+				<th scope="col" style="text-align:center" class="low-check-all" data-prop="hidden"><?=lang('is_hidden_th')?></th>
+				<th scope="col" style="text-align:center" class="low-check-all" data-prop="early"><?=lang('early_parsing_th')?></th>
+				<th scope="col" style="text-align:center" class="low-check-all" data-prop="file"><?=lang('save_as_file_th')?></th>
 				<th scope="col" style="text-align:center"><?=lang('clone')?></th>
-				<th scope="col" style="text-align:center"><input type="checkbox" id="low-toggle-all" /></th>
+				<th scope="col" style="text-align:center"><input type="checkbox" /></th>
 			</tr>
 		</thead>
 		<tbody>
 			<?php foreach($variables AS $row): ?>
-			<tr class="<?=low_zebra()?>">
+			<tr class="<?=low_zebra()?>" data-id="<?=$row['variable_id']?>" data-hidden="<?=$row['hidden']?>" data-early="<?=$row['early']?>" data-file="<?=$row['file']?>">
 				<td><?=$row['variable_id']?></td>
 				<td><a href="<?=sprintf($edit_var_url,$row['variable_id'],'manage')?>" class="low-var-name"><?=$row['variable_name']?></a></td>
 				<td><?=$row['variable_label']?></td>
 				<td><a href="<?=sprintf($edit_group_url,$row['group_id'],'manage')?>"><?=htmlspecialchars($groups[$row['group_id']])?></a></td>
 				<td style="white-space:nowrap"><?=$row['variable_type']?></td>
-				<td style="text-align:center"><?=$row['is_hidden']?></td>
-				<td style="text-align:center"><?=$row['early_parsing']?></td>
-				<td style="text-align:center"><?=$row['save_as_file']?></td>
-				<td><a href="<?=sprintf($edit_var_url, 'new', 'manage')?>&amp;clone=<?=$row['variable_id']?>"
-					class="clone" title="<?=lang('clone')?> <?=$row['variable_name']?>">
-					<?=lang('clone')?>
-				</a></td>
+				<td class="low-toggle-prop" data-prop="hidden"><?=$row['is_hidden']?></td>
+				<td class="low-toggle-prop" data-prop="early"<?php if($settings['register_globals'] == 'n'): ?> data-disabled="true"<?php endif; ?>><?=$row['early_parsing']?></td>
+				<td class="low-toggle-prop" data-prop="file"<?php if ($settings['save_as_files'] == 'n'): ?> data-disabled="true"<?php endif; ?>><?=$row['save_as_file']?></td>
+				<td><a href="<?=sprintf($edit_var_url, 'new', 'manage')?>&amp;clone=<?=$row['variable_id']?>" class="clone" title="<?=lang('clone')?> <?=$row['variable_name']?>"><?=lang('clone')?></a></td>
 				<td><input type="checkbox" id="var_<?=$row['variable_id']?>" name="toggle[]" value="<?=$row['variable_id']?>" /></td>
 			</tr>
 			<?php endforeach; ?>
@@ -62,6 +59,7 @@
 			<select name="action" id="select_action">
 				<option value=""></option>
 				<option value="delete"><?=lang('delete')?></option>
+				<option value="sync"><?=lang('sync')?></option>
 				<optgroup label="<?=lang('show-hide')?>">
 					<option value="show"><?=lang('show')?></option>
 					<option value="hide"><?=lang('hide')?></option>

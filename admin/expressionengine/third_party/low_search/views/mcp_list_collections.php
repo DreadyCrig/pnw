@@ -21,7 +21,7 @@
 				<th scope="col"><?=lang('collection_label')?></th>
 				<th scope="col"><?=lang('collection_name')?></th>
 				<th scope="col"><?=lang('channel')?></th>
-				<th scope="col"><?=lang('search_index')?></th>
+				<th scope="col"><?=lang('index_options')?></th>
 				<th scope="col"><?=lang('delete')?></th>
 			</tr>
 		</thead>
@@ -29,7 +29,12 @@
 			<tfoot>
 				<tr>
 					<td colspan="4"></td>
-					<td><a href="#" id="build-all-indexes"><?=lang('build_all_indexes')?></a></td>
+					<td class="low-build-all index-options">
+						<?=lang('build_index')?> :
+						<a href="#" data-build="index"><?=lang('all_indexes')?></a> :
+						<a href="#" data-build="lexicon"><?=lang('all_lexicons')?></a> :
+						<a href="#" data-build="both"><?=lang('everything')?></a>
+					</td>
 					<td></td>
 				</tr>
 			</tfoot>
@@ -41,19 +46,27 @@
 					<td><a href="<?=$base_url?>&amp;method=edit_collection&amp;collection_id=<?=$row['collection_id']?>" title="<?=lang('edit_preferences')?>"><?=htmlspecialchars($row['collection_label'])?></a></td>
 					<td><?=htmlspecialchars($row['collection_name'])?></td>
 					<td><?=htmlspecialchars($row['channel'])?></td>
-					<td class="low-index ready">
-						<?php if ($totals[$row['channel_id']]): ?>
+					<?php if (empty($totals[$row['channel_id']])): ?>
+						<td><?=lang('no_entries')?></td>
+					<?php else: ?>
+						<td
+							class="low-index"
+							data-total="<?=$totals[$row['channel_id']]?>"
+							data-collection="<?=$row['collection_id']?>"
+							data-lexicon="<?=($row['language']?'true':'false')?>"
+						>
 							<div class="index-options">
-								<a href="<?=$row['index_url']?>" title="<?=lang('total_entries').': '.$totals[$row['channel_id']]?>"><?=lang(($row['index_status'] == 'empty') ? 'build_index' : 'rebuild_index')?></a>
-								<?php if ($row['index_status'] != 'ok'): ?><em><?=lang('index_status_'.$row['index_status'])?></em><?php endif; ?>
+								<span><?=number_format($totals[$row['channel_id']])?></span>
+								<?=lang('build_index')?>
+								<?php foreach ($row['index_options'] AS $option): ?>
+									 : <a href="#" data-build="<?=$option?>"><?=lang($option)?></a>
+								<?php endforeach; ?>
+								<?php if ($row['index_status'] != 'ok'): ?>
+									: <em><?=lang('index_status_'.$row['index_status'])?></em>
+								<?php endif; ?>
 							</div>
-							<div class="index-progress-bar">
-								0 / <?=$totals[$row['channel_id']]?>
-							</div>
-						<?php else: ?>
-							<div class="index-options"><?=lang('no_entries')?></div>
-						<?php endif; ?>
-					</td>
+						</td>
+					<?php endif; ?>
 					<td>
 						<a href="<?=$base_url?>&amp;method=delete_collection_confirm&amp;collection_id=<?=$row['collection_id']?>">
 							<img src="<?=$themes_url?>cp_themes/default/images/icon-delete.png" alt="<?=lang('delete')?>" />

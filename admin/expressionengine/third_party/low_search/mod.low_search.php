@@ -156,7 +156,7 @@ class Low_search extends Low_search_base {
 			// Handle lang="bar"
 			if (isset($get_collections['lang']))
 			{
-				list($val, $in) = low_explode_param($get_collections['lang']);
+				list($val, $in) = $this->params->explode($get_collections['lang']);
 
 				$collections = ee()->low_search_collection_model->get_by_language($val, $in, $collections);
 			}
@@ -183,7 +183,7 @@ class Low_search extends Low_search_base {
 			{
 				if (is_string($col))
 				{
-					list($active_collections, $in) = low_explode_param($col);
+					list($active_collections, $in) = $this->params->explode($col);
 				}
 				elseif (is_array($col))
 				{
@@ -539,7 +539,7 @@ class Low_search extends Low_search_base {
 
 		if ($shortcut_id = ee()->TMPL->fetch_param('shortcut_id'))
 		{
-			list($items, $in) = low_explode_param($shortcut_id);
+			list($items, $in) = $this->params->explode($shortcut_id);
 
 			ee()->db->{($in ? 'where_in' : 'where_not_in')}('shortcut_id', $items);
 		}
@@ -559,7 +559,7 @@ class Low_search extends Low_search_base {
 
 		if ($group_id = ee()->TMPL->fetch_param('group_id'))
 		{
-			list($items, $in) = low_explode_param($group_id);
+			list($items, $in) = $this->params->explode($group_id);
 
 			ee()->db->{($in ? 'where_in' : 'where_not_in')}('group_id', $items);
 		}
@@ -570,7 +570,7 @@ class Low_search extends Low_search_base {
 
 		if ($shortcut_name = ee()->TMPL->fetch_param('shortcut_name'))
 		{
-			list($items, $in) = low_explode_param($shortcut_name);
+			list($items, $in) = $this->params->explode($shortcut_name);
 
 			ee()->db->{($in ? 'where_in' : 'where_not_in')}('shortcut_name', $items);
 		}
@@ -797,12 +797,12 @@ class Low_search extends Low_search_base {
 			{
 				if ($fixed_order_param = $this->params->get('fixed_order'))
 				{
-					$entry_ids = low_merge_params($entry_ids, $fixed_order_param);
+					$entry_ids = $this->params->merge($entry_ids, $fixed_order_param);
 				}
 
 				if ($entry_id_param = $this->params->get('entry_id'))
 				{
-					$entry_ids = low_merge_params($entry_ids, $entry_id_param);
+					$entry_ids = $this->params->merge($entry_ids, $entry_id_param);
 				}
 
 				if (empty($entry_ids))
@@ -811,13 +811,19 @@ class Low_search extends Low_search_base {
 					return $this->_no_results();
 				}
 
+				// Set the IDs again
+				ee()->low_search_filters->set_entry_ids($entry_ids);
+
+				// Which param are we setting?
 				$param = (ee()->low_search_filters->fixed_order() || $fixed_order_param)
 					? 'fixed_order'
 					: 'entry_id';
 
-				// Still here: set the entry_id param
+				// Set it
+				$this->params->set($param, implode('|', $entry_ids));
+
+				// Log it
 				$this->_log("Setting {$param} param");
-				$this->params->set($param, low_implode_param($entry_ids));
 			}
 		}
 
@@ -844,7 +850,7 @@ class Low_search extends Low_search_base {
 		// Log the set parameters
 		// --------------------------------------
 
-		$this->_log('Parameters set: '. low_param_string(array_merge(
+		$this->_log('Parameters set: '.low_param_string(array_merge(
 			ee()->TMPL->tagparams,
 			ee()->TMPL->search_fields
 		)));
@@ -945,7 +951,7 @@ class Low_search extends Low_search_base {
 
 		if ($val = ee()->TMPL->fetch_param('lang'))
 		{
-			list($val, $in) = low_explode_param($val);
+			list($val, $in) = $this->params->explode($val);
 			$rows = ee()->low_search_collection_model->get_by_language($val, $in, $rows);
 		}
 
@@ -1034,7 +1040,7 @@ class Low_search extends Low_search_base {
 			$vars = array();
 
 			// Get values
-			list($vals, $in) = low_explode_param($it);
+			list($vals, $in) = $this->params->explode($it);
 
 			// Loop through param values
 			foreach ($vals AS $val)
@@ -1133,32 +1139,35 @@ class Low_search extends Low_search_base {
 	public function url()
 	{
 		// --------------------------------------
-		// Set internal params
+		// Are we starting from scratch?
 		// --------------------------------------
 
-		$this->params->set();
+		$reset = ($this->_extract_tagparam('reset') == 'yes');
 
 		// --------------------------------------
-		// Shortcut?
+		// Get optional query_string param
 		// --------------------------------------
 
-		$this->_get_shortcut();
+		$qs = $this->_extract_tagparam('query_string');
 
 		// --------------------------------------
-		// Params to ignore
+		// Set internal params if not resetting
 		// --------------------------------------
 
-		$ignore = array('query', 'query_string', 'encode', 'cache', 'refresh', 'parse', 'shortcut');
-
-		// --------------------------------------
-		// Is there a query_string parameter?
-		// This helps passing through params with an encoded string
-		// while using GET vars
-		// --------------------------------------
-
-		if ($qs = $this->_extract_tagparam('query_string'))
+		if ($reset)
 		{
-			$this->params->set($qs);
+			$this->params->reset();
+		}
+		else
+		{
+			// Set the params
+			$this->params->set();
+
+			// Set query string if given
+			if ($qs) $this->params->set($qs);
+
+			// And shortcut
+			$this->_get_shortcut();
 		}
 
 		// --------------------------------------
@@ -1167,6 +1176,7 @@ class Low_search extends Low_search_base {
 
 		// init toggle array
 		$toggle = array();
+		$ignore = array('query', 'encode', 'cache', 'refresh', 'parse', 'shortcut');
 
 		// Override with tagparams
 		foreach (ee()->TMPL->tagparams AS $key => $val)
@@ -1196,7 +1206,7 @@ class Low_search extends Low_search_base {
 			if ($current_val = $this->params->get($key))
 			{
 				// Read current value
-				list($values, $in) = low_explode_param($current_val);
+				list($values, $in) = $this->params->explode($current_val);
 
 				// check if value is there
 				if (($i = array_search($val, $values)) === FALSE)
@@ -1210,7 +1220,7 @@ class Low_search extends Low_search_base {
 					unset($values[$i]);
 				}
 
-				$val = low_implode_param($values, $in);
+				$val = $this->params->implode($values, $in);
 			}
 
 			// Add the new value to the parameter array (could be NULL)
@@ -1245,6 +1255,138 @@ class Low_search extends Low_search_base {
 	}
 
 	// --------------------------------------------------------------------
+
+	/**
+	 * Generate suggestions based on keywords given
+	 *
+	 * @access      public
+	 * @return      string
+	 */
+	public function suggestions()
+	{
+		// --------------------------------------
+		// Load Words lib
+		// --------------------------------------
+
+		ee()->load->library('Low_search_words');
+
+		// --------------------------------------
+		// use 'if no_suggestions' for no_results
+		// --------------------------------------
+
+		$this->_prep_no_results('no_suggestions');
+
+		// --------------------------------------
+		// Set internal params
+		// --------------------------------------
+
+		$this->params->set();
+
+		// --------------------------------------
+		// Get keywords
+		// --------------------------------------
+
+		$keywords = $this->params->get('keywords');
+		$keywords = ee()->TMPL->fetch_param('keywords', $keywords);
+		$keywords = ee()->low_search_words->clean($keywords);
+
+		// --------------------------------------
+		// Get language
+		// --------------------------------------
+
+		$lang = $this->params->get('keywords:lang');
+		$lang = ee()->TMPL->fetch_param('keywords:lang', $lang);
+
+		// --------------------------------------
+		// Get distance
+		// --------------------------------------
+
+		$distance = (int) ee()->TMPL->fetch_param('distance', 2);
+
+		// Limit to 1, 2 or 3
+		if ($distance < 1) $distance = 1;
+		if ($distance > 3) $distance = 3;
+
+		// --------------------------------------
+		// Get limit and sites
+		// --------------------------------------
+
+		$limit = (int) ee()->TMPL->fetch_param('limit', 5);
+		$sites = $this->params->site_ids();
+
+		// --------------------------------------
+		// Filter out keywords into the words
+		// --------------------------------------
+
+		$keywords = explode(' ', $keywords);
+		$keywords = array_filter($keywords, array(ee()->low_search_words, 'is_valid'));
+
+		$words = $keywords
+			? ee()->low_search_word_model->get_unknown($keywords, $lang, $sites)
+			: array();
+
+		// Only continue if we have words
+		if (empty($words))
+		{
+			$this->_log('No valid words to base suggesions on');
+			return ee()->TMPL->no_results();
+		}
+
+		// --------------------------------------
+		// Get method on which to base the suggestions
+		// --------------------------------------
+
+		$method = ee()->TMPL->fetch_param('method');
+
+		// --------------------------------------
+		// Initiate suggestions
+		// --------------------------------------
+
+		$this->_log('Getting suggestions for '.implode(', ', $words).' in '.$lang);
+
+		// Using soundex?
+		if ($method == 'soundex')
+		{
+			$suggestions = ee()->low_search_word_model->get_sounds($words, $lang, $sites, $distance);
+			$suggestions = low_flatten_results($suggestions, 'word');
+
+			// Show random suggestions
+			shuffle($suggestions);
+
+			// And limit them
+			$suggestions = array_slice($suggestions, 0, $limit);
+		}
+		// Or the default: Levenshtein
+		else
+		{
+			$suggestions = ee()->low_search_word_model->get_suggestions($words, $lang, $sites, $distance, $limit);
+		}
+
+		// --------------------------------------
+		// Convert into actual rows
+		// --------------------------------------
+
+		$total = count($suggestions);
+		$count = 0;
+		$rows  = array();
+
+		foreach ($suggestions AS $word)
+		{
+			$rows[] = array(
+				'suggestion_count'   => ++$count,
+				'total_suggestions'  => $total,
+				'suggestion'         => $word,
+				'suggestion:upper'   => ee()->low_multibyte->strtoupper($word),
+				'suggestion:ucfirst' => ucfirst($word)
+			);
+		}
+
+		return $rows
+			? ee()->TMPL->parse_variables(ee()->TMPL->tagdata, $rows)
+			: ee()->TMPL->no_results();
+	}
+
+	// --------------------------------------------------------------------
 	// ACT METHODS
 	// --------------------------------------------------------------------
 
@@ -1260,15 +1402,136 @@ class Low_search extends Low_search_base {
 		$license_key = $this->settings->get('license_key');
 		$given_key   = ee()->input->get_post('key');
 
-		if ($given_key && $license_key == $given_key)
-		{
-			ee()->load->library('low_search_index');
-			return ee()->low_search_index->build();
-		}
-		else
+		// Bail out if keys don't match
+		if ( ! ($given_key && $license_key == $given_key && REQ == 'ACTION'))
 		{
 			show_error(ee()->lang->line('not_authorized'));
 		}
+
+		// --------------------------------------
+		// Backward compat
+		// --------------------------------------
+
+		if (method_exists(ee()->security, 'restore_xid') &&
+			version_compare(APP_VER, '2.8.0', '<'))
+		{
+			ee()->security->restore_xid();
+		}
+
+		// --------------------------------------
+		// Load library
+		// --------------------------------------
+
+		ee()->load->library('low_search_index');
+
+		// --------------------------------------
+		// Get IDs from get or post and make sure they're numeric
+		// --------------------------------------
+
+		$entry_ids = $this->_get_ids('entry_id');
+		$col_ids   = $this->_get_ids('collection_id');
+		$col_total = count($col_ids);
+
+		// --------------------------------------
+		// Check for start and rebuild options
+		// --------------------------------------
+
+		$start   = ee()->input->get_post('start');
+		$rebuild = ee()->input->get_post('rebuild');
+
+		// --------------------------------------
+		// Update given entries only
+		// --------------------------------------
+
+		if ( ! $col_total && ! empty($entry_ids))
+		{
+			$response = ee()->low_search_index->build_by_entry($entry_ids);
+		}
+
+		// --------------------------------------
+		// Update given collections only, not in batches
+		// --------------------------------------
+
+		elseif ($col_total && $start === FALSE)
+		{
+			// No batch, just build all given collections
+			foreach ($col_ids AS $col_id)
+			{
+				$response = ee()->low_search_index->build_by_collection($col_id, $entry_ids);
+
+				// Bail out if FALSE is returned
+				if ( ! $response) break;
+			}
+		}
+
+		// --------------------------------------
+		// Batch-update given single collection
+		// --------------------------------------
+
+		elseif ($col_total == 1 && is_numeric($start))
+		{
+			// Focus on single collection ID
+			$col_id = $col_ids[0];
+
+			// Batch -- ignores entry IDs
+			$start = (int) $start;
+
+			// Rebuilding? Delete collection first
+			if ($start === 0 && $rebuild == 'yes')
+			{
+				ee()->low_search_index_model->delete($col_id, 'collection_id');
+			}
+
+			// Build the batch
+			$response = ee()->low_search_index->build_batch($col_id, $start);
+
+			// Optimize table if we're done
+			if ($response === TRUE)
+			{
+				ee()->low_search_index_model->optimize();
+			}
+		}
+
+		// --------------------------------------
+		// Invalid action
+		// --------------------------------------
+
+		else
+		{
+			show_error('Invalid action');
+		}
+
+		// --------------------------------------
+		// Exit through the gift shop
+		// --------------------------------------
+
+		if (is_ajax()) die(json_encode($response));
+	}
+
+	/**
+	 * Check get/post for given key, return numeric values
+	 */
+	private function _get_ids($key)
+	{
+		// If not given, return empty array
+		if ( ! ($ids = ee()->input->get_post($key))) return array();
+
+		// Make sure the IDs
+		if ( ! is_array($ids))
+		{
+			$ids = preg_split('/\D+/', $ids, NULL, PREG_SPLIT_NO_EMPTY);
+		}
+
+		// Filter the ids, bail out if we end up empty
+		if ( ! ($ids = array_filter($ids))) return array();
+
+		// Check for numeric IDs only
+		if ( ! low_array_is_numeric($ids))
+		{
+			show_error('Non-numeric IDs given for '.$key);
+		}
+
+		return $ids;
 	}
 
 	// --------------------------------------------------------------------
@@ -1338,7 +1601,7 @@ class Low_search extends Low_search_base {
 			$errors = array();
 
 			// Get required as array
-			list($required, $in) = low_explode_param($data['required']);
+			list($required, $in) = $this->params->explode($data['required']);
 
 			foreach ($required AS $req)
 			{
@@ -1605,11 +1868,11 @@ class Low_search extends Low_search_base {
 	 * @access      private
 	 * @return      void
 	 */
-	private function _prep_no_results()
+	private function _prep_no_results($open = 'low_search_no_results')
 	{
 		// Shortcut to tagdata
 		$td =& ee()->TMPL->tagdata;
-		$open = "if {$this->package}_no_results";
+		$open  = 'if '.$open;
 		$close = '/if';
 
 		// Check if there is a custom no_results conditional

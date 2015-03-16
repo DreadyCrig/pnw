@@ -11,6 +11,11 @@
 class Low_search_filter_categories extends Low_search_filter {
 
 	/**
+	 * Prefix
+	 */
+	private $_pfx = 'category:';
+
+	/**
 	 * Allows for category groups filtering: (1|2|3) && (4|5|6)
 	 *
 	 * @access     public
@@ -23,7 +28,7 @@ class Low_search_filter_categories extends Low_search_filter {
 		// --------------------------------------
 
 		$groups = array_filter(
-			$this->params->get_prefixed('category:'),
+			$this->params->get_prefixed($this->_pfx),
 			'low_param_is_numeric'
 		);
 
@@ -49,7 +54,7 @@ class Low_search_filter_categories extends Low_search_filter {
 			$val = $this->params->prep($key, $val);
 
 			// Get the parameter
-			list($ids, $in) = low_explode_param($val);
+			list($ids, $in) = $this->params->explode($val);
 
 			// Match all?
 			$all = (bool) strpos($val, '&');
@@ -94,7 +99,7 @@ class Low_search_filter_categories extends Low_search_filter {
 	 */
 	public function results($query)
 	{
-		$this->_remove_rogue_vars('category:');
+		$this->_remove_rogue_vars($this->_pfx);
 		return $query;
 	}
 }

@@ -10,248 +10,381 @@
  */
 class Low_search_index {
 
+	/**
+	 * Keep track of found fields
+	 */
+	private $_fields = array();
+
 	// --------------------------------------------------------------------
 
 	/**
-	 * Build collection index
+	 * Build index for given entry or entries
 	 *
-	 * @access      protected
-	 * @return      array
+	 * @access     public
+	 * @param      mixed     int or array of ints
+	 * @return     bool
 	 */
-	public function build($collection_id = FALSE, $entry_ids = FALSE, $start = FALSE)
+	public function build_by_entry($entry_ids, $build = NULL)
 	{
 		// --------------------------------------
-		// Check for collection_id or entry_id
+		// Force array
 		// --------------------------------------
 
-		$collection_id = ($collection_id !== FALSE) ? $collection_id : ee()->input->get_post('collection_id');
-		$entry_ids     = ($entry_ids !== FALSE) ? $entry_ids : ee()->input->get_post('entry_id');
-
-		// --------------------------------------
-		// Either collection_id or entry_id or both must be given
-		// --------------------------------------
-
-		if ( ! ($collection_id || $entry_ids)) show_error(ee()->lang->line('not_authorized'));
-
-		// --------------------------------------
-		// Start building query to get collection details
-		// --------------------------------------
-
-		ee()->db->select('lsc.collection_id, lsc.channel_id, lsc.settings, lsc.site_id');
-		ee()->db->from('low_search_collections lsc');
-
-		// --------------------------------------
-		// If there's a collection id, limit query by that one
-		// --------------------------------------
-
-		if ($collection_id)
+		if ( ! is_array($entry_ids))
 		{
-			ee()->db->where('lsc.collection_id', $collection_id);
+			$entry_ids = array($entry_ids);
 		}
 
 		// --------------------------------------
-		// If there's an entry_id, limit query by those
+		// Clean up
 		// --------------------------------------
 
-		if ($entry_ids)
-		{
-			// Force array
-			if ( ! is_array($entry_ids))
-			{
-				$entry_ids = preg_split('/\D+/', $entry_ids);
-			}
+		$entry_ids = array_filter($entry_ids);
 
-			// Get collections for given entries
-			ee()->db->select('GROUP_CONCAT(ct.entry_id) AS entries');
-			ee()->db->join('channel_titles ct', 'lsc.channel_id = ct.channel_id');
-			ee()->db->where_in('entry_id', $entry_ids);
-			ee()->db->group_by('lsc.collection_id');
+		// --------------------------------------
+		// Bail out if nothing given
+		// --------------------------------------
+
+		if (empty($entry_ids)) return FALSE;
+
+		// --------------------------------------
+		// Get collections for these entries
+		// --------------------------------------
+
+		$query = ee()->db->select('t.entry_id, c.collection_id')
+		       ->from('channel_titles t')
+		       ->join('low_search_collections c', 't.channel_id = c.channel_id')
+		       ->where_in('t.entry_id', $entry_ids)
+		       ->get();
+
+		// --------------------------------------
+		// No collections? Bail.
+		// --------------------------------------
+
+		if ( ! $query->num_rows()) return FALSE;
+
+		// --------------------------------------
+		// Collect in array
+		// --------------------------------------
+
+		$rows = array();
+
+		foreach ($query->result() AS $row)
+		{
+			$rows[$row->collection_id][] = $row->entry_id;
 		}
 
 		// --------------------------------------
-		// Execute query and get results. Bail out if none
+		// Call build_collection for each found
 		// --------------------------------------
 
-		if ( ! ($collections = ee()->db->get()->result_array()))
+		foreach ($rows AS $collection_id => $entry_ids)
+		{
+			$this->build_by_collection($collection_id, $entry_ids);
+		}
+
+		return TRUE;
+	}
+
+	// --------------------------------------------------------------------
+
+	/**
+	 * Build given collection in batches
+	 *
+	 * @access     public
+	 * @param      int
+	 * @param      int
+	 * @return     mixed     bool or int
+	 */
+	public function build_batch($collection_id, $start = 0, $build = NULL)
+	{
+		// --------------------------------------
+		// None given or invalid? Bail out
+		// --------------------------------------
+
+		if ( ! ($col = ee()->low_search_collection_model->get_by_id($collection_id)))
 		{
 			return FALSE;
 		}
 
-		$collections = low_associate_results($collections, 'collection_id');
-		$channel_ids = array_unique(low_flatten_results($collections, 'channel_id'));
+		// Focus on the one
+		$col = $col[$collection_id];
 
 		// --------------------------------------
-		// Get batch size
+		// Get total number entry IDs for collection's channel
 		// --------------------------------------
 
-		$batch_size = ee()->low_search_settings->get('batch_size');
+		$total = ee()->db->from('channel_titles')
+		       ->where('channel_id', $col['channel_id'])
+		       ->count_all_results();
+
+		$batch = ee()->low_search_settings->get('batch_size');
 
 		// --------------------------------------
-		// Get total number of entries that need to be indexed
+		// Get batch entry IDs for this collection
 		// --------------------------------------
 
-		if ($entry_ids)
+		$query = ee()->db->select('entry_id')
+		       ->from('channel_titles')
+		       ->where('channel_id', $col['channel_id'])
+		       ->order_by('entry_id')
+		       ->limit($batch, $start)
+		       ->get();
+
+		$entry_ids = low_flatten_results($query->result_array(), 'entry_id');
+
+		// --------------------------------------
+		// Call build by collection, with given batch
+		// --------------------------------------
+
+		$ok = $this->build_by_collection($collection_id, $entry_ids, $build);
+
+		// --------------------------------------
+		// Return new start position or TRUE if finished
+		// --------------------------------------
+
+		if ($ok)
 		{
-			$num_entries = count($entry_ids);
+			// New start position
+			$start = $start + $batch;
+
+			// Or TRUE if finished
+			if ($start >= $total) $start = TRUE;
 		}
 		else
 		{
-			ee()->db->where_in('channel_id', $channel_ids);
-			$num_entries = ee()->db->count_all_results('channel_titles');
+			$start = FALSE;
 		}
 
+		return $start;
+	}
+
+	// --------------------------------------------------------------------
+
+	/**
+	 * Build index by given collection ID, optionally limited by given IDs
+	 *
+	 * @access     public
+	 * @param      int
+	 * @param      array
+	 * @return     bool
+	 */
+	public function build_by_collection($collection_id, $entry_ids = array(), $build = NULL)
+	{
 		// --------------------------------------
-		// Get weighted field settings only, keep track of field ids
+		// Get collection details
 		// --------------------------------------
 
-		$fields  = array();
-		$entries = array();
-
-		foreach ($collections AS &$col)
+		if ( ! ($cols = ee()->low_search_collection_model->get_by_id($collection_id)))
 		{
-			$col['settings'] = array_filter(low_search_decode($col['settings'], FALSE));
+			return FALSE;
+		}
 
-			// Add field ids to fields array
-			$fields = array_merge($fields, array_keys($col['settings']));
+		// Focus on the one
+		$col = $cols[$collection_id];
 
-			if (isset($col['entries']))
+		// --------------------------------------
+		// Select what from entries?
+		// --------------------------------------
+
+		$fields = array_keys($col['settings']);
+		$select = array('t.entry_id');
+		$field_ids = $cat_fields = array();
+
+		foreach ($fields AS $id)
+		{
+			// Regular fields are numeric
+			if (is_numeric($id))
 			{
-				foreach (explode(',', $col['entries']) AS $eid)
-				{
-					$entries[$eid][] = $col['collection_id'];
-				}
+				$select[] = ($id == '0') ? 't.title AS field_id_0' : 'd.field_id_'.$id;
+				if ($id) $field_ids[] = $id;
+			}
+			// Non-numeric fields are category fields
+			else
+			{
+				// Split in group and field ID and add to cats
+				list($group, $id) = explode(':', $id);
+				if (is_numeric($id)) $id = 'field_id_'.$id;
+				if ( ! in_array($id, $cat_fields)) $cat_fields[] = $id;
 			}
 		}
 
-		// Get rid of duplicate field ids
-		$fields = array_unique($fields);
-		sort($fields);
-
 		// --------------------------------------
-		// Let an extension take over?
+		// Get entries for this collection
 		// --------------------------------------
 
 		if (ee()->extensions->active_hook('low_search_get_index_entries') === TRUE)
 		{
-			$index_entries = ee()->extensions->call('low_search_get_index_entries',
-				$fields, $channel_ids, $entry_ids, $start, $batch_size);
+			$entries = ee()->extensions->call('low_search_get_index_entries', $col, $entry_ids);
 		}
 		else
 		{
-			// --------------------------------------
-			// Create select list
-			// --------------------------------------
-
-			$select = array('t.entry_id', 't.channel_id');
-
-			foreach ($fields AS $field_id)
-			{
-				// Skip non-numeric settings
-				if ( ! is_numeric($field_id)) continue;
-
-				$select[] = ($field_id == '0') ? 't.title AS field_id_0' : 'd.field_id_'.$field_id;
-			}
-
-			// --------------------------------------
-			// Start building query
-			// --------------------------------------
-
 			ee()->db->select($select)
-				->from('channel_titles t')
-				->join('channel_data d', 't.entry_id = d.entry_id', 'inner')
-				->where_in('t.channel_id', $channel_ids)
-				->order_by('entry_id', 'asc');
+			        ->from('channel_titles t')
+			        ->join('channel_data d', 't.entry_id = d.entry_id')
+			        ->where('t.channel_id', $col['channel_id']);
 
-			// --------------------------------------
-			// Optional: Limit to given entries
-			// --------------------------------------
-
-			if ($entry_ids)
+			// Optionally limit by given entry IDs
+			if (is_array($entry_ids) && ! empty($entry_ids))
 			{
 				ee()->db->where_in('t.entry_id', $entry_ids);
 			}
 
-			// --------------------------------------
-			// Optional: Limit entries by batch size
-			// --------------------------------------
+			$entries = ee()->db->get()->result_array();
+			$entries = low_associate_results($entries, 'entry_id');
 
-			if ($start !== FALSE && is_numeric($start))
+			// Get categories for the found entries
+			foreach ($this->get_entry_categories(array_keys($entries), $cat_fields) AS $key => $val)
 			{
-				ee()->db->limit($batch_size, $start);
-			}
-
-			// --------------------------------------
-			// Query it!
-			// --------------------------------------
-
-			$query = ee()->db->get();
-
-			// Make sure the rows are keyed by their entry_id
-			$index_entries = low_associate_results($query->result_array(), 'entry_id');
-
-			// --------------------------------------
-			// Get category info for these entries
-			// --------------------------------------
-
-			if ($entry_cats = $this->get_entry_categories(array_keys($index_entries)))
-			{
-				// add the categories to the index_entries rows
-				foreach ($entry_cats AS $entry_id => $cats)
-				{
-					$index_entries[$entry_id] += $cats;
-				}
+				$entries[$key] += $val;
 			}
 		}
 
 		// --------------------------------------
-		// Loop thru the entries to index
+		// Load the fields
 		// --------------------------------------
 
-		foreach ($index_entries AS $row)
-		{
-			// If it's a given entry, loop thru its collections and rebuild index
-			if (isset($entries[$row['entry_id']]))
-			{
-				foreach ($entries[$row['entry_id']] AS $col_id)
-				{
-					// Collection details
-					$col = $collections[$col_id];
+		$this->_load_fields($field_ids);
 
-					// Build index for this entry/collection combo
-					ee()->low_search_index_model->build($col, $row);
+		// --------------------------------------
+		// Load words lib
+		// --------------------------------------
+
+		ee()->load->library('Low_search_words');
+
+		// --------------------------------------
+		// Build index for each entry
+		// --------------------------------------
+
+		// Seen words for cache
+		static $seen = array();
+		$index = $lexicon = array();
+
+		// batch-insert 100 at a time
+		$batch = 100;
+
+		foreach ($entries AS $entry)
+		{
+			// Make sure all fields have their content (check fieldtypes)
+			$entry = $this->_prep_entry($col, $entry);
+
+			// --------------------------------------
+			// Optionally build lexicon
+			// --------------------------------------
+
+			if ($col['language'] && $build != 'index')
+			{
+				// Get the words for the lexicon
+				$words = explode(' ', implode(' ', $entry));
+				$words = array_filter($words, array(ee()->low_search_words, 'is_valid'));
+				$words = array_unique($words);
+
+				// Diff 'em from the words we've already encountered or ignoring
+				$words = array_diff($words, $seen);
+				$words = array_diff($words, ee()->low_search_settings->ignore_words());
+
+				// And remember what we've seen
+				$seen = array_merge($seen, $words);
+
+				// Build lexicon
+				foreach ($words AS $word)
+				{
+					// Get clean word
+					$clean = ee()->low_search_words->remove_diacritics($word);
+
+					// Get sound of word
+					$sound = soundex($word);
+
+					// Add row
+					$lexicon[] = array(
+						'site_id'  => $col['site_id'],
+						'word'     => $word,
+						'language' => $col['language'],
+						'length'   => ee()->low_multibyte->strlen($word),
+						'sound'    => ($sound == '0000' ? NULL : $sound),
+						'clean'    => ($word == $clean ? NULL : $clean)
+					);
+				}
+
+				if (count($lexicon) >= $batch)
+				{
+					ee()->low_search_word_model->insert_ignore_batch($lexicon);
+					$lexicon = array();
 				}
 			}
-			// If it's not a given entry, loop thru all collections (which should be 1) and rebuild index
-			else
+
+			// --------------------------------------
+			// Optionally build index
+			// --------------------------------------
+
+			if ($build != 'lexicon')
 			{
-				foreach ($collections AS $col_id => $col)
+				// --------------------------------------
+				// Apply weight to the entry
+				// --------------------------------------
+
+				$text = $this->_get_weighted_text($col, $entry);
+				$text = ee()->low_search_words->remove_diacritics($text);
+
+				// Compose data to insert
+				$data = array(
+					'collection_id' => $col['collection_id'],
+					'entry_id'      => $entry['entry_id'],
+					'site_id'       => $col['site_id'],
+					'index_text'    => $text,
+					'index_date'    => ee()->localize->now
+				);
+
+				// --------------------------------------
+				// 'low_search_update_index' hook
+				// - Add additional attributes to the index
+				// --------------------------------------
+
+				if (ee()->extensions->active_hook('low_search_update_index') === TRUE)
 				{
-					if ($row['channel_id'] == $col['channel_id'])
+					$ext_data = ee()->extensions->call('low_search_update_index', $data, $entry);
+
+					if (is_array($ext_data) && ! empty($ext_data))
 					{
-						ee()->low_search_index_model->build($col, $row);
+						$data = array_merge($data, $ext_data);
 					}
 				}
+
+				// --------------------------------------
+				// Add data to rows for batch replace
+				// --------------------------------------
+
+				$index[] = $data;
+
+				// --------------------------------------
+				// If we're at a batch size, insert 'em
+				// --------------------------------------
+
+				if (count($index) == $batch)
+				{
+					ee()->low_search_index_model->replace_batch($index);
+
+					// and reset the rows
+					$index = array();
+				}
 			}
 		}
 
-		// Determine new start
-		$new_start = $start + $batch_size;
-
-		// Are we done?
-		$done = ($new_start >= $num_entries);
-
 		// --------------------------------------
-		// Prep response
+		// Insert left-overs
 		// --------------------------------------
 
-		$response = array(
-			'status'        => $done ? 'done' : 'building',
-			'start'         => (int) $new_start,
-			'total_entries' => (int) $num_entries,
-			'processed'     => count($index_entries)
-		);
+		if ($lexicon)
+		{
+			ee()->low_search_word_model->insert_ignore_batch($lexicon);
+		}
 
-		return $response;
+		if ($index)
+		{
+			ee()->low_search_index_model->replace_batch($index);
+		}
+
+		return TRUE;
 	}
 
 	// --------------------------------------------------------------------
@@ -260,100 +393,285 @@ class Low_search_index {
 	 * Get categories for entries
 	 *
 	 * @access     public
-	 * @param      mixed [int|array]
-	 * @param      mixed [null|array]
+	 * @param      array
+	 * @param      array
 	 * @return     array
 	 */
-	public function get_entry_categories($entry_ids, $cat_ids = NULL)
+	public function get_entry_categories($entry_ids, $fields)
 	{
+		// --------------------------------------
 		// Prep output
+		// --------------------------------------
+
 		$cats = array();
 
+		if (empty($entry_ids) || empty($fields)) return $cats;
+
 		// --------------------------------------
-		// Two options: either get cats by their entry id,
-		// or get details for given cat ids.
-		// Compose query based on those two options.
+		// Get all categories plus data for given entries
 		// --------------------------------------
 
-		$ok     = FALSE;
-		$select = array('c.cat_id', 'c.group_id', 'c.cat_name', 'c.cat_description', 'fd.*');
-		$joins  = array(array('category_field_data fd', 'c.cat_id = fd.cat_id', 'left'));
-		$where  = array();
-
-		if (is_array($entry_ids) && ! empty($entry_ids))
-		{
-			// Option 1: get categories by given entry_ids
-			$ok = TRUE;
-			$select[] = 'cp.entry_id';
-			$joins[] = array('category_posts cp', 'c.cat_id = cp.cat_id', 'inner');
-			$where['cp.entry_id'] = $entry_ids;
-		}
-		elseif (is_array($cat_ids) && ! empty($cat_ids))
-		{
-			// Option 2: get categories by given cat_ids,
-			// hardcode entry ID to be compatible
-			$ok = TRUE;
-			$select[] = "'{$entry_ids}' AS `entry_id`";
-			$where['c.cat_id'] = $cat_ids;
-		}
-
-		// Not ok? Bail out
-		if ( ! $ok) return $cats;
-
-		// Start query
-		ee()->db->select($select, FALSE);
-		ee()->db->from('categories c');
-
-		// Process joins
-		foreach ($joins AS $join)
-		{
-			list($table, $on, $type) = $join;
-			ee()->db->join($table, $on, $type);
-		}
-
-		// Process wheres
-		foreach ($where AS $key => $val)
-		{
-			ee()->db->where_in($key, $val);
-		}
-
-		// Execute query
-		$query = ee()->db->get();
+		$query = ee()->db->select('p.entry_id, c.cat_id, c.group_id, c.cat_name, c.cat_description, d.*')
+			->from('categories c')
+			->join('category_field_data d', 'c.cat_id = d.cat_id', 'left')
+			->join('category_posts p', 'c.cat_id = p.cat_id', 'inner')
+			->where_in('p.entry_id', $entry_ids)
+			->get();
 
 		// --------------------------------------
 		// Done with the query; loop through results
 		// --------------------------------------
-
-		// Relevant non-custom fields
-		$fields = array('cat_name', 'cat_description');
 
 		foreach ($query->result_array() AS $row)
 		{
 			// Loop through each result and populate the output
 			foreach ($row AS $key => $val)
 			{
-				// Skip non-valid fields
-				if ( ! in_array($key, $fields) && ! preg_match('/^field_id_(\d+)$/', $key, $match)) continue;
+				// Skip non-valid fields or empty ones
+				if ( ! in_array($key, $fields) || empty($val)) continue;
 
-				// We're OK! Go on with composing the right key:
-				// Either the name or description or custom field ID
-				$cat_field = $match ? $match[1] : $key;
+				// Set field to ID if applicable
+				if (preg_match('/^field_id_(\d+)$/', $key, $match))
+				{
+					$key = $match[1];
+				}
 
 				// Use that as the key in the array to return
-				$cats[$row['entry_id']]["{$row['group_id']}:{$cat_field}"][$row['cat_id']] = $val;
+				$cats[$row['entry_id']]["{$row['group_id']}:{$key}"][$row['cat_id']] = $val;
 			}
 		}
 
+		return $cats;
+	}
+
+	// --------------------------------------------------------------------
+
+	/**
+	 * Load fieldtypes for given field IDs -- populates $this->_fields
+	 *
+	 * @access     private
+	 * @param      array
+	 * @return     void
+	 */
+	private function _load_fields($field_ids)
+	{
 		// --------------------------------------
-		// Focus on the single one if one entry_id is given
+		// Load addon/fieldtype files
 		// --------------------------------------
 
-		if ( ! is_array($entry_ids))
+		ee()->load->library('addons');
+
+		// Include EE Fieldtype class
+		if ( ! class_exists('EE_Fieldtype'))
 		{
-			$cats = $cats[$entry_ids];
+			include_once (APPPATH.'fieldtypes/EE_Fieldtype'.EXT);
 		}
 
-		return $cats;
+		// --------------------------------------
+		// Initiate fieldtypes var
+		// --------------------------------------
+
+		static $fieldtypes;
+
+		// Set fieldtypes
+		if ($fieldtypes === NULL)
+		{
+			$fieldtypes = ee()->addons->get_installed('fieldtypes');
+		}
+
+		// --------------------------------------
+		// Check for ids we haven't dealt with yet
+		// --------------------------------------
+
+		$not_encountered = array_diff($field_ids, array_keys($this->_fields));
+
+		if (empty($not_encountered)) return;
+
+		// --------------------------------------
+		// Get the details for not encountered fields
+		// --------------------------------------
+
+		$query = ee()->db->select()
+		       ->from('channel_fields')
+		       ->where_in('field_id', $not_encountered)
+		       ->get();
+
+		foreach ($query->result() AS $field)
+		{
+			// Shortcut to fieldtype
+			$ftype = $fieldtypes[$field->field_type];
+
+			// Include the file if it doesn't yet exist
+			if ( ! class_exists($ftype['class']))
+			{
+				require $ftype['path'].$ftype['file'];
+			}
+
+			// Only initiate the fieldtypes that have the necessary method
+			if (method_exists($ftype['class'], 'third_party_search_index'))
+			{
+				// Initiate this fieldtype
+				$obj = new $ftype['class'];
+
+				// Add settings to object
+				if ($settings = @unserialize(base64_decode($field->field_settings)))
+				{
+					$settings = array_merge( (array) $field, $settings );
+				}
+
+				// Set this instance's settings
+				$obj->settings = $settings;
+			}
+			else
+			{
+				$obj = TRUE;
+			}
+
+			// Record the field
+			$this->_fields[$field->field_id] = $obj;
+		}
+	}
+
+	// --------------------------------------------------------------------
+
+	/**
+	 * Make sure all the fields in the entry have their content
+	 *
+	 * @access     private
+	 * @param      array     collection
+	 * @param      array     entry
+	 * @return     string
+	 */
+	private function _prep_entry($col, $entry)
+	{
+		// --------------------------------------
+		// Loop through the entry's keys and fire the third_party method, if present
+		// --------------------------------------
+
+		foreach (array_keys($entry) AS $field_name)
+		{
+			// Skip entry_id
+			if ($field_name == 'entry_id') continue;
+
+			// --------------------------------------
+			// Determine proper field id
+			// --------------------------------------
+
+			$field_id = (preg_match('/^field_id_(\d+)$/', $field_name, $match))
+				? $match[1]
+				: FALSE;
+
+			// --------------------------------------
+			// Fire third party thingie for this field?
+			// --------------------------------------
+
+			if ($field_id && array_key_exists($field_id, $this->_fields) && is_object($this->_fields[$field_id]))
+			{
+				// Extra settings per entry
+				$settings = array(
+					'entry_id'      => $entry['entry_id'],
+					'collection_id' => $col['collection_id']
+				);
+
+				// Merge the extra settings
+				$this->_fields[$field_id]->settings = array_merge(
+					$this->_fields[$field_id]->settings,
+					$settings
+				);
+
+				// If fieldtype exists, it will have the correct method, so call that
+				$entry[$field_name] = $this->_fields[$field_id]->third_party_search_index($entry[$field_name]);
+			}
+
+			// --------------------------------------
+			// Get the value for this field and force arry
+			// --------------------------------------
+
+			$val = (array) $entry[$field_name];
+
+			// Clean up the values
+			$val = array_map(array(ee()->low_search_words, 'clean'), $val);
+
+			// And turn back into a string
+			$val = implode(' | ', $val);
+
+			// Set it to the entry's value
+			$entry[$field_name] = trim($val);
+		}
+
+		// --------------------------------------
+		// Filter out empty values
+		// --------------------------------------
+
+		$entry = array_filter($entry);
+
+		// --------------------------------------
+		// Return the prep'ed entry again
+		// --------------------------------------
+
+		return $entry;
+	}
+
+	// --------------------------------------------------------------------
+
+	/**
+	 * Get index text based in given entry
+	 *
+	 * @access     private
+	 * @param      array     collection
+	 * @param      array     entry
+	 * @return     string
+	 */
+	private function _get_weighted_text($col, $entry)
+	{
+		// --------------------------------------
+		// Init text array which will contain the index
+		// and weight separator
+		// --------------------------------------
+
+		$text = array();
+		$sep  = ' | ';
+
+		// --------------------------------------
+		// Loop through settings and add weight to field by repeating string
+		// --------------------------------------
+
+		foreach ($entry AS $key => $val)
+		{
+			// Skip entry_id
+			if ($key == 'entry_id' || empty($val)) continue;
+
+			// --------------------------------------
+			// Determine proper settings ID
+			// --------------------------------------
+
+			$key = (preg_match('/^field_id_(\d+)$/', $key, $match))
+				? $match[1]
+				: $key;
+
+			// --------------------------------------
+			// Get weight
+			// --------------------------------------
+
+			$weight = array_key_exists($key, $col['settings'])
+				? $col['settings'][$key]
+				: FALSE;
+
+			// Skip if not there
+			if ( ! $weight) continue;
+
+			// --------------------------------------
+			// Apply weight and add to text
+			// --------------------------------------
+
+			$text[] = trim($sep.str_repeat($val.$sep, $weight));
+		}
+
+		// --------------------------------------
+		// Return text with each field on its own line
+		// --------------------------------------
+
+		return implode(NL, $text);
 	}
 
 }

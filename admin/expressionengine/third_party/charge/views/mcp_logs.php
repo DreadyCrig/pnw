@@ -10,7 +10,7 @@
 
 		<?php if(count($logs) == 0) : ?>
 			<div class="alert">
-				Nothing in the logs just yet. Need a hand getting started? <a href="http://squarebit.co.uk/addons/charge">Full Documentation is here</a> or <a href="mailto:support@squarebit.co.uk">Email support and we'll help you out</a>.
+				Nothing in the logs just yet. Need a hand getting started? <a href="http://squarebit.co.uk/software/expressionengine/charge">Full Documentation is here</a> or <a href="mailto:support@squarebit.co.uk">Email support and we'll help you out</a>.
 			</div>
 		<?php else: ?>
 

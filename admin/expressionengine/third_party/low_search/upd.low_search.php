@@ -279,6 +279,15 @@ class Low_search_upd extends Low_search_base {
 		}
 
 		// --------------------------------------
+		// Update to 4.0.0
+		// --------------------------------------
+
+		if (version_compare($current, '4.0.0', '<'))
+		{
+			$this->_v400();
+		}
+
+		// --------------------------------------
 		// Update extension version
 		// --------------------------------------
 
@@ -488,6 +497,17 @@ class Low_search_upd extends Low_search_base {
 
 		// Add the field to the table
 		ee()->db->query($sql);
+	}
+
+	/**
+	 * Update routines for version 4.0.0
+	 *
+	 * @access     private
+	 * @return     void
+	 */
+	private function _v400()
+	{
+		ee()->low_search_word_model->install();
 	}
 
 } // End class

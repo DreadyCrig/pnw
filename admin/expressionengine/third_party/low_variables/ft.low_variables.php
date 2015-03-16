@@ -9,7 +9,7 @@ include(PATH_THIRD.'low_variables/config.php');
  * @package        low_variables
  * @author         Lodewijk Schutte <hi@gotolow.com>
  * @link           http://gotolow.com/addons/low-variables
- * @copyright      Copyright (c) 2009-2013, Low
+ * @copyright      Copyright (c) 2009-2015, Low
  */
 
 class Low_variables_ft extends EE_Fieldtype {

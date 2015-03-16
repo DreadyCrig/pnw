@@ -4,7 +4,7 @@
  * @package        low_variables
  * @author         Lodewijk Schutte <hi@gotolow.com>
  * @link           http://gotolow.com/addons/low-variables
- * @copyright      Copyright (c) 2009-2013, Low
+ * @copyright      Copyright (c) 2009-2015, Low
  */
 
 /* Low Variables menu for EE1
@@ -210,6 +210,10 @@ div.low-cell-header {
 -------------------------------------------------*/
 #low-varlist {
 	margin-left:210px;
+}
+
+#low-varlist.no-group {
+	margin-left:0;
 }
 
 #low-varlist .low-vargroup {
@@ -595,6 +599,10 @@ label.low-inline {
 
 #low-list-vars tr.selected td {
 	background-color:#ffe;
+}
+
+#low-list-vars .low-toggle-prop {
+	text-align:center;
 }
 
 #low-list-vars .onoff {

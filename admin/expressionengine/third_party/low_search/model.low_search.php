@@ -274,32 +274,44 @@ abstract class Low_search_model extends CI_Model {
 	public function install()
 	{
 		// Begin composing SQL query
-		$sql = "CREATE TABLE IF NOT EXISTS {$this->_table} ( ";
+		$pk = $rows = array();
 
 		// Add primary key -- is it an array?
 		if (is_array($this->_pk))
 		{
-			foreach ($this->_pk AS $key)
+			foreach ($this->_pk AS $key => $val)
 			{
-				$sql .= "{$key} int(10) unsigned NOT NULL, ";
+				$pk[]   = is_numeric($key) ? $val : $key;
+				$rows[] = is_numeric($key)
+					? $val.' int(10) unsigned NOT NULL'
+					: $key.' '.$val;
 			}
 		}
-		else
+		// or default string
+		elseif (is_string($this->_pk))
 		{
-			$sql .= "{$this->_pk} int(10) unsigned NOT NULL AUTO_INCREMENT, ";
+			$pk[]   = $this->_pk;
+			$rows[] = $this->_pk.' int(10) unsigned NOT NULL AUTO_INCREMENT';
 		}
 
-		// add other attributes
+		// compose attributes
 		foreach ($this->_attributes AS $attr => $props)
 		{
-			$sql .= "{$attr} {$props}, ";
+			$rows[] = $attr.' '.$props;
 		}
 
 		// Set PK
-		$sql .= "PRIMARY KEY (".implode(',', (array) $this->_pk).")) ";
+		if ($pk)
+		{
+			$rows[] = sprintf('PRIMARY KEY (%s)', implode(',', $pk));
+		}
 
 		// And character set
-		$sql .= "CHARACTER SET utf8 COLLATE utf8_general_ci;";
+		$sql = sprintf(
+			"CREATE TABLE IF NOT EXISTS %s (\n%s) CHARACTER SET utf8 COLLATE utf8_general_ci;",
+			$this->_table,
+			implode(",\n", $rows)
+		);
 
 		// Execute query
 		ee()->db->query($sql);

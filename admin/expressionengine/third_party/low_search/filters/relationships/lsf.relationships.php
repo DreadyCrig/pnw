@@ -55,7 +55,7 @@ class Low_search_filter_relationships extends Low_search_filter {
 			$val = $this->params->prep($key, $val);
 
 			// Get the parameter
-			list($ids, $in) = low_explode_param($val);
+			list($ids, $in) = $this->params->explode($val);
 
 			// Match all?
 			$all = (bool) strpos($val, '&');

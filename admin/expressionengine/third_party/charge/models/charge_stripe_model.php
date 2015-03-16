@@ -4,10 +4,10 @@
  * Charge Stripe Model class
  *
  * @package         charge_ee_addon
- * @version         1.8.12
+ * @version         1.9.0
  * @author          Joel Bradbury ~ <joel@squarebit.co.uk>
- * @link            http://squarebit.co.uk/addons/charge
- * @copyright       Copyright (c) 2014, Joel Bradbury/Square Bit
+ * @link            http://squarebit.co.uk/software/expressionengine/charge
+ * @copyright       Copyright (c) 2015, Joel Bradbury/Square Bit
  */
 class Charge_stripe_model extends Charge_model
 {
@@ -45,8 +45,6 @@ class Charge_stripe_model extends Charge_model
     /**
      * Constructor
      *
-     * @access      public
-     * @return      void
      */
     function __construct()
     {
@@ -68,6 +66,8 @@ class Charge_stripe_model extends Charge_model
                 'source_url'            => 'varchar(255) NOT NULL default ""',
                 'type'                  => 'varchar(100) NOT NULL default ""',
                 'customer_id'           => 'varchar(100) NOT NULL default ""',
+                'payment_id'            => 'varchar(100) NOT NULL default ""',
+
 
                 'plan_amount'           => 'int(10) unsigned NOT NULL default 0',
                 'plan_interval'         => 'varchar(255) NOT NULL default ""',
@@ -180,8 +180,6 @@ class Charge_stripe_model extends Charge_model
             if (isset($data['data'])) $data = $data['data'];
 
             $data = $this->_to_array($data);
-
-            //    $data = $this->_clean_array($data);
 
         } catch (Exception $e) {
             $this->api_error_message = $e->getMessage();
@@ -364,7 +362,7 @@ class Charge_stripe_model extends Charge_model
 
                             // Special test for trial states
                             if ($sub_key == 'status' AND $sub_val == 'trialing') {
-                                // Test to see if the trial has expireddumpeR($sub);
+                                // Test to see if the trial has expired
 
                                 if ($sub['trial_end'] < time()) {
                                     // Trial has expired
@@ -485,9 +483,6 @@ class Charge_stripe_model extends Charge_model
                 $sub_id = $sub->id;
             }
 
-            //   dumpeR('we dont want to create a new subscription, but update the existing one if possible so we can retain the trial dates etc..');
-            // $cu = Stripe_Customer::retrieve($this->action_charge['customer_id']);
-            //     $cu->subscriptions->create(array('plan' => $plan_id));
 
             $sub->plan = $plan_id;
             $sub->status = $state;
@@ -495,7 +490,6 @@ class Charge_stripe_model extends Charge_model
             // Update our record too
             $this->reactivate_charge($this->action_charge['id'], $state);
 
-        } catch (Exception $e) {
         } catch (Exception $e) {
             return false;
         }
@@ -823,9 +817,24 @@ class Charge_stripe_model extends Charge_model
 
             if (isset($this->data['plan']['balance'])) $stripe_arr['account_balance'] = $this->data['plan']['balance'];
 
-            $customer = Stripe_Customer::create($stripe_arr);
+            // Do we actually need to create a customer?
+            // If this user is logged in have a quick check to see if there's already a customer record for them
+            $customer = null;
+            if(ee()->session->userdata('member_id') != '0') {
+                $customer = $this->_attempt_customer_fetch(ee()->session->userdata('member_id'));
+            }
 
-            ee()->charge_log->log_customer_created(Charge_obj_to_array($customer));
+            if($customer == null) {
+                $customer = Stripe_Customer::create($stripe_arr);
+                ee()->charge_log->log_customer_created(Charge_obj_to_array($customer));
+            } else {
+                foreach($stripe_arr as $key => $val) {
+                    $customer->$key = $val;
+                }
+                $customer->save();
+                ee()->charge_log->log_customer_updated(Charge_obj_to_array($customer));
+            }
+
 
             // Pull out the card exp month/year from the customer->card object
             // at the same time we wipe their card record from our account
@@ -835,6 +844,26 @@ class Charge_stripe_model extends Charge_model
             $this->data['card']['exp_year'] = $card['exp_year'];
             $this->data['card']['fingerprint'] = $card['fingerprint'];
 
+            // If the customer had a coupon applied, the value paid may be different from the value passed.
+            // Lets hit the api and pull this customer's payments and see
+            if(isset($stripe_arr['coupon']) && $stripe_arr['coupon'] != '') {
+                $paymentsList = Stripe_Charge::all(array('customer' => $customer->id, 'limit' => 1));
+
+                // Get the first payment
+                $payments = $paymentsList->data;
+                if(!empty($payments)) {
+                    $payment = current($payments);
+                    $amount = $payment->amount;
+                    $planAmount = $this->data['plan']['amount'];
+
+                    // Is there a difference between the amount paid and the original plan_amount?
+                    if($amount != $planAmount) {
+                        $this->data['plan']['amount'] = $amount;
+                        $this->data['plan']['discount'] = $planAmount - $amount;
+                        $this->data['plan']['full_amount'] = $planAmount;
+                    }
+                }
+            }
 
             if (ee()->extensions->active_hook('charge_customer_created') === true) {
                 ee()->extensions->call('charge_customer_created', $customer, $this);
@@ -901,6 +930,8 @@ class Charge_stripe_model extends Charge_model
                 if (isset($clean_stripe['id'])) $data['customer_id'] = $clean_stripe['id'];
             }
         }
+        $data['payment_id'] = ''; // Just in case we can't find this later
+        if (isset($clean_stripe['id']) && $clean_stripe['object'] == 'charge') $data['payment_id'] = $clean_stripe['id'];
 
         if ($data['mode'] == '0' OR $data['mode'] == '') $data['mode'] = 'test';
 
@@ -974,10 +1005,10 @@ class Charge_stripe_model extends Charge_model
 
         $this->_full_metadata = $meta;
 
-        if (count($meta) > 10) {
-            // We have an issue, Stripe only allows 10 keys per item
-            // Break this down. return the first 10, but keep the rest for local records
-            $meta = array_slice($meta, 0, 10);
+        if (count($meta) > 20) {
+            // We have an issue, Stripe only allows 20 keys per item
+            // Break this down. return the first 20, but keep the rest for local records
+            $meta = array_slice($meta, 0, 20);
         }
 
         return $meta;
@@ -1077,6 +1108,21 @@ class Charge_stripe_model extends Charge_model
         if ($customer_id == '') return false;
 
         return $customer_id;
+    }
+
+    public function retrieve_stripe_customer($customer_id)
+    {
+        try{
+            $customer = Stripe_Customer::retrieve($customer_id);
+
+            return $customer;
+
+        } catch(Exception $e) {
+            $this->api_error_message = $e->getMessage();
+            return FALSE;
+        }
+
+        return FALSE;
     }
 
 
@@ -1318,6 +1364,29 @@ class Charge_stripe_model extends Charge_model
         return false;
     }
 
+
+    private function _attempt_customer_fetch($member_id)
+    {
+        ee()->db->where('member_id', $member_id)
+            ->order_by('id', 'desc');
+        $res = self::get_all(1);
+
+        if(empty($res)) return null;
+
+        $row = current($res);
+
+        $customer_id = $row['customer_id'];
+        if($customer_id == '') return null;
+
+
+        try {
+            $customer = Stripe_Customer::retrieve($customer_id);
+
+            return $customer;
+        } catch(Exception $e) {}
+
+        return null;
+    }
 
 } // End class
 /* End of file Charge_stripe_model.php */

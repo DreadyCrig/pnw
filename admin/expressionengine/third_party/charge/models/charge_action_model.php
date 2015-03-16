@@ -4,10 +4,10 @@
  * Charge Action Model class
  *
  * @package         charge_ee_addon
- * @version         1.8.12
+ * @version         1.9.0
  * @author          Joel Bradbury ~ <joel@squarebit.co.uk>
- * @link            http://squarebit.co.uk/addons/charge
- * @copyright       Copyright (c) 2014, Joel Bradbury/Square Bit
+ * @link            http://squarebit.co.uk/software/expressionengine/charge
+ * @copyright       Copyright (c) 2015, Joel Bradbury/Square Bit
  */
 class Charge_action_model extends Charge_model {
 
@@ -531,7 +531,7 @@ class Charge_action_model extends Charge_model {
 
     private function _load()
     {
-        ee()->load->library('template');
+        ee()->load->library('template', null, 'TMPL');
         ee()->load->library('api');
         ee()->load->library('api/Api_channel_entries');
         ee()->load->library('api/Api_channel_fields');
@@ -559,9 +559,12 @@ class Charge_action_model extends Charge_model {
 
         $ret = array();
 
+
         foreach($actors as $act_name => $act_val) {
 
-            if(!empty($variables)) $act_val = ee()->TMPL->parse_variables($act_val, array($variables));
+            if(!empty($variables)) {
+                $act_val = ee()->TMPL->parse_variables($act_val, array($variables));
+            }
 
             if($act_name == 'status' OR $act_name == 'title') {
                 $ret['titles'][$act_name] = $act_val;
@@ -642,6 +645,9 @@ class Charge_action_model extends Charge_model {
         ee()->session->userdata['group_id'] = $current_user_group;
         ee()->session->userdata['member_id'] = $current_member_id;
 
+        // ok - now directly update the entry record with the correct author
+        $this->_change_entry_author($entry_id, $current_member_id);
+
         $row['entry_id'] = $entry_id;
         $row['channel_id'] = $channel_id;
         $row['title'] = $title;
@@ -656,6 +662,18 @@ class Charge_action_model extends Charge_model {
         return $row;
     }
 
+
+    private function _change_entry_author($entry_id, $author_id)
+    {
+        if($author_id <= 1 ) return;
+
+        $data = array('author_id' => $author_id);
+
+        ee()->db->where('entry_id', $entry_id)
+                    ->update('channel_titles', $data);
+
+        return;
+    }
 
     private function _log_action($type, $state, $data = array())
     {

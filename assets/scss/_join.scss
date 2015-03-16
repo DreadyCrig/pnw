@@ -1,5 +1,5 @@
 .join {
-	padding-top: 150px; /* Temp */
+	padding-top: rem(54); /* Temp */
 	@include outer-container;
 
 	&__plans {
@@ -19,6 +19,7 @@
 	border: 1px solid #ddd;
 	text-align: center;
 	@include pad(30px default);
+	background-color: #fff;
 	&.plan--popular {
 		border: 5px solid #E3EDF7;
 		background-color: #F7FBFF;

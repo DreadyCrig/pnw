@@ -215,12 +215,6 @@ class Low_search_mcp extends Low_search_base {
 		$this->data['uri_protocol'] = ee()->config->item('uri_protocol');
 
 		// --------------------------------------
-		// Add search modes to data array
-		// --------------------------------------
-
-		$this->data['search_modes'] = ee()->low_search_settings->search_modes;
-
-		// --------------------------------------
 		// Add hilite tags to data array
 		// --------------------------------------
 
@@ -379,17 +373,6 @@ class Low_search_mcp extends Low_search_base {
 
 			$channels = low_flatten_results($query->result_array(), 'channel_title', 'channel_id');
 
-			// Get index url (action)
-			// $index_url
-			// 	= ee()->functions->fetch_site_index(0, 0)
-			// 	. QUERY_MARKER.'ACT='
-			// 	. ee()->cp->fetch_action_id($this->class_name.'_mcp', 'build_index')
-			// 	. AMP.'collection_id=%s'
-			// 	. AMP.'start=0';
-
-			// Get index url (MCP)
-			$index_url = $this->mcp_url('build_index', 'collection_id=%s');
-
 			foreach ($this->data['collections'] AS &$row)
 			{
 				// Add channel name to row
@@ -409,13 +392,14 @@ class Low_search_mcp extends Low_search_base {
 					$row['index_status'] = ($index_dates[$row['collection_id']] < $row['edit_date']) ? 'old' : 'ok';
 				}
 
-				// Add update index url to collection
-				$row['index_url'] = sprintf($index_url, $row['collection_id']);
+				// Initiate this collection's index options
+				$row['index_options'] = array('index');
 
-				// Force rebuild when old
-				if ($row['index_status'] == 'old')
+				// Add lexicon-options only if there's a language
+				if ($row['language'])
 				{
-					$row['index_url'] .= '&amp;rebuild=yes';
+					$row['index_options'][] = 'lexicon';
+					$row['index_options'][] = 'both';
 				}
 			}
 		}
@@ -849,6 +833,192 @@ class Low_search_mcp extends Low_search_base {
 		// --------------------------------------
 
 		ee()->functions->redirect($this->mcp_url('collections'));
+	}
+
+	// --------------------------------------------------------------------
+
+	/**
+	 * Display lexicon page
+	 */
+	public function lexicon()
+	{
+		// --------------------------------------
+		// Load lib
+		// --------------------------------------
+
+		ee()->load->library('low_search_words');
+
+		// --------------------------------------
+		// Get word count per languate
+		// --------------------------------------
+
+		$counts = ee()->low_search_word_model->get_lang_count();
+		$total_langs = count($counts);
+		$total_words = array_sum($counts);
+
+		// --------------------------------------
+		// Set data based on that
+		// --------------------------------------
+
+		$this->data['base_url']    = $this->mcp_url();
+		$this->data['counts']      = $counts;
+		$this->data['total_words'] = $total_words;
+		$this->data['total_langs'] = $total_langs;
+		$this->data['languages']   = low_languages();
+		$this->data['default']     = $counts ? key($counts) : 'en';
+		$this->data['words']       = array();
+
+		// --------------------------------------
+		// Get right status
+		// --------------------------------------
+
+		if (empty($total_words))
+		{
+			$status = 'lexicon_status_none';
+		}
+		elseif ($total_words === 1)
+		{
+			$status = 'lexicon_status_one_one';
+		}
+		else
+		{
+			$status = 'lexicon_status_many_' . ($total_langs > 1 ? 'many' : 'one');
+		}
+
+		$this->data['status'] = sprintf(
+			lang($status),
+			number_format($this->data['total_words']),
+			number_format($this->data['total_langs'])
+		);
+
+		// --------------------------------------
+		// Get stuff?
+		// --------------------------------------
+
+		$lang = ee()->input->post('language');
+		$json = array();
+
+		// --------------------------------------
+		// Find words
+		// --------------------------------------
+
+		if ($find = ee()->input->post('find'))
+		{
+			// Init words
+			$words = array();
+
+			// Clean up word
+			if ($word = ee()->low_search_words->clean($find))
+			{
+				// Add left wildcard
+				if (substr($find, 0, 1) == '*')
+				{
+					$word = '%'.$word;
+				}
+
+				// Add right wildcard
+				if (substr($find, -1) == '*')
+				{
+					$word .= '%';
+				}
+
+				$words = ee()->low_search_word_model->find($word, $lang);
+			}
+
+			// Results?
+			$found = count($words);
+
+			switch ($found)
+			{
+				case 0:
+					$status = 'lexicon_found_none';
+					$str = $find;
+				break;
+
+				case 1:
+					$status = 'lexicon_found_one';
+					$str = '';
+				break;
+
+				default:
+					$status = 'lexicon_found_many';
+					$str = number_format($found);
+					$json['status'] = sprintf('Found %s matching words.', number_format($found));
+			}
+
+			$json['status'] = sprintf(lang($status), $str);
+			$json['found']  = $words;
+		}
+
+		// --------------------------------------
+		// Add a word
+		// --------------------------------------
+
+		if ($add = ee()->input->post('add'))
+		{
+			// Clean up word
+			$word  = ee()->low_search_words->clean($add);
+
+			// Valid and no spaces!
+			if (ee()->low_search_words->is_valid($word) && !preg_match('/\s/', $word))
+			{
+				ee()->low_search_word_model->insert_ignore(array(
+					'site_id'  => $this->site_id,
+					'language' => $lang,
+					'word'     => $word,
+					'length'   => ee()->low_multibyte->strlen($word),
+					'clean'    => ee()->low_search_words->remove_diacritics($word)
+				));
+
+				$added = (bool) ee()->db->affected_rows();
+
+				$status = $added ? 'lexicon_add_ok' : 'lexicon_add_existing';
+				$str = $word;
+			}
+			else
+			{
+				$status = 'lexicon_add_invalid';
+				$str = $add;
+			}
+
+			$json['status'] = sprintf(lang($status), $str);
+		}
+
+		// --------------------------------------
+		// Remove a word
+		// --------------------------------------
+
+		if (($remove = ee()->input->post('remove')) &&
+			($lang = ee()->input->post('language')))
+		{
+			$json = array();
+
+			if ($word = ee()->low_search_word_model->get_one($remove, 'word'))
+			{
+				ee()->low_search_word_model->delete($remove, $lang);
+				$json['status'] = sprintf(lang('lexicon_removed_word'), $word['word']);
+			}
+		}
+
+		// --------------------------------------
+		// Cater for ajax calls
+		// --------------------------------------
+
+		if (is_ajax() && ! empty($json)) die(json_encode($json));
+
+		// --------------------------------------
+		// Set breadcrumb
+		// --------------------------------------
+
+		$this->_set_cp_var('cp_page_title', lang('lexicon'));
+		ee()->cp->set_breadcrumb($this->mcp_url(), lang('low_search_module_name'));
+
+		// --------------------------------------
+		// Load view
+		// --------------------------------------
+
+		return $this->view('mcp_lexicon');
+
 	}
 
 	// --------------------------------------------------------------------
@@ -1818,7 +1988,7 @@ class Low_search_mcp extends Low_search_base {
 		// --------------------------------------
 
 		ee()->load->library('Low_search_index');
-		ee()->low_search_index->build(FALSE, $all_entries);
+		ee()->low_search_index->build_by_entry($all_entries);
 
 		// --------------------------------------
 		// Clear cache
@@ -2430,12 +2600,12 @@ class Low_search_mcp extends Low_search_base {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Rebuild index
+	 * Buils stuff index
 	 *
 	 * @access      public
 	 * @return      string
 	 */
-	public function build_index()
+	public function build()
 	{
 		if (method_exists(ee()->security, 'restore_xid') &&
 			version_compare(APP_VER, '2.8.0', '<'))
@@ -2462,9 +2632,11 @@ class Low_search_mcp extends Low_search_base {
 		// Get info from Query String
 		// --------------------------------------
 
-		$col_id  = (int) ee()->input->get('collection_id');
+		$build   = ee()->input->post('build');
+		$rebuild = ee()->input->post('rebuild');
+
+		$col_id  = (int) ee()->input->post('collection_id');
 		$start   = (int) ee()->input->post('start');
-		$rebuild = (string) ee()->input->post('rebuild');
 
 		// --------------------------------------
 		// Delete existing collection if rebuild == 'yes'
@@ -2479,13 +2651,13 @@ class Low_search_mcp extends Low_search_base {
 		// Call private build_index method
 		// --------------------------------------
 
-		$response = ee()->low_search_index->build($col_id, NULL, $start);
+		$response = ee()->low_search_index->build_batch($col_id, $start, $build);
 
 		// --------------------------------------
 		// Optimize table when we're done
 		// --------------------------------------
 
-		if ($response['status'] == 'done')
+		if ($response === TRUE)
 		{
 			ee()->low_search_index_model->optimize();
 		}
@@ -2710,6 +2882,17 @@ class Low_search_mcp extends Low_search_base {
 	}
 
 	/**
+	 * Permissions: can current user manage the lexicon?
+	 *
+	 * @access      protected
+	 * @return      bool
+	 */
+	protected function can_manage_lexicon()
+	{
+		return $this->_can_i('manage_lexicon');
+	}
+
+	/**
 	 * Permissions: can current user manage shortcuts?
 	 *
 	 * @access      protected
@@ -2844,6 +3027,11 @@ class Low_search_mcp extends Low_search_base {
 		if ($this->can_manage())
 		{
 			$nav['collections'] = $this->mcp_url('collections');
+		}
+
+		if ($this->can_manage_lexicon())
+		{
+			$nav['lexicon'] = $this->mcp_url('lexicon');
 		}
 
 		if ($this->can_manage_shortcuts())

@@ -5,7 +5,7 @@
 	<div class="tg">
 		<h2>Subscription Members</h2>
 		<div class="alert">
-			<p>Members are only added to subscriptions after a successful transaction, based on the <em>on_success</em> action. <br/><a href="http://squarebit.co.uk/addons/charge/docs/subscriptions">View the Documentation on how Subscriptions work</a>.</p>
+			<p>Members are only added to subscriptions after a successful transaction, based on the <em>on_success</em> action. <br/><a href="http://squarebit.co.uk/software/expressionengine/charge/docs/subscriptions">View the Documentation on how Subscriptions work</a>.</p>
 			<p>When their subscription ends, their status will change to <em>inactive</em> and their user will be moved to the <em>subscription failure group</em>.</p>
 
 		</div>

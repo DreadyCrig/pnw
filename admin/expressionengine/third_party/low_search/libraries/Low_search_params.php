@@ -54,6 +54,19 @@ class Low_search_params {
 	 */
 	private $_site_ids = array();
 
+	/**
+	 * Protected parameters
+	 *
+	 * @access     private
+	 * @var        array
+	 */
+	private $_protected = array(
+		'backspace', 'cache', 'refresh', 'disable',
+		'dynamic', 'dynamic_parameters', 'dynamic_start',
+		'paginate', 'paginate_base', 'paginate_field',
+		'related_categories_mode', 'track_views'
+	);
+
 	// --------------------------------------------------------------------
 	// METHODS
 	// --------------------------------------------------------------------
@@ -90,11 +103,28 @@ class Low_search_params {
 
 	/**
 	 * Delete a parameter
+	 *
+	 * @access     public
+	 * @param      mixed
+	 * @return     void
 	 */
 	public function delete($key)
 	{
 		unset($this->_params[$key]);
 		unset(ee()->TMPL->tagparams[$key]);
+	}
+
+	/**
+	 * Reset all parameters
+	 *
+	 * @access     public
+	 * @return     void
+	 */
+	public function reset()
+	{
+		$this->_query     = NULL;
+		$this->_params    = array();
+		$this->_tagparams = array();
 	}
 
 	/**
@@ -109,9 +139,7 @@ class Low_search_params {
 		// Reset
 		// --------------------------------------
 
-		$this->_params    = array();
-		$this->_query     = NULL;
-		$this->_tagparams = array();
+		$this->reset();
 
 		// --------------------------------------
 		// Check for given query
@@ -333,7 +361,7 @@ class Low_search_params {
 		else
 		{
 			// Read sites from parameter
-			list($sites, $in) = low_explode_param($this->_params['site']);
+			list($sites, $in) = $this->explode($this->_params['site']);
 
 			// Shortcut to all sites
 			$all_sites = ee()->TMPL->sites;
@@ -465,34 +493,119 @@ class Low_search_params {
 	 * @access     private
 	 * @param      string
 	 * @param      string
-	 * @param      bool
 	 * @return     void
 	 */
-	private function _set_tagparam($key, $val, $overwrite = TRUE)
+	private function _set_tagparam($key, $val)
 	{
+		// If it's a protected param, don't do anything
+		if (in_array($key, $this->_protected)) return;
+
 		// Check for search fields and add parameter to either tagparams or search_fields
-		if (substr($key, 0, 7) == 'search:')
+		if (strpos($key, 'search:') === 0)
 		{
 			$key = substr($key, 7);
 			$array = 'search_fields';
-
 		}
 		else
 		{
 			$array = 'tagparams';
 		}
 
-		if ($overwrite || empty(ee()->TMPL->{$array}[$key]))
+		// Set or unset the value, depending on if it's NULL or not
+		if (is_null($val))
 		{
-			if (is_null($val))
-			{
-				unset(ee()->TMPL->{$array}[$key]);
-			}
-			else
-			{
-				ee()->TMPL->{$array}[$key] = $val;
-			}
+			unset(ee()->TMPL->{$array}[$key]);
 		}
+		else
+		{
+			ee()->TMPL->{$array}[$key] = $val;
+		}
+	}
+
+	// --------------------------------------------------------------------
+
+	/**
+	 * Explode parameter, previously low_explode_param() helper function
+	 *
+	 * @access     public
+ 	 * @param      string    String like 'not 1|2|3' or '40|15|34|234'
+ 	 * @return     array     [0] = array of ids, [1] = boolean whether to include or exclude
+	 */
+	public function explode($str)
+	{
+		// Initiate $in var to TRUE
+		$in = TRUE;
+
+		// Check if parameter is "not bla|bla"
+		if (ee()->low_multibyte->strpos($str, 'not ') === 0)
+		{
+			// Change $in var accordingly
+			$in = FALSE;
+
+			// Strip 'not ' from string
+			$str = ee()->low_multibyte->substr($str, 4);
+		}
+
+		// Return two values in an array
+		return array(preg_split('/(&?&(?![\da-z]{2,6};|#\d{2,4};|#x[\da-f]{2,4};)|\|)/iu', $str), $in);
+	}
+
+	/**
+	 * Implode parameter, previously low_implode_param() helper function
+	 */
+	public function implode($array = array(), $in = TRUE, $sep = '|')
+	{
+		// Initiate string
+		$str = '';
+
+		// Implode array
+		if ( ! empty($array))
+		{
+			$str = implode($sep, $array);
+
+			// Prepend 'not '
+			if ($in === FALSE) $str = 'not '.$str;
+		}
+
+		// Return string
+		return $str;
+	}
+
+	/**
+	 * Merge two parameter values
+	 */
+	public function merge($haystack, $needles, $as_param = FALSE)
+	{
+		// Prep the haystack
+		if ( ! is_array($haystack))
+		{
+			// Explode the param, forget about the 'not '
+			list($haystack, ) = $this->explode($haystack);
+		}
+
+		// Prep the needles
+		if ( ! is_array($needles))
+		{
+			list($needles, $in) = $this->explode($needles);
+		}
+		else
+		{
+			$in = TRUE;
+		}
+
+		// Choose function to merge
+		$method = $in ? 'array_intersect' : 'array_diff';
+
+		// Do the merge thing
+		$merged = $method($haystack, $needles);
+
+		// Change back to parameter syntax if necessary
+		if ($as_param)
+		{
+			$merged = implode('|', $merged);
+		}
+
+		return $merged;
 	}
 
 	// --------------------------------------------------------------------
@@ -506,7 +619,7 @@ class Low_search_params {
 
 		if ($param = $this->get($param))
 		{
-			list($fields, $in) = low_explode_param($param);
+			list($fields, $in) = $this->explode($param);
 
 			$it = in_array($val, $fields);
 		}
@@ -514,16 +627,42 @@ class Low_search_params {
 		return $it;
 	}
 
+	// --------------------------------------------------------------------
+
 	/**
 	 * Prep param value
 	 */
 	public function prep($key, $val)
 	{
+		$val = $this->_contains_words_value($key, $val);
 		$val = $this->_require_all_value($key, $val);
 		$val = $this->_exclude_value($key, $val);
 		$val = $this->_exact_value($key, $val);
 		$val = $this->_starts_with_value($key, $val);
 		$val = $this->_ends_with_value($key, $val);
+		return $val;
+	}
+
+	/**
+	 * Check if given key is in the contains_words="" parameter
+	 */
+	private function _contains_words_value($key, $val)
+	{
+		if ($this->in_param($key, 'contains_words'))
+		{
+			list($items, $in) = $this->explode($val);
+
+			foreach ($items AS &$item)
+			{
+				if (substr($item, -2) != '\W')
+				{
+					$item .= '\W';
+				}
+			}
+
+			$val = $this->implode($items, $in);
+		}
+
 		return $val;
 	}
 

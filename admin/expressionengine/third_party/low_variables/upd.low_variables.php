@@ -12,13 +12,23 @@ if ( ! class_exists('Low_variables_base'))
  * @package        low_variables
  * @author         Lodewijk Schutte <hi@gotolow.com>
  * @link           http://gotolow.com/addons/low-variables
- * @copyright      Copyright (c) 2009-2013, Low
+ * @copyright      Copyright (c) 2009-2015, Low
  */
 class Low_variables_upd extends Low_variables_base {
 
 	// --------------------------------------------------------------------
 	// PROPERTIES
 	// --------------------------------------------------------------------
+
+	/**
+	 * Actions
+	 *
+	 * @var        array
+	 * @access     private
+	 */
+	private $actions = array(
+		array('Low_variables', 'sync')
+	);
 
 	/**
 	 * Extension hooks
@@ -104,7 +114,16 @@ class Low_variables_upd extends Low_variables_base {
 		));
 
 		// --------------------------------------
-		// Add row to modules table
+		// Add actions
+		// --------------------------------------
+
+		foreach ($this->actions AS $action)
+		{
+			$this->_add_action($action);
+		}
+
+		// --------------------------------------
+		// Add hooks
 		// --------------------------------------
 
 		foreach ($this->hooks AS $hook)
@@ -215,6 +234,15 @@ class Low_variables_upd extends Low_variables_base {
 		if (version_compare($current, '2.1.0', '<'))
 		{
 			$this->_add_hook('template_fetch_template');
+		}
+
+		// -------------------------------------
+		//  Upgrade to 2.5.2
+		// ------------------------------------
+
+		if (version_compare($current, '2.6.0', '<'))
+		{
+			$this->_add_action($this->actions[0]);
 		}
 
 		// Update the extension in the DB
@@ -356,6 +384,25 @@ class Low_variables_upd extends Low_variables_base {
 					`group_order` int(4) unsigned default 0 NOT NULL,
 					PRIMARY KEY (`group_id`))
 					CHARACTER SET utf8 COLLATE utf8_general_ci");
+	}
+
+	// --------------------------------------------------------------------
+
+	/**
+	 * Add action
+	 *
+	 * @access     private
+	 * @param      array
+	 * @return     void
+	 */
+	private function _add_action($action)
+	{
+		list($class, $method) = $action;
+
+		ee()->db->insert('actions', array(
+			'class'  => $class,
+			'method' => $method
+		));
 	}
 
 	// --------------------------------------------------------------------

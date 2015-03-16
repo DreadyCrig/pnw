@@ -1,20 +1,19 @@
 .signup-breadcrumb {
 	@include clearfix;
-	background-color: #fafafa;
-	border-bottom: 1px solid #ddd;
+	background-color: #01243D;
 	&__list {
 		@include outer-container();
 		text-align: center;
 		li {
 			text-align: center;
 			display: inline-block;
-			border-bottom: 3px solid #fafafa;
+			color: #fff;
+			border-bottom: 3px solid #01243D;
 			font-weight: 600;
 			margin: auto 1em;
 			padding: 1em;
 			&.active {
-				border-color: $blue;
-				color: $blue;
+				border-color: #85A5BB;
 			}
 		}
 	}

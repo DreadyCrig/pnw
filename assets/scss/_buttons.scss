@@ -107,3 +107,23 @@ button, .btn {
   background-color: #083659;
   border-color: #083659;
 }
+.btn--social {
+  @extend .btn--rounded;
+  min-width: 140px;
+  padding: rem(7) rem(20); 
+  line-height: normal;
+  font-size: rem(12);
+  border: none;
+  text-align: center;
+  span {
+    vertical-align: middle;
+    margin-right: 5px;
+  }
+}
+
+.btn--facebook {
+  background-color: #225B99;
+}
+.btn--twitter {
+  background-color: #00ADF2;
+}

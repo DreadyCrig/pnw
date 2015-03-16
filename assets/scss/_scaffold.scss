@@ -5,10 +5,16 @@ body {
 .main {
 	@include pad(rem(30) 0);
 	background: url('/assets/img/cityscape.png') no-repeat top center;
+	&--white {
+		background: #fff;
+	}
 }
 
 .main-container {
 	@include outer-container();
+	.main--white & {
+		background-color: #fff;
+	}
 }
 
 .section-row {

@@ -62,6 +62,9 @@ $lang = array(
 "low_variables_saved_except" =>
 "Changes saved, except for:",
 
+"low_variables_synced" =>
+"Synced files",
+
 //----------------------------------------
 // Manage variables list screen
 //----------------------------------------
@@ -200,7 +203,7 @@ $lang = array(
 "Enable to parse variable early in the parsing order",
 
 "early_parsing_disabled_msg" =>
-"Early parsing is disabled in the Extension Settings",
+"Early parsing is disabled in the Settings",
 
 "is_hidden" =>
 "Hide variable",
@@ -221,7 +224,7 @@ $lang = array(
 "Save as file",
 
 "save_as_file_disabled_msg" =>
-"The Save As Files option is disabled in the Extension Settings",
+"The Save As Files option is disabled in the Settings",
 
 "variable_type_help" =>
 "Choose type of input field",
@@ -559,7 +562,7 @@ $lang = array(
 //----------------------------------------
 
 "extension_settings" =>
-"Extension settings",
+"Settings",
 
 "license_key" =>
 "License key",
@@ -621,6 +624,12 @@ $lang = array(
 "one_way_sync_help" =>
 "If set to Yes, variables will always be synchronised <i>from file to database</i> and not the other way around.",
 
+"sync_url" =>
+"Sync URL",
+
+"sync_url_help" =>
+"URL to use to trigger file syncing. Append <code>&amp;clear_cache=yes</code> to clear caches, too.",
+
 "variable_types" =>
 "Variable types",
 
@@ -628,7 +637,7 @@ $lang = array(
 "Select which variable types are enabled.",
 
 "settings_saved" =>
-"Extension settings saved",
+"Settings saved",
 
 //----------------------------------------
 // Required for FIELDTYPE page

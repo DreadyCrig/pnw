@@ -138,7 +138,8 @@ abstract class Low_search_filter {
 	protected function _get_where_search($field, $val)
 	{
 		// Initiate some vars
-		$exact = $all = $starts = $ends = FALSE;
+		$exact = $all = $starts = $ends = $exclude = FALSE;
+		$sep = '|';
 
 		// Exact matches
 		if (substr($val, 0, 1) == '=')
@@ -165,11 +166,18 @@ abstract class Low_search_filter {
 		if (strpos($val, '&&') !== FALSE)
 		{
 			$all = TRUE;
-			$val = str_replace('&&', '|', $val);
+			$sep = '&&';
 		}
 
-		// Convert parameter to bool and array
-		list($items, $in) = low_explode_param($val);
+		// Excluding?
+		if (substr($val, 0, 4) == 'not ')
+		{
+			$val = substr($val, 4);
+			$exclude = TRUE;
+		}
+
+		// Explode it
+		$items = explode($sep, $val);
 
 		// Init sql for where clause
 		$sql = array();
@@ -184,7 +192,7 @@ abstract class Low_search_filter {
 			// whole word? Regexp search
 			if (substr($item, -2) == '\W')
 			{
-				$operand = $in ? 'REGEXP' : 'NOT REGEXP';
+				$operand = $exclude ? 'NOT REGEXP' : 'REGEXP';
 				$item = preg_quote(substr($item, 0, -2));
 				$item = str_replace("'", "\'", $item);
 				$item = "'[[:<:]]{$item}[[:>:]]'";
@@ -200,13 +208,13 @@ abstract class Low_search_filter {
 				elseif ($exact || $empty || ($starts && $ends))
 				{
 					// Use exact operand if empty or = was the first char in param
-					$operand = $in ? '=' : '!=';
+					$operand = $exclude ? '!=' : '=';
 					$item = "'".ee()->db->escape_str($item)."'";
 				}
 				else
 				{
 					// Use like operand in all other cases
-					$operand = $in ? 'LIKE' : 'NOT LIKE';
+					$operand = $exclude ? 'NOT LIKE' : 'LIKE';
 					$item = '%'.ee()->db->escape_like_str($item).'%';
 
 					// Allow for starts/ends with matching
