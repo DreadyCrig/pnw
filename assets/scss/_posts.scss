@@ -1,6 +1,37 @@
 .post {
 	@include row();
 	@include pad(30px 20px);
+	&--event {
+		padding: 0;
+		&__header {
+			padding: 0;
+			@include row();
+		}
+		&__body {
+			@include clearfix();
+			@include pad(30px 20px);
+		}
+		&__footer {
+			border-top: solid 1px $lighter-gray;
+			@include pad(30px 20px);
+			@include clearfix();
+			.event-type {
+				text-transform: uppercase;
+				font-size: rem(12);
+				font-weight: 600;
+				vertical-align: middle;
+				line-height: normal;
+				letter-spacing: 1px;
+			}
+			.event-cta {
+				float: right;
+				a {
+					display: inline-block;
+					margin-left: 10px;
+				}
+			}
+		}
+	}
 	&.post--micro {
 		@include pad(20px);
 	}
@@ -40,6 +71,59 @@
 	}
 	.post--micro & {
 		a { font-size: rem(16); }
+	}
+
+	.post--event & {
+		a {
+			color: #fff;
+		}
+	}
+}
+
+.post--event {
+	.post-title {
+		@include span-columns(8);
+		margin-bottom: 0;
+		@include pad(25px 20px 12px);
+	}
+}
+
+.post--event {
+	.event-date {
+		color: #fff;
+		float: right;
+		@include pad(12px 20px);
+		text-align: right;
+		.day {
+			font-size: rem(18);
+			font-weight: 600;
+		}
+	}
+}
+
+.post--event--industry {
+	.event-date {
+		background-color: darken($red, 5);
+	}
+	.btn {
+		@extend .btn--secondary;
+	}
+	.event-type {
+		color: $red;
+	}
+	.post--event__header {
+		background-color: $red;
+	}
+}
+.post--event--pnw {
+	.event-date {
+		background-color: darken($blue, 5);
+	}
+	.event-type {
+		color: $blue;
+	}
+	.post--event__header {
+		background-color: $blue;
 	}
 }
 
