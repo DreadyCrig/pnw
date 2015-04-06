@@ -35,3 +35,7 @@
 .component-events, .component-column {
 	@include span-columns(4);
 }
+
+.component-staff {
+	@include span-columns(3);
+}

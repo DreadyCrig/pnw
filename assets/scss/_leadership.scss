@@ -1,0 +1,44 @@
+.leadership	{
+	@include span-columns(9);
+	&__row {
+		@include row();
+		.leader {
+			@include span-columns(4);
+			@include omega(3n);
+		}
+	}
+
+	&-sidebar {
+		@include span-columns(3);
+	}
+}
+.board-officers {
+	font-weight: 600;
+	border-bottom: 1px solid #eee;
+	border-top: 1px solid #eee;
+	padding-top: 10px;
+	padding-left: 20px;
+	margin-bottom: rem(30);
+}
+.board-officers-chip {
+	display: block;
+	width: 60px;
+	height: 4px;
+	background-color: $red;
+	margin-bottom: 5px;
+}
+
+.biography {
+	@include span-columns(8);
+	p {
+		font-family: $serif;
+		color: $gray;
+		margin-bottom: rem(32);
+		padding-right: 25px;
+		&.lead {
+			font-weight: 600;
+			font-family: $san-serif;
+			font-size: rem(18);
+		}
+	}
+}

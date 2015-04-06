@@ -19,3 +19,19 @@
 	}
 }
 
+.breadcrumbs {
+	li {
+		color: #fff;
+		display: inline-block;
+		letter-spacing: 1px;
+		a {
+			color: #fff;
+		}
+	}
+}
+
+.breadcrumbs > li + li:before {
+  content: "/\00a0";
+  padding: 0 5px;
+  color: #fff;
+}

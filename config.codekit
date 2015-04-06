@@ -482,39 +482,6 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/assets\/img\/authors\/catherine.jpg": {
-		"fileType": 16384,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 223138,
-		"inputAbbreviatedPath": "\/assets\/img\/authors\/catherine.jpg",
-		"outputAbbreviatedPath": "\/assets\/img\/authors\/catherine.jpg",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/assets\/img\/avatars\/fabian.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 23363,
-		"inputAbbreviatedPath": "\/assets\/img\/avatars\/fabian.png",
-		"outputAbbreviatedPath": "\/assets\/img\/avatars\/fabian.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/assets\/img\/avatars\/fabian@2x.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 81553,
-		"inputAbbreviatedPath": "\/assets\/img\/avatars\/fabian@2x.png",
-		"outputAbbreviatedPath": "\/assets\/img\/avatars\/fabian@2x.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
 	"\/assets\/img\/big-ben.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
@@ -691,17 +658,6 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/assets\/img\/robin.jpg": {
-		"fileType": 16384,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 54234,
-		"inputAbbreviatedPath": "\/assets\/img\/robin.jpg",
-		"outputAbbreviatedPath": "\/assets\/img\/robin.jpg",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
 	"\/assets\/img\/soy.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
@@ -720,6 +676,204 @@
 		"initialSize": 130415,
 		"inputAbbreviatedPath": "\/assets\/img\/space-needle.jpg",
 		"outputAbbreviatedPath": "\/assets\/img\/space-needle.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/staff\/andy.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 36719,
+		"inputAbbreviatedPath": "\/assets\/img\/staff\/andy.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/staff\/andy.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/staff\/bill.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 35447,
+		"inputAbbreviatedPath": "\/assets\/img\/staff\/bill.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/staff\/bill.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/staff\/brian.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 41099,
+		"inputAbbreviatedPath": "\/assets\/img\/staff\/brian.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/staff\/brian.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/staff\/caroline.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 84650,
+		"inputAbbreviatedPath": "\/assets\/img\/staff\/caroline.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/staff\/caroline.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/staff\/catherine.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 223138,
+		"inputAbbreviatedPath": "\/assets\/img\/staff\/catherine.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/staff\/catherine.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/staff\/erin.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 31484,
+		"inputAbbreviatedPath": "\/assets\/img\/staff\/erin.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/staff\/erin.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/staff\/gareth.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 44819,
+		"inputAbbreviatedPath": "\/assets\/img\/staff\/gareth.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/staff\/gareth.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/staff\/ian.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 24598,
+		"inputAbbreviatedPath": "\/assets\/img\/staff\/ian.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/staff\/ian.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/staff\/jason.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 35635,
+		"inputAbbreviatedPath": "\/assets\/img\/staff\/jason.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/staff\/jason.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/staff\/mark.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 32068,
+		"inputAbbreviatedPath": "\/assets\/img\/staff\/mark.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/staff\/mark.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/staff\/richard-bagshaw.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 17179,
+		"inputAbbreviatedPath": "\/assets\/img\/staff\/richard-bagshaw.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/staff\/richard-bagshaw.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/staff\/richard.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 28761,
+		"inputAbbreviatedPath": "\/assets\/img\/staff\/richard.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/staff\/richard.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/staff\/robin.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 54234,
+		"inputAbbreviatedPath": "\/assets\/img\/staff\/robin.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/staff\/robin.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/staff\/ryan.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 30301,
+		"inputAbbreviatedPath": "\/assets\/img\/staff\/ryan.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/staff\/ryan.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/staff\/sharon.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 47731,
+		"inputAbbreviatedPath": "\/assets\/img\/staff\/sharon.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/staff\/sharon.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/staff\/stephen.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 40281,
+		"inputAbbreviatedPath": "\/assets\/img\/staff\/stephen.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/staff\/stephen.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/staff\/terry.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 48691,
+		"inputAbbreviatedPath": "\/assets\/img\/staff\/terry.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/staff\/terry.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/staff\/tom.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 29345,
+		"inputAbbreviatedPath": "\/assets\/img\/staff\/tom.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/staff\/tom.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -1197,6 +1351,22 @@
 		"shouldRunBless": 0,
 		"useLibsass": 0
 		},
+	"\/assets\/scss\/_leadership.scss": {
+		"createSourceMap": 0,
+		"debugStyle": 0,
+		"decimalPrecision": 10,
+		"fileType": 4,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/assets\/scss\/_leadership.scss",
+		"outputAbbreviatedPath": "\/assets\/css\/_leadership.css",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 0,
+		"shouldRunAutoprefixer": 0,
+		"shouldRunBless": 0,
+		"useLibsass": 0
+		},
 	"\/assets\/scss\/_lists.scss": {
 		"createSourceMap": 0,
 		"debugStyle": 0,
@@ -1334,6 +1504,22 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/assets\/scss\/_social.scss",
 		"outputAbbreviatedPath": "\/assets\/css\/_social.css",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 0,
+		"shouldRunAutoprefixer": 0,
+		"shouldRunBless": 0,
+		"useLibsass": 0
+		},
+	"\/assets\/scss\/_staff.scss": {
+		"createSourceMap": 0,
+		"debugStyle": 0,
+		"decimalPrecision": 10,
+		"fileType": 4,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/assets\/scss\/_staff.scss",
+		"outputAbbreviatedPath": "\/assets\/css\/_staff.css",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
@@ -3476,6 +3662,24 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
+	"\/templates\/default_site\/views.group\/board-bio.html": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/templates\/default_site\/views.group\/board-bio.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/templates\/default_site\/views.group\/board.html": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/templates\/default_site\/views.group\/board.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
 	"\/templates\/default_site\/views.group\/editorial.html": {
 		"fileType": 8192,
 		"ignore": 0,
@@ -3511,8 +3715,8 @@
 	},
 "projectAttributes": {
 	"bowerAbbreviatedPath": "\/assets",
-	"displayValue": "pnw",
-	"displayValueWasSetByUser": 0,
+	"displayValue": "BABC PNW",
+	"displayValueWasSetByUser": 1,
 	"iconImageName": "pencil_blue"
 	},
 "projectSettings": {

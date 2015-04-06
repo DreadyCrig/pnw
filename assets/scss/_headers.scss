@@ -1,3 +1,51 @@
+.headline {
+	background-color: $blue;
+	&--rich {
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-positon: center;
+		min-height: 316px;
+		position: relative;
+		.overlay {
+			position: absolute;
+			width: 100%;
+			top: 0;
+			bottom: 0;
+			right: 0;
+			left: 0;
+		}
+	}
+	.headline__content {
+		@include outer-container();
+		text-align: center;
+		padding-top: rem(50);
+		h1 {
+			color: #fff;
+			font-size: rem(52);
+			max-width: 710px;
+			margin: auto auto rem(50);
+		}
+		.headline__meta {
+			color: #fff;
+			.date {
+				line-height: normal;
+				text-transform: uppercase;
+				letter-spacing: 1.5px;
+				.iconic {
+					vertical-align: middle;
+					margin-right: 3px;
+				}
+			}
+		}
+	}
+}
+
+.headline--rich .headline__content {
+	padding-top: rem(60);
+	h1 {
+		margin: auto auto rem(32);
+	}
+}
 .membership-header {
 	@include outer-container(40%);
 	padding-top: 2.5em;
