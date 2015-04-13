@@ -1,0 +1,8 @@
+.contact {
+	@include row();
+}
+
+.contact-info,
+.contact-inquiry {
+	@include span-columns(6);	
+}

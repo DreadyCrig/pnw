@@ -5,7 +5,6 @@
 
 .intro-container {
 	@include outer-container();
-	
 }
 
 .intro-block {
@@ -17,6 +16,7 @@
 	&:last-child {
 		@include span-columns(4);
 		text-align: center;
+		padding-top: rem(26);
 	}
 	p {
 		margin: 0;

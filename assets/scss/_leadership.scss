@@ -30,6 +30,7 @@
 
 .biography {
 	@include span-columns(8);
+	@include pad(0 0 0 rem(20));
 	p {
 		font-family: $serif;
 		color: $gray;

@@ -1,25 +1,16 @@
 {layout="layouts/index"}
 
-{exp:zoo_visitor:registration_form return="member/charge" id="registrationForm" class="registration-form" include_jquery="no"}
-
-<div>
-	Email*: <input id="email" name="email" type="text" value="" />
-        {error:email}
-</div>
-
-<div>Password*: <input id="password" name="password" type="password" value="" />
-{error:password}</div>
-
-<div>Confirm password*: <input id="password_confirm" name="password_confirm" type="password" value="" /></div>
-
-<div>
-	First Name: <input id="member_first_name" name="member_first_name" type="text" value="" />
-{error:member_first_name}
-</div>
-
-Member lastname: <input id="member_last_name" name="member_last_name" type="text" value="" />
-{error:member_last_name}
-
-<input class="form-submit" type="submit" value="Register" />
-
-{/exp:zoo_visitor:registration_form}
+<main class="main main--white">
+	<div class="main-container">
+		<div class="table-of-contents">
+			<h2>Supporting Views</h2>
+			<hr>
+			<ul>
+				<li><a href="/views/editorial">Editorial Article</a></li>
+				<li><a href="/views/event-listing">Event Listings</a></li>
+				<li><a href="/views/board">Board of Directors</a></li>
+				<li><a href="/views/board-bio">Board of Directors Bio</a></li>
+			</ul>
+		</div>
+	</div>
+</main>

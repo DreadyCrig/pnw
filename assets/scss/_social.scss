@@ -1,5 +1,8 @@
 .social-links {
-	@include row(table);
+	@include row();
+	display: table;
+	table-layout: fixed;
+	width: 100%;
 	max-width: 220px;
 	li {
 		display: table-cell;

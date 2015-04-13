@@ -45,6 +45,12 @@
 	h1 {
 		margin: auto auto rem(32);
 	}
+	.caption {
+		color: #fff;
+		font-size: rem(24);
+		width: 50%;
+		margin: -16px auto 0;
+	}
 }
 .membership-header {
 	@include outer-container(40%);
