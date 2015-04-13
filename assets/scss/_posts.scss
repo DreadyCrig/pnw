@@ -126,6 +126,25 @@
 		background-color: $blue;
 	}
 }
+.post--event--sponsor {
+	.event-date {
+		background-color: darken($gray, 5);
+	}
+	.event-type {
+		color: $gray;
+	}
+	.post--event__header {
+		background-color: $gray;
+	}
+	.btn {
+		border-color: $gray;
+		color: $gray;
+		&:hover {
+			background-color: $gray;
+			color: #fff;
+		}
+	}
+}
 
 .post-meta {
 	margin-bottom: rem(5);

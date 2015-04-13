@@ -3,6 +3,12 @@
 }
 .pager li {
   display: inline;
+  span {
+  	vertical-align: middle;
+  	line-height: normal;
+  	position: relative;
+  	top: 1px;
+  }
 }
 .pager li>a, .pager li>span {
   display: inline-block;
@@ -18,3 +24,5 @@
 .pager .previous>a, .pager .previous>span {
   float: left;
 }
+
+

@@ -3285,6 +3285,19 @@ http://flickity.metafizzy.co
 .post--event--pnw .post--event__header {
   background-color: #4577AA; }
 
+.post--event--sponsor .event-date {
+  background-color: #5a6063; }
+.post--event--sponsor .event-type {
+  color: #666D70; }
+.post--event--sponsor .post--event__header {
+  background-color: #666D70; }
+.post--event--sponsor .btn, .post--event--sponsor .btn--rounded, .post--event--sponsor .btn--social {
+  border-color: #666D70;
+  color: #666D70; }
+  .post--event--sponsor .btn:hover, .post--event--sponsor .btn--rounded:hover, .post--event--sponsor .btn--social:hover {
+    background-color: #666D70;
+    color: #fff; }
+
 .post-meta {
   margin-bottom: 0.3125rem; }
   .post--micro .post-meta {
@@ -3627,6 +3640,11 @@ http://flickity.metafizzy.co
 
 .pager li {
   display: inline; }
+  .pager li span {
+    vertical-align: middle;
+    line-height: normal;
+    position: relative;
+    top: 1px; }
 
 .pager li > a, .pager li > span {
   display: inline-block;
