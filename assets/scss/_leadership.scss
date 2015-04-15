@@ -8,6 +8,16 @@
 		}
 	}
 
+	&-bio {
+		@include span-columns(12);
+		.leadership__row {
+			@include row();
+			.leader {
+				@include span-columns(3);
+			}
+		}
+	}
+
 	&-sidebar {
 		@include span-columns(3);
 	}
@@ -43,3 +53,4 @@
 		}
 	}
 }
+

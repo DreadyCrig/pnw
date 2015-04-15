@@ -1,0 +1,139 @@
+.about {
+	@include row();
+	margin-bottom: rem(40);
+	&__aside {
+		@include span-columns(4);
+		.iconic {
+			vertical-align: middle;
+			position: relative;
+			top: 1px;
+		}
+	}
+	&__body {
+		@include span-columns(8);
+		p {
+			padding-right: rem(50);
+		}
+		h2 {
+			color: $blue;
+		}
+	}
+
+	&__services {
+		@include row();
+		padding-top: rem(54);
+		border-top: 1px solid #eee;
+		
+		.service-header {
+			text-align: center;
+			margin-bottom: rem(54);
+			h2{
+				text-transform: uppercase;
+				margin-bottom: .25em;
+				color: $red;
+			}
+			p {
+				font-size: rem(18);
+				color: $alt-text-color;
+			}
+		}
+	}
+}
+
+.service-grid {
+	@include outer-container();
+	margin-bottom: rem(30);
+}
+
+.service {
+	@include span-columns(4);
+}
+
+.service-container {
+	margin-bottom: 4em;
+}
+
+.hover-tile-outer {
+  $base-border-color: gainsboro !default;
+  $base-line-height: 1.5em !default;
+  $medium-screen: em(640) !default;
+  $hover-tile-height: 15em;
+
+  background-position: top;
+  background-size: cover;
+  background-color: $blue;
+  
+  border: none;
+  cursor: pointer;
+  height: $hover-tile-height;
+  margin-bottom: $base-line-height;
+  
+  @include media($medium-screen) {
+    width: 100%;
+  }
+
+  .title-icon {
+  	display: block;
+  	margin-top: 2.4em;
+  	margin-bottom: 1em;
+  }
+
+  .hover-tile-container {
+    height: $hover-tile-height;
+    overflow: hidden;
+  }
+
+  .overlay {
+  	background-color: rgba(7,7,22,.6);
+  }
+
+  .hover-tile-container:hover > .hover-tile {
+    @include transform(translate(0, -100%));
+    text-transform: uppercase; 
+  }
+
+  .hover-tile-visible {
+		
+  }
+
+  .hover-tile {
+    @include transition(all, 0.2s ease-in-out);
+    background: inherit;
+    color: white;
+    height: inherit;
+    overflow: hidden;
+    padding: $base-spacing;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+
+  .hover-tile-hidden {
+    background: rgba(31, 69, 107, 0.7);
+    text-align: left;
+    p {
+      color: transparentize(#fff, 0.3);
+      line-height: $base-line-height;
+      font-size: rem(14);
+      font-weight: normal;
+      text-transform: none;
+    }
+
+    h4 {
+      margin: 0 0 0.5em 0;
+    }
+  }
+}
+
+
+.babc-intro {
+	> p {
+		font-size: rem(18);
+		margin-bottom: rem(36);
+	}
+	.learn-more {
+		padding-bottom: rem(40);
+	}
+}
+

@@ -1,0 +1,13 @@
+.alert {
+	background-color: #f5f5f5;
+	padding: 20px;
+	border-radius: 4px;
+	margin: rem(30) 0;
+	&--info {
+		background-color: #EFF7FD;
+		color: #486D91;
+		a {
+			color: #486D91;
+		}
+	}
+}

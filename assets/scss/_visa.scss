@@ -1,0 +1,84 @@
+.j1 {
+	@include row();
+	h2 {
+		color: $blue;
+		font-weight: 600;
+	}
+
+	&__intro {
+		@include span-columns(6);
+		@include pad(0 30px 0 0);
+	}
+
+	&__faq {
+		@include span-columns(6);
+	}
+	.faqs {
+		margin: 2em 0;
+	}
+}
+
+.collapsible-item {
+  margin-bottom: 2px;
+}
+
+.collapsible-item:first-child .title {
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+}
+.collapsible-item:last-child .title {
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.collapsible-item .title {
+  font-weight: 600;
+  cursor: pointer;
+  padding: 20px 20px;
+  background-color: #f5f5f5;
+  color: $blue;
+  @include transition(all .25s ease-in-out);
+  &:hover {
+  	background-color: $red;
+  	color: #fff;
+  }
+}
+
+.collapsible-item .body {
+  max-height: 0;
+  position: relative;
+  overflow: hidden;
+  @include transition(all .5s ease-in-out);
+  background-color: #f5f5f5;
+}
+
+.collapsible-item .body .content {
+	padding: 20px 30px 20px 20px;
+	font-size: rem(14);
+	ul, ol {
+		list-style: disc;
+		padding-left: 20px;
+		li {
+			margin-bottom: 1em;
+		}
+	}
+
+	ol {
+		list-style: decimal;
+	}
+}
+
+.collapsible-item.open .body {
+  max-height: 600px;
+  z-index: 1;
+}
+
+.collapsible-item.open .title {
+  background-color: $red;
+  color: #fff;
+  border-radius: 0 !important;
+}
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}

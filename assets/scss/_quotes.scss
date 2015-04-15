@@ -61,6 +61,10 @@
 .quote-title {
 	font-size: rem(14);
 	@include pad(0 rem(30));
+	margin-bottom: 0;
+}
+.quote-company {
+	font-size: rem(14);
 }
 .quote-mark {
 	margin-bottom: rem(10);

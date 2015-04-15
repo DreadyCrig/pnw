@@ -581,6 +581,17 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/assets\/img\/flags.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 62554,
+		"inputAbbreviatedPath": "\/assets\/img\/flags.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/flags.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/assets\/img\/football-rugby-alt.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
@@ -599,6 +610,28 @@
 		"initialSize": 358347,
 		"inputAbbreviatedPath": "\/assets\/img\/football-rugby.jpg",
 		"outputAbbreviatedPath": "\/assets\/img\/football-rugby.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/golf.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 140879,
+		"inputAbbreviatedPath": "\/assets\/img\/golf.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/golf.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/investment.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 42875,
+		"inputAbbreviatedPath": "\/assets\/img\/investment.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/investment.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -636,6 +669,17 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/assets\/img\/marketing.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 84831,
+		"inputAbbreviatedPath": "\/assets\/img\/marketing.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/marketing.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/assets\/img\/member-logos\/pasha.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
@@ -643,6 +687,17 @@
 		"initialSize": 58882,
 		"inputAbbreviatedPath": "\/assets\/img\/member-logos\/pasha.jpg",
 		"outputAbbreviatedPath": "\/assets\/img\/member-logos\/pasha.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/money.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 48061,
+		"inputAbbreviatedPath": "\/assets\/img\/money.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/money.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -680,6 +735,39 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/assets\/img\/passport.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 98531,
+		"inputAbbreviatedPath": "\/assets\/img\/passport.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/passport.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/policy.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 48311,
+		"inputAbbreviatedPath": "\/assets\/img\/policy.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/policy.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/roladex.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 73165,
+		"inputAbbreviatedPath": "\/assets\/img\/roladex.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/roladex.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/assets\/img\/seattle-reign.png": {
 		"fileType": 32768,
 		"ignore": 0,
@@ -687,6 +775,17 @@
 		"initialSize": 37399,
 		"inputAbbreviatedPath": "\/assets\/img\/seattle-reign.png",
 		"outputAbbreviatedPath": "\/assets\/img\/seattle-reign.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/seattle.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 77051,
+		"inputAbbreviatedPath": "\/assets\/img\/seattle.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/seattle.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -933,6 +1032,17 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/assets\/img\/testimonial-photos\/peter-rose.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 10198,
+		"inputAbbreviatedPath": "\/assets\/img\/testimonial-photos\/peter-rose.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/testimonial-photos\/peter-rose.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/assets\/img\/testimonial-photos\/rick-curry.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
@@ -988,6 +1098,17 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/assets\/img\/visa.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 64079,
+		"inputAbbreviatedPath": "\/assets\/img\/visa.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/visa.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/assets\/js\/app.js": {
 		"fileType": 64,
 		"ignore": 1,
@@ -996,6 +1117,17 @@
 		"outputAbbreviatedPath": "\/assets\/js\/assets\/js\/app.min.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 1,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 0
+		},
+	"\/assets\/js\/components\/ang-accordion.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/assets\/js\/components\/ang-accordion.js",
+		"outputAbbreviatedPath": "\/assets\/js\/components\/assets\/js\/ang-accordion.min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 0
 		},
@@ -1043,6 +1175,22 @@
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
 		},
+	"\/assets\/scss\/_about.scss": {
+		"createSourceMap": 0,
+		"debugStyle": 0,
+		"decimalPrecision": 10,
+		"fileType": 4,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/assets\/scss\/_about.scss",
+		"outputAbbreviatedPath": "\/assets\/css\/_about.css",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 0,
+		"shouldRunAutoprefixer": 0,
+		"shouldRunBless": 0,
+		"useLibsass": 0
+		},
 	"\/assets\/scss\/_ad.scss": {
 		"createSourceMap": 0,
 		"debugStyle": 0,
@@ -1068,6 +1216,22 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/assets\/scss\/_ads.scss",
 		"outputAbbreviatedPath": "\/assets\/css\/_ads.css",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 0,
+		"shouldRunAutoprefixer": 0,
+		"shouldRunBless": 0,
+		"useLibsass": 0
+		},
+	"\/assets\/scss\/_alerts.scss": {
+		"createSourceMap": 0,
+		"debugStyle": 0,
+		"decimalPrecision": 10,
+		"fileType": 4,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/assets\/scss\/_alerts.scss",
+		"outputAbbreviatedPath": "\/assets\/css\/_alerts.css",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
@@ -1676,6 +1840,22 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/assets\/scss\/_variables.scss",
 		"outputAbbreviatedPath": "\/assets\/css\/_variables.css",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 0,
+		"shouldRunAutoprefixer": 0,
+		"shouldRunBless": 0,
+		"useLibsass": 0
+		},
+	"\/assets\/scss\/_visa.scss": {
+		"createSourceMap": 0,
+		"debugStyle": 0,
+		"decimalPrecision": 10,
+		"fileType": 4,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/assets\/scss\/_visa.scss",
+		"outputAbbreviatedPath": "\/assets\/css\/_visa.css",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
@@ -3754,6 +3934,15 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
+	"\/templates\/default_site\/views.group\/about.html": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/templates\/default_site\/views.group\/about.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
 	"\/templates\/default_site\/views.group\/board-bio.html": {
 		"fileType": 8192,
 		"ignore": 0,
@@ -3804,6 +3993,15 @@
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/templates\/default_site\/views.group\/index.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/templates\/default_site\/views.group\/j1-visa.html": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/templates\/default_site\/views.group\/j1-visa.html",
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0

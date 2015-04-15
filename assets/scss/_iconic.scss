@@ -71,6 +71,11 @@ $iconic-font-path: '../fonts/';
     font-size: 32px;
   }
 
+  &.iconic-md-lg:before {
+    font-weight: 800;
+    font-size: 48px;
+  }
+
   &.iconic-lg:before {
     font-weight: 800;
     font-size: 128px;
