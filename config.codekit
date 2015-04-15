@@ -779,6 +779,17 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/assets\/img\/seattle-skyline.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 117021,
+		"inputAbbreviatedPath": "\/assets\/img\/seattle-skyline.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/seattle-skyline.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/assets\/img\/seattle.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
@@ -786,6 +797,17 @@
 		"initialSize": 77051,
 		"inputAbbreviatedPath": "\/assets\/img\/seattle.jpg",
 		"outputAbbreviatedPath": "\/assets\/img\/seattle.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/seattle_skyline.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 1.10484e+06,
+		"inputAbbreviatedPath": "\/assets\/img\/seattle_skyline.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/seattle_skyline.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
