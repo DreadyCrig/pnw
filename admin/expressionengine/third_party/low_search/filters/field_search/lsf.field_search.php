@@ -60,16 +60,16 @@ class Low_search_filter_field_search extends Low_search_filter {
 
 		$queries = array();
 
-		foreach ($params AS $key => $val)
+		foreach ($params as $key => $val)
 		{
 			// Make sure value is prepped correctly with exact/exclude/require_all values
 			$val = $this->params->prep($this->_pfx.$key, $val);
 
 			// Search channel_titles fields
-			if (in_array($key, array('title', 'url_title')))
+			if ($this->fields->is_native($key))
 			{
 				// (URL) Title search
-				$queries['channel_titles'][] = $this->_get_where_search($key, $val);
+				$queries['channel_titles'][] = $this->fields->sql($key, $val);
 			}
 
 			// Search grid or matrix cols
@@ -78,19 +78,19 @@ class Low_search_filter_field_search extends Low_search_filter {
 				list($field_name, $col_name) = explode(':', $key, 2);
 
 				// Skip invalid fields
-				if ( ! ($field_id = $this->_get_field_id($field_name))) continue;
+				if ( ! ($field_id = $this->fields->id($field_name))) continue;
 
 				$table = FALSE;
 
 				// Make sure it's an omelette!
-				if ($this->_is_grid_field($field_name) &&
-					$col_id = $this->_get_grid_col_id($field_id, $col_name))
+				if ($this->fields->is_grid($field_name) &&
+					($col_id = $this->fields->grid_col_id($field_id, $col_name)))
 				{
 					$table = 'channel_grid_field_'.$field_id;
 					$field = 'col_id_'.$col_id;
 				}
-				elseif ($this->_is_matrix_field($field_id) &&
-					$col_id = $this->_get_matrix_col_id($field_id, $col_name))
+				elseif ($this->fields->is_matrix($field_name) &&
+					($col_id = $this->fields->matrix_col_id($field_id, $col_name)))
 				{
 					$table = 'matrix_data';
 					$field = 'col_id_'.$col_id;
@@ -98,15 +98,15 @@ class Low_search_filter_field_search extends Low_search_filter {
 
 				if ($table)
 				{
-					$queries[$table][] = $this->_get_where_search($field, $val);
+					$queries[$table][] = $this->fields->sql($field, $val);
 				}
 			}
 
 			// Search custom channel fields
-			elseif ($field_id = $this->_get_field_id($key))
+			elseif ($field_id = $this->fields->id($key))
 			{
 				// Get where-clause
-				$where = $this->_get_where_search('field_id_'.$field_id, $val);
+				$where = $this->fields->sql('field_id_'.$field_id, $val);
 
 				// Enable Smart Field Searches?
 				$channel_ids = ($this->params->get('smart_field_search') == 'yes')
@@ -188,90 +188,6 @@ class Low_search_filter_field_search extends Low_search_filter {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Check whether given string is a grid field
-	 */
-	private function _is_grid_field($str)
-	{
-		$it = FALSE;
-
-		if ($fields = low_get_cache('channel', 'grid_fields'))
-		{
-			$it = (bool) $this->_get_field_id($str, $fields);
-		}
-
-		return $it;
-	}
-
-	/**
-	 * Check whether given string is a grid field
-	 */
-	private function _is_matrix_field($id)
-	{
-		$it = FALSE;
-
-		if ($fields = low_get_cache('channel', 'pair_custom_fields'))
-		{
-			$it = ($this->_get_field_id($id, $fields) == 'matrix');
-		}
-
-		return $it;
-	}
-
-	// --------------------------------------------------------------------
-
-	/**
-	 * Check whether given string is a grid field
-	 */
-	private function _get_grid_col_id($field_id, $col_name)
-	{
-		$grid_cols = low_get_cache(LOW_SEARCH_PACKAGE, 'grid_cols');
-
-		if ( ! isset($grid_cols[$field_id]))
-		{
-			$query = ee()->db->select('col_id, col_name')
-			       ->from('grid_columns')
-			       ->where('field_id', $field_id)
-			       ->get();
-
-			foreach ($query->result() AS $row)
-			{
-				$grid_cols[$field_id][$row->col_id] = $row->col_name;
-			}
-
-			low_set_cache(LOW_SEARCH_PACKAGE, 'grid_cols', $grid_cols);
-		}
-
-		return array_search($col_name, $grid_cols[$field_id]);
-	}
-
-	/**
-	 * Check whether given string is a grid field
-	 */
-	private function _get_matrix_col_id($field_id, $col_name)
-	{
-		$matrix_cols = low_get_cache(LOW_SEARCH_PACKAGE, 'matrix_cols');
-
-		if ( ! isset($matrix_cols[$field_id]))
-		{
-			$query = ee()->db->select('col_id, col_name')
-			       ->from('matrix_cols')
-			       ->where('field_id', $field_id)
-			       ->get();
-
-			foreach ($query->result() AS $row)
-			{
-				$matrix_cols[$field_id][$row->col_id] = $row->col_name;
-			}
-
-			low_set_cache(LOW_SEARCH_PACKAGE, 'matrix_cols', $matrix_cols);
-		}
-
-		return array_search($col_name, $matrix_cols[$field_id]);
-	}
-
-	// --------------------------------------------------------------------
-
-	/**
 	 * Get channel IDs based on field ID
 	 */
 	private function _get_channel_ids_by_field($field_id)
@@ -280,11 +196,12 @@ class Low_search_filter_field_search extends Low_search_filter {
 
 		if ( ! $map)
 		{
-			$query = ee()->db->select('f.field_id, c.channel_id')
-			       ->from('channel_fields f')
-			       ->join('channels c', 'f.group_id = c.field_group')
-			       ->where_in('c.site_id', $this->params->site_ids())
-			       ->get();
+			$query = ee()->db
+				->select('f.field_id, c.channel_id')
+				->from('channel_fields f')
+				->join('channels c', 'f.group_id = c.field_group')
+				->where_in('c.site_id', $this->params->site_ids())
+				->get();
 
 			foreach ($query->result() AS $row)
 			{

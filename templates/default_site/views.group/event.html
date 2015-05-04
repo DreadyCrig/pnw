@@ -1,0 +1,342 @@
+{layout="layouts/index"}
+
+{exp:channel:entries
+	disable="categories|category_fields|member_data|pagination|trackbacks"
+}
+
+{event_banner}
+{if background}
+<header class="headline headline--rich headline--event headline--rich-center" style="background-image: url('{background}')">
+{if:else}
+<header class="headline">
+{/if}
+{/event_banner}
+		<div class="overlay" 
+			{event_banner}
+			style="background-color: rgba(17, 17, 17, 0.{overlay});"
+			}
+			{/event_banner}
+		>
+		<div class="headline__content">
+			<div class="headline-categories"><a href="#">{event_type:label}</a></div>
+			<h1>{title}</h1>
+			<div class="headline__meta">
+				<span class="date">
+					<span class="iconic" data-glyph="calendar" aria-hidden="true"></span> 
+					{event_date:start_date format="%l, %F %d%S"} - {event_date:start_date format="%g:%i %A"} to {event_date:end_date format="%g:%i %A"}
+				</span>
+				<div class="save-the-date">
+				</div>
+			</div>
+		</div>
+	</div>
+</header>
+
+<main class="main main--white">
+	<div class="main-container">
+		<article class="event">
+			<div class="event__body">
+				<div class="card">
+					<header class="card__header">
+						<h2>Event Details</h2>
+					</header>
+					<div class="card__body">
+						<div class="event-details">
+							{event_details}
+							{body}
+							{/event_details}
+						</div>
+						{if event_proceeds}
+						<div class="proceeds">
+							<p>BABC-PNW &amp; Seattle Saracens are pleased to donate a portion of the event proceeds to the following charitable partners:</p>
+							{event_proceeds}
+							<div class="proceeds__item">
+								<a href="{url}" target="_blank"><img src="{logo}" alt="{logo:alt_text}"></a>
+							</div>
+							{/event_proceeds}
+						</div>
+						{/if}
+					</div>
+				</div>
+				{if event_speakers}
+				<div class="card">
+					<header class="card__header">
+						<h2>Event Speakers</h2>
+					</header>
+					<div class="card__body">
+						<div class="speakers">
+							{event_speakers}
+							<div class="speaker">
+								<a href="#" class="speaker__photo">{exp:ce_img:single src="{photo}" allow_scale_larger="yes" width="108" height="108" attributes='alt="{name}"'}</a>
+								<span class="speaker__name"><a href="#">{name}</a></span>
+								<span class="speaker__meta">{organization}</span>
+							</div>
+							{/event_speakers}
+						</div>
+					</div>
+				</div>
+				{/if}
+				
+				{if event_program}
+				<div class="card">
+					<header class="card__header">
+						<h2>Event Program</h2>
+					</header>
+					<div class="card__body">
+						<div class="program">
+							<table class="program__table">
+								<tbody>
+									{event_program}
+									{if break}
+									<tr class="day-break">
+										<td colspan="2">{date}</td>
+									</tr>
+									{if:else}
+									<tr>
+										<td class="program-time">{date}</td>
+										<td>{description}</td>
+									</tr>
+									{/if}
+									{/event_program}
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+				{/if}
+				{if event_rsvp}
+				{event_rsvp}
+				<div class="card">
+					<header class="card__header">
+						<h2>RSVP to this event</h2>
+					</header>
+					
+					<div class="card__body">
+						{if close}
+						<div class="closed-rsvp-event">
+							<div class="alert alert--danger">
+								Sorry, we are no longer accepting RSVP request for this event.
+							</div>
+						</div>
+						{if:else}
+						<div class="rsvp-intro">
+							{intro}
+						</div>
+						{exp:freeform:form 
+		          form:class="rsvp-form" 
+		          form_name="rsvp_form"
+		          required="full_name|email|phone"
+		        }
+							<input type="hidden" value="{title}" name="event">
+							<div class="form-group">
+						    <label for="fullName">Full Name</label>
+						    <input type="text" class="form-control" id="fullName" placeholder="Enter your full name" name="full_name">
+						  </div>
+						  <div class="form-group">
+						    <label for="email">Email</label>
+						    <input type="email" class="form-control" id="email" placeholder="Enter your email" name="email">
+						  </div>
+						  <div class="form-group">
+						    <label for="phone">Phone</label>
+						    <input type="text" class="form-control" id="phone" placeholder="Enter your phone" name="phone">
+						  </div>
+						  {if multiple}
+						  <div class="form-group">
+						    <label for="party">Additional Guests</label>
+						    <select name="additional_guests" id="party">
+						    	<option>0</option>
+						    	<option value="1">1</option>
+						    	<option value="2">2</option>
+						    	<option value="3">3</option>
+						    	<option value="4">4</option>
+						    	<option value="5">5</option>
+						    </select>
+						  </div>
+						  {/if}
+							<div class="form-group">
+						    <label for="contactComment">Your Comment</label>
+						    <textarea name="user_message" id="contactComment" cols="30" rows="7"></textarea>
+						  </div>
+						  <div class="form-group">
+						    <div class="form-control">
+						    	<button type="submit" class="btn">Submit RSVP</button>
+						    </div>
+						  </div>
+						{/exp:freeform:form}
+						{/if}
+					</div>
+				</div>
+				{/event_rsvp}
+				{/if}
+				{if event_ticket_information}
+				<div class="card">
+					<header class="card__header">
+						<h2>Ticket Information</h2>
+					</header>
+					<div class="card__body">
+						<div class="ticket">
+							{event_ticket_information}
+							{if event_ticket}
+							<table class="ticket__table">
+								<thead>
+									<tr>
+										<th class="type">
+											Ticket Type
+										</th>
+										<th class="fee">Fee</th>
+										<th class="qty">Qty</th>
+									</tr>
+								</thead>
+								<tfoot>
+							    <tr>
+							      <td colspan="3"><button class="btn">{event_button_text}</button></td>
+							    </tr>
+							  </tfoot>
+								<tbody>
+									{event_ticket}
+									<tr>
+										<td>
+											<h5>{label}</h5>
+											<p>{description}</p>
+										</td>
+										<td>${fee}</td>
+										<td>
+											{if soldout}
+											<span class="sold-out">Sold Out</span>
+											{if:else}
+											<select>
+												<option value="0" selected>0</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+												<option value="7">7</option>
+												<option value="8">8</option>
+												<option value="9">9</option>
+											</select>
+											{/if}
+										</td>
+									</tr>
+									{/event_ticket}
+								</tbody>
+							</table>
+							{/if}
+						</div>
+					</div>
+				</div>
+				{/if}
+			</div>
+
+			<aside class="event__aside">
+
+				<div class="card">
+					<header class="card__header">
+						<h2>When &amp; Where</h2>
+					</header>
+					<div class="card__body">
+						{if event_map}
+						<div class="event-map">
+							{exp:gmap:init id="eventmap" scrollwheel="false" style="width:100%;height:200px"}
+        			{event_map id="eventmap"}
+						</div>
+						{/if}
+						{event_venue}
+						<div class="event-location">
+							<address>
+								<strong>{name}</strong> <br>
+								{address}
+							</address>
+							<time>
+								{event_date:start_date format="%l, %F %d%S"} - {event_date:start_date format="%g:%i %A"} to {event_date:end_date format="%g:%i %A"}
+							</time>
+							<span class="addtocalendar atc-style-blue">
+				        <var class="atc_event">
+			            <var class="atc_date_start">{event_date:start_date format="%Y-%m-%d %G:%i:00"}</var>
+			            <var class="atc_date_end">{event_date:end_date format="%Y-%m-%d %G:%i:00"}</var>
+			            <var class="atc_timezone">America/Los_Angeles</var>
+			            <var class="atc_title">{title}</var>
+			            <var class="atc_description">{event_details}{micro_excerpt}{/event_details}</var>
+			            <var class="atc_location">{name}, {address}</var>
+			            <var class="atc_organizer">BABC PNW</var>
+			            <var class="atc_organizer_email">events@babcpnw.org</var>
+				        </var>
+    					</span>
+						</div>
+						{/event_venue}
+					</div>
+				</div>
+				{if event_sponsorship}
+				<div class="card">
+					<header class="card__header">
+						<h2>Sponsorship Opportunities</h2>
+					</header>
+					<div class="card__body">
+						<div class="sponsorship">
+							<ul class="sponsorship-list">
+								{event_sponsorship}
+								<li>
+									<strong>{label}</strong>
+									{items}
+								</li>
+								{/event_sponsorship}
+							</ul>
+						</div>
+					</div>
+					<footer class="card__footer">
+					{if event_sponsorship_form}
+						<a href="{event_sponsorship_form:url}" target="_blank" class="btn btn--sm btn--alt btn--block download-pledge">
+							<span class="iconic" data-glyph="cloud-transfer-download"></span> Download the Sponsor Pledge Form
+						</a>
+					{/if}
+					</footer>
+
+				</div>
+				{/if}
+				{if event_sponsors}
+				<div class="card">
+					<header class="card__header">
+						<h2>Sponsors</h2>
+					</header>
+					<div class="card__body">
+						<div class="sponsors">
+							<ul>
+								{event_sponsors}
+								{ad_unit}
+								<li>
+									<a href="#"><img src="{image}" alt="{title}"></a>
+								</li>
+								{/ad_unit}
+								{/event_sponsors}
+							</ul>
+						</div>
+					</div>
+				</div>
+				{/if}
+				{if event_sponsors}
+				<div class="card">
+					<header class="card__header">
+						<h2>Partners</h2>
+					</header>
+					<div class="card__body">
+						<div class="partners">
+							<ul>
+								{event_partners}
+								{ad_unit}
+								<li>
+									<a href="{url}"><img src="{image}" alt="{title}"></a>
+								</li>
+								{/ad_unit}
+								{/event_partners}
+							</ul>
+						</div>
+					</div>
+				</div>
+				{/if}
+			</aside>
+		</article>
+	</div>
+</main>
+{/exp:channel:entries}
+<script src="/assets/js/vendor/atc.min.js"></script>

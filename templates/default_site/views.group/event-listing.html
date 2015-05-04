@@ -15,150 +15,103 @@
 						</span>
 					</header>
 					<div class="card__body">
-						<div class="post post--event post--event--industry post--with-thumb">
+						{exp:low_events:entries
+							channel="events"
+							disable="categories|category_fields|member_data|trackbacks"
+							dynamic="off"
+							unit="custom" date_from="-6 weeks" date_to="+6 weeks"
+							show_passed="yes"
+						}
+						<div class="post post--event post--event--{event_type} post--with-thumb">
 							<header class="post--event__header">
 								<h3 class="post-title">
-									<a href="#">See a Seattle Reign match for free</a>
+									{if event_external}
+									<a href="{event_external}" target="_blank">
+									{if:else}
+									<a href="{page_url}">
+									{/if}
+									{title}</a>
 								</h3>
 								<time class="event-date">
-									<div class="day">Friday, April 3rd</div>
-									<div class="time">7:00 PM</div>
+									<div class="day">{event_date:start_date format="%l, %F %d%S"}</div>
+									<div class="time">{event_date:start_date format="%g:%i %A"} - {event_date:end_date format="%g:%i %A"}</div>
 								</time>
 							</header>
 							<div class="post--event__body">
+								{event_banner}
+								{if thumbnail}
 								<div class="post__thumb">
-									<a href="#"><img src="/assets/img/seattle-reign.png" alt="Seattle Reign FC"></a>
+									{if event_external}
+									<a href="{event_external}" target="_blank">
+									{if:else}
+									<a href="{page_url}">
+									{/if}
+										<img src="{thumbnail}" alt="{thumbnail:alt_text}">
+									</a>
 								</div>
+								{/if}
+								{/event_banner}
 								<div class="post__body">
 									<p class="post-excerpt">
-										BABC-PNW is pleased to cheer on the Seattle Reign in their pre-season friendly vs. the University of Washington. This is a special Community Shield Match where organizations, such as BABC, who have supported the team will be acknowledged.  We hope you’ll be able to join and attend this match, offered complimentary to BABC-PNW members.
+										{event_details}
+										{excerpt text_only="yes"}
+										{/event_details}
 									</p>
 								</div>
 							</div>
 							<footer class="post--event__footer">
-								<span class="event-type">Industry Event</span>
+								<span class="event-type">{event_type:label}</span>
 								<span class="event-cta">
-									<a href="#" class="btn btn--outline btn--md">More Info</a>
-									<a href="#" class="btn btn--outline btn--md">Register Today</a>
+									{if event_external}
+									<a href="{event_external}" target="_blank" class="btn btn--outline btn--md">
+									{if:else}
+									<a href="{page_url}" class="btn btn--outline btn--md">
+									{/if}
+										{event_button_text}
+									</a>
 								</span>
 							</footer>
 						</div>
-						<div class="post post--event post--event--pnw post--with-thumb">
-							<header class="post--event__header">
-								<h3 class="post-title">
-									<a href="#">UK Elections – Potential Impact on the Economy</a>
-								</h3>
-								<time class="event-date">
-									<div class="day">Tuesday, March 24th</div>
-									<div class="time">4:00 PM - 5:30 PM</div>
-								</time>
-							</header>
-							<div class="post--event__body">
-								<div class="post__thumb">
-									<a href="#"><img src="/assets/img/uk-vote.jpg" alt="Seattle Reign FC"></a>
-								</div>
-								<div class="post__body">
-									<p class="post-excerpt">
-										Elections in the UK are scheduled to take place in early May. With the potential for changes ahead, now is a perfect time to hear from experts who will discuss some of the key issues at play at the Trade Development Alliance's March 24th UK elections event.
-									</p>
-								</div>
-							</div>
-							<footer class="post--event__footer">
-								<span class="event-type">A BABC-PNW supported Event</span>
-								<span class="event-cta">
-									<a href="#" class="btn btn--outline btn--md">More Info</a>
-									<a href="#" class="btn btn--outline btn--md">Register Today</a>
-								</span>
-							</footer>
-						</div>
-						<div class="post post--event post--event--sponsor post--with-thumb">
-							<header class="post--event__header">
-								<h3 class="post-title">
-									<a href="#">Seattle Saracens First Annual Golf Tournament</a>
-								</h3>
-								<time class="event-date">
-									<div class="day">Friday, April 24th</div>
-									<div class="time">All day event</div>
-								</time>
-							</header>
-							<div class="post--event__body">
-								<div class="post__thumb">
-									<a href="#"><img src="/assets/img/golf.jpg" alt="Seattle Reign FC"></a>
-								</div>
-								<div class="post__body">
-									<p class="post-excerpt">
-										You're invited to join the Seattle Saracens for their First Annual Golf Tournament and Dinner Auction on Friday April 24. Dinner Auction to follow, plus complementary appetizers at the after party held at Paddy Coyne's Irish Pub on Pier 70. There are also opportunities to support the club and advertise your company by sponsoring a hole at the event! 
-									</p>
-								</div>
-							</div>
-							<footer class="post--event__footer">
-								<span class="event-type">A Sponsor Event</span>
-								<span class="event-cta">
-									<a href="#" class="btn btn--outline btn--md">More Info</a>
-									<a href="#" class="btn btn--outline btn--md">Register Today</a>
-								</span>
-							</footer>
-						</div>
+						{paginate}
+						{pagination_links}
 						<div class="pagination">
 							<ul class="pager">
+								{previous_page}
 								<li class="previous">
-									<a href="#">
+									<a href="{pagination_url}">
 										<span class="iconic" data-glyph="arrow-left-line-large-oblique" aria-hidden="true"></span> Older
 									</a>
 								</li>
+								{/previous_page}
+								{next_page}
 	    					<li class="next">
-	    						<a href="#">Newer 
+	    						<a href="{pagination_url}">Newer 
 	    							<span class="iconic" data-glyph="arrow-right-line-large-oblique" aria-hidden="true"></span>
 	    						</a>
 	    					</li>
+	    					{/next_page}
 							</ul>
 						</div>
+						{/pagination_links}
+						{/paginate}
+						{/exp:low_events:entries}
 					</div>
 				</div>
 			</div>
+			
+			{exp:channel:entries disable="categories|category_fields|member_data|pagination|trackbacks"}
 			<aside class="home-aside">
-				<div class="card">
-					<header class="card__header text-center">
-						<h2>What sponsors are saying...</h2>
-					</header>
-					<div class="card__body">
-						<div class="quote">
-							<div class="quote__photo">
-								<img src="/assets/img/testimonial-photos/rick-curry.jpg" alt="Rick Curry">
-							</div>
-							<div class="quote__post">
-								<blockquote>
-									<span class="iconic iconic--quote quote-mark" data-glyph="double-quote-serif-left"></span>
-									<p>
-										Our company is proud to support the BABC-PNW and we sponsor the Annual Golf Tournament. It's a great way to get our message out to people in the Pacific North West and to have our customers throughout the country participate in this event.
-									</p>
-								</blockquote>
-							</div>
-							<div class="quote__meta">
-								<h4 class="quote-name">Rick Curry</h4>
-								<p class="quote-title">President</p>
-								<p class="quote-company">Gateway International, Inc.</p>
-							</div>
-						</div>
-					</div>
-					<div class="card__footer text-center">
-						<a href="#">Join BABC-PNW Now</a>
-					</div>
-				</div>
-				<div class="card">
-					<header class="card__header text-center">
-						<h2>Corporate Sponsor Opportunities</h2>
-					</header>
-					<div class="card__body card__body--padded ad">
-						<a href="#" class="ad-logo"><img src="/assets/img/member-logos/pasha.jpg" alt="Pasha Gateways International"></a>
-						<h3>Be a sponsor for a BABC-PNW event</h3>
-						<p>BABC-PNW events are great opportunities for sponsors to reach a targeted audience of people involved in trade and other links between the UK and the USA.</p>
-					</div>
-					<footer class="card__footer">
-						<a href="#" class="btn btn--block">Sponsor an Event</a>
-					</footer>
-				</div>
+				{page_aside}
+					{if channel_short_name == "testimonials"}
+						{embed="partials/_testimonial-card" entry_id="{entry_id}"}
+					{/if}
+					{if channel_short_name == "sponsor_card"}
+						{embed="partials/_sponsor-card" entry_id="{entry_id}"}
+					{/if}
+				{/page_aside}
 			</aside>
+			{/exp:channel:entries}
+
 		</section>
 		
 	</div>

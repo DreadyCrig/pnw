@@ -112,26 +112,46 @@ $config['word_separator']           = 'dash'; // dash|underscore
 	* The array keys must match the ID from exp_upload_prefs
 	*/
 $config['upload_preferences'] = array(
-    // 1 => array(
-    //     'name'        => 'Banners',
-    //     'server_path' => $base_path . '/assets/img/banners',
-    //     'url'         => $base_url  . '/assets/img/banners/'
-    // ),
-    // 2 => array(
-    //     'name'        => 'Artwork',
-    //     'server_path' => $base_path . '/assets/img/artwork/',
-    //     'url'         => $base_url  . '/assets/img/artwork/'
-    // ),
-    // 3 => array(
-    //     'name'        => 'Media',
-    //     'server_path' => $base_path . '/assets/media/',
-    //     'url'         => $base_url  . '/assets/media/'
-    // ),
-    // 4 => array(
-    //     'name'        => 'Article Images',
-    //     'server_path' => $base_path . '/assets/img/blog/',
-    //     'url'         => $base_url  . '/assets/img/blog/'
-    // )
+    1 => array(
+        'name'        => 'Ads',
+        'server_path' => $base_path . '/assets/img/ads/',
+        'url'         => $base_url  . '/assets/img/ads/'
+    ),
+    2 => array(
+        'name'        => 'Banners',
+        'server_path' => $base_path . '/assets/img/banners/',
+        'url'         => $base_url  . '/assets/img/banners/'
+    ),
+    3 => array(
+        'name'        => 'Logos',
+        'server_path' => $base_path . '/assets/img/logos/',
+        'url'         => $base_url  . '/assets/img/logos/'
+    ),
+    4 => array(
+        'name'        => 'Article Images',
+        'server_path' => $base_path . '/assets/img/images/',
+        'url'         => $base_url  . '/assets/img/images/'
+    ),
+    5 => array(
+        'name'        => 'PDFs',
+        'server_path' => $base_path . '/assets/img/pdf/',
+        'url'         => $base_url  . '/assets/img/pdf/'
+    ),
+    6 => array(
+        'name'        => 'Speaker Photos',
+        'server_path' => $base_path . '/assets/img/speaker-photos/',
+        'url'         => $base_url  . '/assets/img/speaker-photos/'
+    ),
+    7 => array(
+        'name'        => 'Staff Photos',
+        'server_path' => $base_path . '/assets/img/staff-photos/',
+        'url'         => $base_url  . '/assets/img/staff-photos/'
+    ),
+    8 => array(
+        'name'        => 'Testimonial Photos',
+        'server_path' => $base_path . '/assets/img/testimonial-photos/',
+        'url'         => $base_url  . '/assets/img/testimonial-photos/'
+    )
 );
 
 // END EE config items

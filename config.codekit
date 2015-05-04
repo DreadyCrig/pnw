@@ -1,6 +1,6 @@
 {
 "CodeKitInfo": "This is a CodeKit 2.x project configuration file. It is designed to sync project settings across multiple machines. MODIFYING THE CONTENTS OF THIS FILE IS A POOR LIFE DECISION. If you do so, you will likely cause CodeKit to crash. This file is not useful unless accompanied by the project that created it in CodeKit 2. This file is not backwards-compatible with CodeKit 1.x. For more information, see: http:\/\/incident57.com\/codekit",
-"creatorBuild": "18493",
+"creatorBuild": "18917",
 "files": {
 	"\/admin.php": {
 		"fileType": 8192,
@@ -11,6 +11,145 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
+	"\/assets\/bower_components\/retina.js\/bower.json": {
+		"fileType": 524288,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/assets\/bower_components\/retina.js\/bower.json",
+		"orderOutput": 0,
+		"outputAbbreviatedPath": "\/assets\/bower_components\/retina.js\/bower-min.json",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1
+		},
+	"\/assets\/bower_components\/retina.js\/dist\/retina.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/assets\/bower_components\/retina.js\/dist\/retina.js",
+		"outputAbbreviatedPath": "\/assets\/bower_components\/retina.js\/dist\/assets\/js\/retina.min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 0
+		},
+	"\/assets\/bower_components\/retina.js\/dist\/retina.min.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/assets\/bower_components\/retina.js\/dist\/retina.min.js",
+		"outputAbbreviatedPath": "\/assets\/bower_components\/retina.js\/dist\/assets\/js\/retina.min.min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 0
+		},
+	"\/assets\/bower_components\/retina.js\/Gruntfile.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/assets\/bower_components\/retina.js\/Gruntfile.js",
+		"outputAbbreviatedPath": "\/assets\/bower_components\/retina.js\/assets\/js\/Gruntfile.min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 0
+		},
+	"\/assets\/bower_components\/retina.js\/package.json": {
+		"fileType": 524288,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/assets\/bower_components\/retina.js\/package.json",
+		"orderOutput": 0,
+		"outputAbbreviatedPath": "\/assets\/bower_components\/retina.js\/package-min.json",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1
+		},
+	"\/assets\/bower_components\/retina.js\/README.md": {
+		"criticStyle": 0,
+		"enableFootnotes": 0,
+		"enableLabels": 1,
+		"enableSmartQuotes": 1,
+		"escapeLineBreaks": 0,
+		"fileType": 4096,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/assets\/bower_components\/retina.js\/README.md",
+		"maskEmailAddresses": 1,
+		"outputAbbreviatedPath": "\/assets\/bower_components\/retina.js\/README.html",
+		"outputFormat": 0,
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 0,
+		"parseMetadata": 1,
+		"processHTML": 0,
+		"randomFootnoteNumbers": 0,
+		"useCompatibilityMode": 0
+		},
+	"\/assets\/bower_components\/retina.js\/src\/_retina.sass": {
+		"createSourceMap": 1,
+		"debugStyle": 0,
+		"decimalPrecision": 10,
+		"fileType": 2,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/assets\/bower_components\/retina.js\/src\/_retina.sass",
+		"outputAbbreviatedPath": "\/assets\/css\/_retina.css",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 0,
+		"shouldRunAutoprefixer": 0,
+		"shouldRunBless": 0,
+		"useLibsass": false
+		},
+	"\/assets\/bower_components\/retina.js\/src\/_retina.scss": {
+		"createSourceMap": 1,
+		"debugStyle": 0,
+		"decimalPrecision": 10,
+		"fileType": 4,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/assets\/bower_components\/retina.js\/src\/_retina.scss",
+		"outputAbbreviatedPath": "\/assets\/css\/_retina.css",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 0,
+		"shouldRunAutoprefixer": 0,
+		"shouldRunBless": 0,
+		"useLibsass": 1
+		},
+	"\/assets\/bower_components\/retina.js\/src\/retina.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/assets\/bower_components\/retina.js\/src\/retina.js",
+		"outputAbbreviatedPath": "\/assets\/bower_components\/retina.js\/src\/assets\/js\/retina.min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 0
+		},
+	"\/assets\/bower_components\/retina.js\/src\/retina.less": {
+		"allowInsecureImports": 0,
+		"createSourceMap": 0,
+		"disableJavascript": 0,
+		"fileType": 1,
+		"ieCompatibility": 1,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/assets\/bower_components\/retina.js\/src\/retina.less",
+		"outputAbbreviatedPath": "\/assets\/bower_components\/retina.js\/css\/retina.css",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 0,
+		"relativeURLS": 0,
+		"shouldRunAutoprefixer": 0,
+		"shouldRunBless": 0,
+		"strictImports": 0,
+		"strictMath": 0,
+		"strictUnits": 0
+		},
 	"\/assets\/css\/app.css": {
 		"fileType": 16,
 		"ignore": 1,
@@ -20,68 +159,374 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
-	"\/assets\/img\/ad-1.jpg": {
+	"\/assets\/img\/ads\/_thumbs\/ad-1.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 1846,
+		"inputAbbreviatedPath": "\/assets\/img\/ads\/_thumbs\/ad-1.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/ads\/_thumbs\/ad-1.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/ads\/_thumbs\/ad-2.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 1979,
+		"inputAbbreviatedPath": "\/assets\/img\/ads\/_thumbs\/ad-2.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/ads\/_thumbs\/ad-2.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/ads\/_thumbs\/ad-3.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 3495,
+		"inputAbbreviatedPath": "\/assets\/img\/ads\/_thumbs\/ad-3.png",
+		"outputAbbreviatedPath": "\/assets\/img\/ads\/_thumbs\/ad-3.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/ads\/_thumbs\/ad-4.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 1506,
+		"inputAbbreviatedPath": "\/assets\/img\/ads\/_thumbs\/ad-4.png",
+		"outputAbbreviatedPath": "\/assets\/img\/ads\/_thumbs\/ad-4.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/ads\/_thumbs\/ad-5.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 1559,
+		"inputAbbreviatedPath": "\/assets\/img\/ads\/_thumbs\/ad-5.png",
+		"outputAbbreviatedPath": "\/assets\/img\/ads\/_thumbs\/ad-5.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/ads\/_thumbs\/ad-6.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 3110,
+		"inputAbbreviatedPath": "\/assets\/img\/ads\/_thumbs\/ad-6.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/ads\/_thumbs\/ad-6.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/ads\/_thumbs\/aerospace-alliance.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2931,
+		"inputAbbreviatedPath": "\/assets\/img\/ads\/_thumbs\/aerospace-alliance.png",
+		"outputAbbreviatedPath": "\/assets\/img\/ads\/_thumbs\/aerospace-alliance.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/ads\/_thumbs\/bennett-foundation.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 5562,
+		"inputAbbreviatedPath": "\/assets\/img\/ads\/_thumbs\/bennett-foundation.png",
+		"outputAbbreviatedPath": "\/assets\/img\/ads\/_thumbs\/bennett-foundation.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/ads\/_thumbs\/boeing.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 1872,
+		"inputAbbreviatedPath": "\/assets\/img\/ads\/_thumbs\/boeing.png",
+		"outputAbbreviatedPath": "\/assets\/img\/ads\/_thumbs\/boeing.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/ads\/_thumbs\/boys-girls-club.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 5859,
+		"inputAbbreviatedPath": "\/assets\/img\/ads\/_thumbs\/boys-girls-club.png",
+		"outputAbbreviatedPath": "\/assets\/img\/ads\/_thumbs\/boys-girls-club.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/ads\/_thumbs\/defense-coalition.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 5517,
+		"inputAbbreviatedPath": "\/assets\/img\/ads\/_thumbs\/defense-coalition.png",
+		"outputAbbreviatedPath": "\/assets\/img\/ads\/_thumbs\/defense-coalition.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/ads\/_thumbs\/delta.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 1929,
+		"inputAbbreviatedPath": "\/assets\/img\/ads\/_thumbs\/delta.png",
+		"outputAbbreviatedPath": "\/assets\/img\/ads\/_thumbs\/delta.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/ads\/_thumbs\/esterline.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 1891,
+		"inputAbbreviatedPath": "\/assets\/img\/ads\/_thumbs\/esterline.png",
+		"outputAbbreviatedPath": "\/assets\/img\/ads\/_thumbs\/esterline.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/ads\/_thumbs\/expeditors.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 1948,
+		"inputAbbreviatedPath": "\/assets\/img\/ads\/_thumbs\/expeditors.png",
+		"outputAbbreviatedPath": "\/assets\/img\/ads\/_thumbs\/expeditors.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/ads\/_thumbs\/facc.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2248,
+		"inputAbbreviatedPath": "\/assets\/img\/ads\/_thumbs\/facc.png",
+		"outputAbbreviatedPath": "\/assets\/img\/ads\/_thumbs\/facc.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/ads\/_thumbs\/greater-portland.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2272,
+		"inputAbbreviatedPath": "\/assets\/img\/ads\/_thumbs\/greater-portland.png",
+		"outputAbbreviatedPath": "\/assets\/img\/ads\/_thumbs\/greater-portland.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/ads\/_thumbs\/index.html": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/assets\/img\/ads\/_thumbs\/index.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/assets\/img\/ads\/_thumbs\/kpmg.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2338,
+		"inputAbbreviatedPath": "\/assets\/img\/ads\/_thumbs\/kpmg.png",
+		"outputAbbreviatedPath": "\/assets\/img\/ads\/_thumbs\/kpmg.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/ads\/_thumbs\/orion.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 3081,
+		"inputAbbreviatedPath": "\/assets\/img\/ads\/_thumbs\/orion.png",
+		"outputAbbreviatedPath": "\/assets\/img\/ads\/_thumbs\/orion.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/ads\/_thumbs\/reign-fc.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 3165,
+		"inputAbbreviatedPath": "\/assets\/img\/ads\/_thumbs\/reign-fc.png",
+		"outputAbbreviatedPath": "\/assets\/img\/ads\/_thumbs\/reign-fc.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/ads\/_thumbs\/russell.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2304,
+		"inputAbbreviatedPath": "\/assets\/img\/ads\/_thumbs\/russell.png",
+		"outputAbbreviatedPath": "\/assets\/img\/ads\/_thumbs\/russell.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/ads\/_thumbs\/saracens.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 4972,
+		"inputAbbreviatedPath": "\/assets\/img\/ads\/_thumbs\/saracens.png",
+		"outputAbbreviatedPath": "\/assets\/img\/ads\/_thumbs\/saracens.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/ads\/_thumbs\/sightlife-charity.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 3418,
+		"inputAbbreviatedPath": "\/assets\/img\/ads\/_thumbs\/sightlife-charity.png",
+		"outputAbbreviatedPath": "\/assets\/img\/ads\/_thumbs\/sightlife-charity.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/ads\/_thumbs\/sightlife.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2788,
+		"inputAbbreviatedPath": "\/assets\/img\/ads\/_thumbs\/sightlife.png",
+		"outputAbbreviatedPath": "\/assets\/img\/ads\/_thumbs\/sightlife.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/ads\/_thumbs\/tdas.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2071,
+		"inputAbbreviatedPath": "\/assets\/img\/ads\/_thumbs\/tdas.png",
+		"outputAbbreviatedPath": "\/assets\/img\/ads\/_thumbs\/tdas.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/ads\/_thumbs\/teague.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 1200,
+		"inputAbbreviatedPath": "\/assets\/img\/ads\/_thumbs\/teague.png",
+		"outputAbbreviatedPath": "\/assets\/img\/ads\/_thumbs\/teague.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/ads\/_thumbs\/uk-government-office.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 4172,
+		"inputAbbreviatedPath": "\/assets\/img\/ads\/_thumbs\/uk-government-office.png",
+		"outputAbbreviatedPath": "\/assets\/img\/ads\/_thumbs\/uk-government-office.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/ads\/_thumbs\/uk-trade.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2344,
+		"inputAbbreviatedPath": "\/assets\/img\/ads\/_thumbs\/uk-trade.png",
+		"outputAbbreviatedPath": "\/assets\/img\/ads\/_thumbs\/uk-trade.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/ads\/ad-1.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 275502,
-		"inputAbbreviatedPath": "\/assets\/img\/ad-1.jpg",
-		"outputAbbreviatedPath": "\/assets\/img\/ad-1.jpg",
+		"inputAbbreviatedPath": "\/assets\/img\/ads\/ad-1.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/ads\/ad-1.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/assets\/img\/ad-2.jpg": {
+	"\/assets\/img\/ads\/ad-2.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 14003,
-		"inputAbbreviatedPath": "\/assets\/img\/ad-2.jpg",
-		"outputAbbreviatedPath": "\/assets\/img\/ad-2.jpg",
+		"inputAbbreviatedPath": "\/assets\/img\/ads\/ad-2.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/ads\/ad-2.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/assets\/img\/ad-3.png": {
+	"\/assets\/img\/ads\/ad-3.png": {
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 12203,
-		"inputAbbreviatedPath": "\/assets\/img\/ad-3.png",
-		"outputAbbreviatedPath": "\/assets\/img\/ad-3.png",
+		"inputAbbreviatedPath": "\/assets\/img\/ads\/ad-3.png",
+		"outputAbbreviatedPath": "\/assets\/img\/ads\/ad-3.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/assets\/img\/ad-4.png": {
+	"\/assets\/img\/ads\/ad-4.png": {
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 4915,
-		"inputAbbreviatedPath": "\/assets\/img\/ad-4.png",
-		"outputAbbreviatedPath": "\/assets\/img\/ad-4.png",
+		"inputAbbreviatedPath": "\/assets\/img\/ads\/ad-4.png",
+		"outputAbbreviatedPath": "\/assets\/img\/ads\/ad-4.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/assets\/img\/ad-5.png": {
+	"\/assets\/img\/ads\/ad-5.png": {
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 3126,
-		"inputAbbreviatedPath": "\/assets\/img\/ad-5.png",
-		"outputAbbreviatedPath": "\/assets\/img\/ad-5.png",
+		"inputAbbreviatedPath": "\/assets\/img\/ads\/ad-5.png",
+		"outputAbbreviatedPath": "\/assets\/img\/ads\/ad-5.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/assets\/img\/ad-6.jpg": {
+	"\/assets\/img\/ads\/ad-6.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 36155,
-		"inputAbbreviatedPath": "\/assets\/img\/ad-6.jpg",
-		"outputAbbreviatedPath": "\/assets\/img\/ad-6.jpg",
+		"inputAbbreviatedPath": "\/assets\/img\/ads\/ad-6.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/ads\/ad-6.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -97,13 +542,13 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/assets\/img\/ads\/aerospace-alliance@2x.png": {
+	"\/assets\/img\/ads\/bennett-foundation.png": {
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 31372,
-		"inputAbbreviatedPath": "\/assets\/img\/ads\/aerospace-alliance@2x.png",
-		"outputAbbreviatedPath": "\/assets\/img\/ads\/aerospace-alliance@2x.png",
+		"initialSize": 17942,
+		"inputAbbreviatedPath": "\/assets\/img\/ads\/bennett-foundation.png",
+		"outputAbbreviatedPath": "\/assets\/img\/ads\/bennett-foundation.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -119,13 +564,13 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/assets\/img\/ads\/boeing@2x.png": {
+	"\/assets\/img\/ads\/boys-girls-club.png": {
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 28073,
-		"inputAbbreviatedPath": "\/assets\/img\/ads\/boeing@2x.png",
-		"outputAbbreviatedPath": "\/assets\/img\/ads\/boeing@2x.png",
+		"initialSize": 14368,
+		"inputAbbreviatedPath": "\/assets\/img\/ads\/boys-girls-club.png",
+		"outputAbbreviatedPath": "\/assets\/img\/ads\/boys-girls-club.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -141,17 +586,6 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/assets\/img\/ads\/defense-coalition@2x.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 136833,
-		"inputAbbreviatedPath": "\/assets\/img\/ads\/defense-coalition@2x.png",
-		"outputAbbreviatedPath": "\/assets\/img\/ads\/defense-coalition@2x.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
 	"\/assets\/img\/ads\/delta.png": {
 		"fileType": 32768,
 		"ignore": 0,
@@ -159,17 +593,6 @@
 		"initialSize": 11085,
 		"inputAbbreviatedPath": "\/assets\/img\/ads\/delta.png",
 		"outputAbbreviatedPath": "\/assets\/img\/ads\/delta.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/assets\/img\/ads\/delta@2x.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 36020,
-		"inputAbbreviatedPath": "\/assets\/img\/ads\/delta@2x.png",
-		"outputAbbreviatedPath": "\/assets\/img\/ads\/delta@2x.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -185,17 +608,6 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/assets\/img\/ads\/esterline@2x.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 20807,
-		"inputAbbreviatedPath": "\/assets\/img\/ads\/esterline@2x.png",
-		"outputAbbreviatedPath": "\/assets\/img\/ads\/esterline@2x.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
 	"\/assets\/img\/ads\/expeditors.png": {
 		"fileType": 32768,
 		"ignore": 0,
@@ -203,17 +615,6 @@
 		"initialSize": 7948,
 		"inputAbbreviatedPath": "\/assets\/img\/ads\/expeditors.png",
 		"outputAbbreviatedPath": "\/assets\/img\/ads\/expeditors.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/assets\/img\/ads\/expeditors@2x.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 21200,
-		"inputAbbreviatedPath": "\/assets\/img\/ads\/expeditors@2x.png",
-		"outputAbbreviatedPath": "\/assets\/img\/ads\/expeditors@2x.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -229,17 +630,6 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/assets\/img\/ads\/facc@2x.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 28738,
-		"inputAbbreviatedPath": "\/assets\/img\/ads\/facc@2x.png",
-		"outputAbbreviatedPath": "\/assets\/img\/ads\/facc@2x.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
 	"\/assets\/img\/ads\/greater-portland.png": {
 		"fileType": 32768,
 		"ignore": 0,
@@ -247,17 +637,6 @@
 		"initialSize": 10406,
 		"inputAbbreviatedPath": "\/assets\/img\/ads\/greater-portland.png",
 		"outputAbbreviatedPath": "\/assets\/img\/ads\/greater-portland.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/assets\/img\/ads\/greater-portland@2x.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 24478,
-		"inputAbbreviatedPath": "\/assets\/img\/ads\/greater-portland@2x.png",
-		"outputAbbreviatedPath": "\/assets\/img\/ads\/greater-portland@2x.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -273,17 +652,6 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/assets\/img\/ads\/kpmg@2x.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 25359,
-		"inputAbbreviatedPath": "\/assets\/img\/ads\/kpmg@2x.png",
-		"outputAbbreviatedPath": "\/assets\/img\/ads\/kpmg@2x.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
 	"\/assets\/img\/ads\/orion.png": {
 		"fileType": 32768,
 		"ignore": 0,
@@ -291,17 +659,6 @@
 		"initialSize": 14719,
 		"inputAbbreviatedPath": "\/assets\/img\/ads\/orion.png",
 		"outputAbbreviatedPath": "\/assets\/img\/ads\/orion.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/assets\/img\/ads\/orion@2x.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 41628,
-		"inputAbbreviatedPath": "\/assets\/img\/ads\/orion@2x.png",
-		"outputAbbreviatedPath": "\/assets\/img\/ads\/orion@2x.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -317,17 +674,6 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/assets\/img\/ads\/reign-fc@2x.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 67776,
-		"inputAbbreviatedPath": "\/assets\/img\/ads\/reign-fc@2x.png",
-		"outputAbbreviatedPath": "\/assets\/img\/ads\/reign-fc@2x.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
 	"\/assets\/img\/ads\/russell.png": {
 		"fileType": 32768,
 		"ignore": 0,
@@ -335,17 +681,6 @@
 		"initialSize": 10631,
 		"inputAbbreviatedPath": "\/assets\/img\/ads\/russell.png",
 		"outputAbbreviatedPath": "\/assets\/img\/ads\/russell.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/assets\/img\/ads\/russell@2x.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 25946,
-		"inputAbbreviatedPath": "\/assets\/img\/ads\/russell@2x.png",
-		"outputAbbreviatedPath": "\/assets\/img\/ads\/russell@2x.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -361,13 +696,13 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/assets\/img\/ads\/saracens@2x.png": {
+	"\/assets\/img\/ads\/sightlife-charity.png": {
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 62655,
-		"inputAbbreviatedPath": "\/assets\/img\/ads\/saracens@2x.png",
-		"outputAbbreviatedPath": "\/assets\/img\/ads\/saracens@2x.png",
+		"initialSize": 12405,
+		"inputAbbreviatedPath": "\/assets\/img\/ads\/sightlife-charity.png",
+		"outputAbbreviatedPath": "\/assets\/img\/ads\/sightlife-charity.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -383,17 +718,6 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/assets\/img\/ads\/sightlife@2x.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 51114,
-		"inputAbbreviatedPath": "\/assets\/img\/ads\/sightlife@2x.png",
-		"outputAbbreviatedPath": "\/assets\/img\/ads\/sightlife@2x.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
 	"\/assets\/img\/ads\/tdas.png": {
 		"fileType": 32768,
 		"ignore": 0,
@@ -401,17 +725,6 @@
 		"initialSize": 12363,
 		"inputAbbreviatedPath": "\/assets\/img\/ads\/tdas.png",
 		"outputAbbreviatedPath": "\/assets\/img\/ads\/tdas.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/assets\/img\/ads\/tdas@2x.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 39110,
-		"inputAbbreviatedPath": "\/assets\/img\/ads\/tdas@2x.png",
-		"outputAbbreviatedPath": "\/assets\/img\/ads\/tdas@2x.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -427,17 +740,6 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/assets\/img\/ads\/teague@2x.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 8928,
-		"inputAbbreviatedPath": "\/assets\/img\/ads\/teague@2x.png",
-		"outputAbbreviatedPath": "\/assets\/img\/ads\/teague@2x.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
 	"\/assets\/img\/ads\/uk-government-office.png": {
 		"fileType": 32768,
 		"ignore": 0,
@@ -445,17 +747,6 @@
 		"initialSize": 21952,
 		"inputAbbreviatedPath": "\/assets\/img\/ads\/uk-government-office.png",
 		"outputAbbreviatedPath": "\/assets\/img\/ads\/uk-government-office.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/assets\/img\/ads\/uk-government-office@2x.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 62606,
-		"inputAbbreviatedPath": "\/assets\/img\/ads\/uk-government-office@2x.png",
-		"outputAbbreviatedPath": "\/assets\/img\/ads\/uk-government-office@2x.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -471,68 +762,165 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/assets\/img\/ads\/uk-trade@2x.png": {
+	"\/assets\/img\/avatar.png": {
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 27877,
-		"inputAbbreviatedPath": "\/assets\/img\/ads\/uk-trade@2x.png",
-		"outputAbbreviatedPath": "\/assets\/img\/ads\/uk-trade@2x.png",
+		"initialSize": 1518,
+		"inputAbbreviatedPath": "\/assets\/img\/avatar.png",
+		"outputAbbreviatedPath": "\/assets\/img\/avatar.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/assets\/img\/big-ben.jpg": {
-		"fileType": 16384,
+	"\/assets\/img\/avatar@2x.png": {
+		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 270952,
-		"inputAbbreviatedPath": "\/assets\/img\/big-ben.jpg",
-		"outputAbbreviatedPath": "\/assets\/img\/big-ben.jpg",
+		"initialSize": 3286,
+		"inputAbbreviatedPath": "\/assets\/img\/avatar@2x.png",
+		"outputAbbreviatedPath": "\/assets\/img\/avatar@2x.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/assets\/img\/big-ben@2x.jpg": {
+	"\/assets\/img\/banners\/9k.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 842207,
-		"inputAbbreviatedPath": "\/assets\/img\/big-ben@2x.jpg",
-		"outputAbbreviatedPath": "\/assets\/img\/big-ben@2x.jpg",
+		"initialSize": 340850,
+		"inputAbbreviatedPath": "\/assets\/img\/banners\/9k.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/banners\/9k.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/assets\/img\/case-study.jpg": {
+	"\/assets\/img\/banners\/_thumbs\/9k.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 87534,
-		"inputAbbreviatedPath": "\/assets\/img\/case-study.jpg",
-		"outputAbbreviatedPath": "\/assets\/img\/case-study.jpg",
+		"initialSize": 3347,
+		"inputAbbreviatedPath": "\/assets\/img\/banners\/_thumbs\/9k.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/banners\/_thumbs\/9k.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/assets\/img\/christmas-luncheon.jpg": {
+	"\/assets\/img\/banners\/_thumbs\/football-rugby-alt.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 123498,
-		"inputAbbreviatedPath": "\/assets\/img\/christmas-luncheon.jpg",
-		"outputAbbreviatedPath": "\/assets\/img\/christmas-luncheon.jpg",
+		"initialSize": 2331,
+		"inputAbbreviatedPath": "\/assets\/img\/banners\/_thumbs\/football-rugby-alt.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/banners\/_thumbs\/football-rugby-alt.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/assets\/img\/christmas-luncheon@2x.jpg": {
+	"\/assets\/img\/banners\/_thumbs\/index.html": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/assets\/img\/banners\/_thumbs\/index.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/assets\/img\/banners\/_thumbs\/lake.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 373624,
-		"inputAbbreviatedPath": "\/assets\/img\/christmas-luncheon@2x.jpg",
-		"outputAbbreviatedPath": "\/assets\/img\/christmas-luncheon@2x.jpg",
+		"initialSize": 2673,
+		"inputAbbreviatedPath": "\/assets\/img\/banners\/_thumbs\/lake.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/banners\/_thumbs\/lake.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/banners\/_thumbs\/seattle-skyline.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 1543,
+		"inputAbbreviatedPath": "\/assets\/img\/banners\/_thumbs\/seattle-skyline.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/banners\/_thumbs\/seattle-skyline.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/banners\/_thumbs\/sight-life-banner.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2715,
+		"inputAbbreviatedPath": "\/assets\/img\/banners\/_thumbs\/sight-life-banner.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/banners\/_thumbs\/sight-life-banner.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/banners\/_thumbs\/transatlantic.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2015,
+		"inputAbbreviatedPath": "\/assets\/img\/banners\/_thumbs\/transatlantic.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/banners\/_thumbs\/transatlantic.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/banners\/football-rugby-alt.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 272370,
+		"inputAbbreviatedPath": "\/assets\/img\/banners\/football-rugby-alt.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/banners\/football-rugby-alt.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/banners\/lake.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 381539,
+		"inputAbbreviatedPath": "\/assets\/img\/banners\/lake.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/banners\/lake.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/banners\/seattle-skyline.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 117021,
+		"inputAbbreviatedPath": "\/assets\/img\/banners\/seattle-skyline.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/banners\/seattle-skyline.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/banners\/sight-life-banner.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 209915,
+		"inputAbbreviatedPath": "\/assets\/img\/banners\/sight-life-banner.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/banners\/sight-life-banner.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/banners\/transatlantic.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 612783,
+		"inputAbbreviatedPath": "\/assets\/img\/banners\/transatlantic.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/banners\/transatlantic.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -548,28 +936,6 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/assets\/img\/contact.jpg": {
-		"fileType": 16384,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 119319,
-		"inputAbbreviatedPath": "\/assets\/img\/contact.jpg",
-		"outputAbbreviatedPath": "\/assets\/img\/contact.jpg",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/assets\/img\/england.jpg": {
-		"fileType": 16384,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 140124,
-		"inputAbbreviatedPath": "\/assets\/img\/england.jpg",
-		"outputAbbreviatedPath": "\/assets\/img\/england.jpg",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
 	"\/assets\/img\/favicon.png": {
 		"fileType": 32768,
 		"ignore": 0,
@@ -581,68 +947,583 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/assets\/img\/flags.jpg": {
+	"\/assets\/img\/images\/_thumbs\/battlebrit.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 62554,
-		"inputAbbreviatedPath": "\/assets\/img\/flags.jpg",
-		"outputAbbreviatedPath": "\/assets\/img\/flags.jpg",
+		"initialSize": 3003,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/battlebrit.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/battlebrit.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/assets\/img\/football-rugby-alt.jpg": {
+	"\/assets\/img\/images\/_thumbs\/big-ben.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 393509,
-		"inputAbbreviatedPath": "\/assets\/img\/football-rugby-alt.jpg",
-		"outputAbbreviatedPath": "\/assets\/img\/football-rugby-alt.jpg",
+		"initialSize": 2885,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/big-ben.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/big-ben.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/assets\/img\/football-rugby.jpg": {
+	"\/assets\/img\/images\/_thumbs\/big-ben@2x.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 358347,
-		"inputAbbreviatedPath": "\/assets\/img\/football-rugby.jpg",
-		"outputAbbreviatedPath": "\/assets\/img\/football-rugby.jpg",
+		"initialSize": 2898,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/big-ben@2x.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/big-ben@2x.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/assets\/img\/golf.jpg": {
+	"\/assets\/img\/images\/_thumbs\/brown.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 3159,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/brown.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/brown.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/_thumbs\/case-study.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2888,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/case-study.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/case-study.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/_thumbs\/christmas-luncheon.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 3615,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/christmas-luncheon.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/christmas-luncheon.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/_thumbs\/christmas-luncheon@2x.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 3621,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/christmas-luncheon@2x.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/christmas-luncheon@2x.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/_thumbs\/england.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 3375,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/england.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/england.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/_thumbs\/george-osborne.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2444,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/george-osborne.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/george-osborne.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/_thumbs\/golf.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2810,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/golf.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/golf.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/_thumbs\/index.html": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/index.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/assets\/img\/images\/_thumbs\/investment.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2645,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/investment.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/investment.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/_thumbs\/marketing.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2652,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/marketing.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/marketing.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/_thumbs\/money.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2739,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/money.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/money.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/_thumbs\/per.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2305,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/per.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/per.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/_thumbs\/per.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 4293,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/per.png",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/per.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/_thumbs\/policy.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2276,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/policy.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/policy.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/_thumbs\/roladex.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 3203,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/roladex.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/roladex.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/_thumbs\/seattle-reign.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 6048,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/seattle-reign.png",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/seattle-reign.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/_thumbs\/sight-life-thumb.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 3076,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/sight-life-thumb.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/sight-life-thumb.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/_thumbs\/sightLife-photo.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 3006,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/sightLife-photo.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/sightLife-photo.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/_thumbs\/sightlifephoto-2.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 3218,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/sightlifephoto-2.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/sightlifephoto-2.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/_thumbs\/space-needle.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2656,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/space-needle.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/space-needle.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/_thumbs\/startup-weekend.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 5672,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/startup-weekend.png",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/startup-weekend.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/_thumbs\/startup-weekend@2x.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 5498,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/startup-weekend@2x.png",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/startup-weekend@2x.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/_thumbs\/uk-vote.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2121,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/uk-vote.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/uk-vote.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/_thumbs\/visa.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2826,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/visa.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/visa.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/battlebrit.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 71126,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/battlebrit.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/battlebrit.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/big-ben.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 270952,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/big-ben.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/big-ben.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/big-ben@2x.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 842207,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/big-ben@2x.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/big-ben@2x.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/brown.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 185331,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/brown.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/brown.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/case-study.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 87534,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/case-study.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/case-study.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/christmas-luncheon.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 123498,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/christmas-luncheon.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/christmas-luncheon.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/christmas-luncheon@2x.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 373624,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/christmas-luncheon@2x.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/christmas-luncheon@2x.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/england.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 140124,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/england.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/england.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/george-osborne.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 5377,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/george-osborne.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/george-osborne.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/golf.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 140879,
-		"inputAbbreviatedPath": "\/assets\/img\/golf.jpg",
-		"outputAbbreviatedPath": "\/assets\/img\/golf.jpg",
+		"inputAbbreviatedPath": "\/assets\/img\/images\/golf.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/golf.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/assets\/img\/investment.jpg": {
+	"\/assets\/img\/images\/investment.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 42875,
-		"inputAbbreviatedPath": "\/assets\/img\/investment.jpg",
-		"outputAbbreviatedPath": "\/assets\/img\/investment.jpg",
+		"inputAbbreviatedPath": "\/assets\/img\/images\/investment.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/investment.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/assets\/img\/lake.jpg": {
+	"\/assets\/img\/images\/marketing.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 381539,
-		"inputAbbreviatedPath": "\/assets\/img\/lake.jpg",
-		"outputAbbreviatedPath": "\/assets\/img\/lake.jpg",
+		"initialSize": 35331,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/marketing.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/marketing.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/money.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 48061,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/money.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/money.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/per.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 10756,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/per.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/per.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/per.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 6752,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/per.png",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/per.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/policy.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 48311,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/policy.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/policy.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/roladex.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 73165,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/roladex.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/roladex.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/seattle-reign.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 37399,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/seattle-reign.png",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/seattle-reign.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/sight-life-thumb.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 20448,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/sight-life-thumb.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/sight-life-thumb.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/sightLife-photo.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 1.96106e+06,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/sightLife-photo.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/sightLife-photo.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/sightlifephoto-2.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 148551,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/sightlifephoto-2.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/sightlifephoto-2.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/space-needle.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 130415,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/space-needle.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/space-needle.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/startup-weekend.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 48887,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/startup-weekend.png",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/startup-weekend.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/startup-weekend@2x.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 114624,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/startup-weekend@2x.png",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/startup-weekend@2x.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/uk-vote.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 28783,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/uk-vote.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/uk-vote.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/visa.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 64079,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/visa.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/visa.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -669,46 +1550,583 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/assets\/img\/marketing.jpg": {
-		"fileType": 16384,
+	"\/assets\/img\/logos\/_thumbs\/aerospace-alliance.png": {
+		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 84831,
-		"inputAbbreviatedPath": "\/assets\/img\/marketing.jpg",
-		"outputAbbreviatedPath": "\/assets\/img\/marketing.jpg",
+		"initialSize": 2931,
+		"inputAbbreviatedPath": "\/assets\/img\/logos\/_thumbs\/aerospace-alliance.png",
+		"outputAbbreviatedPath": "\/assets\/img\/logos\/_thumbs\/aerospace-alliance.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/assets\/img\/member-logos\/pasha.jpg": {
+	"\/assets\/img\/logos\/_thumbs\/becauz.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2389,
+		"inputAbbreviatedPath": "\/assets\/img\/logos\/_thumbs\/becauz.png",
+		"outputAbbreviatedPath": "\/assets\/img\/logos\/_thumbs\/becauz.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/logos\/_thumbs\/bennett-foundation.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 5562,
+		"inputAbbreviatedPath": "\/assets\/img\/logos\/_thumbs\/bennett-foundation.png",
+		"outputAbbreviatedPath": "\/assets\/img\/logos\/_thumbs\/bennett-foundation.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/logos\/_thumbs\/boeing.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 1872,
+		"inputAbbreviatedPath": "\/assets\/img\/logos\/_thumbs\/boeing.png",
+		"outputAbbreviatedPath": "\/assets\/img\/logos\/_thumbs\/boeing.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/logos\/_thumbs\/boys-girls-club.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 5859,
+		"inputAbbreviatedPath": "\/assets\/img\/logos\/_thumbs\/boys-girls-club.png",
+		"outputAbbreviatedPath": "\/assets\/img\/logos\/_thumbs\/boys-girls-club.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/logos\/_thumbs\/content26.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 3439,
+		"inputAbbreviatedPath": "\/assets\/img\/logos\/_thumbs\/content26.png",
+		"outputAbbreviatedPath": "\/assets\/img\/logos\/_thumbs\/content26.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/logos\/_thumbs\/defense-coalition.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 5517,
+		"inputAbbreviatedPath": "\/assets\/img\/logos\/_thumbs\/defense-coalition.png",
+		"outputAbbreviatedPath": "\/assets\/img\/logos\/_thumbs\/defense-coalition.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/logos\/_thumbs\/delta.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 1929,
+		"inputAbbreviatedPath": "\/assets\/img\/logos\/_thumbs\/delta.png",
+		"outputAbbreviatedPath": "\/assets\/img\/logos\/_thumbs\/delta.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/logos\/_thumbs\/esterline.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 1891,
+		"inputAbbreviatedPath": "\/assets\/img\/logos\/_thumbs\/esterline.png",
+		"outputAbbreviatedPath": "\/assets\/img\/logos\/_thumbs\/esterline.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/logos\/_thumbs\/expeditors.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 1948,
+		"inputAbbreviatedPath": "\/assets\/img\/logos\/_thumbs\/expeditors.png",
+		"outputAbbreviatedPath": "\/assets\/img\/logos\/_thumbs\/expeditors.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/logos\/_thumbs\/facc.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2248,
+		"inputAbbreviatedPath": "\/assets\/img\/logos\/_thumbs\/facc.png",
+		"outputAbbreviatedPath": "\/assets\/img\/logos\/_thumbs\/facc.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/logos\/_thumbs\/greater-portland.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2272,
+		"inputAbbreviatedPath": "\/assets\/img\/logos\/_thumbs\/greater-portland.png",
+		"outputAbbreviatedPath": "\/assets\/img\/logos\/_thumbs\/greater-portland.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/logos\/_thumbs\/index.html": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/assets\/img\/logos\/_thumbs\/index.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/assets\/img\/logos\/_thumbs\/kpmg.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2338,
+		"inputAbbreviatedPath": "\/assets\/img\/logos\/_thumbs\/kpmg.png",
+		"outputAbbreviatedPath": "\/assets\/img\/logos\/_thumbs\/kpmg.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/logos\/_thumbs\/orion.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 3081,
+		"inputAbbreviatedPath": "\/assets\/img\/logos\/_thumbs\/orion.png",
+		"outputAbbreviatedPath": "\/assets\/img\/logos\/_thumbs\/orion.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/logos\/_thumbs\/pasha.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2695,
+		"inputAbbreviatedPath": "\/assets\/img\/logos\/_thumbs\/pasha.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/logos\/_thumbs\/pasha.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/logos\/_thumbs\/reign-fc.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 3165,
+		"inputAbbreviatedPath": "\/assets\/img\/logos\/_thumbs\/reign-fc.png",
+		"outputAbbreviatedPath": "\/assets\/img\/logos\/_thumbs\/reign-fc.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/logos\/_thumbs\/russell.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2304,
+		"inputAbbreviatedPath": "\/assets\/img\/logos\/_thumbs\/russell.png",
+		"outputAbbreviatedPath": "\/assets\/img\/logos\/_thumbs\/russell.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/logos\/_thumbs\/saracens.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 4972,
+		"inputAbbreviatedPath": "\/assets\/img\/logos\/_thumbs\/saracens.png",
+		"outputAbbreviatedPath": "\/assets\/img\/logos\/_thumbs\/saracens.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/logos\/_thumbs\/seahawks.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 3865,
+		"inputAbbreviatedPath": "\/assets\/img\/logos\/_thumbs\/seahawks.png",
+		"outputAbbreviatedPath": "\/assets\/img\/logos\/_thumbs\/seahawks.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/logos\/_thumbs\/sightlife-charity.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 3418,
+		"inputAbbreviatedPath": "\/assets\/img\/logos\/_thumbs\/sightlife-charity.png",
+		"outputAbbreviatedPath": "\/assets\/img\/logos\/_thumbs\/sightlife-charity.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/logos\/_thumbs\/sightlife.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2788,
+		"inputAbbreviatedPath": "\/assets\/img\/logos\/_thumbs\/sightlife.png",
+		"outputAbbreviatedPath": "\/assets\/img\/logos\/_thumbs\/sightlife.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/logos\/_thumbs\/ssc.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 5834,
+		"inputAbbreviatedPath": "\/assets\/img\/logos\/_thumbs\/ssc.png",
+		"outputAbbreviatedPath": "\/assets\/img\/logos\/_thumbs\/ssc.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/logos\/_thumbs\/tdas.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2071,
+		"inputAbbreviatedPath": "\/assets\/img\/logos\/_thumbs\/tdas.png",
+		"outputAbbreviatedPath": "\/assets\/img\/logos\/_thumbs\/tdas.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/logos\/_thumbs\/teague.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 1200,
+		"inputAbbreviatedPath": "\/assets\/img\/logos\/_thumbs\/teague.png",
+		"outputAbbreviatedPath": "\/assets\/img\/logos\/_thumbs\/teague.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/logos\/_thumbs\/uk-government-office.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 4172,
+		"inputAbbreviatedPath": "\/assets\/img\/logos\/_thumbs\/uk-government-office.png",
+		"outputAbbreviatedPath": "\/assets\/img\/logos\/_thumbs\/uk-government-office.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/logos\/_thumbs\/uk-trade.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2344,
+		"inputAbbreviatedPath": "\/assets\/img\/logos\/_thumbs\/uk-trade.png",
+		"outputAbbreviatedPath": "\/assets\/img\/logos\/_thumbs\/uk-trade.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/logos\/aerospace-alliance.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 0,
+		"inputAbbreviatedPath": "\/assets\/img\/logos\/aerospace-alliance.png",
+		"outputAbbreviatedPath": "\/assets\/img\/logos\/aerospace-alliance.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/logos\/becauz.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 4653,
+		"inputAbbreviatedPath": "\/assets\/img\/logos\/becauz.png",
+		"outputAbbreviatedPath": "\/assets\/img\/logos\/becauz.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/logos\/bennett-foundation.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 0,
+		"inputAbbreviatedPath": "\/assets\/img\/logos\/bennett-foundation.png",
+		"outputAbbreviatedPath": "\/assets\/img\/logos\/bennett-foundation.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/logos\/boeing.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 0,
+		"inputAbbreviatedPath": "\/assets\/img\/logos\/boeing.png",
+		"outputAbbreviatedPath": "\/assets\/img\/logos\/boeing.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/logos\/boys-girls-club.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 0,
+		"inputAbbreviatedPath": "\/assets\/img\/logos\/boys-girls-club.png",
+		"outputAbbreviatedPath": "\/assets\/img\/logos\/boys-girls-club.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/logos\/content26.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 6720,
+		"inputAbbreviatedPath": "\/assets\/img\/logos\/content26.png",
+		"outputAbbreviatedPath": "\/assets\/img\/logos\/content26.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/logos\/defense-coalition.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 0,
+		"inputAbbreviatedPath": "\/assets\/img\/logos\/defense-coalition.png",
+		"outputAbbreviatedPath": "\/assets\/img\/logos\/defense-coalition.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/logos\/delta.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 0,
+		"inputAbbreviatedPath": "\/assets\/img\/logos\/delta.png",
+		"outputAbbreviatedPath": "\/assets\/img\/logos\/delta.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/logos\/esterline.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 0,
+		"inputAbbreviatedPath": "\/assets\/img\/logos\/esterline.png",
+		"outputAbbreviatedPath": "\/assets\/img\/logos\/esterline.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/logos\/expeditors.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 0,
+		"inputAbbreviatedPath": "\/assets\/img\/logos\/expeditors.png",
+		"outputAbbreviatedPath": "\/assets\/img\/logos\/expeditors.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/logos\/facc.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 0,
+		"inputAbbreviatedPath": "\/assets\/img\/logos\/facc.png",
+		"outputAbbreviatedPath": "\/assets\/img\/logos\/facc.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/logos\/greater-portland.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 0,
+		"inputAbbreviatedPath": "\/assets\/img\/logos\/greater-portland.png",
+		"outputAbbreviatedPath": "\/assets\/img\/logos\/greater-portland.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/logos\/kpmg.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 0,
+		"inputAbbreviatedPath": "\/assets\/img\/logos\/kpmg.png",
+		"outputAbbreviatedPath": "\/assets\/img\/logos\/kpmg.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/logos\/orion.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 0,
+		"inputAbbreviatedPath": "\/assets\/img\/logos\/orion.png",
+		"outputAbbreviatedPath": "\/assets\/img\/logos\/orion.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/logos\/pasha.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 58882,
-		"inputAbbreviatedPath": "\/assets\/img\/member-logos\/pasha.jpg",
-		"outputAbbreviatedPath": "\/assets\/img\/member-logos\/pasha.jpg",
+		"inputAbbreviatedPath": "\/assets\/img\/logos\/pasha.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/logos\/pasha.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/assets\/img\/money.jpg": {
-		"fileType": 16384,
+	"\/assets\/img\/logos\/reign-fc.png": {
+		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 48061,
-		"inputAbbreviatedPath": "\/assets\/img\/money.jpg",
-		"outputAbbreviatedPath": "\/assets\/img\/money.jpg",
+		"initialSize": 0,
+		"inputAbbreviatedPath": "\/assets\/img\/logos\/reign-fc.png",
+		"outputAbbreviatedPath": "\/assets\/img\/logos\/reign-fc.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/assets\/img\/mountain.jpg": {
-		"fileType": 16384,
+	"\/assets\/img\/logos\/russell.png": {
+		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 122993,
-		"inputAbbreviatedPath": "\/assets\/img\/mountain.jpg",
-		"outputAbbreviatedPath": "\/assets\/img\/mountain.jpg",
+		"initialSize": 0,
+		"inputAbbreviatedPath": "\/assets\/img\/logos\/russell.png",
+		"outputAbbreviatedPath": "\/assets\/img\/logos\/russell.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/logos\/saracens.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 26155,
+		"inputAbbreviatedPath": "\/assets\/img\/logos\/saracens.png",
+		"outputAbbreviatedPath": "\/assets\/img\/logos\/saracens.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/logos\/seahawks.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 9683,
+		"inputAbbreviatedPath": "\/assets\/img\/logos\/seahawks.png",
+		"outputAbbreviatedPath": "\/assets\/img\/logos\/seahawks.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/logos\/sightlife-charity.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 0,
+		"inputAbbreviatedPath": "\/assets\/img\/logos\/sightlife-charity.png",
+		"outputAbbreviatedPath": "\/assets\/img\/logos\/sightlife-charity.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/logos\/sightlife.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 0,
+		"inputAbbreviatedPath": "\/assets\/img\/logos\/sightlife.png",
+		"outputAbbreviatedPath": "\/assets\/img\/logos\/sightlife.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/logos\/ssc.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 12693,
+		"inputAbbreviatedPath": "\/assets\/img\/logos\/ssc.png",
+		"outputAbbreviatedPath": "\/assets\/img\/logos\/ssc.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/logos\/tdas.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 0,
+		"inputAbbreviatedPath": "\/assets\/img\/logos\/tdas.png",
+		"outputAbbreviatedPath": "\/assets\/img\/logos\/tdas.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/logos\/teague.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 0,
+		"inputAbbreviatedPath": "\/assets\/img\/logos\/teague.png",
+		"outputAbbreviatedPath": "\/assets\/img\/logos\/teague.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/logos\/uk-government-office.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 0,
+		"inputAbbreviatedPath": "\/assets\/img\/logos\/uk-government-office.png",
+		"outputAbbreviatedPath": "\/assets\/img\/logos\/uk-government-office.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/logos\/uk-trade.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 0,
+		"inputAbbreviatedPath": "\/assets\/img\/logos\/uk-trade.png",
+		"outputAbbreviatedPath": "\/assets\/img\/logos\/uk-trade.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -735,321 +2153,689 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/assets\/img\/passport.jpg": {
+	"\/assets\/img\/speaker-photos\/_thumbs\/carl-smith.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 98531,
-		"inputAbbreviatedPath": "\/assets\/img\/passport.jpg",
-		"outputAbbreviatedPath": "\/assets\/img\/passport.jpg",
+		"initialSize": 2038,
+		"inputAbbreviatedPath": "\/assets\/img\/speaker-photos\/_thumbs\/carl-smith.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/speaker-photos\/_thumbs\/carl-smith.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/assets\/img\/policy.jpg": {
+	"\/assets\/img\/speaker-photos\/_thumbs\/carl-smith@2x.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 48311,
-		"inputAbbreviatedPath": "\/assets\/img\/policy.jpg",
-		"outputAbbreviatedPath": "\/assets\/img\/policy.jpg",
+		"initialSize": 2073,
+		"inputAbbreviatedPath": "\/assets\/img\/speaker-photos\/_thumbs\/carl-smith@2x.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/speaker-photos\/_thumbs\/carl-smith@2x.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/assets\/img\/roladex.jpg": {
+	"\/assets\/img\/speaker-photos\/_thumbs\/index.html": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/assets\/img\/speaker-photos\/_thumbs\/index.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/assets\/img\/speaker-photos\/_thumbs\/justin-fitzpatrick.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 73165,
-		"inputAbbreviatedPath": "\/assets\/img\/roladex.jpg",
-		"outputAbbreviatedPath": "\/assets\/img\/roladex.jpg",
+		"initialSize": 2367,
+		"inputAbbreviatedPath": "\/assets\/img\/speaker-photos\/_thumbs\/justin-fitzpatrick.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/speaker-photos\/_thumbs\/justin-fitzpatrick.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/assets\/img\/seattle-reign.png": {
+	"\/assets\/img\/speaker-photos\/_thumbs\/justin-fitzpatrick@2x.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2454,
+		"inputAbbreviatedPath": "\/assets\/img\/speaker-photos\/_thumbs\/justin-fitzpatrick@2x.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/speaker-photos\/_thumbs\/justin-fitzpatrick@2x.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/speaker-photos\/_thumbs\/lex-bannister.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2328,
+		"inputAbbreviatedPath": "\/assets\/img\/speaker-photos\/_thumbs\/lex-bannister.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/speaker-photos\/_thumbs\/lex-bannister.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/speaker-photos\/_thumbs\/lex-bannister@2x.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2390,
+		"inputAbbreviatedPath": "\/assets\/img\/speaker-photos\/_thumbs\/lex-bannister@2x.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/speaker-photos\/_thumbs\/lex-bannister@2x.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/speaker-photos\/_thumbs\/lou-stanfill.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2361,
+		"inputAbbreviatedPath": "\/assets\/img\/speaker-photos\/_thumbs\/lou-stanfill.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/speaker-photos\/_thumbs\/lou-stanfill.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/speaker-photos\/_thumbs\/lou-stanfill@2x.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2326,
+		"inputAbbreviatedPath": "\/assets\/img\/speaker-photos\/_thumbs\/lou-stanfill@2x.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/speaker-photos\/_thumbs\/lou-stanfill@2x.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/speaker-photos\/_thumbs\/matt-sherman.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2685,
+		"inputAbbreviatedPath": "\/assets\/img\/speaker-photos\/_thumbs\/matt-sherman.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/speaker-photos\/_thumbs\/matt-sherman.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/speaker-photos\/_thumbs\/matt-sherman@2x.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2757,
+		"inputAbbreviatedPath": "\/assets\/img\/speaker-photos\/_thumbs\/matt-sherman@2x.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/speaker-photos\/_thumbs\/matt-sherman@2x.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/speaker-photos\/_thumbs\/Sports_bcondotta-100x100.png": {
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 37399,
-		"inputAbbreviatedPath": "\/assets\/img\/seattle-reign.png",
-		"outputAbbreviatedPath": "\/assets\/img\/seattle-reign.png",
+		"initialSize": 8674,
+		"inputAbbreviatedPath": "\/assets\/img\/speaker-photos\/_thumbs\/Sports_bcondotta-100x100.png",
+		"outputAbbreviatedPath": "\/assets\/img\/speaker-photos\/_thumbs\/Sports_bcondotta-100x100.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/assets\/img\/seattle-skyline.jpg": {
+	"\/assets\/img\/speaker-photos\/carl-smith.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 117021,
-		"inputAbbreviatedPath": "\/assets\/img\/seattle-skyline.jpg",
-		"outputAbbreviatedPath": "\/assets\/img\/seattle-skyline.jpg",
+		"initialSize": 15689,
+		"inputAbbreviatedPath": "\/assets\/img\/speaker-photos\/carl-smith.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/speaker-photos\/carl-smith.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/assets\/img\/seattle.jpg": {
+	"\/assets\/img\/speaker-photos\/carl-smith@2x.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 77051,
-		"inputAbbreviatedPath": "\/assets\/img\/seattle.jpg",
-		"outputAbbreviatedPath": "\/assets\/img\/seattle.jpg",
+		"initialSize": 38258,
+		"inputAbbreviatedPath": "\/assets\/img\/speaker-photos\/carl-smith@2x.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/speaker-photos\/carl-smith@2x.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/assets\/img\/seattle_skyline.jpg": {
+	"\/assets\/img\/speaker-photos\/justin-fitzpatrick.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 1.10484e+06,
-		"inputAbbreviatedPath": "\/assets\/img\/seattle_skyline.jpg",
-		"outputAbbreviatedPath": "\/assets\/img\/seattle_skyline.jpg",
+		"initialSize": 21751,
+		"inputAbbreviatedPath": "\/assets\/img\/speaker-photos\/justin-fitzpatrick.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/speaker-photos\/justin-fitzpatrick.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/assets\/img\/soy.jpg": {
+	"\/assets\/img\/speaker-photos\/justin-fitzpatrick@2x.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 54185,
-		"inputAbbreviatedPath": "\/assets\/img\/soy.jpg",
-		"outputAbbreviatedPath": "\/assets\/img\/soy.jpg",
+		"initialSize": 57189,
+		"inputAbbreviatedPath": "\/assets\/img\/speaker-photos\/justin-fitzpatrick@2x.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/speaker-photos\/justin-fitzpatrick@2x.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/assets\/img\/space-needle.jpg": {
+	"\/assets\/img\/speaker-photos\/lex-bannister.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 130415,
-		"inputAbbreviatedPath": "\/assets\/img\/space-needle.jpg",
-		"outputAbbreviatedPath": "\/assets\/img\/space-needle.jpg",
+		"initialSize": 17628,
+		"inputAbbreviatedPath": "\/assets\/img\/speaker-photos\/lex-bannister.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/speaker-photos\/lex-bannister.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/assets\/img\/staff\/andy.jpg": {
+	"\/assets\/img\/speaker-photos\/lex-bannister@2x.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 44429,
+		"inputAbbreviatedPath": "\/assets\/img\/speaker-photos\/lex-bannister@2x.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/speaker-photos\/lex-bannister@2x.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/speaker-photos\/lou-stanfill.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 20293,
+		"inputAbbreviatedPath": "\/assets\/img\/speaker-photos\/lou-stanfill.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/speaker-photos\/lou-stanfill.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/speaker-photos\/lou-stanfill@2x.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 49001,
+		"inputAbbreviatedPath": "\/assets\/img\/speaker-photos\/lou-stanfill@2x.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/speaker-photos\/lou-stanfill@2x.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/speaker-photos\/matt-sherman.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 22162,
+		"inputAbbreviatedPath": "\/assets\/img\/speaker-photos\/matt-sherman.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/speaker-photos\/matt-sherman.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/speaker-photos\/matt-sherman@2x.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 61852,
+		"inputAbbreviatedPath": "\/assets\/img\/speaker-photos\/matt-sherman@2x.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/speaker-photos\/matt-sherman@2x.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/speaker-photos\/Sports_bcondotta-100x100.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 19183,
+		"inputAbbreviatedPath": "\/assets\/img\/speaker-photos\/Sports_bcondotta-100x100.png",
+		"outputAbbreviatedPath": "\/assets\/img\/speaker-photos\/Sports_bcondotta-100x100.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/staff-photos\/_thumbs\/andy.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2132,
+		"inputAbbreviatedPath": "\/assets\/img\/staff-photos\/_thumbs\/andy.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/staff-photos\/_thumbs\/andy.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/staff-photos\/_thumbs\/bill.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2576,
+		"inputAbbreviatedPath": "\/assets\/img\/staff-photos\/_thumbs\/bill.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/staff-photos\/_thumbs\/bill.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/staff-photos\/_thumbs\/brian.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2679,
+		"inputAbbreviatedPath": "\/assets\/img\/staff-photos\/_thumbs\/brian.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/staff-photos\/_thumbs\/brian.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/staff-photos\/_thumbs\/caroline.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2580,
+		"inputAbbreviatedPath": "\/assets\/img\/staff-photos\/_thumbs\/caroline.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/staff-photos\/_thumbs\/caroline.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/staff-photos\/_thumbs\/catherine.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 3410,
+		"inputAbbreviatedPath": "\/assets\/img\/staff-photos\/_thumbs\/catherine.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/staff-photos\/_thumbs\/catherine.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/staff-photos\/_thumbs\/erin.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2479,
+		"inputAbbreviatedPath": "\/assets\/img\/staff-photos\/_thumbs\/erin.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/staff-photos\/_thumbs\/erin.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/staff-photos\/_thumbs\/gareth.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 3064,
+		"inputAbbreviatedPath": "\/assets\/img\/staff-photos\/_thumbs\/gareth.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/staff-photos\/_thumbs\/gareth.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/staff-photos\/_thumbs\/ian.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2312,
+		"inputAbbreviatedPath": "\/assets\/img\/staff-photos\/_thumbs\/ian.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/staff-photos\/_thumbs\/ian.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/staff-photos\/_thumbs\/index.html": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/assets\/img\/staff-photos\/_thumbs\/index.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/assets\/img\/staff-photos\/_thumbs\/jason.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2240,
+		"inputAbbreviatedPath": "\/assets\/img\/staff-photos\/_thumbs\/jason.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/staff-photos\/_thumbs\/jason.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/staff-photos\/_thumbs\/mark.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2470,
+		"inputAbbreviatedPath": "\/assets\/img\/staff-photos\/_thumbs\/mark.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/staff-photos\/_thumbs\/mark.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/staff-photos\/_thumbs\/richard-bagshaw.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2346,
+		"inputAbbreviatedPath": "\/assets\/img\/staff-photos\/_thumbs\/richard-bagshaw.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/staff-photos\/_thumbs\/richard-bagshaw.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/staff-photos\/_thumbs\/richard.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2382,
+		"inputAbbreviatedPath": "\/assets\/img\/staff-photos\/_thumbs\/richard.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/staff-photos\/_thumbs\/richard.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/staff-photos\/_thumbs\/robin.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2886,
+		"inputAbbreviatedPath": "\/assets\/img\/staff-photos\/_thumbs\/robin.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/staff-photos\/_thumbs\/robin.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/staff-photos\/_thumbs\/ryan.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2484,
+		"inputAbbreviatedPath": "\/assets\/img\/staff-photos\/_thumbs\/ryan.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/staff-photos\/_thumbs\/ryan.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/staff-photos\/_thumbs\/sharon.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2561,
+		"inputAbbreviatedPath": "\/assets\/img\/staff-photos\/_thumbs\/sharon.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/staff-photos\/_thumbs\/sharon.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/staff-photos\/_thumbs\/stephen.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2632,
+		"inputAbbreviatedPath": "\/assets\/img\/staff-photos\/_thumbs\/stephen.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/staff-photos\/_thumbs\/stephen.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/staff-photos\/_thumbs\/terry.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 3048,
+		"inputAbbreviatedPath": "\/assets\/img\/staff-photos\/_thumbs\/terry.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/staff-photos\/_thumbs\/terry.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/staff-photos\/_thumbs\/tom.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2167,
+		"inputAbbreviatedPath": "\/assets\/img\/staff-photos\/_thumbs\/tom.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/staff-photos\/_thumbs\/tom.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/staff-photos\/andy.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 36719,
-		"inputAbbreviatedPath": "\/assets\/img\/staff\/andy.jpg",
-		"outputAbbreviatedPath": "\/assets\/img\/staff\/andy.jpg",
+		"inputAbbreviatedPath": "\/assets\/img\/staff-photos\/andy.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/staff-photos\/andy.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/assets\/img\/staff\/bill.jpg": {
+	"\/assets\/img\/staff-photos\/bill.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 35447,
-		"inputAbbreviatedPath": "\/assets\/img\/staff\/bill.jpg",
-		"outputAbbreviatedPath": "\/assets\/img\/staff\/bill.jpg",
+		"inputAbbreviatedPath": "\/assets\/img\/staff-photos\/bill.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/staff-photos\/bill.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/assets\/img\/staff\/brian.jpg": {
+	"\/assets\/img\/staff-photos\/brian.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 41099,
-		"inputAbbreviatedPath": "\/assets\/img\/staff\/brian.jpg",
-		"outputAbbreviatedPath": "\/assets\/img\/staff\/brian.jpg",
+		"inputAbbreviatedPath": "\/assets\/img\/staff-photos\/brian.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/staff-photos\/brian.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/assets\/img\/staff\/caroline.jpg": {
+	"\/assets\/img\/staff-photos\/caroline.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 84650,
-		"inputAbbreviatedPath": "\/assets\/img\/staff\/caroline.jpg",
-		"outputAbbreviatedPath": "\/assets\/img\/staff\/caroline.jpg",
+		"inputAbbreviatedPath": "\/assets\/img\/staff-photos\/caroline.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/staff-photos\/caroline.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/assets\/img\/staff\/catherine.jpg": {
+	"\/assets\/img\/staff-photos\/catherine.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 223138,
-		"inputAbbreviatedPath": "\/assets\/img\/staff\/catherine.jpg",
-		"outputAbbreviatedPath": "\/assets\/img\/staff\/catherine.jpg",
+		"inputAbbreviatedPath": "\/assets\/img\/staff-photos\/catherine.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/staff-photos\/catherine.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/assets\/img\/staff\/erin.jpg": {
+	"\/assets\/img\/staff-photos\/erin.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 31484,
-		"inputAbbreviatedPath": "\/assets\/img\/staff\/erin.jpg",
-		"outputAbbreviatedPath": "\/assets\/img\/staff\/erin.jpg",
+		"inputAbbreviatedPath": "\/assets\/img\/staff-photos\/erin.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/staff-photos\/erin.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/assets\/img\/staff\/gareth.jpg": {
+	"\/assets\/img\/staff-photos\/gareth.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 44819,
-		"inputAbbreviatedPath": "\/assets\/img\/staff\/gareth.jpg",
-		"outputAbbreviatedPath": "\/assets\/img\/staff\/gareth.jpg",
+		"inputAbbreviatedPath": "\/assets\/img\/staff-photos\/gareth.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/staff-photos\/gareth.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/assets\/img\/staff\/ian.jpg": {
+	"\/assets\/img\/staff-photos\/ian.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 24598,
-		"inputAbbreviatedPath": "\/assets\/img\/staff\/ian.jpg",
-		"outputAbbreviatedPath": "\/assets\/img\/staff\/ian.jpg",
+		"inputAbbreviatedPath": "\/assets\/img\/staff-photos\/ian.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/staff-photos\/ian.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/assets\/img\/staff\/jason.jpg": {
+	"\/assets\/img\/staff-photos\/jason.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 35635,
-		"inputAbbreviatedPath": "\/assets\/img\/staff\/jason.jpg",
-		"outputAbbreviatedPath": "\/assets\/img\/staff\/jason.jpg",
+		"inputAbbreviatedPath": "\/assets\/img\/staff-photos\/jason.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/staff-photos\/jason.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/assets\/img\/staff\/mark.jpg": {
+	"\/assets\/img\/staff-photos\/mark.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 32068,
-		"inputAbbreviatedPath": "\/assets\/img\/staff\/mark.jpg",
-		"outputAbbreviatedPath": "\/assets\/img\/staff\/mark.jpg",
+		"inputAbbreviatedPath": "\/assets\/img\/staff-photos\/mark.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/staff-photos\/mark.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/assets\/img\/staff\/richard-bagshaw.jpg": {
+	"\/assets\/img\/staff-photos\/richard-bagshaw.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 17179,
-		"inputAbbreviatedPath": "\/assets\/img\/staff\/richard-bagshaw.jpg",
-		"outputAbbreviatedPath": "\/assets\/img\/staff\/richard-bagshaw.jpg",
+		"inputAbbreviatedPath": "\/assets\/img\/staff-photos\/richard-bagshaw.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/staff-photos\/richard-bagshaw.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/assets\/img\/staff\/richard.jpg": {
+	"\/assets\/img\/staff-photos\/richard.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 28761,
-		"inputAbbreviatedPath": "\/assets\/img\/staff\/richard.jpg",
-		"outputAbbreviatedPath": "\/assets\/img\/staff\/richard.jpg",
+		"inputAbbreviatedPath": "\/assets\/img\/staff-photos\/richard.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/staff-photos\/richard.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/assets\/img\/staff\/robin.jpg": {
+	"\/assets\/img\/staff-photos\/robin.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 54234,
-		"inputAbbreviatedPath": "\/assets\/img\/staff\/robin.jpg",
-		"outputAbbreviatedPath": "\/assets\/img\/staff\/robin.jpg",
+		"initialSize": 47145,
+		"inputAbbreviatedPath": "\/assets\/img\/staff-photos\/robin.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/staff-photos\/robin.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/assets\/img\/staff\/ryan.jpg": {
+	"\/assets\/img\/staff-photos\/ryan.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 30301,
-		"inputAbbreviatedPath": "\/assets\/img\/staff\/ryan.jpg",
-		"outputAbbreviatedPath": "\/assets\/img\/staff\/ryan.jpg",
+		"inputAbbreviatedPath": "\/assets\/img\/staff-photos\/ryan.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/staff-photos\/ryan.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/assets\/img\/staff\/sharon.jpg": {
+	"\/assets\/img\/staff-photos\/sharon.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 47731,
-		"inputAbbreviatedPath": "\/assets\/img\/staff\/sharon.jpg",
-		"outputAbbreviatedPath": "\/assets\/img\/staff\/sharon.jpg",
+		"inputAbbreviatedPath": "\/assets\/img\/staff-photos\/sharon.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/staff-photos\/sharon.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/assets\/img\/staff\/stephen.jpg": {
+	"\/assets\/img\/staff-photos\/stephen.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 40281,
-		"inputAbbreviatedPath": "\/assets\/img\/staff\/stephen.jpg",
-		"outputAbbreviatedPath": "\/assets\/img\/staff\/stephen.jpg",
+		"inputAbbreviatedPath": "\/assets\/img\/staff-photos\/stephen.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/staff-photos\/stephen.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/assets\/img\/staff\/terry.jpg": {
+	"\/assets\/img\/staff-photos\/terry.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 48691,
-		"inputAbbreviatedPath": "\/assets\/img\/staff\/terry.jpg",
-		"outputAbbreviatedPath": "\/assets\/img\/staff\/terry.jpg",
+		"inputAbbreviatedPath": "\/assets\/img\/staff-photos\/terry.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/staff-photos\/terry.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/assets\/img\/staff\/tom.jpg": {
+	"\/assets\/img\/staff-photos\/tom.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 29345,
-		"inputAbbreviatedPath": "\/assets\/img\/staff\/tom.jpg",
-		"outputAbbreviatedPath": "\/assets\/img\/staff\/tom.jpg",
+		"initialSize": 27950,
+		"inputAbbreviatedPath": "\/assets\/img\/staff-photos\/tom.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/staff-photos\/tom.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/assets\/img\/startup-weekend.png": {
-		"fileType": 32768,
+	"\/assets\/img\/testimonial-photos\/_thumbs\/index.html": {
+		"fileType": 8192,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 48887,
-		"inputAbbreviatedPath": "\/assets\/img\/startup-weekend.png",
-		"outputAbbreviatedPath": "\/assets\/img\/startup-weekend.png",
+		"inputAbbreviatedPath": "\/assets\/img\/testimonial-photos\/_thumbs\/index.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/assets\/img\/testimonial-photos\/_thumbs\/peter-rose.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 3042,
+		"inputAbbreviatedPath": "\/assets\/img\/testimonial-photos\/_thumbs\/peter-rose.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/testimonial-photos\/_thumbs\/peter-rose.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/assets\/img\/startup-weekend@2x.png": {
-		"fileType": 32768,
+	"\/assets\/img\/testimonial-photos\/_thumbs\/rick-curry.jpg": {
+		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 114624,
-		"inputAbbreviatedPath": "\/assets\/img\/startup-weekend@2x.png",
-		"outputAbbreviatedPath": "\/assets\/img\/startup-weekend@2x.png",
+		"initialSize": 2715,
+		"inputAbbreviatedPath": "\/assets\/img\/testimonial-photos\/_thumbs\/rick-curry.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/testimonial-photos\/_thumbs\/rick-curry.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -1076,17 +2862,6 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/assets\/img\/transatlantic.jpg": {
-		"fileType": 16384,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 612783,
-		"inputAbbreviatedPath": "\/assets\/img\/transatlantic.jpg",
-		"outputAbbreviatedPath": "\/assets\/img\/transatlantic.jpg",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
 	"\/assets\/img\/twitter-background.png": {
 		"fileType": 32768,
 		"ignore": 0,
@@ -1105,28 +2880,6 @@
 		"initialSize": 10578,
 		"inputAbbreviatedPath": "\/assets\/img\/twitter-background@2x.png",
 		"outputAbbreviatedPath": "\/assets\/img\/twitter-background@2x.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/assets\/img\/uk-vote.jpg": {
-		"fileType": 16384,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 28783,
-		"inputAbbreviatedPath": "\/assets\/img\/uk-vote.jpg",
-		"outputAbbreviatedPath": "\/assets\/img\/uk-vote.jpg",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/assets\/img\/visa.jpg": {
-		"fileType": 16384,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 64079,
-		"inputAbbreviatedPath": "\/assets\/img\/visa.jpg",
-		"outputAbbreviatedPath": "\/assets\/img\/visa.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -1153,6 +2906,28 @@
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 0
 		},
+	"\/assets\/js\/pnw-styles.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/assets\/js\/pnw-styles.js",
+		"outputAbbreviatedPath": "\/assets\/js\/assets\/js\/pnw-styles.min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 0
+		},
+	"\/assets\/js\/vendor\/angular-animate.min.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/assets\/js\/vendor\/angular-animate.min.js",
+		"outputAbbreviatedPath": "\/assets\/js\/vendor\/assets\/js\/angular-animate.min.min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 0
+		},
 	"\/assets\/js\/vendor\/angular.min.js": {
 		"fileType": 64,
 		"ignore": 1,
@@ -1163,6 +2938,17 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
+		},
+	"\/assets\/js\/vendor\/atc.min.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/assets\/js\/vendor\/atc.min.js",
+		"outputAbbreviatedPath": "\/assets\/js\/vendor\/assets\/js\/atc.min.min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 0
 		},
 	"\/assets\/js\/vendor\/flickity.min.js": {
 		"fileType": 64,
@@ -1197,8 +2983,30 @@
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
 		},
+	"\/assets\/js\/vendor\/jquery.form.min.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/assets\/js\/vendor\/jquery.form.min.js",
+		"outputAbbreviatedPath": "\/assets\/js\/vendor\/assets\/js\/jquery.form.min.min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 0
+		},
+	"\/assets\/js\/vendor\/sweetalert.min.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/assets\/js\/vendor\/sweetalert.min.js",
+		"outputAbbreviatedPath": "\/assets\/js\/vendor\/assets\/js\/sweetalert.min.min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 0
+		},
 	"\/assets\/scss\/_about.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -1211,10 +3019,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/_ad.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -1227,10 +3035,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/_ads.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -1243,10 +3051,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/_alerts.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -1259,10 +3067,26 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
+		},
+	"\/assets\/scss\/_animate.scss": {
+		"createSourceMap": 1,
+		"debugStyle": 0,
+		"decimalPrecision": 10,
+		"fileType": 4,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/assets\/scss\/_animate.scss",
+		"outputAbbreviatedPath": "\/assets\/css\/_animate.css",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 0,
+		"shouldRunAutoprefixer": 0,
+		"shouldRunBless": 0,
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/_article.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -1275,10 +3099,26 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
+		},
+	"\/assets\/scss\/_atc.scss": {
+		"createSourceMap": 1,
+		"debugStyle": 0,
+		"decimalPrecision": 10,
+		"fileType": 4,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/assets\/scss\/_atc.scss",
+		"outputAbbreviatedPath": "\/assets\/css\/_atc.css",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 0,
+		"shouldRunAutoprefixer": 0,
+		"shouldRunBless": 0,
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/_avatars.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -1291,10 +3131,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/_base.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -1307,10 +3147,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/_breadcrumbs.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -1323,10 +3163,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/_buttons.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -1339,10 +3179,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/_cards.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -1355,10 +3195,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/_carousels.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -1371,10 +3211,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/_components.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -1387,10 +3227,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/_contact.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -1403,10 +3243,26 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
+		},
+	"\/assets\/scss\/_events.scss": {
+		"createSourceMap": 1,
+		"debugStyle": 0,
+		"decimalPrecision": 10,
+		"fileType": 4,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/assets\/scss\/_events.scss",
+		"outputAbbreviatedPath": "\/assets\/css\/_events.css",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 0,
+		"shouldRunAutoprefixer": 0,
+		"shouldRunBless": 0,
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/_flickity.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -1419,10 +3275,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/_footer.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -1435,10 +3291,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/_forms.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -1451,10 +3307,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/_grid-settings.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -1467,10 +3323,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/_header.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -1483,10 +3339,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/_headers.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -1499,10 +3355,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/_helpers.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -1515,10 +3371,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/_hero.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -1531,10 +3387,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/_iconic.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -1547,10 +3403,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/_icons.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -1563,10 +3419,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/_intro.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -1579,10 +3435,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/_join.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -1595,10 +3451,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/_leadership.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -1611,10 +3467,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/_lists.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -1627,10 +3483,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/_membership.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -1643,10 +3499,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/_navigation.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -1659,10 +3515,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/_newsletter.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -1675,10 +3531,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/_normalize.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -1691,10 +3547,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/_pagination.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -1707,10 +3563,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/_posts.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -1723,10 +3579,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/_quotes.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -1739,10 +3595,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/_scaffold.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -1755,10 +3611,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/_search.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -1771,10 +3627,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/_social.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -1787,10 +3643,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/_staff.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -1803,10 +3659,26 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
+		},
+	"\/assets\/scss\/_sweetalert.scss": {
+		"createSourceMap": 1,
+		"debugStyle": 0,
+		"decimalPrecision": 10,
+		"fileType": 4,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/assets\/scss\/_sweetalert.scss",
+		"outputAbbreviatedPath": "\/assets\/css\/_sweetalert.css",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 0,
+		"shouldRunAutoprefixer": 0,
+		"shouldRunBless": 0,
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/_tables.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -1819,10 +3691,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/_twitter.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -1835,10 +3707,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/_typography.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -1851,10 +3723,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/_variables.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -1867,10 +3739,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/_visa.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -1883,10 +3755,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/app.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -1899,10 +3771,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/bourbon\/_bourbon-deprecated-upcoming.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -1915,10 +3787,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/bourbon\/_bourbon.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -1931,10 +3803,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/bourbon\/addons\/_border-color.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -1947,10 +3819,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/bourbon\/addons\/_border-radius.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -1963,10 +3835,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/bourbon\/addons\/_border-style.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -1979,10 +3851,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/bourbon\/addons\/_border-width.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -1995,10 +3867,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/bourbon\/addons\/_buttons.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -2011,10 +3883,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/bourbon\/addons\/_clearfix.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -2027,10 +3899,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/bourbon\/addons\/_ellipsis.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -2043,10 +3915,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/bourbon\/addons\/_font-stacks.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -2059,10 +3931,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/bourbon\/addons\/_hide-text.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -2075,10 +3947,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/bourbon\/addons\/_margin.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -2091,10 +3963,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/bourbon\/addons\/_padding.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -2107,10 +3979,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/bourbon\/addons\/_position.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -2123,10 +3995,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/bourbon\/addons\/_prefixer.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -2139,10 +4011,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/bourbon\/addons\/_retina-image.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -2155,10 +4027,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/bourbon\/addons\/_size.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -2171,10 +4043,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/bourbon\/addons\/_text-inputs.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -2187,10 +4059,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/bourbon\/addons\/_timing-functions.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -2203,10 +4075,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/bourbon\/addons\/_triangle.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -2219,10 +4091,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/bourbon\/addons\/_word-wrap.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -2235,10 +4107,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/bourbon\/css3\/_animation.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -2251,10 +4123,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/bourbon\/css3\/_appearance.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -2267,10 +4139,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/bourbon\/css3\/_backface-visibility.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -2283,10 +4155,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/bourbon\/css3\/_background-image.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -2299,10 +4171,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/bourbon\/css3\/_background.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -2315,10 +4187,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/bourbon\/css3\/_border-image.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -2331,10 +4203,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/bourbon\/css3\/_calc.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -2347,10 +4219,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/bourbon\/css3\/_columns.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -2363,10 +4235,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/bourbon\/css3\/_filter.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -2379,10 +4251,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/bourbon\/css3\/_flex-box.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -2395,10 +4267,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/bourbon\/css3\/_font-face.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -2411,10 +4283,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/bourbon\/css3\/_font-feature-settings.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -2427,10 +4299,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/bourbon\/css3\/_hidpi-media-query.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -2443,10 +4315,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/bourbon\/css3\/_hyphens.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -2459,10 +4331,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/bourbon\/css3\/_image-rendering.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -2475,10 +4347,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/bourbon\/css3\/_keyframes.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -2491,10 +4363,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/bourbon\/css3\/_linear-gradient.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -2507,10 +4379,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/bourbon\/css3\/_perspective.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -2523,10 +4395,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/bourbon\/css3\/_placeholder.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -2539,10 +4411,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/bourbon\/css3\/_radial-gradient.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -2555,10 +4427,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/bourbon\/css3\/_selection.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -2571,10 +4443,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/bourbon\/css3\/_text-decoration.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -2587,10 +4459,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/bourbon\/css3\/_transform.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -2603,10 +4475,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/bourbon\/css3\/_transition.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -2619,10 +4491,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/bourbon\/css3\/_user-select.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -2635,10 +4507,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/bourbon\/functions\/_assign-inputs.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -2651,10 +4523,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/bourbon\/functions\/_contains-falsy.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -2667,10 +4539,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/bourbon\/functions\/_contains.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -2683,10 +4555,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/bourbon\/functions\/_is-length.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -2699,10 +4571,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/bourbon\/functions\/_is-light.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -2715,10 +4587,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/bourbon\/functions\/_is-number.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -2731,10 +4603,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/bourbon\/functions\/_is-size.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -2747,10 +4619,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/bourbon\/functions\/_modular-scale.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -2763,10 +4635,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/bourbon\/functions\/_px-to-em.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -2779,10 +4651,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/bourbon\/functions\/_px-to-rem.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -2795,10 +4667,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/bourbon\/functions\/_shade.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -2811,10 +4683,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/bourbon\/functions\/_strip-units.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -2827,10 +4699,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/bourbon\/functions\/_tint.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -2843,10 +4715,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/bourbon\/functions\/_transition-property-name.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -2859,10 +4731,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/bourbon\/functions\/_unpack.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -2875,10 +4747,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/bourbon\/helpers\/_convert-units.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -2891,10 +4763,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/bourbon\/helpers\/_directional-values.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -2907,10 +4779,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/bourbon\/helpers\/_font-source-declaration.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -2923,10 +4795,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/bourbon\/helpers\/_gradient-positions-parser.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -2939,10 +4811,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/bourbon\/helpers\/_linear-angle-parser.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -2955,10 +4827,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/bourbon\/helpers\/_linear-gradient-parser.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -2971,10 +4843,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/bourbon\/helpers\/_linear-positions-parser.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -2987,10 +4859,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/bourbon\/helpers\/_linear-side-corner-parser.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -3003,10 +4875,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/bourbon\/helpers\/_radial-arg-parser.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -3019,10 +4891,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/bourbon\/helpers\/_radial-gradient-parser.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -3035,10 +4907,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/bourbon\/helpers\/_radial-positions-parser.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -3051,10 +4923,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/bourbon\/helpers\/_render-gradients.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -3067,10 +4939,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/bourbon\/helpers\/_shape-size-stripper.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -3083,10 +4955,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/bourbon\/helpers\/_str-to-num.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -3099,10 +4971,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/bourbon\/settings\/_asset-pipeline.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -3115,10 +4987,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/bourbon\/settings\/_prefixer.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -3131,10 +5003,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/bourbon\/settings\/_px-to-em.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -3147,10 +5019,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/neat\/_neat-helpers.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -3163,10 +5035,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/neat\/_neat.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -3179,10 +5051,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/neat\/functions\/_new-breakpoint.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -3195,10 +5067,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/neat\/functions\/_private.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -3211,10 +5083,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/neat\/grid\/_box-sizing.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -3227,10 +5099,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/neat\/grid\/_direction-context.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -3243,10 +5115,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/neat\/grid\/_display-context.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -3259,10 +5131,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/neat\/grid\/_fill-parent.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -3275,10 +5147,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/neat\/grid\/_media.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -3291,10 +5163,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/neat\/grid\/_omega.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -3307,10 +5179,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/neat\/grid\/_outer-container.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -3323,10 +5195,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/neat\/grid\/_pad.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -3339,10 +5211,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/neat\/grid\/_private.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -3355,10 +5227,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/neat\/grid\/_row.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -3371,10 +5243,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/neat\/grid\/_shift.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -3387,10 +5259,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/neat\/grid\/_span-columns.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -3403,10 +5275,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/neat\/grid\/_to-deprecate.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -3419,10 +5291,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/neat\/grid\/_visual-grid.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -3435,10 +5307,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/neat\/settings\/_disable-warnings.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -3451,10 +5323,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/neat\/settings\/_grid.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -3467,10 +5339,10 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/assets\/scss\/neat\/settings\/_visual-grid.scss": {
-		"createSourceMap": 0,
+		"createSourceMap": 1,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
@@ -3483,7 +5355,7 @@
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
-		"useLibsass": 0
+		"useLibsass": 1
 		},
 	"\/env\/config.dev.php": {
 		"fileType": 8192,
@@ -3758,6 +5630,39 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
+	"\/images\/made\/assets\/img\/avatar_36_36.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 881,
+		"inputAbbreviatedPath": "\/images\/made\/assets\/img\/avatar_36_36.png",
+		"outputAbbreviatedPath": "\/images\/made\/assets\/img\/avatar_36_36.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/made\/assets\/img\/logos\/saracens_173_130.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 20678,
+		"inputAbbreviatedPath": "\/images\/made\/assets\/img\/logos\/saracens_173_130.png",
+		"outputAbbreviatedPath": "\/images\/made\/assets\/img\/logos\/saracens_173_130.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/made\/assets\/img\/speaker-photos\/Sports_bcondotta-100x100_108_108_s.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 19334,
+		"inputAbbreviatedPath": "\/images\/made\/assets\/img\/speaker-photos\/Sports_bcondotta-100x100_108_108_s.png",
+		"outputAbbreviatedPath": "\/images\/made\/assets\/img\/speaker-photos\/Sports_bcondotta-100x100_108_108_s.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/images\/member_photos\/index.html": {
 		"fileType": 8192,
 		"ignore": 0,
@@ -3875,6 +5780,51 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
+	"\/templates\/default_site\/partials.group\/_avatar.html": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/templates\/default_site\/partials.group\/_avatar.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/templates\/default_site\/partials.group\/_column-card.html": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/templates\/default_site\/partials.group\/_column-card.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/templates\/default_site\/partials.group\/_newsletter-card.html": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/templates\/default_site\/partials.group\/_newsletter-card.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/templates\/default_site\/partials.group\/_sponsor-card.html": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/templates\/default_site\/partials.group\/_sponsor-card.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/templates\/default_site\/partials.group\/_testimonial-card.html": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/templates\/default_site\/partials.group\/_testimonial-card.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
 	"\/templates\/default_site\/partials.group\/footer.html": {
 		"fileType": 8192,
 		"ignore": 0,
@@ -3898,6 +5848,24 @@
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/templates\/default_site\/partials.group\/index.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/templates\/default_site\/partials.group\/logout.html": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/templates\/default_site\/partials.group\/logout.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/templates\/default_site\/partials.group\/newsletter-response.html": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/templates\/default_site\/partials.group\/newsletter-response.html",
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
@@ -4010,6 +5978,15 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
+	"\/templates\/default_site\/views.group\/event.html": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/templates\/default_site\/views.group\/event.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
 	"\/templates\/default_site\/views.group\/index.html": {
 		"fileType": 8192,
 		"ignore": 0,
@@ -4024,6 +6001,15 @@
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/templates\/default_site\/views.group\/j1-visa.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/templates\/default_site\/views.group\/news-listing.html": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/templates\/default_site\/views.group\/news-listing.html",
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
@@ -4183,7 +6169,7 @@
 	"coffeeMinifyOutput": 1,
 	"coffeeOutputStyle": 0,
 	"coffeeSyntaxCheckerStyle": 1,
-	"externalServerAddress": "http:\/\/pnw-dev.dev",
+	"externalServerAddress": "http:\/\/pnw-dev.local",
 	"externalServerPreviewPathAddition": "",
 	"genericWebpageFileExtensionsString": "html, htm, shtml, shtm, xhtml, php, jsp, asp, aspx, erb, ctp",
 	"hamlAutoOutputPathEnabled": 1,
@@ -4302,6 +6288,10 @@
 			"active": 0,
 			"flagValue": -1
 			},
+		"futurehostile": {
+			"active": 0,
+			"flagValue": -1
+			},
 		"globalstrict": {
 			"active": 0,
 			"flagValue": -1
@@ -4388,6 +6378,10 @@
 			},
 		"noarg": {
 			"active": 1,
+			"flagValue": -1
+			},
+		"nocomma": {
+			"active": 0,
 			"flagValue": -1
 			},
 		"node": {
@@ -4488,6 +6482,10 @@
 			},
 		"unused": {
 			"active": 1,
+			"flagValue": -1
+			},
+		"varstmt": {
+			"active": 0,
 			"flagValue": -1
 			},
 		"withstmt": {
@@ -4613,6 +6611,14 @@
 			"flagValue": -1
 			}
 		},
+	"jsonAutoOutputPathEnabled": 0,
+	"jsonAutoOutputPathFilenamePattern": "*-min.json",
+	"jsonAutoOutputPathRelativePath": "",
+	"jsonAutoOutputPathReplace1": "",
+	"jsonAutoOutputPathReplace2": "",
+	"jsonAutoOutputPathStyle": 0,
+	"jsonOrderOutput": 0,
+	"jsonOutputStyle": 1,
 	"kitAutoOutputPathEnabled": 1,
 	"kitAutoOutputPathFilenamePattern": "*.html",
 	"kitAutoOutputPathRelativePath": "",
@@ -4640,9 +6646,18 @@
 	"markdownAutoOutputPathReplace1": "",
 	"markdownAutoOutputPathReplace2": "",
 	"markdownAutoOutputPathStyle": 0,
+	"markdownCriticStyle": 0,
 	"markdownEnableFootnotes": 0,
-	"markdownEnableSmartyPants": 1,
-	"markdownExpandTabs": 1,
+	"markdownEnableLabels": 1,
+	"markdownEnableSmartQuotes": 1,
+	"markdownEscapeLineBreaks": 0,
+	"markdownMaskEmailAddresses": 1,
+	"markdownOutputFormat": 0,
+	"markdownOutputStyle": 0,
+	"markdownParseMetadata": 1,
+	"markdownProcessHTML": 0,
+	"markdownRandomFootnoteNumbers": 0,
+	"markdownUseCompatibilityMode": 0,
 	"reloadFileURLs": 0,
 	"sassAutoOutputPathEnabled": 1,
 	"sassAutoOutputPathFilenamePattern": "*.css",
@@ -4650,11 +6665,11 @@
 	"sassAutoOutputPathReplace1": "sass",
 	"sassAutoOutputPathReplace2": "css",
 	"sassAutoOutputPathStyle": 1,
-	"sassCreateSourceMap": 0,
+	"sassCreateSourceMap": 1,
 	"sassDebugStyle": 0,
 	"sassDecimalPrecision": 10,
 	"sassOutputStyle": 0,
-	"sassUseLibsass": 0,
+	"sassUseLibsass": 1,
 	"shouldRunAutoprefixer": 0,
 	"shouldRunBless": 0,
 	"skippedItemsString": ".svn, .git, .hg, log, _logs, _cache, cache, logs, node_modules, admin, themes, backup",
@@ -4698,6 +6713,10 @@
 	"uglifyDefinesString": "",
 	"uglifyFlags2": {
 		"ascii-only": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"bare-returns": {
 			"active": 0,
 			"flagValue": -1
 			},
@@ -4778,6 +6797,10 @@
 			"flagValue": -1
 			},
 		"keep_fargs": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"keep_fnames": {
 			"active": 0,
 			"flagValue": -1
 			},

@@ -4,6 +4,7 @@
 	box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.10);
 	position: relative;
 	z-index: 2;
+	@include transition(all .25s ease-in-out);
 }
 .header-block {
 	@include outer-container(1200px);
@@ -12,35 +13,41 @@
 .brand {
 	float: left;
 	border-right: 1px solid $lighter-gray;
-	min-width: 299px;
+	
 }
 
 .logo {
 	display: block;
 	@include pad(rem(25) rem(60) rem(26));
+	@include media(max-width 1024px) {
+
+ 	}
 }
 
 // Global Navigation Controls
 .global-navigation {
 	float: left;
-	min-width: 900px;
 	border-right: 1px solid $lighter-gray;
 }
 
-.utilities, .site-menu {
+.site-menu {
 	display: table;
 	table-layout: fixed;
 }
 .utilities {
+	display: table;
 	border-bottom: 1px solid $lighter-gray;
-	width: 900px;
+	width: 100%;
 }
 
-.utility-block, .menu-block {
+.menu-block {
 	display: table-cell;
 	vertical-align: middle;
 	&:first-child {
 		border-right: 1px solid $lighter-gray;
+	}
+	&--search {
+		padding-right: rem(20);
 	}
 }
 
@@ -49,21 +56,114 @@
 }
 
 .utility-block {
-	padding: rem(21) rem(30);
-	&:first-child {
-		width: 60%;
+	vertical-align: middle;
+	display: table-cell;
+	
+	&--member {
+		text-align: right;
+		border-left: 1px solid $lighter-gray;	
+		padding: 0 rem(20);
+		&.shown {
+			background-color: #F1F7F9;
+			@include transition(all .35s ease-in-out);
+			border-left: none;
+		}
+	}
+	&--social {
+		text-align: right;
+		padding-right: rem(40);
+		&.ng-hide-remove {
+			@include transition(all .25s ease-in-out);
+			-webkit-animation-fill-mode: both;
+	  	animation-fill-mode: both;
+	  	-webkit-animation-name: fadeInDown;
+		  animation-name: fadeInDown;
+		  -webkit-transform-origin: center bottom;
+		  transform-origin: center bottom;
+		  -webkit-animation-duration: .35s;
+	  	animation-duration: .35s;
+		}
+		a {
+			color: $dark-gray;
+			margin-left: 10px;
+			vertical-align: middle;
+		}
+		.social-label {
+			font-size: rem(14);
+		}
+	}
+}
+.login-cta {
+	&.ng-hide-remove {
+		@include transition(all .25s ease-in-out);
+		-webkit-animation-fill-mode: both;
+  	animation-fill-mode: both;
+  	-webkit-animation-name: fadeInDown;
+	  animation-name: fadeInDown;
+	  -webkit-transform-origin: center bottom;
+	  transform-origin: center bottom;
+	  -webkit-animation-duration: .35s;
+  	animation-duration: .35s;
+	}
+	a {
+		margin-left: 10px;
+	}
+	padding: rem(21) 0;
+}
+
+.login {
+	&.ng-hide-remove {
+		@include transition(all .25s ease-in-out);
+		-webkit-animation-fill-mode: both;
+  	animation-fill-mode: both;
+  	-webkit-animation-name: fadeInDown;
+	  animation-name: fadeInDown;
+	  -webkit-transform-origin: center bottom;
+	  transform-origin: center bottom;
+	  -webkit-animation-duration: .35s;
+  	animation-duration: .35s;
+	}
+
+	.form-group {
+		margin-bottom: 0;
+		padding: rem(19) 0 rem(18);
+	}
+	.btn {
+		padding: 0.70em 1.25em;
+		font-size: rem(14);
+		margin-left: 5px;
+		&.btn--secondary {
+			margin-left: 10px;
+		}
 	}
 }
 
-.member-corner, .social-links, .search {
-	float: right;
+input.login-field {
+	display: inline-block;
+	width: 260px;
+	margin-left: 10px;
+	margin-bottom: 0;
+	@include placeholder {
+    color: $blue;
+  }
 }
 
-.member-corner {
-	a:first-child {
-		margin-right: 10px;
-		padding-right: rem(30);
-		padding-left: rem(30);
+.greeting {
+	padding: rem(16) 0;
+	a {display: inline-block;}
+	.avatar {
+		display: inline-block;
+		vertical-align: middle;
+		margin-right: 8px;
+		img {
+			width: 36px;
+			height: 36px;
+			border-radius: 100px;
+		}
+	}
+	.logout {
+		position: relative;
+		top: 2px;
+		margin-left: 10px;
 	}
 }
-

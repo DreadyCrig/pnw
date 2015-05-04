@@ -8,7 +8,7 @@ include PATH_THIRD.'charge/config'.EXT;
  * Charge Module Class
  *
  * @package         charge_ee_addon
- * @version         1.9.0
+ * @version         1.9.2
  * @author          Joel Bradbury ~ <joel@squarebit.co.uk>
  * @link            http://squarebit.co.uk/software/expressionengine/charge
  * @copyright       Copyright (c) 2015, Joel Bradbury/Square Bit
@@ -105,7 +105,6 @@ class Charge {
       //  ee()->load->remove_package_path(PATH_THIRD.'charge');
 
     }
-
 
     //-------------------------------------------------------------------
     //-------------------------------------------------------------------
@@ -267,7 +266,8 @@ class Charge {
         if(count($recurring) > 0) $data['has_active_recurring'] = TRUE;
         else $data['has_active_recurring'] = FALSE;
         $data['recurring'] = $recurring;
-        $data['recurring_count'] = count($recurring);
+        $data['count_recurring'] = count($recurring);
+
 
         $data['has_active_card'] = TRUE;
 /*

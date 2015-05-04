@@ -1,0 +1,40 @@
+{exp:channel:entries
+	channel="testimonials"
+	disable="categories|category_fields|member_data|pagination|trackbacks"
+	dynamic="off"
+	entry_id="{embed:entry_id}"
+}
+
+<div class="card">
+	<header class="card__header text-center">
+		<h2>
+		{if testimonial_type == "member"}
+		What members are saying...
+		{if:else}
+		What sponsors are saying...
+		{/if}
+		</h2>
+	</header>
+	<div class="card__body">
+		{testimonial_body}
+		<div class="quote__photo">
+			<img src="{photo}" alt="{name}">
+		</div>
+		<div class="quote__post">
+			<blockquote>
+				<span class="iconic iconic--quote quote-mark" data-glyph="double-quote-serif-left"></span>
+				{quote}
+			</blockquote>
+		</div>
+		<div class="quote__meta">
+			<h4 class="quote-name">{name}</h4>
+			<p class="quote-title">{organization}</p>
+		</div>
+		{/testimonial_body}
+	</div>
+	<div class="card__footer text-center">
+		<a href="/join">Join BABC-PNW Now</a>
+	</div>
+</div>
+	
+{/exp:channel:entries}

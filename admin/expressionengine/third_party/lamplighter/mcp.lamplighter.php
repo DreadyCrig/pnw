@@ -84,7 +84,7 @@ class Lamplighter_mcp {
 			$registered = null;
 		}
 		if (!$registered) {
-			$this->EE->session->set_flashdata('message_failure', 'The add-on was unable to successfully register with Lamplighter.  Please check your API Key.');
+			$this->EE->session->set_flashdata('message_failure', 'The add-on was unable to successfully register with Lamplighter.  Please check your site token.');
 			$this->remove_key();
 		}
 		return $this->EE->functions->redirect($this->_base_url);

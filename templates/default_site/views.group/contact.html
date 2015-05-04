@@ -1,6 +1,6 @@
 {layout="layouts/index"}
 
-<!-- Rich Headline -->
+{exp:channel:entries disable="categories|category_fields|member_data|pagination|trackbacks"}
 <header class="headline">
 	<div class="headline__content">
 		<h1>Contact Us</h1>
@@ -11,94 +11,55 @@
 	<div class="main-container">
 		<div class="contact">
 			<div class="contact-info">
-				<h3>We would be more than happy to hear from you:</h3>
-				<p class="contact-meta">
-					<span class="contact-name">Catherine Filippini, Executive Director</span>
-					<span class="contact-chapter">British-American Business Council Northern California</span>
-					<span class="contact-phone"><strong>Tel:</strong> <a href="tel:2067697194">(206) 769-7194</a></span>
-					<span class="contact-email"><strong>Email:</strong> <a href="mailto:membership@babcpnw.org">membership@babcpnw.org</a></span>
-				</p>
-				<div id="map_canvas" class="map-canvas"></div>
+				<h2>Contact Information</h2>
+        
+        <p class="contact-chapter">
+        British-American Business Council Northern California
+        </p>
+				{contact_card}
+        <p class="contact-meta">
+          <span class="contact-name"><strong>{name}</strong>, <br>{role}</span>
+          {if phone}
+          <span class="contact-phone"><strong>Tel:</strong> <a href="tel:{phone}">{phone}</a></span>
+          {/if}
+          <span class="contact-email"><strong>Email:</strong> <a href="mailto:{email}">{email}</a></span>
+        </p>
+        {/contact_card}
+				<div id="map_canvas" class="map-canvas">
+          {exp:gmap:init id="map" scrollwheel="false" style="width:100%;height:300px"}
+          {contact_map id="map"}
+        </div>
 			</div>
 			<div class="contact-inquiry">
-				<h3>Please use the form below to send your questions or comments</h3>
-				<form action="#" class="contact-form">
-					<div class="inline-form-group">
-						<div class="form-group form-group--half">
-					    
-					    <input type="text" class="form-control" id="fullName" placeholder="Enter your full name" name="contact_first_name">
-					  </div>
-					  <div class="form-group form-group--half">
-					    
-					    <input type="email" class="form-control" id="email" placeholder="Enter your email" name="contact_email">
-					  </div>
-					</div>
+				<h2>Send your questions or comments</h2>
+				
+        {exp:freeform:form 
+          form:class="contact-form" 
+          form_name="contact"
+          required="full_name|email"
+        }
+					
+					<div class="form-group">
+				    <label for="fullName">Full Name</label>
+				    <input type="text" class="form-control" id="fullName" placeholder="Enter your full name" name="full_name">
+				  </div>
+				  <div class="form-group">
+				    <label for="email">Email</label>
+				    <input type="email" class="form-control" id="email" placeholder="Enter your email" name="email">
+				  </div>
+					
 					<div class="form-group">
 				    <label for="contactComment">Your Comment</label>
-				    <textarea name="contact_comment" id="contactComment" cols="30" rows="6"></textarea>
+				    <textarea name="user_message" id="contactComment" cols="30" rows="7"></textarea>
 				  </div>
 				  <div class="form-group">
 				    <div class="form-control">
 				    	<button type="submit" class="btn">Send Inquiry</button>
 				    </div>
 				  </div>
-				</form>
+				{/exp:freeform:form}
 			</div>
 		</div>
 	</div>
 </main>
-<script src="https://maps.googleapis.com/maps/api/js"></script>
-<script>
-  var bittersMap = (function () {
-    var myLatlng = new google.maps.LatLng(47.610000, -122.34),
-        mapCenter = new google.maps.LatLng(47.610000, -122.34),
-        mapCanvas = document.getElementById('map_canvas'),
-        mapOptions = {
-          center: mapCenter,
-          zoom: 14,
-          scrollwheel: false,
-          draggable: true,
-          disableDefaultUI: true,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
-        },
-        map = new google.maps.Map(mapCanvas, mapOptions),
-        contentString =
-          '<div id="content">'+
-          '<div id="siteNotice">'+
-          '</div>'+
-          '<h1 id="firstHeading" class="firstHeading">BABC-PNW</h1>'+
-          '<div id="bodyContent"'+
-          '<p>PO Box 2677 Seattle, WA 98111-2677</p>'+
-          '</div>'+
-          '</div>',
-        infowindow = new google.maps.InfoWindow({
-          content: contentString,
-          maxWidth: 300
-        }),
-        marker = new google.maps.Marker({
-          position: myLatlng,
-          map: map,
-          title: 'BABC-PNW'
-        });
-
-    return {
-      init: function () {
-        map.set('styles', [{
-          featureType: 'landscape',
-          elementType: 'geometry',
-          stylers: [
-            { hue: '#ffff00' },
-            { saturation: 30 },
-            { lightness: 10}
-          ]}
-        ]);
-
-        google.maps.event.addListener(marker, 'click', function () {
-          infowindow.open(map,marker);
-        });
-      }
-    };
-  }());
-
-  bittersMap.init();
-</script>
+{/exp:channel:entries}

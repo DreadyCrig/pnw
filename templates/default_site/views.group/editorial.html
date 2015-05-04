@@ -1,46 +1,67 @@
 {layout="layouts/index"}
 
-<!-- Rich Headline -->
-<header class="headline headline--rich" style="background-image: url(/assets/img/lake.jpg);">
-	<div class="overlay" style="background-color: rgba(17, 17, 17, 0.5);">
+{exp:channel:entries
+	disable="category_fields|member_data|trackbacks"
+}
+{article_banner}
+{if background}
+<header class="headline headline--rich" style="background-image: url('{background}');">
+{if:else}
+<header class="headline">
+{/if}
+{/article_banner}
+
+	<div class="overlay" 
+		{article_banner}
+		style="background-color: rgba(17, 17, 17, 0.{overlay});"
+		}
+		{/article_banner}
+	>
 		<div class="headline__content">
-			<div class="headline-categories"><a href="#">Travel</a></div>
-			<h1>The Soul Of Siberia Hidden Beneath The Waters</h1>
+			<div class="headline-categories">
+				{categories}
+        <a href="#">{category_name}</a>
+				{/categories}
+			</div>
+			<h1>{title}</h1>
 			<div class="headline__meta">
 				<span class="date">
-					<span class="iconic" data-glyph="clock" aria-hidden="true"></span> January 6, 2015
+					{entry_date format="%F %d, %Y @ %g:%i %A"}
 				</span>
 			</div>
 		</div>
 	</div>
 </header>
-
 <main class="main main--white">
 	<div class="main-container">
 		<article class="article">
 			<aside class="author__aside">
 				<div class="card">
 					<div class="card__body">
+						
+        		
+						
 						<div class="author">
+							{exp:zoo_visitor:details member_id="{author_id}"}
 							<div class="author__picture">
-								<img src="/assets/img/staff/catherine.jpg" alt="Catherine Filippini">
+								<img src="{visitor:member_photo}" alt="{visitor:member_first_name} {visitor:member_last_name}">
 							</div>
 							<div class="author__meta">
-								<div class="author-name">Catherine Filippini</div>
-								<div class="author-title">Executive Director</div>
+								<div class="author-name">{visitor:member_first_name} {visitor:member_last_name}</div>
+								<div class="author-title">{visitor:member_job_title}</div>
 							</div>
 							<div class="author__links">
-								<a href="#">
-									<span class="iconic" data-glyph="info" aria-hidden="true"></span>
+								
+								{visitor:member_social_links}
+								<a href="{url}">
+									<span class="iconic" data-glyph="social-{service}" aria-hidden="true"></span>
 								</a>
-								<a href="#">
-									<span class="iconic" data-glyph="social-facebook" aria-hidden="true"></span>
-								</a>
-								<a href="#">
-									<span class="iconic" data-glyph="social-linkedin" aria-hidden="true"></span>
-								</a>
+								{/visitor:member_social_links}
+								
 							</div>
+							{/exp:zoo_visitor:details}
 						</div>
+						
 					</div>
 					<footer class="card__footer card__footer--sm text-center">
 						<a href="#">All Posts</a>
@@ -49,25 +70,30 @@
 			</aside>
 			<div class="article__body">
 				
-				<p class="lead">Lake Baikal is the freshwater lake with greatest volume in the world, containing roughly 20% of the world’s unfrozen surface fresh water, and at 1,642 m, the deepest.</p>
-
-				<h2>Wildlife</h2>
-
-
-				<p>In total there are less than 60 native fish species in the lake, but more than half of these are endemic. The families Abyssocottidae (deep-water sculpins), Comephoridae (golomyankas or Baikal oilfish) and Cottocomephoridae (Baikal sculpins), and the subfamily Cottinae (part of the cottid family) are entirely restricted to the lake basin.</p>
-
-				<h3>Invertebrates</h3>
-				<p>The lake hosts rich endemic fauna of invertebrates. Epischura baikalensis is endemic to Lake Baikal and the dominating zooplankton species there, making up 80 to 90% of total biomass.</p>
-
-				<h2>History</h2>
-
-				<p>Lake Baikal was situated in the northern territory of the Xiongnu confederation, and was a site of the Han–Xiongnu War, where the armies of the Han dynasty pursued and defeated the Xiongnu forces from the second century BC to the first century AD. They recorded that the lake was a “huge sea” (hanhai) and designated it the North Sea of the semimythical Four Seas.</p>
-
-				<blockquote>
-					<p>The first Russian explorer to reach Lake Baikal was Kurbat Ivanov in 1643</p>
-				</blockquote>
-
-				<p>The Kurykans, a Siberian tribe who inhabited the area in the sixth century, gave it a name that translates to “much water”. Later on, it was called “natural lake” (Baygal nuur) by the Buryats and “rich lake” (Bay göl) by the Yakuts. Little was known to Europeans about the lake until Russia expanded into the area in the 17th century. The first Russian explorer to reach Lake Baikal was Kurbat Ivanov in 1643.</p>
+				{article_body}
+					{heading}
+						<header class="article__header">
+							{value}
+						</header>
+					{/heading}
+					{wygwam}
+						<section class="article__section">
+							{value}
+						</section>
+					{/wygwam}
+					{assets}
+						{files}
+							<div class="article__photo">
+								<div class="photo-frame">
+									<img src="{url}" alt="{alt_text}">
+								</div>
+								<div class="photo-caption">
+									<p>{caption}</p>
+								</div>
+							</div>
+						{/files}
+					{/assets}
+				{/article_body}
 
 				<div class="share-bar">
 					<a href="#" class="btn btn--social btn--facebook">
@@ -82,3 +108,4 @@
 		</article>
 	</div>
 </main>
+{/exp:channel:entries}

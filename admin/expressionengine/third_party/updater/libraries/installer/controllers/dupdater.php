@@ -121,6 +121,7 @@ class Dupdater extends CI_Controller {
         $this->action_obj = $this->decodeJson($this->input->post('action_obj'));
         $this->server = $this->input->post('server');
         $this->version = $this->input->post('version');
+        $this->updateFile = $this->input->post('update_file');
 
         // -----------------------------------------
         // EE_PATH_THIRD
@@ -402,10 +403,12 @@ class Dupdater extends CI_Controller {
         $out = array('success' => 'no', 'body' => '');
         $installer_dir = $this->server['system'].'installer/';
 
+        $updateFile = $this->updateFile;
+
         // -----------------------------------------
         // Upgrade!
         // -----------------------------------------
-        if (file_exists($installer_dir.'updates/ud_'.$this->version.'.php') === false) {
+        if (file_exists($installer_dir.'updates/'.$updateFile) === false) {
             $out['body'] = 'Install file not found!';
             exit($this->generateJson($out));
         }
@@ -432,8 +435,8 @@ class Dupdater extends CI_Controller {
         if (file_exists($installer_dir.'models/installer_template_model.php')) {
             $this->load->model('installer_template_model', 'template_model');
         }
-        
-        $file = $installer_dir.'updates/ud_'.$this->version.'.php';
+
+        $file = $installer_dir.'updates/'.$updateFile;
         require($file);
 
         $this->db->queries = array();

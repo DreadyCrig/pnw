@@ -4,7 +4,7 @@
  * Charge Stripe Model class
  *
  * @package         charge_ee_addon
- * @version         1.9.0
+ * @version         1.9.2
  * @author          Joel Bradbury ~ <joel@squarebit.co.uk>
  * @link            http://squarebit.co.uk/software/expressionengine/charge
  * @copyright       Copyright (c) 2015, Joel Bradbury/Square Bit
@@ -1180,11 +1180,15 @@ class Charge_stripe_model extends Charge_model
 
     public function cards($customer_id)
     {
+        if($customer_id == '') return false;
+
 
         // @todo add caching on this call
         try {
-            $cards = Stripe_Customer::retrieve($customer_id)
-                ->cards->all();
+            $customer = Stripe_Customer::retrieve($customer_id);
+            if($customer == null) return false;
+
+            $cards = $customer->cards->all();
             $cards = $cards->__toArray();
 
             if (empty($cards['data'])) return array();

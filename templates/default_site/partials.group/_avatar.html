@@ -1,0 +1,7 @@
+{exp:ce_gravatar:pair email="{email}" default="404"}
+{if gravatar}
+<img src="{gravatar}" alt="{screen_name}" />
+{if:else}
+<img src="/assets/img/avatar.png">
+{/if}
+{/exp:ce_gravatar:pair}

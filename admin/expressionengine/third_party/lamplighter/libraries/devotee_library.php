@@ -221,7 +221,7 @@ class Devotee_library
 			// Return the view
 			return $this->EE->load->view('acc_accessory', array(
 				'updates'       => json_decode($updates),
-				'last_check'    => method_exists($this->EE->localize, 'string_to_timestamp') ? $this->EE->localize->string_to_timestamp(filemtime($this->cache_file), true) : filemtime($this->cache_file),
+				'last_check'    => method_exists($this->EE->localize, 'string_to_timestamp') ? $this->EE->localize->string_to_timestamp(date('Y-m-d H:i:s',filemtime($this->cache_file)), true) : filemtime($this->cache_file),
 				'hidden_addons' => $hidden_addons,
 				'show_hidden'	=> $show_hidden_addons,
 				'cp'			=> $this->EE->cp

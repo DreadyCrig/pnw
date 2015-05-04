@@ -15,6 +15,9 @@
 			position: relative;
 			top: 3px;
 			cursor: pointer;
+			span {
+				color: #ccc;
+			}
 		}
 		input {
 			line-height: normal;

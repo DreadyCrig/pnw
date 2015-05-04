@@ -1,23 +1,19 @@
 {layout="layouts/index"}
+{exp:channel:entries
+	disable="categories|category_fields|member_data|pagination|trackbacks"
+}
 <div class="hero">
-	<div class="hero-item" style="background-image: url('/assets/img/transatlantic.jpg');">
+	{home_hero}
+	<div class="hero-item" style="background-image: url('{background}');">
 		<div class="hero-content">
-			<h2>BABC Annual Transatlantic Business Conference</h2>
-			<p>MAY 13th - 14th 2015 | New York City </p>
+			<h2>{caption}</h2>
+			<p>{subtext}</p>
 			<div class="hero-cta">
-				<a href="#" class="btn btn--lg">Register Today</a>
+				<a href="{url}" class="btn btn--lg">{label}</a>
 			</div>
 		</div>
 	</div>
-	<div class="hero-item" style="background-image: url('/assets/img/football-rugby-alt.jpg');">
-		<div class="hero-content">
-			<h2>NFL VS RUGBY</h2>
-			<p>MAY 8th, 2015 | Union Station - Seattle, Washington</p>
-			<div class="hero-cta">
-				<a href="#" class="btn btn--lg">Register Now</a>
-			</div>
-		</div>
-	</div>
+	{/home_hero}
 </div>
 <section class="intro">
 	<div class="intro-container">
@@ -25,10 +21,12 @@
 			<p>Fostering commerce, friendship and economic growth between the United States and the United Kingdom</p>
 		</div>
 		<div class="intro-block">
-			<a href="#" class="btn btn--outline">Learn more about BABC PNW</a>
+			<a href="/about" class="btn btn--outline">Learn more about BABC PNW</a>
 		</div>
 	</div>
 </section>
+{/exp:channel:entries}
+
 <main class="main main--home">
 	<div class="main-container">
 		<section class="section-row">
@@ -44,80 +42,48 @@
 						</span>
 					</header>
 					<div class="card__body">
-						<div class="post post--with-thumb">
+						{exp:channel:entries
+							channel="news"
+							disable="categories|category_fields|member_data|trackbacks"
+							dynamic="off"
+							limit="5"
+						}
+						<div class="post {if '{article_banner:sum col="thumbnail"}' == '0'}post--with-thumb{/if}">
+							{article_banner}
+							{if thumbnail}
 							<div class="post__thumb">
-								<a href="#"><img src="/assets/img/big-ben.jpg" alt="Big Ben"></a>
+								<a href="{page_url}"><img src="{thumbnail}" alt="{thumbnail:alt_text}"></a>
 							</div>
+							{/if}
+							{/article_banner}
 							<div class="post__body">
 								<h3 class="post-title">
-									<a href="#">Britain is Open for Business</a>
+									<a href="{page_url}">{title}</a>
 								</h3>
 								<div class="post-meta">
-									<div class="post-author">By: Priya Guha, British Consulate General</div>
-									<div class="post-date">Posted on: February 11, 2015</div>
+									<div class="post-author">
+										By: 
+										{if article_contributing_author}
+										{article_contributing_author}
+										{if:else}
+										{author}
+										{/if}
+									</div>
+									<div class="post-date">Posted on: {entry_date format="%F %d, %Y"}</div>
 								</div>
-								<p class="post-excerpt">
-									You don’t have to look far in the Pacific North West to see its strong business ties to Britain.
-								</p>
+								<div class="post-excerpt">
+									{article_body}
+										{textarea}
+											{value}
+										{/textarea}
+									{/article_body}
+								</div>
 							</div>
 						</div>
-
-						<div class="post post--with-thumb">
-							<div class="post__thumb">
-								<a href="#"><img src="/assets/img/case-study.jpg" alt="Duo UK"></a>
-							</div>
-							<div class="post__body">
-								<h3 class="post-title">
-									<a href="#">Case Study: Duo UK</a>
-								</h3>
-								<div class="post-meta">
-									<div class="post-author">By: David Brimelow, Managing Director @ TTIP</div>
-									<div class="post-date">Posted on: February 22, 2015</div>
-								</div>
-								<p class="post-excerpt">
-									How can a EU-US trade and investment agreement help businesspeople and their companies in the UK?
-								</p>
-							</div>
-						</div>
-
-						<div class="post post--with-thumb">
-							<div class="post__thumb">
-								<a href="#"><img src="/assets/img/startup-weekend.png" alt="EuroSeattle 2"></a>
-							</div>
-							<div class="post__body">
-								<h3 class="post-title">
-									<a href="#">EuroSeattle Startup Weekend a Great Success</a>
-								</h3>
-								<div class="post-meta">
-									<div class="post-author">By: Catherine Filippini, Executive Director</div>
-									<div class="post-date">Posted on: January 6, 2015</div>
-								</div>
-								<p class="post-excerpt">
-									Out of eleven teams in competition, the multinational jury - comprised of representatives from the US, UK ...
-								</p>
-							</div>
-						</div>
-
-						<div class="post post--with-thumb">
-							<div class="post__thumb">
-								<a href="#"><img src="/assets/img/christmas-luncheon.jpg" alt="Christmas Luncheon"></a>
-							</div>
-							<div class="post__body">
-								<h3 class="post-title">
-									<a href="#">Photos From Christmas 2013 Luncheon</a>
-								</h3>
-								<div class="post-meta">
-									<div class="post-author">By: Catherine Filippini, Executive Director</div>
-									<div class="post-date">Posted on: January 3, 2014</div>
-								</div>
-								<p class="post-excerpt">
-									Photographs of the 2013 Christmas can be viewed by clicking this link. These photographs were taken by ...
-								</p>
-							</div>
-						</div>
+						{/exp:channel:entries}
 					</div>
 					<footer class="card__footer text-center">
-						<a href="#">More News</a>
+						<a href="/news">More News</a>
 					</footer>
 				</div>
 				<!-- Member Opportunities -->
@@ -125,54 +91,29 @@
 					<header class="card__header">
 						<h2>Member Opportunities</h2>
 					</header>
+
 					<div class="card__body card__body--padded">
 						<div class="card__carousel">
+							{exp:channel:entries
+								disable="categories|category_fields|member_data|pagination|trackbacks"
+							}
+							{home_opportunities}
+							{opportunity_ad}
 							<div class="carousel-item">
 								<div class="ad">
 									<div class="ad__image">
-										<a href="#"><img src="/assets/img/ad-1.jpg"></a>
+										<a href="{url}" target="_blank"><img src="{image}" alt="{title}"></a>
 									</div>
 								</div>
 							</div>
-							<div class="carousel-item">
-								<div class="ad">
-									<div class="ad__image">
-										<a href="#"><img src="/assets/img/ad-2.jpg"></a>
-									</div>
-								</div>
-							</div>
-							<div class="carousel-item">
-								<div class="ad">
-									<div class="ad__image">
-										<a href="#"><img src="/assets/img/ad-3.png"></a>
-									</div>
-								</div>
-							</div>
-							<div class="carousel-item">
-								<div class="ad">
-									<div class="ad__image">
-										<a href="#"><img src="/assets/img/ad-4.png"></a>
-									</div>
-								</div>
-							</div>
-							<div class="carousel-item">
-								<div class="ad">
-									<div class="ad__image">
-										<a href="#"><img src="/assets/img/ad-5.png"></a>
-									</div>
-								</div>
-							</div>
-							<div class="carousel-item">
-								<div class="ad">
-									<div class="ad__image">
-										<a href="#"><img src="/assets/img/ad-6.jpg"></a>
-									</div>
-								</div>
-							</div>
+							{/opportunity_ad}
+							{/home_opportunities}
+							{/exp:channel:entries}
 						</div>
 					</div>
 				</div>
 			</div>
+
 			<aside class="home-aside">
 				<div class="card">
 					<header class="card__header text-center">
@@ -185,85 +126,42 @@
 					</header>
 					<div class="card__body">
 						<!-- Micro Post -->
-						<div class="post post--micro post--with-thumb">
-							<div class="post__thumb">
-								<a href="#"><img src="/assets/img/space-needle.jpg" alt="space-needle"></a>
-							</div>
-							<div class="post__body">
-								<div class="post-meta">
-									<div class="post-date">February 10 - 12</div>
-								</div>
-								<h3 class="post-title">
-									<a href="#">PNAA’s 14 Annual Aerospace Conference</a>
-								</h3>
-							</div>
-						</div>
+						{exp:low_events:entries
+							channel="events"
+							disable="categories|category_fields|member_data|pagination|trackbacks"
+							dynamic="off"
+							date="now;+3 weeks"
+						}
 						<div class="post post--micro">
 							<div class="post__body">
+								<h3 class="post-title">
+									<a href="{page_url}">{title}</a>
+								</h3>
 								<div class="post-meta">
 									<div class="post-date">
-										February 15
+										{event_date:start_date format="%F %d"}
+										<time>{event_date:start_date format="%g:%i %A"} - {event_date:end_date format="%g:%i %A"}</time>
 									</div>
 								</div>
-								<h3 class="post-title">
-									<a href="#">Six Nations Rugby</a>
-								</h3>
+								{event_details}
 								<p class="post-excerpt">
-									The Ghost Bring Lush Psych-Pop to the Bowery Ballroom
+									{micro_excerpt}
 								</p>
+								{/event_details}
 							</div>
 						</div>
-						<div class="post post--micro">
-							<div class="post__body">
-								<div class="post-meta">
-									<div class="post-date">
-										February 18
-										<time>5:30PM - 7:00PM</time>
-									</div>
-								</div>
-								<h3 class="post-title">
-									<a href="#">February Social with Florin Pensions</a>
-								</h3>
-								<p class="post-excerpt">
-									Courtyard Marriott Downtown Seattle
-								</p>
-							</div>
-						</div>
+						{/exp:low_events:entries}
 					</div>
 					<footer class="card__footer text-center">
-						<a href="#">More Events</a>
+						<a href="/events">More Events</a>
 					</footer>
 				</div>
-				<div class="card">
-					<header class="card__header text-center">
-						<h2>Consul's Desk</h2>
-					</header>
-					<div class="card__body">
-						<div class="quote">
-							<div class="quote__photo">
-								<img src="/assets/img/staff/robin.jpg" alt="Robin Twyman">
-							</div>
-							<div class="quote__post">
-								<blockquote>
-									<span class="iconic iconic--quote quote-mark" data-glyph="double-quote-serif-left"></span>
-									<p>
-										The British Embassy in Washington DC has created an interactive trade map showing the wealth of trade and investment between the UK and the US, including at state level... <a href="#">Read More</a>
-									</p>
-								</blockquote>
-							</div>
-							<div class="quote__meta">
-								<h4 class="quote-name">Robin Twyman</h4>
-								<p class="quote-title">British Consul (Business &amp; Government Affairs) Seattle.</p>
-							</div>
-						</div>
-					</div>
-					<div class="card__footer text-center">
-						<a href="#">Visit the Column</a>
-					</div>
-				</div>
+				{embed="partials/_column-card"}
 			</aside>
 		</section>
-		
+		{exp:channel:entries
+			disable="categories|category_fields|member_data|pagination|trackbacks"
+		}
 		<div class="section-row">
 			<div class="home-member-logos">
 				<!-- Patron / Corporate Members -->
@@ -273,69 +171,17 @@
 					</header>
 					<div class="card__body card__body--padded">
 						<div class="card__carousel">
+							{home_members}
+							{ad_unit}
 							<div class="carousel-item">
 								<div class="ad">
 									<div class="ad__image">
-										<a href="#"><img src="/assets/img/ads/delta.png"></a>
+										<a href="{url}" target="_blank"><img src="{image}" alt="{title}"></a>
 									</div>
 								</div>
 							</div>
-							<div class="carousel-item">
-								<div class="ad">
-									<div class="ad__image">
-										<a href="#"><img src="/assets/img/ads/orion.png"></a>
-									</div>
-								</div>
-							</div>
-							<div class="carousel-item">
-								<div class="ad">
-									<div class="ad__image">
-										<a href="#"><img src="/assets/img/ads/sightlife.png"></a>
-									</div>
-								</div>
-							</div>
-							<div class="carousel-item">
-								<div class="ad">
-									<div class="ad__image">
-										<a href="#"><img src="/assets/img/ads/expeditors.png"></a>
-									</div>
-								</div>
-							</div>
-							<div class="carousel-item">
-								<div class="ad">
-									<div class="ad__image">
-										<a href="#"><img src="/assets/img/ads/teague.png"></a>
-									</div>
-								</div>
-							</div>
-							<div class="carousel-item">
-								<div class="ad">
-									<div class="ad__image">
-										<a href="#"><img src="/assets/img/ads/esterline.png"></a>
-									</div>
-								</div>
-							</div>
-							<div class="carousel-item">
-								<div class="ad">
-									<div class="ad__image">
-										<a href="#"><img src="/assets/img/ads/russell.png"></a>
-									</div>
-								</div>
-							</div>
-							<div class="carousel-item">
-								<div class="ad">
-									<div class="ad__image">
-										<a href="#"><img src="/assets/img/ads/kpmg.png"></a>
-									</div>
-								</div>
-							</div>
-							<div class="carousel-item">
-								<div class="ad">
-									<div class="ad__image">
-										<a href="#"><img src="/assets/img/ads/saracens.png"></a>
-									</div>
-								</div>
-							</div>
+							{/ad_unit}
+							{/home_members}
 						</div>
 					</div>
 				</div>
@@ -350,33 +196,20 @@
 						<h2>From Twitter <a href="http://twitter.com/babcpnw" target="_blank">@babcpnw</a></h2>
 					</header>
 					<div class="card__body card__body--padded">
+						{exp:twitter:user screen_name="babcpnw" limit="1"}
 						<div class="tweet">
-							2 night at <a href="#">@museumofflight</a> <a href="#">@RAeSSeattle</a> features discussion on Boeing's newest single-aisle airplane. Free admission. <a href="#">http://bit.ly/1vdEfQ3 </a>
+							{text}
 						</div>
 						<div class="tweet-meta">
-							<span class="tweet-date"><img data-src="/assets/svg/clock.svg" class="iconic iconic--time iconic-sm" alt="clock"> 9 min ago</span>
+							<span class="tweet-date"><img data-src="/assets/svg/clock.svg" class="iconic iconic--time iconic-sm" alt="clock"> {better_relative_date}</span>
 						</div>
+						{/exp:twitter:user}
 					</div>
 				</div>
 			</div>
 			<div class="home-newsletter">
 				<!-- Newsletter Card -->
-				<div class="card card--newsletter">
-					<header class="card__header">
-						<h2>Signup for our newsletter</h2>
-					</header>
-					<div class="card__body card__body--padded">
-						<p>You’ll receive news and event updates, community perspectives and much more!</p>
-						<div class="newsletter">
-							<form action="#" class="newsletter__form">
-								<div class="form-group inline-form-group">
-									<input type="text" class="form-control inline-control newsletter-control" placeholder="Enter your email">
-									<button type="submit" class="btn--newsletter">Subscribe</button>
-								</div>
-							</form>
-						</div>
-					</div>
-				</div>
+				{embed="partials/_newsletter-card"}
 			</div>
 		</section>
 
@@ -389,67 +222,23 @@
 					</header>
 					<div class="card__body card__body--padded">
 						<div class="card__carousel">
+							{home_partners}
+							{ad_unit}
 							<div class="carousel-item">
 								<div class="ad">
 									<div class="ad__image">
-										<a href="#"><img src="/assets/img/ads/greater-portland.png"></a>
+										<a href="{url}" target="_blank"><img src="{image}" alt="{title}"></a>
 									</div>
 								</div>
 							</div>
-							<div class="carousel-item">
-								<div class="ad">
-									<div class="ad__image">
-										<a href="#"><img src="/assets/img/ads/reign-fc.png"></a>
-									</div>
-								</div>
-							</div>
-							<div class="carousel-item">
-								<div class="ad">
-									<div class="ad__image">
-										<a href="#"><img src="/assets/img/ads/uk-trade.png"></a>
-									</div>
-								</div>
-							</div>
-							<div class="carousel-item">
-								<div class="ad">
-									<div class="ad__image">
-										<a href="#"><img src="/assets/img/ads/uk-government-office.png"></a>
-									</div>
-								</div>
-							</div>
-							<div class="carousel-item">
-								<div class="ad">
-									<div class="ad__image">
-										<a href="#"><img src="/assets/img/ads/defense-coalition.png"></a>
-									</div>
-								</div>
-							</div>
-							<div class="carousel-item">
-								<div class="ad">
-									<div class="ad__image">
-										<a href="#"><img src="/assets/img/ads/aerospace-alliance.png"></a>
-									</div>
-								</div>
-							</div>
-							<div class="carousel-item">
-								<div class="ad">
-									<div class="ad__image">
-										<a href="#"><img src="/assets/img/ads/tdas.png"></a>
-									</div>
-								</div>
-							</div>
-							<div class="carousel-item">
-								<div class="ad">
-									<div class="ad__image">
-										<a href="#"><img src="/assets/img/ads/facc.png"></a>
-									</div>
-								</div>
-							</div>
+							{/ad_unit}
+							{/home_partners}
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-
+		{/exp:channel:entries}
 	</div>
 </main>
+

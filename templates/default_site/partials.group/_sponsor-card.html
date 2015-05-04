@@ -1,0 +1,25 @@
+{exp:channel:entries
+	channel="sponsor_card"
+	disable="categories|category_fields|member_data|pagination|trackbacks"
+	dynamic="off"
+	entry_id="{embed:entry_id}"
+}
+<div class="card">
+	<header class="card__header text-center">
+		<h2>Corporate Sponsor Opportunities</h2>
+	</header>
+	<div class="card__body card__body--padded ad">
+		{sponsor_card_featured_sponsor}
+		{sponsor_unit}
+		<a href="{url}" class="ad-logo" target="_blank">
+			<img src="{logo}" alt="{title}">
+		</a>
+		{/sponsor_unit}
+		{/sponsor_card_featured_sponsor}
+		{sponsor_card_description}
+	</div>
+	<footer class="card__footer">
+		<a href="/sponsor-event" class="btn btn--block">Sponsor an Event</a>
+	</footer>
+</div>
+{/exp:channel:entries}

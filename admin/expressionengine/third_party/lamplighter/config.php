@@ -1,5 +1,5 @@
 <?php
 	if (!defined('LAMPLIGHTER_VERSION')) {
-		define('LAMPLIGHTER_VERSION', '1.2.5');
+		define('LAMPLIGHTER_VERSION', '1.2.7');
 	}
 ?>

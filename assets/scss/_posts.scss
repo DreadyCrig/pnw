@@ -64,7 +64,7 @@
 	a {
 		color: $dark-gray;
 		font-weight: 600;
-		font-size: rem(20);
+		font-size: rem(18);
 		&:hover, &:focus {
 			color: $red;
 		}
@@ -162,23 +162,28 @@
 	color: $red;
 	font-size: rem(14);
 	text-transform: uppercase;
-	.post--micro & {
-		color: $blue;
-		font-size: rem(12);
-		font-weight: 600;
-		letter-spacing: 1.2px
-	}
 	time {
 		display: block;
 		font-weight: 500;
 		color: $red;
+	}
+	.post--micro & {
+		color: $blue;
+		font-size: rem(12);
+		font-weight: 600;
+		letter-spacing: 1.2px;
+		time {
+			display: inline-block;
+			margin-left: 5px;
+		}
 	}
 }
 
 .post-excerpt {
 	color: $alt-text-color;
 	font-family: $serif-font-family;
+	padding-right: rem(40);
 	.post--micro & {
 		font-size: rem(14);
 	}
-} 
+}

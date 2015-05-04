@@ -57,6 +57,9 @@ class Low_search_ext extends Low_search_base {
 	 */
 	public function __construct($settings = array())
 	{
+		// Add path for CP requests
+		if (REQ == 'CP') ee()->load->add_package_path(PATH_THIRD.$this->package);
+
 		// Call Base constructor
 		parent::__construct();
 
@@ -281,13 +284,20 @@ class Low_search_ext extends Low_search_base {
 		       ->where_in('cat_id', $cat_ids)
 		       ->get();
 
-		$entry_ids = low_flatten_results($query->result_array(), 'entry_id');
-		$entry_ids = array_unique($entry_ids);
+		$entry_ids = array_unique(low_flatten_results($query->result_array(), 'entry_id'));
 
-		if ($entry_ids)
+		// Do nothing if we haven't got anything
+		if ( ! $entry_ids) return;
+
+		// Only update if we're below the threshold, or we can timeout
+		if (count($entry_ids) <= $this->settings['batch_size'])
 		{
 			ee()->load->library('Low_search_index');
 			ee()->low_search_index->build_by_entry($entry_ids);
+		}
+		else
+		{
+			// @todo: Touch collections to alert user to update?
 		}
 	}
 }

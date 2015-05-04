@@ -15,7 +15,7 @@ if ( ! defined('UPDATER_NAME'))
 {
 	define('UPDATER_NAME',         'Updater');
 	define('UPDATER_CLASS_NAME',   'updater');
-	define('UPDATER_VERSION',      '3.2.17');
+	define('UPDATER_VERSION',      '3.3.0');
 }
 
 $config['name'] 	= UPDATER_NAME;

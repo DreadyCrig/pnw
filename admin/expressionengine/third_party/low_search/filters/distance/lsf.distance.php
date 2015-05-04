@@ -85,7 +85,15 @@ class Low_search_filter_distance extends Low_search_filter {
 				$R = 3959;
 			break;
 
-			default:
+			case 'yd':
+				$R = 6967410;
+			break;
+
+			case 'm':
+				$R = 6371000;
+			break;
+
+			default: // km
 				$R = 6371;
 		}
 
@@ -99,14 +107,11 @@ class Low_search_filter_distance extends Low_search_filter {
 		if ($single)
 		{
 			// Make sure we have a valid field
-			if ( ! ($field_id = $this->_get_field_id($fields[0])))
+			if ( ! ($field = $this->fields->name($fields[0])))
 			{
-				$this->_log($fields[0].' field ID not found');
+				$this->_log($fields[0].' field not found');
 				return $entry_ids;
 			}
-
-			// Compose field name
-			$field = 'field_id_' . $field_id;
 
 			// Lat/long fields based on a single field
 			$lat_field  = "CONVERT(SUBSTRING({$field}, 1, LOCATE(',', {$field}) - 1), DECIMAL(10,8))";
@@ -115,19 +120,15 @@ class Low_search_filter_distance extends Low_search_filter {
 		else
 		{
 			// Get both field IDs
-			$lat_field_id  = $this->_get_field_id($fields[0]);
-			$long_field_id = $this->_get_field_id($fields[1]);
+			$lat_field  = $this->fields->name($fields[0]);
+			$long_field = $this->fields->name($fields[1]);
 
 			// Validate
-			if ( ! ($lat_field_id && $long_field_id))
+			if ( ! ($lat_field && $long_field))
 			{
 				$this->_log('Lat/Long field combo invalid');
 				return $entry_ids;
 			}
-
-			// Compose field lat/long names
-			$lat_field  = 'field_id_' . $lat_field_id;
-			$long_field = 'field_id_' . $long_field_id;
 		}
 
 		// --------------------------------------

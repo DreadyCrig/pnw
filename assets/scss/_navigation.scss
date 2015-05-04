@@ -2,14 +2,13 @@
 	@include clearfix();
 	background-color: #fff;
 	li {
-		float: left;
-		
+		float: left;		
 		box-sizing: border-box;
 		&:first-child {
-			padding-left: rem(15);
+			padding-left: rem(12);
 		}
 		&:last-child {
-			padding-right: rem(15);
+			padding-right: rem(12);
 		}
 		&.active a {
 			border-bottom: 3px solid $blue;
@@ -19,14 +18,14 @@
 		display: block;
 		font-size: rem(14);
 		font-weight: 600;
-		padding: rem(24) rem(15) rem(23);
+		padding: rem(24) rem(12) rem(23);
 		text-transform: uppercase;
 		letter-spacing: 1.4px;
 		border-bottom: 3px solid #fff;
-		@include transition(all .40s ease-in-out);
+		@include transition(border .25s ease-in-out);
 		&:hover, &:focus {
-			color: #0095D3;
-			border-color: $blue-hover;
+			color: $blue;
+			border-color: $blue;
 		}
 	}
 }

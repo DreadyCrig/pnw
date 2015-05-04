@@ -37,9 +37,9 @@ class Zoo_flexible_admin
 		$pos2 = strpos($str, '>', $pos1);
 		if ($pos1 && $pos2) {
 			$cp_theme     = (!$this->EE->session->userdata('cp_theme')) ? $this->EE->config->item('cp_theme') : $this->EE->session->userdata('cp_theme');
-			$cp_theme_url = $this->EE->config->slash_item('theme_folder_url') . 'cp_themes/' . $cp_theme . '/';
+			$cp_theme_url = $this->EE->config->item('theme_folder_url') . 'cp_themes/' . $cp_theme . '/';
 
-			$img = '<img src=' . $cp_theme_url . 'images/home_icon.png />';
+			$img = '<img src="' . $cp_theme_url . 'images/home_icon.png" />';
 			$str = substr_replace($str, $img, $pos1, $pos2 - $pos1 + 1);
 		}
 		return $str;
@@ -78,7 +78,6 @@ class Zoo_flexible_admin
 
 		$jsontree = $this->my_strip_tags($jsontree);
 
-
 		//$jsontree = str_replace('EDIT', '', $jsontree);
 		$jsontree = str_replace('DELETE', '', $jsontree);
 		$jsontree = str_replace('&nbsp;', '', $jsontree);
@@ -91,14 +90,15 @@ class Zoo_flexible_admin
 		foreach ($json_decoded as $item) {
 			$id        = (isset($item->id)) ? $item->id : '';
 			$className = (isset($item->className)) ? $item->className : '';
-			$navhtml .= '<li class="' . $className . '"  id="' . $id . '" ><a href="' . $item->url . '" class="first_level">' . str_replace("http://", "", str_replace($_SERVER['HTTP_HOST'], "", str_replace('"', '\"', $item->title))) . '</a>';
+
+			$link_text = (strpos($item->title, 'img src') === FALSE) ? str_replace("http://", "", str_replace($_SERVER['HTTP_HOST'], "", str_replace('"', '\"', $item->title))) : $item->title ;
+			$navhtml .= '<li class="' . $className . '"  id="' . $id . '" ><a href="' . $item->url . '" class="first_level">' . $link_text. '</a>';
 			$navhtml .= $this->get_tree_ul($item);
 			$navhtml .= '</li>';
 		}
 
 		$navhtml = str_replace('[IMG]', '<img src="', $navhtml);
 		$navhtml = str_replace('[/IMG]', '"/>', $navhtml);
-
 
 		return $navhtml;
 	}
@@ -124,7 +124,7 @@ class Zoo_flexible_admin
 
 
 		//XID needs to be restored, otherwise security check fails
-		if (version_compare(APP_VER, 2.7, '>=')) {
+		if (version_compare(APP_VER, 2.7, '>=') && version_compare(APP_VER, 2.8, '<=')) {
 			$this->EE->security->restore_xid();
 		}
 
@@ -136,7 +136,7 @@ class Zoo_flexible_admin
 		$this->EE->output->enable_profiler(FALSE);
 
 		//XID needs to be restored, otherwise security check fails
-		if (version_compare(APP_VER, 2.7, '>=')) {
+		if (version_compare(APP_VER, 2.7, '>=') && version_compare(APP_VER, 2.8, '<=')) {
 			$this->EE->security->restore_xid();
 		}
 

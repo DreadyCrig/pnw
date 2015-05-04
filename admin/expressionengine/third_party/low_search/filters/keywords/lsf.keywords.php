@@ -166,7 +166,7 @@ class Low_search_filter_keywords extends Low_search_filter {
 		// One extra query for the sake of diacritic-insensitive word-highlighting
 		// --------------------------------------
 
-		if (ee()->low_search_settings->get('excerpt_hilite'))
+		if ($lang && ee()->low_search_settings->get('excerpt_hilite'))
 		{
 			$this->_log('Extending keywords with diacritics');
 			$this->_extend_terms('_get_dirty');
@@ -308,8 +308,10 @@ class Low_search_filter_keywords extends Low_search_filter {
 		// Modify scores for each collection
 		// --------------------------------------
 
-		if (is_array($this->_collections) &&
-			($modifiers = array_unique(low_flatten_results($this->_collections, 'modifier'))) &&
+		// Make sure internal collections are set
+		if (empty($this->_collections)) $this->_set_collections_by_results();
+
+		if (($modifiers = array_unique(low_flatten_results($this->_collections, 'modifier'))) &&
 			! (count($modifiers) == 1 && $modifiers[0] == 1.0))
 		{
 			$this->_log('Applying collection modifier to search results');
@@ -356,9 +358,6 @@ class Low_search_filter_keywords extends Low_search_filter {
 		}
 		elseif (substr($orderby, 0, strlen($prefix)) == $prefix)
 		{
-			// Order by collection: make sure internal collections are set
-			if (empty($this->_collections)) $this->_set_collections_by_results();
-
 			// An array to map collection names to IDs
 			$map = low_flatten_results($this->_collections, 'collection_id', 'collection_name');
 

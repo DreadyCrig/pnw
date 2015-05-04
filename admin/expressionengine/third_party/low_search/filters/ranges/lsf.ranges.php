@@ -11,31 +11,23 @@
 class Low_search_filter_ranges extends Low_search_filter {
 
 	/**
+	 * Prefixes
+	 */
+	private $_pfxs = array(
+		'range:',
+		'range-from:',
+		'range-to:'
+	);
+
+	/**
 	 * Separator character for ranges
 	 */
 	private $_sep = '|';
 
 	/**
-	 * Native date fields
+	 * Current ranges
 	 */
-	private $_native_dates = array(
-		'entry_date',
-		'expiration_date',
-		'comment_expiration_date',
-		'recent_comment_date',
-		'edit_date' // Which is in YYYYMMDDHHMMSS format. Obviously.
-	);
-
-	/**
-	 * Native numeric fields
-	 */
-	private $_native_numeric = array(
-		'view_count_one',
-		'view_count_two',
-		'view_count_thee',
-		'view_count_four',
-		'comment_total'
-	);
+	private $_ranges;
 
 	// --------------------------------------------------------------------
 	// METHODS
@@ -50,14 +42,21 @@ class Low_search_filter_ranges extends Low_search_filter {
 	public function filter($entry_ids)
 	{
 		// --------------------------------------
+		// Reset ranges
+		// --------------------------------------
+
+		$this->_ranges = $params = array();
+
+		// --------------------------------------
 		// Get ranges params
 		// --------------------------------------
 
-		$params = array_filter(array_merge(
-			$this->params->get_prefixed('range:'),
-			$this->params->get_prefixed('range-from:'),
-			$this->params->get_prefixed('range-to:')
-		), 'low_not_empty');
+		foreach ($this->_pfxs as $pfx)
+		{
+			$params = array_merge($params, $this->params->get_prefixed($pfx));
+		}
+
+		$params = array_filter($params, 'low_not_empty');
 
 		// --------------------------------------
 		// Don't do anything if nothing's there
@@ -72,68 +71,152 @@ class Low_search_filter_ranges extends Low_search_filter {
 		$this->_log('Applying '.__CLASS__);
 
 		// --------------------------------------
-		// Validate params
+		// Load this, to be on the safe side
+		// --------------------------------------
+
+		ee()->load->library('localize');
+
+		// --------------------------------------
+		// Collect ranges
 		// --------------------------------------
 
 		$ranges = array();
 
-		foreach ($params AS $key => $val)
+		foreach ($params as $key => $val)
 		{
-			// Split key
-			list($prefix, $field) = explode(':', $key, 2);
+			// Initiate range row
+			$row = array(
+				'reverse'   => 0,
+				'table'     => NULL,
+				'field'     => NULL,
+				'field_min' => NULL,
+				'field_max' => NULL,
+				'min'       => NULL,
+				'max'       => NULL,
+				'point'     => NULL
+			);
 
-			// Skip invalid fields
-			if ( ! ($field_name = $this->_get_field_name($field))) continue;
+			// Split key into prefix and the rest of the key
+			list($pfx, $key) = explode(':', $key, 2);
 
-			// Init this range
-			$from = $to = NULL;
+			// If key has a colon, it could be grid/matrix OR reverse range
+			if (strpos($key, ':'))
+			{
+				list($field1, $field2) = explode(':', $key, 2);
+
+				// Skip invalid fields
+				if ( ! ($id = $this->fields->id($field1))) continue;
+
+				// Grid field?
+				if ($this->fields->is_grid($field1) &&
+					($col_id = $this->fields->grid_col_id($id, $field2)))
+				{
+					$row['table'] = 'channel_grid_field_'.$id;
+					$row['field'] = 'col_id_'.$col_id;
+				}
+				// Matrix field?
+				elseif ($this->fields->is_matrix($field1) &&
+					($col_id = $this->fields->matrix_col_id($id, $field2)))
+				{
+					$row['table'] = 'matrix_data';
+					$row['field'] = 'col_id_'.$col_id;
+				}
+				// Both field1/field2 belong to the same table: reverse range!
+				elseif ( ! ($this->fields->is_native($field1) XOR $this->fields->is_native($field2)))
+				{
+					// Second field must be valid
+					if ( ! $this->fields->id($field2)) continue;
+
+					// Reverse range on native fields?
+					$native = $this->fields->is_native($field1);
+
+					// Set rules accordingly
+					$row['reverse']   = 1;
+					$row['table']     = $native ? 'channel_titles' : 'channel_data';
+					$row['field_min'] = $native ? $field1 : $this->fields->name($field1);
+					$row['field_max'] = $native ? $field2 : $this->fields->name($field2);
+				}
+			}
+
+			// Targeting a native field here
+			elseif ($this->fields->is_native($key))
+			{
+				$row['table'] = 'channel_titles';
+				$row['field'] = $key;
+			}
+
+			// Regular old custom fields
+			elseif ($this->fields->id($key))
+			{
+				$row['table'] = 'channel_data';
+				$row['field'] = $this->fields->name($key);
+			}
+
+			// We all good here?
+			if (empty($row['table'])) continue;
+
+			// Initiate values for this range
+			$point = $min = $max = NULL;
 
 			// Check prefix and get from/to values accordingly
-			switch ($prefix)
+			switch ($pfx)
 			{
 				case 'range':
-					// Fallback to ;
+					// Fallback to semi-colon for backward compatibility
 					$char = strpos($val, ';') ? ';' : $this->_sep;
-					if (strpos($val, $char)) list($from, $to) = explode($char, $val, 2);
+
+					// Set from/to vals or point val based on separator
+					(strpos($val, $char))
+						? (list($min, $max) = explode($char, $val, 2))
+						: ($point = $val);
 				break;
 
 				case 'range-from':
-					$from = $val;
+					$min = $val;
 				break;
 
 				case 'range-to':
-					$to = $val;
+					$max = $val;
 				break;
 			}
 
 			// Make sure the values are numeric
-			$from = $this->_validate_value($from, $field);
-			$to   = $this->_validate_value($to, $field);
+			$row['point'] = $this->_validate_value($point, $key);
+			$row['min']   = $this->_validate_value($min, $key);
+			$row['max']   = $this->_validate_value($max, $key);
 
-			// If both are invalid, skip it
-			if (is_null($from) && is_null($to)) continue;
+			// Strip out any NULL values
+			$row = array_filter($row, 'low_not_empty');
 
-			// Add from value to field
-			if ( ! is_null($from))
+			// Merge this with any existing ranges, so range-from and range-to can be split
+			$existing     = array_key_exists($key, $ranges) ? $ranges[$key] : array();
+			$ranges[$key] = array_merge($existing, $row);
+		}
+
+		// --------------------------------------
+		// Validate complete ranges
+		// --------------------------------------
+
+		foreach ($ranges as $key => $row)
+		{
+			// If a regular range, either from or to must be defined
+			if ( ! $row['reverse'] && (isset($row['min']) || isset($row['max'])))
 			{
-				$ranges[$field]['from'] = $from;
+				$this->_ranges[$row['table']][$key] = $row;
 			}
 
-			// Add to value to field
-			if ( ! is_null($to))
+			// If reverse range, either point must be defined, or both from and to
+			if ($row['reverse'] && (isset($row['point']) || (isset($row['min']) && isset($row['max']))) )
 			{
-				$ranges[$field]['to'] = $to;
+				$this->_ranges[$row['table']][$key] = $row;
 			}
-
-			// Add sql field name to field
-			$ranges[$field]['field'] = $field_name;
 		}
 
 		// --------------------------------------
 		// No ranges, bail out
 		// --------------------------------------
 
-		if (empty($ranges))
+		if (empty($this->_ranges))
 		{
 			$this->_log('No valid ranges found');
 			return $entry_ids;
@@ -146,125 +229,130 @@ class Low_search_filter_ranges extends Low_search_filter {
 		$channel_ids = ee()->low_search_collection_model->get_channel_ids();
 
 		// --------------------------------------
-		// Start query
+		// Query each table once
 		// --------------------------------------
 
-		ee()->db->select('t.entry_id')
-		        ->from('channel_titles t')
-		        ->join('channel_data d', 't.entry_id = d.entry_id');
-
-		// --------------------------------------
-		// Limit by channel ids?
-		// --------------------------------------
-
-		if ($channel_ids)
+		foreach ($this->_ranges as $table => $ranges)
 		{
-			ee()->db->where_in('t.channel_id', $channel_ids);
-		}
+			// Start query
+			ee()->db->distinct()->select('entry_id')->from($table);
 
-		// --------------------------------------
-		// Limit by site ids?
-		// --------------------------------------
-
-		if ($site_ids = $this->params->site_ids())
-		{
-			ee()->db->where_in('t.site_id', $site_ids);
-		}
-
-		// --------------------------------------
-		// Limit by given entry ids?
-		// --------------------------------------
-
-		if ( ! empty($entry_ids))
-		{
-			ee()->db->where_in('t.entry_id', $entry_ids);
-		}
-
-		// --------------------------------------
-		// And filter by the ranges
-		// --------------------------------------
-
-		foreach ($ranges AS $field => $range)
-		{
-			// Exclude values from range?
-			$exclude = $this->params->in_param("range:{$field}", 'exclude');
-
-			// Prefix the field name
-			$sql_field = ($this->_is_native_field($range['field']) ? 't.' : 'd.') . $range['field'];
-
-			// Limit by Greater Than option
-			if (isset($range['from']))
+			// Limit by given entry ids?
+			if ( ! empty($entry_ids))
 			{
-				$gt = ($exclude || $this->params->in_param("range-from:{$field}", 'exclude'))
-					? ' >'
-					: ' >=';
-
-				ee()->db->where($sql_field.$gt, $range['from']);
+				ee()->db->where_in('entry_id', $entry_ids);
 			}
 
-			// Limit by Lesser Than option
-			if (isset($range['to']))
+			// Limit only for non-grid tables
+			if (in_array($table, array('channel_titles', 'channel_data')))
 			{
-				$lt = ($exclude || $this->params->in_param("range-to:{$field}", 'exclude'))
-					? ' <'
-					: ' <=';
+				// Limit by channel
+				if ($channel_ids)
+				{
+					ee()->db->where_in('channel_id', $channel_ids);
+				}
 
-				ee()->db->where($sql_field.$lt, $range['to']);
+				// Limit by site
+				if ($site_ids = $this->params->site_ids())
+				{
+					ee()->db->where_in('site_id', $site_ids);
+				}
 			}
+
+			// And do the range thing
+			foreach ($ranges as $key => $range)
+			{
+				// Exclude values from range?
+				$exclude_both = $this->params->in_param('range:'.$key, 'exclude');
+				$exclude_min  = $this->params->in_param('range-from:'.$key, 'exclude');
+				$exclude_max  = $this->params->in_param('range-to:'.$key, 'exclude');
+
+				// Reverse range: min/max fields against single value or min/max values (overlap)
+				if ($range['reverse'])
+				{
+					// Check a point
+					if (isset($range['point']))
+					{
+						ee()->db->where(sprintf(
+							"'%s' BETWEEN %s AND %s",
+							$range['point'],
+							$range['field_min'],
+							$range['field_max']
+						), NULL, FALSE);
+					}
+					// Check min/max values, which must be here due to prior validation
+					else
+					{
+						$lt = ($exclude_both || $exclude_min) ? ' <' : ' <=';
+						$gt = ($exclude_both || $exclude_max) ? ' >' : ' >=';
+
+						ee()->db->where($range['field_min'].$lt, $range['max']);
+						ee()->db->where($range['field_max'].$gt, $range['min']);
+					}
+				}
+				// Normal range: single field against min/max values
+				else
+				{
+					// Limit by Greater Than option
+					if (isset($range['min']))
+					{
+						$gt = ($exclude_both || $exclude_min) ? ' >' : ' >=';
+
+						ee()->db->where($range['field'].$gt, $range['min']);
+					}
+
+					// Limit by Lesser Than option
+					if (isset($range['max']))
+					{
+						$lt = ($exclude_both || $exclude_max) ? ' <' : ' <=';
+
+						ee()->db->where($range['field'].$lt, $range['max']);
+					}
+				}
+			}
+
+			// Thunderbirds are GO!
+			$query = ee()->db->get();
+
+			// And get the entry ids
+			$entry_ids = low_flatten_results($query->result_array(), 'entry_id');
+
+			// No need for more stuff if we have no results
+			if (empty($entry_ids)) break;
 		}
 
 		// --------------------------------------
-		// Execute!
+		// Return it dawg
 		// --------------------------------------
-
-		$query = ee()->db->get();
-
-		// --------------------------------------
-		// And get the entry ids
-		// --------------------------------------
-
-		$entry_ids = low_flatten_results($query->result_array(), 'entry_id');
-		$entry_ids = array_unique($entry_ids);
 
 		return $entry_ids;
 	}
 
-	// --------------------------------------------------------------------
 
-	/**
-	 * Get field name
-	 */
-	private function _get_field_name($field)
-	{
-		if ($this->_is_native_field($field))
-		{
-			return $field;
-		}
-		elseif ($id = $this->_get_field_id($field))
-		{
-			return 'field_id_' . $id;
-		}
-		else
-		{
-			return FALSE;
-		}
-	}
+	// --------------------------------------------------------------------
 
 	/**
 	 * Validate range value
 	 */
 	private function _validate_value($val, $field)
 	{
+		// If value already is numeric or NULL, return that
 		if (is_numeric($val) || is_null($val))
 		{
 			return $val;
 		}
-		elseif ($this->_is_date_field($field))
-		{
-			// @todo: add support for EE < 2.6?
-			ee()->load->library('localize');
-			$val = ee()->localize->string_to_timestamp($val);
 
+		// Check field for colons
+		if ($i = strpos($field, ':'))
+		{
+			$field = substr($field, 0, $i);
+		}
+
+		if ($this->fields->is_date($field) || (
+			($this->fields->is_grid($field) || $this->fields->is_matrix($field)) &&
+			($val = ee()->localize->string_to_timestamp($val)))
+		)
+		{
 			// Oh, edit_date, you so cray-cray!
 			if ($field == 'edit_date')
 			{
@@ -273,39 +361,8 @@ class Low_search_filter_ranges extends Low_search_filter {
 
 			return $val;
 		}
-		else
-		{
-			return NULL;
-		}
-	}
 
-	// --------------------------------------------------------------------
-
-	/**
-	 * Check whether given string is a date field
-	 */
-	private function _is_date_field($str)
-	{
-		$it = FALSE;
-
-		if (in_array($str, $this->_native_dates))
-		{
-			$it = TRUE;
-		}
-		elseif ($fields = low_get_cache('channel', 'date_fields'))
-		{
-			$it = (bool) $this->_get_field_id($str, $fields);
-		}
-
-		return $it;
-	}
-
-	/**
-	 * Check if field is a native field
-	 */
-	private function _is_native_field($str)
-	{
-		return in_array($str, array_merge($this->_native_dates, $this->_native_numeric));
+		return NULL;
 	}
 
 	// --------------------------------------------------------------------
@@ -315,7 +372,7 @@ class Low_search_filter_ranges extends Low_search_filter {
 	 */
 	public function results($query)
 	{
-		$this->_remove_rogue_vars(array('range:', 'range-from:', 'range-to:'));
+		$this->_remove_rogue_vars($this->_pfxs);
 		return $query;
 	}
 

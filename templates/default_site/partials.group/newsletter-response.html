@@ -1,0 +1,19 @@
+{exp:lk_cc:subscribe default_list="1572541140"}
+	{if "{success2}" == "false"}
+	<script>
+		swal({
+			title: "Error",
+			text: "Please enter a valid email address!",
+			type: "error"
+		});
+	</script>
+	{if:else}
+	<script>
+		swal({
+			title: "Success",
+			text: "You have been successfully subscribed to our newsletter list! Expect a confirmation email in your inbox shortly.",
+			type: "success"
+		});
+	</script>
+	{/if}
+{/exp:lk_cc:subscribe}

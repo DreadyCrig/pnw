@@ -14,7 +14,7 @@
 
 class Zoo_flexible_admin_upd {
 
-	var $version = 1.83;
+	var $version = 1.84;
 	
 	function Zoo_flexible_admin_upd()
 	{

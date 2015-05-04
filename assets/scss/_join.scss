@@ -3,6 +3,7 @@
 	@include outer-container;
 
 	&__plans {
+		margin-bottom: rem(54);
 		@include row();
 		display: table;
 		@include display-context(table) {

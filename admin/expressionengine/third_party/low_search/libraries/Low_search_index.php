@@ -295,8 +295,8 @@ class Low_search_index {
 					// Get sound of word
 					$sound = soundex($word);
 
-					// Add row
-					$lexicon[] = array(
+					// Compose row
+					$data = array(
 						'site_id'  => $col['site_id'],
 						'word'     => $word,
 						'language' => $col['language'],
@@ -304,6 +304,24 @@ class Low_search_index {
 						'sound'    => ($sound == '0000' ? NULL : $sound),
 						'clean'    => ($word == $clean ? NULL : $clean)
 					);
+
+					// --------------------------------------
+					// 'low_search_update_lexicon' hook
+					// - Add additional attributes to the lexicon
+					// --------------------------------------
+
+					if (ee()->extensions->active_hook('low_search_update_lexicon') === TRUE)
+					{
+						$ext_data = ee()->extensions->call('low_search_update_lexicon', $data);
+
+						if (is_array($ext_data) && ! empty($ext_data))
+						{
+							$data = array_merge($data, $ext_data);
+						}
+					}
+
+					// Add row
+					$lexicon[] = $data;
 				}
 
 				if (count($lexicon) >= $batch)

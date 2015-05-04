@@ -4,9 +4,7 @@
 <header class="headline">
 	<div class="headline__content">
 		<ul class="breadcrumbs">
-			<li><a href="/">Home</a></li>
-			<li><a href="/">About</a></li>
-			<li class="last">Board</li>
+			{exp:structure:breadcrumb wrap_each="li" separator="" here_as_title="yes"}
 		</ul>
 		<h1>Directors &amp; Staff</h1>
 	</div>
@@ -15,265 +13,53 @@
 <main class="main main--white">
 	<div class="main-container">
 		<section class="leadership">
-			<div class="leadership__row">
+			{exp:low_reorder:entries set="board_members"
+				channel="board"
+				disable="categories|category_fields|member_data|pagination|trackbacks"
+				dynamic="off"
+			}
+			{switch="<div class='leadership__row'>||"}
 				<div class="leader">
 					<div class="card">
 						<div class="card__body">
-							<div class="staff">
+							<div class="staff {if staff_officer}staff--officer{/if}">
+								{staff_meta}
 								<div class="staff__picture">
-									<a href="#"><img src="/assets/img/staff/caroline.jpg" alt="Caroline Kay"></a>
+									<a href="{page_url}"><img src="{photo}" alt="{title}"></a>
 								</div>
+								{/staff_meta}
 								<div class="staff__meta">
-									<div class="staff-name">Caroline Kay</div>
-									<div class="staff-company">Becauz</div>
-									<div class="staff-title">Director</div>
+									<div class="staff-name">{title}</div>
+									{staff_meta}
+									<div class="staff-company">{company}</div>
+									<div class="staff-title">{role}</div>
+									{/staff_meta}
 								</div>
 								<div class="staff__links">
-									<a href="#">
+									<a href="{page_url}">
 										<span class="iconic" data-glyph="info" aria-hidden="true"></span>
 									</a>
-									<a href="#">
-										<span class="iconic" data-glyph="social-facebook" aria-hidden="true"></span>
+									{staff_social}
+									<a href="{url}" target="_blank">
+										<span class="iconic" data-glyph="social-{service}" aria-hidden="true"></span>
 									</a>
-									<a href="#">
-										<span class="iconic" data-glyph="social-twitter" aria-hidden="true"></span>
-									</a>
+									{/staff_social}
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="leader">
-					<div class="card">
-						<div class="card__body">
-							<div class="staff">
-								<div class="staff__picture">
-									<a href="#"><img src="/assets/img/staff/brian.jpg" alt="Catherine Filippini"></a>
-								</div>
-								<div class="staff__meta">
-									<div class="staff-name">Brian Esler</div>
-									<div class="staff-company">Miller Nash LLP</div>
-									<div class="staff-title">Director</div>
-								</div>
-								<div class="staff__links">
-									<a href="#">
-										<span class="iconic" data-glyph="info" aria-hidden="true"></span>
-									</a>
-									<a href="#">
-										<span class="iconic" data-glyph="social-facebook" aria-hidden="true"></span>
-									</a>
-									<a href="#">
-										<span class="iconic" data-glyph="social-linkedin" aria-hidden="true"></span>
-									</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="leader">
-					<div class="card">
-						<div class="card__body">
-							<div class="staff staff--officer">
-								<div class="staff__picture">
-									<a href="#"><img src="/assets/img/staff/catherine.jpg" alt="Catherine Filippini"></a>
-								</div>
-								<div class="staff__meta">
-									<div class="staff-name">Catherine Filippini</div>
-									<div class="staff-company">BABC-PNW</div>
-									<div class="staff-title">Executive Director</div>
-								</div>
-								<div class="staff__links">
-									<a href="#">
-										<span class="iconic" data-glyph="info" aria-hidden="true"></span>
-									</a>
-									<a href="#">
-										<span class="iconic" data-glyph="social-facebook" aria-hidden="true"></span>
-									</a>
-									<a href="#">
-										<span class="iconic" data-glyph="social-linkedin" aria-hidden="true"></span>
-									</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="leadership__row">
-				<div class="leader">
-					<div class="card">
-						<div class="card__body">
-							<div class="staff staff--officer">
-								<div class="staff__picture">
-									<a href="#"><img src="/assets/img/staff/gareth.jpg" alt="Gareth Wade"></a>
-								</div>
-								<div class="staff__meta">
-									<div class="staff-name">Gareth Wade</div>
-									<div class="staff-company">OneAccord Partners</div>
-									<div class="staff-title">Vice Chair</div>
-								</div>
-								<div class="staff__links">
-									<a href="#">
-										<span class="iconic" data-glyph="info" aria-hidden="true"></span>
-									</a>
-									<a href="#">
-										<span class="iconic" data-glyph="social-twitter" aria-hidden="true"></span>
-									</a>
-									<a href="#">
-										<span class="iconic" data-glyph="social-linkedin" aria-hidden="true"></span>
-									</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="leader">
-					<div class="card">
-						<div class="card__body">
-							<div class="staff">
-								<div class="staff__picture">
-									<a href="#"><img src="/assets/img/staff/robin.jpg" alt="Robin Twyman"></a>
-								</div>
-								<div class="staff__meta">
-									<div class="staff-name">Robin Twyman</div>
-									<div class="staff-company">UK Consul, Seattle</div>
-									<div class="staff-title">Ex-Officio Member</div>
-								</div>
-								<div class="staff__links">
-									<a href="#">
-										<span class="iconic" data-glyph="info" aria-hidden="true"></span>
-									</a>
-									<a href="#">
-										<span class="iconic" data-glyph="social-twitter" aria-hidden="true"></span>
-									</a>
-									<a href="#">
-										<span class="iconic" data-glyph="social-linkedin" aria-hidden="true"></span>
-									</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="leader">
-					<div class="card">
-						<div class="card__body">
-							<div class="staff">
-								<div class="staff__picture">
-									<a href="#"><img src="/assets/img/staff/andy.jpg" alt="Andy MacRitchie"></a>
-								</div>
-								<div class="staff__meta">
-									<div class="staff-name">Andy MacRitchie</div>
-									<div class="staff-company">British Honorary Consul, Oregon</div>
-									<div class="staff-title">Ex-Officio Member</div>
-								</div>
-								<div class="staff__links">
-									<a href="#">
-										<span class="iconic" data-glyph="info" aria-hidden="true"></span>
-									</a>
-									<a href="#">
-										<span class="iconic" data-glyph="social-linkedin" aria-hidden="true"></span>
-									</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="leadership__row">
-				<div class="leader">
-					<div class="card">
-						<div class="card__body">
-							<div class="staff">
-								<div class="staff__picture">
-									<a href="#"><img src="/assets/img/staff/ian.jpg" alt="Ian Toner"></a>
-								</div>
-								<div class="staff__meta">
-									<div class="staff-name">Ian Toner</div>
-									<div class="staff-company">Wurts &amp; Associates</div>
-									<div class="staff-title">Director</div>
-								</div>
-								<div class="staff__links">
-									<a href="#">
-										<span class="iconic" data-glyph="info" aria-hidden="true"></span>
-									</a>
-									<a href="#">
-										<span class="iconic" data-glyph="social-linkedin" aria-hidden="true"></span>
-									</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="leader">
-					<div class="card">
-						<div class="card__body">
-							<div class="staff staff--officer">
-								<div class="staff__picture">
-									<a href="#"><img src="/assets/img/staff/jason.jpg" alt="Jason Knight"></a>
-								</div>
-								<div class="staff__meta">
-									<div class="staff-name">Jason Knight</div>
-									<div class="staff-company">KPMG</div>
-									<div class="staff-title">Treasurer</div>
-								</div>
-								<div class="staff__links">
-									<a href="#">
-										<span class="iconic" data-glyph="info" aria-hidden="true"></span>
-									</a>
-									<a href="#">
-										<span class="iconic" data-glyph="social-linkedin" aria-hidden="true"></span>
-									</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="leader">
-					<div class="card">
-						<div class="card__body">
-							<div class="staff">
-								<div class="staff__picture">
-									<a href="#"><img src="/assets/img/staff/stephen.jpg" alt="Stephen Hodges"></a>
-								</div>
-								<div class="staff__meta">
-									<div class="staff-name">Stephen Hodges</div>
-									<div class="staff-company">Expeditors</div>
-									<div class="staff-title">Director</div>
-								</div>
-								<div class="staff__links">
-									<a href="#">
-										<span class="iconic" data-glyph="info" aria-hidden="true"></span>
-									</a>
-									<a href="#">
-										<span class="iconic" data-glyph="social-linkedin" aria-hidden="true"></span>
-									</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+			{if count != total_results}{switch="||</div>"}{/if}
+      {if count == total_results}</div>{/if}
+			{/exp:low_reorder:entries}
+
 			<div class="leadership__row">
 				<div class="board-officers">
 					<p><span class="board-officers-chip"></span> Board Officers</p>
 				</div>
 			</div>
 			<div class="leadership__row">
-				<div class="card card--newsletter">
-					<header class="card__header">
-						<h2>Signup for our newsletter</h2>
-					</header>
-					<div class="card__body card__body--padded">
-						<p>You’ll receive news and event updates, community perspectives and much more!</p>
-						<div class="newsletter">
-							<form action="#" class="newsletter__form">
-								<div class="form-group inline-form-group">
-									<input type="text" class="form-control inline-control newsletter-control" placeholder="Enter your email">
-									<button type="submit" class="btn--newsletter">Subscribe</button>
-								</div>
-							</form>
-						</div>
-					</div>
-				</div>
+				{embed="partials/_newsletter-card"}
 			</div>
 		</section>
 		<aside class="leadership-sidebar">
@@ -284,7 +70,7 @@
 				<div class="card__body">
 					<div class="quote quote--alt">
 						<div class="quote__photo">
-							<img src="/assets/img/staff/tom.jpg" alt="Tom Hartley">
+							<img src="/assets/img/staff-photos/tom.jpg" alt="Tom Hartley">
 						</div>
 						<div class="quote__post">
 							<blockquote>

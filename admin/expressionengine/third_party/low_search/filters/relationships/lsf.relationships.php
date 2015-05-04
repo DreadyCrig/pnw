@@ -49,7 +49,7 @@ class Low_search_filter_relationships extends Low_search_filter {
 			list($type, $field) = explode(':', $key, 2);
 
 			// Get the field id, skip if non-existent
-			if ( ! ($field_id = $this->_get_field_id($field))) continue;
+			if ( ! ($field_id = $this->fields->id($field))) continue;
 
 			// Prep the value
 			$val = $this->params->prep($key, $val);
@@ -65,7 +65,7 @@ class Low_search_filter_relationships extends Low_search_filter {
 			$parent = ($type == 'parent');
 
 			// Native relationship field
-			if ($this->_is_rel_field($field))
+			if ($this->fields->is_rel($field))
 			{
 				// Account for new EE rels
 				$prefix = (version_compare(APP_VER, '2.6.0', '<')) ? 'rel_' : '';
@@ -75,9 +75,11 @@ class Low_search_filter_relationships extends Low_search_filter {
 				$select = $parent ? $prefix.'child_id' : $prefix.'parent_id';
 				$where  = $parent ? $prefix.'parent_id' : $prefix.'child_id';
 			}
-			elseif ($this->_is_playa_field($field_id))
+			// Support for playa or tax-playa
+			elseif ($this->fields->is_playa($field, TRUE))
 			{
 				// Set the table
+				$playa  = TRUE;
 				$table  = 'playa_relationships';
 				$select = $parent ? 'child_entry_id' : 'parent_entry_id';
 				$where  = $parent ? 'parent_entry_id' : 'child_entry_id';
@@ -140,36 +142,6 @@ class Low_search_filter_relationships extends Low_search_filter {
 		}
 
 		return $entry_ids;
-	}
-
-	/**
-	 * Check whether given string is a relationship field
-	 */
-	private function _is_rel_field($str)
-	{
-		$it = FALSE;
-
-		if ($fields = low_get_cache('channel', 'relationship_fields'))
-		{
-			$it = (bool) $this->_get_field_id($str, $fields);
-		}
-
-		return $it;
-	}
-
-	/**
-	 * Check whether given field id is a playa field
-	 */
-	private function _is_playa_field($id)
-	{
-		$it = FALSE;
-
-		if ($fields = low_get_cache('channel', 'pair_custom_fields'))
-		{
-			$it = (strpos($this->_get_field_id($id, $fields), 'playa') !== FALSE);
-		}
-
-		return $it;
 	}
 
 	/**

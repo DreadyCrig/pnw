@@ -5,7 +5,7 @@ class Zoo_flexible_admin_ext
 {
 
 	var $name = 'Zoo Flexible Admin';
-	var $version = '1.83';
+	var $version = '1.84';
 	var $description = '';
 	var $settings_exist = 'n';
 	var $docs_url = '';
@@ -471,7 +471,7 @@ EE.navigation.mouse_listen()
 				//replace all session id's with the current one
 				$replace = $s;
 
-				$nav = preg_replace('/S=.+?&D/', "S=" . $replace . "&D", $nav);
+				$nav = preg_replace('/S=(.[^"]+?)&D/', "S=" . $replace . "&D", $nav);
 				$nav = preg_replace('/&S=.+?"/', "&S=" . $replace . '"', $nav);
 				//Only for older navigations loaded into a newer EE version
 				if (version_compare(APP_VER, 2.8, '>=') && !strpos($nav, 'D=cp')) {

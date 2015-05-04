@@ -98,7 +98,7 @@ class Zoo_flexible_admin_mcp
 				"ajax_load_tree": ' . $this->EE->cp->fetch_action_id('Zoo_flexible_admin', 'ajax_load_tree') . ',
 				"ajax_load_tree_method": "' . $script_name . '&C=addons_modules&M=show_module_cp&module=zoo_flexible_admin&method=action&func=ajax_load_tree",
 				"ajax_load_settings": ' . $this->EE->cp->fetch_action_id('Zoo_flexible_admin', 'ajax_load_settings') . ',
-				"ajax_load_settings_method": "' . $script_name . '&C=addons_modules&M=show_module_cp&module=zoo_flexible_admin&method=action&func=ajax_load_settings",
+				"ajax_load_settings_method": "  ' . $script_name . '&C=addons_modules&M=show_module_cp&module=zoo_flexible_admin&method=action&func=ajax_load_settings",
 				"ajax_save": ' . $this->EE->cp->fetch_action_id('Zoo_flexible_admin', 'ajax_save_tree') . ',
 				"ajax_save_method": "' . $script_name . '&C=addons_modules&M=show_module_cp&module=zoo_flexible_admin&method=action&func=ajax_save_tree",
 				"ajax_copy": ' . $this->EE->cp->fetch_action_id('Zoo_flexible_admin', 'ajax_copy_tree') . ',
@@ -159,7 +159,11 @@ class Zoo_flexible_admin_mcp
 	function get_modules()
 	{
 
-		$query = $this->EE->db->query('SELECT module_name FROM exp_modules WHERE has_cp_backend = "y" ORDER BY module_name');
+		if (version_compare(APP_VER, 2.7, '>=')) {
+			$exclude_modules = ' AND module_name != "Safecracker" ';
+		}
+
+		$query = $this->EE->db->query('SELECT module_name FROM exp_modules WHERE has_cp_backend = "y" '.$exclude_modules.' ORDER BY module_name');
 
 		$modules = array();
 

@@ -3,7 +3,7 @@
 /**
  * Charge Config File *
  * @package         charge_ee_addon
- * @version         1.9.0
+ * @version         1.9.2
  * @author          Joel Bradbury ~ <joel@squarebit.co.uk>
  * @link            http://squarebit.co.uk/software/expressionengine/charge
  * @copyright       Copyright (c) 2015, Joel Bradbury/Square Bit
@@ -13,7 +13,7 @@ if ( ! defined('CHARGE_NAME'))
 {
 	define('CHARGE_NAME',         'Charge');
 	define('CHARGE_CLASS_NAME',   'Charge');
-	define('CHARGE_VERSION',      '1.9.0');
+	define('CHARGE_VERSION',      '1.9.2');
 	define('CHARGE_DOCS',         'http://squarebit.co.uk/software/expressionengine/charge');
 	define('CHARGE_API_VERSION',  '2014-01-31');
 

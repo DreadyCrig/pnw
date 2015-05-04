@@ -1,11 +1,13 @@
 .headline {
 	background-color: $blue;
+	min-height: 160px;
 	&--rich {
 		background-repeat: no-repeat;
 		background-size: cover;
 		background-positon: center;
 		min-height: 316px;
 		position: relative;
+		text-shadow: 0px 1px 2px rgba(0,0,0,0.75);
 		.overlay {
 			position: absolute;
 			width: 100%;
@@ -15,15 +17,21 @@
 			left: 0;
 		}
 	}
+	&--rich-center {
+		background-size: initial;
+		background-position: center center;
+		background-color: transparent;
+		min-height: 420px;
+
+	}
 	.headline__content {
 		@include outer-container();
 		text-align: center;
 		padding-top: rem(50);
 		h1 {
 			color: #fff;
-			font-size: rem(52);
-			max-width: 710px;
-			margin: auto auto rem(50);
+			font-size: rem(42);
+			margin: auto auto rem(20);
 		}
 		.headline__meta {
 			color: #fff;
@@ -31,13 +39,15 @@
 				line-height: normal;
 				text-transform: uppercase;
 				letter-spacing: 1.5px;
-				.iconic {
-					vertical-align: middle;
-					margin-right: 3px;
-				}
+				margin-bottom: 2.5em;
+				display: inline-block;
 			}
 		}
 	}
+}
+
+.headline--event {
+	// min-height: 260px;
 }
 
 .headline--rich .headline__content {
@@ -52,6 +62,17 @@
 		margin: -16px auto 0;
 	}
 }
+
+.headline--rich .headline__event {
+	h1 {
+		margin: auto auto rem(32);
+	}
+	.caption {
+		margin: -16px auto 0;
+	}
+}
+
+
 .membership-header {
 	@include outer-container(40%);
 	padding-top: 2.5em;

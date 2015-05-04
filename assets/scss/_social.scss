@@ -7,11 +7,18 @@
 	li {
 		display: table-cell;
 		text-align: right;
+		a {
+			color: $dark-gray;
+			vertical-align: middle;
+			&:hover {
+				color: $blue;
+			}
+		}
 		&:first-child {
 			font-size: rem(14);
 			width: 65px;
 			position: relative;
-			top: -3px;
+			
 		}
 	}
 }

@@ -688,25 +688,29 @@ class Low_search extends Low_search_base {
 		$this->params->set();
 
 		// --------------------------------------
-		// Are we using a shortcut?
-		// --------------------------------------
-
-		$this->_get_shortcut();
-
-		// --------------------------------------
 		// Get the latest Log ID
 		// --------------------------------------
 
 		$this->log_id = ee()->session->flashdata(ee()->low_search_log_model->key);
 
 		// --------------------------------------
+		// Are we using a shortcut?
+		// --------------------------------------
+
+		if ( ! $this->_get_shortcut() && $this->_extract_tagparam('require_shortcut') == 'yes')
+		{
+			$this->_log('Shortcut required but not given');
+			return $this->_no_results();
+		}
+
+		// --------------------------------------
 		// If query parameter is set but empty or invalid,
 		// show no_results and abort
 		// --------------------------------------
 
-		if ( ! $this->params->query_given() && ee()->TMPL->fetch_param('require_query') == 'yes')
+		if ( ! $this->params->query_given() && $this->_extract_tagparam('require_query') == 'yes')
 		{
-			$this->_log('Query required but none given, returning no results');
+			$this->_log('Query required but not given');
 			return $this->_no_results();
 		}
 
@@ -770,6 +774,7 @@ class Low_search extends Low_search_base {
 		// Load and apply all available filters
 		// --------------------------------------
 
+		ee()->load->library('Low_search_fields');
 		ee()->load->library('Low_search_filters');
 
 		ee()->low_search_filters->filter();
@@ -2104,11 +2109,13 @@ class Low_search extends Low_search_base {
 		// Fix pagination for Results tag
 		if (ee()->TMPL->fetch_param('low_search') == 'yes')
 		{
-			// Load up URL helper
-			ee()->load->helper('url');
+			// Structure, Publisher, and other naughty add-ons that
+			// mess around with the URI object.
+			$uri = new EE_URI;
+			$uri->_fetch_uri_string();
 
 			// Get current URL
-			$url = current_url();
+			$url = ee()->config->site_url($uri->uri_string());
 
 			// Strip away pagination segment
 			$url = preg_replace('#/P\d+/?$#', '', $url);
@@ -2123,7 +2130,7 @@ class Low_search extends Low_search_base {
 		// Get the query string
 		if ($qs = (string) ee()->input->server('QUERY_STRING'))
 		{
-			$qs = '?' . $qs;
+			$qs = '?' . str_replace('&', '&amp;', $qs);
 		}
 
 		// Replace {low_search_query_string} vars

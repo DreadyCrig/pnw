@@ -1,5 +1,7 @@
 .pager {
-  margin: 20px 0;
+  @include pad(rem(20));
+  @include clearfix();
+  background-color: #F1F7F9;
 }
 .pager li {
   display: inline;

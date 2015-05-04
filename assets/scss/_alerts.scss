@@ -10,4 +10,14 @@
 			color: #486D91;
 		}
 	}
+	&--danger {
+		background-color: #F0D8D8;
+		color: $red;
+	}
+	&--inline {
+		display: inline-block;
+	}
+	a:hover {
+		text-decoration: underline;
+	}
 }

@@ -100,7 +100,7 @@ button, .btn {
   }
 }
 .btn--pill {
-  padding: rem(9) rem(20) rem(8);
+  padding: rem(9) rem(15) rem(8);
   font-size: rem(12);
 }
 .btn--newsletter {
@@ -130,4 +130,8 @@ button, .btn {
 .btn--block {
   display: block;
   text-align: center;
+}
+.btn.btn--alt {
+  text-transform: none;
+  letter-spacing: 0;
 }

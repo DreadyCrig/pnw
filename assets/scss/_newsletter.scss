@@ -11,4 +11,11 @@
 			margin-bottom: rem(20);
 		}
 	}
+
+	.newsletter-control {
+		&.name {
+			width: 150px;
+		}
+		width: 200px;
+	}
 }

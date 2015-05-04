@@ -4,7 +4,7 @@
  * Charge Webhook Model class
  *
  * @package         charge_ee_addon
- * @version         1.9.0
+ * @version         1.9.2
  * @author          Joel Bradbury ~ <joel@squarebit.co.uk>
  * @link            http://squarebit.co.uk/software/expressionengine/charge
  * @copyright       Copyright (c) 2015, Joel Bradbury/Square Bit
@@ -162,6 +162,14 @@ class Charge_webhook_model extends Charge_model
 
         $this->charge_id = $charge['id'];
         $this->customer_id = $customer_id;
+
+        // Update the stripe record here too
+        $this->_update_customer_stripe_record();
+        // We do this right now just in case
+        // Now we need to refetch the charge again.
+        // this will have the latest version of the stripe array.
+        $charge = ee()->charge_stripe->get_one($customer_id, 'customer_id');
+
 
         // Handle set length plans
         if ($type == 'invoice.payment_succeeded' AND $charge['plan_length_expiry'] != '') {

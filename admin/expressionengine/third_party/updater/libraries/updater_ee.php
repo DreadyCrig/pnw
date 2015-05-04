@@ -137,20 +137,38 @@ class Updater_ee
         // Scan Available Updates
         // -----------------------------------------
         $out['updates'] = array();
-        $current = $this->EE->config->item('app_version');
+        $currentVersion = $this->EE->config->item('app_version');
 
         $files = directory_map($root.'system/installer/updates/', 1);
         sort($files);
 
-        foreach ($files as $key => $filename)
-        {
-            if ($filename == '.' || $filename == '..') continue;
-            if (substr($filename, 0, 3) != 'ud_') continue;
-            $ver = str_replace(array('ud_', '.php'), '', $filename);
-            if ($ver <= $current) continue;
+        // EE 2.10.0 +
+        if (file_exists($root.'system/installer/updates/ud_2_10_00.php')) {
 
-            $out['updates'][] = array('label' => 'Version '.substr($ver,0,1).'.'.substr($ver,1,1).'.'.substr($ver,2,1), 'version' => $ver);
+            if (strpos($currentVersion, '.') === FALSE) {
+                $currentVersion = "{$currentVersion[0]}.{$currentVersion[1]}.{$currentVersion[2]}";
+            }
+
+            foreach ($files as $key => $filename) {
+                if (preg_match('/^ud_0*(\d+)_0*(\d+)_0*(\d+).php$/', $filename, $m)) {
+                    $file_version = "{$m[1]}.{$m[2]}.{$m[3]}";
+
+                    if (version_compare($file_version, $currentVersion, '>')) {
+                        $out['updates'][] = array('label' => 'Version '.$file_version, 'version' => $file_version, 'file' => $filename);
+                    }
+                }
+            }
+        } else {
+            foreach ($files as $key => $filename) {
+                if ($filename == '.' || $filename == '..') continue;
+                if (substr($filename, 0, 3) != 'ud_') continue;
+                $ver = str_replace(array('ud_', '.php'), '', $filename);
+                if ($ver <= $currentVersion) continue;
+
+                $out['updates'][] = array('label' => 'Version '.substr($ver,0,1).'.'.substr($ver,1,1).'.'.substr($ver,2,1), 'version' => $ver, 'file' => $filename);
+            }
         }
+
 
         $out['ee_info']['version_from'] = APP_VER;
         $out['ee_info']['build_from'] = APP_BUILD;

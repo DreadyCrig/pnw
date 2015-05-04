@@ -1,0 +1,99 @@
+{layout="layouts/index"}
+
+<main class="main main--home">
+	<div class="main-container">
+		<section class="section-row">
+			<div class="home-editorial">
+				<!-- Events -->
+				<div class="card">
+					<header class="card__header">
+						<h2>Latest News</h2>
+						<span class="card-icon card-icon--middle">
+							<a href="#">
+								<img data-src="/assets/svg/rss-alt.svg" class="iconic iconic-sm iconic--rss" alt="rss">
+							</a>
+						</span>
+					</header>
+					<div class="card__body">
+						{exp:channel:entries
+							channel="news"
+							disable="category_fields|member_data|trackbacks"
+							dynamic="off"
+							limit="10"
+						}
+						<div class="post post--with-thumb">
+							{article_banner}
+							{if thumbnail}
+							<div class="post__thumb">
+								<a href="{page_url}"><img src="{thumbnail}" alt="{thumbnail:alt_text}"></a>
+							</div>
+							{/if}
+							{/article_banner}
+							<div class="post__body">
+								<h3 class="post-title">
+									<a href="{page_url}">{title}</a>
+								</h3>
+								<div class="post-meta">
+									<div class="post-author">
+									By: 
+										{if article_contributing_author}
+										{article_contributing_author}
+										{if:else}
+										{author}
+										{/if}
+									</div>
+									<div class="post-date">Posted on: {entry_date format="%F %d, %Y"}</div>
+								</div>
+								<div class="post-excerpt">
+									{article_body}
+										{textarea}
+											{value}
+										{/textarea}
+									{/article_body}
+								</div>
+							</div>
+						</div>
+						{paginate}
+						{pagination_links}
+						<div class="pagination">
+							
+							<ul class="pager">
+								{previous_page}
+								<li class="previous">
+									<a href="{pagination_url}">
+										<span class="iconic" data-glyph="arrow-left-line-large-oblique" aria-hidden="true"></span> Older
+									</a>
+								</li>
+								{/previous_page}
+								{next_page}
+	    					<li class="next">
+	    						<a href="{pagination_url}">Newer 
+	    							<span class="iconic" data-glyph="arrow-right-line-large-oblique" aria-hidden="true"></span>
+	    						</a>
+	    					</li>
+	    					{/next_page}
+							</ul>
+						</div>
+						{/pagination_links}
+						{/paginate}
+						{/exp:channel:entries}
+					</div>
+				</div>
+			</div>
+			{exp:channel:entries disable="categories|category_fields|member_data|pagination|trackbacks"}
+			<aside class="home-aside">
+				{embed="partials/_column-card"}
+				{page_aside}
+					{if channel_short_name == "testimonials"}
+						{embed="partials/_testimonial-card" entry_id="{entry_id}"}
+					{/if}
+					{if channel_short_name == "sponsor_card"}
+						{embed="partials/_sponsor-card" entry_id="{entry_id}"}
+					{/if}
+				{/page_aside}
+			</aside>
+			{/exp:channel:entries}
+		</section>
+		
+	</div>
+</main>

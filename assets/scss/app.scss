@@ -15,6 +15,7 @@
 // 3rd Party
 @import "flickity";
 @import "iconic";
+@import "sweetalert";
 
 // Components
 @import "components";
@@ -33,6 +34,7 @@
 @import "ad";
 @import "pagination";
 @import "alerts";
+@import "atc";
 
 
 // Patterns
@@ -42,8 +44,10 @@
 @import "contact";
 @import "visa";
 @import "about";
+@import "events";
 
 
 // Helpers
-@import "_icons";
-@import "_helpers";
+@import "icons";
+@import "animate";
+@import "helpers";
