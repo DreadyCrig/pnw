@@ -7,10 +7,6 @@ body {
 	margin-bottom: 108px;
 }
 
-.canvas {
-	padding-bottom: rem(54);
-}
-
 .main {
 	@include pad(rem(30) 0);
 	background: url('/assets/img/cityscape.png') no-repeat top center;
