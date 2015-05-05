@@ -799,6 +799,16 @@ body {
 .wf-loading {
   font-family: "Proxima Nova"; }
 
+.password-recovery {
+  max-width: 35%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5em; }
+  .password-recovery::after {
+    clear: both;
+    content: "";
+    display: table; }
+
 .join {
   padding-top: 3.375rem;
   /* Temp */
@@ -4573,14 +4583,24 @@ body.stop-scrolling {
     background-color: #EFF7FD;
     color: #486D91; }
     .alert--info a {
-      color: #486D91; }
+      color: #486D91;
+      text-decoration: underline; }
   .alert--danger {
     background-color: #F0D8D8;
     color: #D0021B; }
+    .alert--danger a {
+      color: #D0021B;
+      text-decoration: underline; }
   .alert--inline {
     display: inline-block; }
   .alert a:hover {
     text-decoration: underline; }
+  .alert--no-top-margin {
+    margin-top: 0; }
+  .alert--no-bottom-margin {
+    margin-bottom: 0; }
+  .alert--no-margin {
+    margin: 0; }
 
 /**
  * AddToCalendar Blue Style

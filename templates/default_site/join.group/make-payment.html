@@ -14,8 +14,8 @@
 {exp:charge:form
   form_class="membership-form membership-form--payment"
   form_id="charge-form"
-  return="/signup/membership-confirmation"
-  return_error="/signup/payment-error" 
+  return="/join/membership-confirmation"
+  return_error="/join/payment-error" 
   on_success="create_{segment_3}_member"}
 	{if segment_3 == "individual"}
 		<input type="hidden" name="plan_amount" value="100">

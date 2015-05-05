@@ -8,16 +8,31 @@
 		color: #486D91;
 		a {
 			color: #486D91;
+			text-decoration: underline;
 		}
 	}
 	&--danger {
 		background-color: #F0D8D8;
 		color: $red;
+		a {
+			color: $red;
+			text-decoration: underline;
+		}
 	}
 	&--inline {
 		display: inline-block;
 	}
 	a:hover {
 		text-decoration: underline;
+	}
+
+	&--no-top-margin {
+		margin-top: 0;
+	}
+	&--no-bottom-margin {
+		margin-bottom: 0;
+	}
+	&--no-margin {
+		margin: 0;
 	}
 }

@@ -53,3 +53,8 @@ body {
 .wf-active .navigation--bar {
   
 }
+
+.password-recovery {
+	@include outer-container(35%);
+	margin-top: 5em;
+}

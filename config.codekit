@@ -531,237 +531,6 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/assets\/img\/ads\/aerospace-alliance.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 13385,
-		"inputAbbreviatedPath": "\/assets\/img\/ads\/aerospace-alliance.png",
-		"outputAbbreviatedPath": "\/assets\/img\/ads\/aerospace-alliance.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/assets\/img\/ads\/bennett-foundation.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 17942,
-		"inputAbbreviatedPath": "\/assets\/img\/ads\/bennett-foundation.png",
-		"outputAbbreviatedPath": "\/assets\/img\/ads\/bennett-foundation.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/assets\/img\/ads\/boeing.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 9234,
-		"inputAbbreviatedPath": "\/assets\/img\/ads\/boeing.png",
-		"outputAbbreviatedPath": "\/assets\/img\/ads\/boeing.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/assets\/img\/ads\/boys-girls-club.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 14368,
-		"inputAbbreviatedPath": "\/assets\/img\/ads\/boys-girls-club.png",
-		"outputAbbreviatedPath": "\/assets\/img\/ads\/boys-girls-club.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/assets\/img\/ads\/defense-coalition.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 39885,
-		"inputAbbreviatedPath": "\/assets\/img\/ads\/defense-coalition.png",
-		"outputAbbreviatedPath": "\/assets\/img\/ads\/defense-coalition.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/assets\/img\/ads\/delta.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 11085,
-		"inputAbbreviatedPath": "\/assets\/img\/ads\/delta.png",
-		"outputAbbreviatedPath": "\/assets\/img\/ads\/delta.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/assets\/img\/ads\/esterline.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 9302,
-		"inputAbbreviatedPath": "\/assets\/img\/ads\/esterline.png",
-		"outputAbbreviatedPath": "\/assets\/img\/ads\/esterline.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/assets\/img\/ads\/expeditors.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 7948,
-		"inputAbbreviatedPath": "\/assets\/img\/ads\/expeditors.png",
-		"outputAbbreviatedPath": "\/assets\/img\/ads\/expeditors.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/assets\/img\/ads\/facc.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 11563,
-		"inputAbbreviatedPath": "\/assets\/img\/ads\/facc.png",
-		"outputAbbreviatedPath": "\/assets\/img\/ads\/facc.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/assets\/img\/ads\/greater-portland.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 10406,
-		"inputAbbreviatedPath": "\/assets\/img\/ads\/greater-portland.png",
-		"outputAbbreviatedPath": "\/assets\/img\/ads\/greater-portland.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/assets\/img\/ads\/kpmg.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 9983,
-		"inputAbbreviatedPath": "\/assets\/img\/ads\/kpmg.png",
-		"outputAbbreviatedPath": "\/assets\/img\/ads\/kpmg.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/assets\/img\/ads\/orion.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 14719,
-		"inputAbbreviatedPath": "\/assets\/img\/ads\/orion.png",
-		"outputAbbreviatedPath": "\/assets\/img\/ads\/orion.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/assets\/img\/ads\/reign-fc.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 20806,
-		"inputAbbreviatedPath": "\/assets\/img\/ads\/reign-fc.png",
-		"outputAbbreviatedPath": "\/assets\/img\/ads\/reign-fc.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/assets\/img\/ads\/russell.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 10631,
-		"inputAbbreviatedPath": "\/assets\/img\/ads\/russell.png",
-		"outputAbbreviatedPath": "\/assets\/img\/ads\/russell.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/assets\/img\/ads\/saracens.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 26150,
-		"inputAbbreviatedPath": "\/assets\/img\/ads\/saracens.png",
-		"outputAbbreviatedPath": "\/assets\/img\/ads\/saracens.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/assets\/img\/ads\/sightlife-charity.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 12405,
-		"inputAbbreviatedPath": "\/assets\/img\/ads\/sightlife-charity.png",
-		"outputAbbreviatedPath": "\/assets\/img\/ads\/sightlife-charity.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/assets\/img\/ads\/sightlife.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 15897,
-		"inputAbbreviatedPath": "\/assets\/img\/ads\/sightlife.png",
-		"outputAbbreviatedPath": "\/assets\/img\/ads\/sightlife.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/assets\/img\/ads\/tdas.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 12363,
-		"inputAbbreviatedPath": "\/assets\/img\/ads\/tdas.png",
-		"outputAbbreviatedPath": "\/assets\/img\/ads\/tdas.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/assets\/img\/ads\/teague.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 3886,
-		"inputAbbreviatedPath": "\/assets\/img\/ads\/teague.png",
-		"outputAbbreviatedPath": "\/assets\/img\/ads\/teague.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/assets\/img\/ads\/uk-government-office.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 21952,
-		"inputAbbreviatedPath": "\/assets\/img\/ads\/uk-government-office.png",
-		"outputAbbreviatedPath": "\/assets\/img\/ads\/uk-government-office.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/assets\/img\/ads\/uk-trade.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 7819,
-		"inputAbbreviatedPath": "\/assets\/img\/ads\/uk-trade.png",
-		"outputAbbreviatedPath": "\/assets\/img\/ads\/uk-trade.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
 	"\/assets\/img\/avatar.png": {
 		"fileType": 32768,
 		"ignore": 0,
@@ -5744,6 +5513,42 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
+	"\/templates\/default_site\/join.group\/create-account.html": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/templates\/default_site\/join.group\/create-account.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/templates\/default_site\/join.group\/index.html": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/templates\/default_site\/join.group\/index.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/templates\/default_site\/join.group\/make-payment.html": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/templates\/default_site\/join.group\/make-payment.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/templates\/default_site\/join.group\/membership-confirmation.html": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/templates\/default_site\/join.group\/membership-confirmation.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
 	"\/templates\/default_site\/layouts.group\/index.html": {
 		"fileType": 8192,
 		"ignore": 0,
@@ -5870,42 +5675,6 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
-	"\/templates\/default_site\/signup.group\/create-account.html": {
-		"fileType": 8192,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/templates\/default_site\/signup.group\/create-account.html",
-		"outputAbbreviatedPath": "No Output Path",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0
-		},
-	"\/templates\/default_site\/signup.group\/index.html": {
-		"fileType": 8192,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/templates\/default_site\/signup.group\/index.html",
-		"outputAbbreviatedPath": "No Output Path",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0
-		},
-	"\/templates\/default_site\/signup.group\/make-payment.html": {
-		"fileType": 8192,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/templates\/default_site\/signup.group\/make-payment.html",
-		"outputAbbreviatedPath": "No Output Path",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0
-		},
-	"\/templates\/default_site\/signup.group\/membership-confirmation.html": {
-		"fileType": 8192,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/templates\/default_site\/signup.group\/membership-confirmation.html",
-		"outputAbbreviatedPath": "No Output Path",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0
-		},
 	"\/templates\/default_site\/site.group\/components.html": {
 		"fileType": 8192,
 		"ignore": 0,
@@ -5920,6 +5689,15 @@
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/templates\/default_site\/site.group\/index.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/templates\/default_site\/site.group\/recover-password.html": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/templates\/default_site\/site.group\/recover-password.html",
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
