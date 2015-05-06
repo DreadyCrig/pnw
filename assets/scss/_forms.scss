@@ -92,7 +92,16 @@ select {
     @include span-columns(7);
     margin-bottom: 0;
   }
+  .form-group--3-quarters--lg {
+    @include span-columns(9);
+    margin-bottom: 0;
+  }
   .form-group--1-quarter {
+    @include span-columns(3);
+    float: right;
+    margin-bottom: 0;
+  }
+  .form-group--1-quarter--sm {
     @include span-columns(3);
     float: right;
     margin-bottom: 0;
@@ -100,6 +109,14 @@ select {
   .card_exp_month, .card_exp_year {
     width: 40%;
     display: inline-block;
+  }
+  .city, .state {
+    display: inline;
+  }
+
+  .city {
+    width: 40%;
+    margin-right: 5px;
   }
   .inline-control {
     display: inline-block;

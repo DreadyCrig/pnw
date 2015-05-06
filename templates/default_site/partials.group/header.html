@@ -1,3 +1,13 @@
+{if member_group == "5" AND segment_1 != "join"}
+<header class="paywall">
+	<div class="paywall__notice">
+		{exp:zoo_visitor:details}
+			<p>It looks like your still a step away from being a full fledge member. <a href="/join">Click here to complete your membership.</a></p>
+		{/exp:zoo_visitor:details}
+	</div>
+</header>
+{/if}
+
 <header class="main-header">
 	<div class="header-block">
 		<div class="brand">
@@ -35,7 +45,7 @@
     						{/exp:zoo_visitor:details}
 							</span>
 						</a>
-						<a href="/member/profile">Hello , {screen_name}</a>
+						<a href="/member/profile">Hello, {screen_name}</a>
 						<a href="/logout" class="logout"><span class="iconic iconic-sm" data-glyph="account-logout"></span></a>
 					</div>
 					{if:else}
@@ -47,6 +57,7 @@
 							<button class="btn btn--rounded btn--secondary">Sign In</button> 
 							<span class="btn btn--outline btn--rounded" ng-click="showLogin = false">Cancel</span>
 						</div>
+						{error:login}
 						{/exp:zoo_visitor:login_form}
 					</div>
 					{/if}

@@ -14,6 +14,10 @@ body {
 		background: #fff;
 		padding-top: rem(40);
 	}
+	&--white-no-pad {
+		background: #fff;
+		padding-top: 0;
+	}
 }
 
 .main-container {

@@ -1,6 +1,6 @@
 // Angular
 
-app = angular.module('app', ['angAccordion', 'ngAnimate']);
+app = angular.module('app', ['angAccordion', 'ngAnimate', 'ng']);
 
 
 var hero = document.querySelector('.hero');

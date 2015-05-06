@@ -597,6 +597,14 @@ select {
     margin-bottom: 0; }
     .inline-form-group .form-group--3-quarters:last-child {
       margin-right: 0; }
+  .inline-form-group .form-group--3-quarters--lg {
+    float: left;
+    display: block;
+    margin-right: 2.3576515979%;
+    width: 74.4105871005%;
+    margin-bottom: 0; }
+    .inline-form-group .form-group--3-quarters--lg:last-child {
+      margin-right: 0; }
   .inline-form-group .form-group--1-quarter {
     float: left;
     display: block;
@@ -606,9 +614,23 @@ select {
     margin-bottom: 0; }
     .inline-form-group .form-group--1-quarter:last-child {
       margin-right: 0; }
+  .inline-form-group .form-group--1-quarter--sm {
+    float: left;
+    display: block;
+    margin-right: 2.3576515979%;
+    width: 23.2317613015%;
+    float: right;
+    margin-bottom: 0; }
+    .inline-form-group .form-group--1-quarter--sm:last-child {
+      margin-right: 0; }
   .inline-form-group .card_exp_month, .inline-form-group .card_exp_year {
     width: 40%;
     display: inline-block; }
+  .inline-form-group .city, .inline-form-group .state {
+    display: inline; }
+  .inline-form-group .city {
+    width: 40%;
+    margin-right: 5px; }
   .inline-form-group .inline-control {
     display: inline-block;
     width: auto;
@@ -750,6 +772,9 @@ body {
   .main--white {
     background: #fff;
     padding-top: 2.5rem; }
+  .main--white-no-pad {
+    background: #fff;
+    padding-top: 0; }
 
 .main-container {
   max-width: 68em;
@@ -883,6 +908,14 @@ body {
   .plan__footer a {
     vertical-align: bottom; }
 
+.payment-error h2 {
+  color: #D0021B; }
+
+.payment-error .error-reason a {
+  display: block;
+  margin-top: .5em;
+  font-weight: 600; }
+
 .signup-breadcrumb {
   background-color: #01243D; }
   .signup-breadcrumb::after {
@@ -987,7 +1020,7 @@ body {
   margin-left: auto;
   margin-right: auto;
   padding-top: 2.5em;
-  padding-bottom: 2.5em; }
+  padding-bottom: 1.5em; }
   .membership-header::after {
     clear: both;
     content: "";
@@ -996,7 +1029,8 @@ body {
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 1px;
-    font-weight: 600; }
+    font-weight: 600;
+    color: #4577AA; }
   .membership-header .intro-section {
     text-align: center;
     font-size: 1.125rem; }
@@ -1004,7 +1038,8 @@ body {
 .membership-form {
   max-width: 40%;
   margin-left: auto;
-  margin-right: auto; }
+  margin-right: auto;
+  margin-bottom: 5em; }
   .membership-form::after {
     clear: both;
     content: "";
@@ -4601,6 +4636,30 @@ body.stop-scrolling {
     margin-bottom: 0; }
   .alert--no-margin {
     margin: 0; }
+
+.paywall {
+  background-color: #fbedb8;
+  position: relative;
+  z-index: 200; }
+  .paywall__notice {
+    max-width: 68em;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px; }
+    .paywall__notice::after {
+      clear: both;
+      content: "";
+      display: table; }
+    .paywall__notice p {
+      font-size: 1.125rem;
+      margin-bottom: 0;
+      text-align: center;
+      color: #D58405; }
+      .paywall__notice p a {
+        font-weight: 600;
+        color: #D58405;
+        text-decoration: underline;
+        margin-left: 5px; }
 
 /**
  * AddToCalendar Blue Style

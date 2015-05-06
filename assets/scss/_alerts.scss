@@ -36,3 +36,27 @@
 		margin: 0;
 	}
 }
+
+.paywall {
+	background-color: lighten(#f1c40f, 35);
+	position: relative;
+	z-index: 200;
+	&__notice {
+		@include outer-container();
+		padding: 20px;
+		p {
+			font-size: rem(18);
+			margin-bottom: 0;
+			text-align: center;
+			color: #D58405;
+
+			a {
+				font-weight: 600;
+				color: #D58405;
+				text-decoration: underline;
+				margin-left: 5px;
+
+			}
+		}
+	}
+}

@@ -12,7 +12,7 @@
 
             if (response.error) {
                     // show the errors on the form
-                    $error_container.show().text(response.error.message).addClass('alert').addClass('alert--danger alert--no-top-margin');
+                    $error_container.show().text(response.error.message).addClass('alert').addClass('alert-error');
                     $form.find('button').prop('disabled', false).removeClass('disabled');
                     return false;
             } else {
@@ -44,7 +44,7 @@
                 try {
                     Stripe.card.createToken($form, stripeResponseHandler);
                 } catch(ex) {
-                    $error_container.show().text(ex).addClass('alert').addClass('alert--danger alert--no-top-margin');
+                    $error_container.show().text(ex).addClass('alert').addClass('alert-warning');
                     $progress.hide();
                     $form.find('button').prop('disabled', false).removeClass('disabled');
                 }

@@ -5,57 +5,72 @@
 		<li class="active">Make Payment</li>
 	</ul>
 </nav>
-<header class="membership-header">
-	<h2>Make Payment</h2>
-	<section class="intro-section">
-		<p>Pay securely with a credit card. Your a step away from joining the BABC.</p>
-	</section>
-</header>
-{exp:charge:form
-  form_class="membership-form membership-form--payment"
-  form_id="charge-form"
-  return="/join/membership-confirmation"
-  return_error="/join/payment-error" 
-  on_success="create_{segment_3}_member"}
-	{if segment_3 == "individual"}
-		<input type="hidden" name="plan_amount" value="100">
-	{if:elseif segment_3 == "small_business"}
-		<input type="hidden" name="plan_amount" value="275">
-	{if:elseif segment_3 == "corporate"}
-		<input type="hidden" name="plan_amount" value="675">
-	{if:else}
-		<input type="hidden" name="plan_amount" value="2000">
-	{/if}
-	
-	<input type="hidden" name="customer_name" value="{screen_name}">
-	<input type="hidden" name="customer_email" value="{email}">
+<main class="main main--white main--white-no-pad">
+	<header class="membership-header">
+		<h2>Make Payment</h2>
+		<section class="intro-section">
+			<p>Pay securely with a credit or debit card. <br>Your a step away from joining BABC PNW.</p>
+		</section>
+	</header>
+	{exp:charge:form
+	  form_class="membership-form membership-form--payment"
+	  form_id="charge-form"
+	  return="/join/membership-confirmation"
+	  return_error="/join/payment-error/{segment_3}" 
+	  on_success="create_{segment_3}_member"}
+		
+		{if segment_3 == "individual"}
+			<input type="hidden" name="plan_amount" value="100">
+		{if:elseif segment_3 == "business"}
+			<input type="hidden" name="plan_amount" value="275">
+		{if:elseif segment_3 == "corporate"}
+			<input type="hidden" name="plan_amount" value="675">
+		{if:else}
+			<input type="hidden" name="plan_amount" value="2000">
+		{/if}
 
-	<div class="form-group">
-    <label for="card_number">Card Number</label>
-    <input type="text" class="form-control" id="card_number" value="4242 4242 4242 4242" data-stripe="number" placeholder="Enter your card number">
-  </div>
-	<div class="inline-form-group">
-	  <div class="form-group form-group--half">
-	    <label for="card_exp_month">Expiration</label>
-	    <input type="text" class="form-control card_exp_month" id="card_exp_month" placeholder="MM" name="card_exp_month" data-stripe="exp_month" value="12"> / 
-	    <input type="text" class="form-control card_exp_year" id="card_exp_year" placeholder="YYYY" name="card_exp_year" data-stripe="exp_year" value="2017">
+		
+		<div id="payment-errors"></div>
+		
+		 <input type="hidden" name="customer_name" value="{screen_name}">
+		 <input type="hidden" name="customer_email" value="{email}">
+
+		<div class="form-group">
+	    <label for="card_number">Card Number</label>
+	    <input type="text" class="form-control" id="card_number" value="" data-stripe="number" placeholder="Enter your card number">
 	  </div>
-	  <div class="form-group form-group--1-quarter">
-	    <label for="card_cvc">CVC</label>
-	    <input type="text" class="form-control" id="card_cvc" value="123" placeholder="123" name="card_cvc" data-stripe="cvc">
+		<div class="inline-form-group">
+		  <div class="form-group form-group--half">
+		    <label for="card_exp_month">Expiration</label>
+		    <select name="card_exp_month" class="form-control card_exp_month" id="card_exp_month" data-stripe="exp_month">
+		    	{card_months}
+						<option value="{month_digit}">{month_long}</option>
+		    	{/card_months}
+		    </select>
+		     / 
+		    <select name="card_exp_month" class="form-control card_exp_year" id="card_exp_year" data-stripe="exp_year">
+		    	{card_years}
+						<option value="{year}">{year}</option>
+		    	{/card_years}
+		    </select>
+		  </div>
+		  <div class="form-group form-group--1-quarter">
+		    <label for="card_cvc">CVC</label>
+		    <input type="text" class="form-control" id="card_cvc" value="123" placeholder="123" name="card_cvc" data-stripe="cvc">
+		  </div>
+		</div>
+		<div class="inline-form-group">
+		  <div class="form-group form-group--3-quarters">
+		    <label for="customer_name">Name on card</label>
+		    <input type="text" class="form-control" id="customer_name" name="customer_name" placeholder="Card holder name" value="{screen_name}">
+		  </div>
+		  <div class="form-group form-group--1-quarter">
+		    <label for="card_address_zip">Zip Code</label>
+		    <input type="text" class="form-control" id="card_address_zip" name="card_address_zip" placeholder="12345" value="33165">
+		  </div>
+		</div>
+	  <div class="form-group form-group--button form-group--center">
+	    <button class="btn btn--secondary" type="submit">Process Payment</button>
 	  </div>
-	</div>
-	<div class="inline-form-group">
-	  <div class="form-group form-group--3-quarters">
-	    <label for="customer_name">Name on card</label>
-	    <input type="text" class="form-control" id="customer_name" name="customer_name" placeholder="Card holder name" value="{screen_name}">
-	  </div>
-	  <div class="form-group form-group--1-quarter">
-	    <label for="card_address_zip">Zip Code</label>
-	    <input type="text" class="form-control" id="card_address_zip" name="card_address_zip" placeholder="12345" value="33165">
-	  </div>
-	</div>
-  <div class="form-group form-group--button form-group--center">
-    <button class="btn btn--secondary" type="submit">Process Payment</button>
-  </div>
-{/exp:charge:form}
+	{/exp:charge:form}
+</main>
