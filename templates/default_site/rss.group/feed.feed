@@ -23,7 +23,7 @@
 {exp:channel:entries channel="{master_channel_name}" limit="10" dynamic_start="on" disable="member_data|pagination"}
     <item>
       <title><![CDATA[{title}]]></title>
-      <link>{page_url'}</link>
+      <link>{page_url}</link>
       <guid>{page_url}#When:{gmt_entry_date format="%H:%i:%sZ"}</guid>
       <description><![CDATA[{article_excerpt}]]></description>
       <dc:subject><![CDATA[{categories backspace="1"}{category_name}, {/categories}]]></dc:subject>
