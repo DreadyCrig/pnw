@@ -73,8 +73,12 @@ button, .btn {
   font-size: rem(14);
 }
 .btn--sm {
-  padding: 0.35em .75em 0.30em;
+  padding: 0.4em .75em 0.30em;
   font-size: rem(12);
+  &.btn--outline {
+    border-width: 1px;
+    padding: 0.4em .75em 0.30em;
+  }
 }
 .btn--lg {
   padding: .75em 1.25em;

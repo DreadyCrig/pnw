@@ -1,0 +1,80 @@
+{layout="layouts/index" bg="alt-bg"}
+
+<main class="main main--white">
+  <div class="main-container">
+    <div class="search-results">
+      <div class="card">
+        {exp:low_search:results
+          query="{segment_2}"
+          keywords:lang="en"
+          keywords:inflect="yes"
+          limit="10"
+          channel="news|events"
+        }
+        {if count == 1} 
+        <header class="card__header results-header">
+          <span class="result-keyword">Searched for <strong>{low_search_keywords}</strong></span>
+          <span class="result-count">Search results: <strong>{absolute_results}</strong></span>
+        </header>
+        {/if}
+        <div class="card__body">
+          <div class="results">
+            <div class="results-listing">
+              <h3><a href="{page_url}">{title}</a></h3>
+              <div class="results-listing__meta">Found in {low_search_collection_label}</div>
+              <p class="results-listing__excerpt">
+                {if low_search_collection_label == "Events"}
+                  {event_details}{micro_excerpt}{/event_details}
+                {if:else}
+                  {low_search_excerpt}
+                {/if}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {if low_search_no_results}
+        <header class="card__header results-header">
+          No results for <strong>"{low_search_keywords}"</strong>
+        </header>
+        <div class="card__body">
+          <div class="results">
+            <p>
+              {exp:low_search:suggestions keywords="{low_search_keywords}" keywords:lang="en" limit="2"}
+                {if suggestion_count == 1}Did you mean{/if}
+                <a href="{low_search:url keywords="{suggestion}"}">{suggestion}</a>{if suggestion_count != total_suggestions}&nbsp;or&nbsp;{if:else}?{/if}
+                {if no_suggestions}Check your spelling or try a different search term.{/if}
+              {/exp:low_search:suggestions}
+            </p>
+          </div>
+        </div>
+        {/if}
+
+        {paginate}
+          {pagination_links}
+          <div class="pagination">
+            <ul class="pager">
+              {previous_page}
+              <li class="previous">
+                <a href="{pagination_url}">
+                  <span class="iconic" data-glyph="arrow-left-line-large-oblique" aria-hidden="true"></span> Older
+                </a>
+              </li>
+              {/previous_page}
+              {next_page}
+              <li class="next">
+                <a href="{pagination_url}">Newer 
+                  <span class="iconic" data-glyph="arrow-right-line-large-oblique" aria-hidden="true"></span>
+                </a>
+              </li>
+              {/next_page}
+            </ul>
+          </div>
+          {/pagination_links}
+        {/paginate}
+
+        {/exp:low_search:results}
+      </div>
+    </div>
+  </div>
+</main>

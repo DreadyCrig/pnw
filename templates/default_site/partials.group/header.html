@@ -15,9 +15,9 @@
 				<img src="/assets/img/logo.png" alt="BABC PNW">
 			</a>
 		</div>
-		<nav class="global-navigation">
+		<nav class="global-navigation"  ng-controller="loginCtrl">
 			<div class="utilities">
-				<div class="utility-block utility-block--social" ng-hide="showLogin==true">
+				<div class="utility-block utility-block--social" ng-hide="loginVisible">
 					<span class="social-label">Follow Us</span>
 					<span class="social-link"><a href="https://www.facebook.com/BABCPNW" target="_blank"><span class="iconic" data-glyph="social-facebook"></span></a></span>
 					<span class="social-link"><a href="https://twitter.com/babcpnw" target="_blank"><span class="iconic" data-glyph="social-twitter"></span></a></span>
@@ -25,16 +25,16 @@
 					<span class="social-link"><a href="#" target="_blank"><span class="iconic" data-glyph="rss-alt"></span></a></span>
 				</div>
 
-				<div class="utility-block utility-block--member" ng-class="{shown:showLogin==true}">
+				<div class="utility-block utility-block--member" ng-class="{shown:loginVisible}">
 					{if logged_out}
-					<div class="login-cta" ng-show="showLogin!=true">
+					<div class="login-cta" ng-show="!loginVisible">
 						<a href="/join" class="btn btn--secondary btn--rounded btn--pill">Join BABC</a>
-						<a href="#" id="loginAction" class="btn btn--outline btn--rounded btn--pill" ng-click="showLogin = true">Member Login</a>
+						<a href="#" id="loginAction" class="btn btn--outline btn--rounded btn--pill" ng-click="showLogin()">Member Login</a>
 					</div>
 					{/if}
 					{if logged_in}
 					<div class="greeting animated fadeInDownBig">
-						<a href="/member/profile">
+						<a href="/members">
 							<span class="avatar">
 								{exp:zoo_visitor:details}
     						{if visitor:member_photo}
@@ -45,17 +45,17 @@
     						{/exp:zoo_visitor:details}
 							</span>
 						</a>
-						<a href="/member/profile">Hello, {screen_name}</a>
+						<a href="/members">Hello, {screen_name}</a>
 						<a href="/logout" class="logout"><span class="iconic iconic-sm" data-glyph="account-logout"></span></a>
 					</div>
 					{if:else}
-					<div class="login" ng-show="showLogin==true" ng-cloak>
-						{exp:zoo_visitor:login_form error_handling="inline"}
+					<div class="login" ng-show="loginVisible" ng-cloak >
+						{exp:zoo_visitor:login_form error_handling="inline" id="loginForm"}
 						<div class="form-group">
 							<input id="username" name="username" type="text" class="login-field" placeholder="Email">
 							<input id="password" name="password" type="password" class="login-field" placeholder="Password">
 							<button class="btn btn--rounded btn--secondary">Sign In</button> 
-							<span class="btn btn--outline btn--rounded" ng-click="showLogin = false">Cancel</span>
+							<span class="btn btn--outline btn--rounded" ng-click="hideLogin()">Cancel</span>
 						</div>
 						{error:login}
 						{/exp:zoo_visitor:login_form}
@@ -77,14 +77,14 @@
 				</div>
 				<div class="menu-block menu-block--search">
 					<div class="search">
-						<form action="#" class="search__form">
+						{exp:low_search:form result_page="search" form_class="search__form"}
 							<div class="form-group">
-								<input type="search" class="form-control" id="search" placeholder="Search">
+								<input type="search" class="form-control" name="keywords" id="search" placeholder="Search">
 								<label for="search">
 									<span class="iconic iconic" data-glyph="magnifying-glass"></span>
 								</label>
 							</div>
-						</form>
+						{/exp:low_search:form}
 					</div>
 				</div>
 			</div>

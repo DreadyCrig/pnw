@@ -1,4 +1,4 @@
-.signup-breadcrumb {
+.signup-breadcrumb, .profile-tabbar {
 	@include clearfix;
 	background-color: #01243D;
 	&__list {
@@ -12,6 +12,10 @@
 			font-weight: 600;
 			margin: auto 1em;
 			padding: 1em;
+			a {
+				display: block;
+				color: #fff;
+			}
 			&.active {
 				border-color: #85A5BB;
 			}

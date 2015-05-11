@@ -3,52 +3,6 @@
 	.author {
 		text-align: center;
 	}
-	.author__aside {
-		@include span-columns(3);
-		.author__picture {
-			@include pad(rem(30) 0 rem(5));
-			text-align: center;
-			img {
-				border-radius: 100px;
-				width: 104px;
-				height: 104px;
-			}
-		}
-		.author__meta {
-			@include pad(0 rem(20) rem(30));
-		}
-		.author-name {
-			font-weight: 600;
-		}
-		.author-title {
-			font-size: rem(14);
-			font-family: $serif;
-			color: $medium-gray;
-		}
-		.author__links {
-			display: table;
-			width: 100.1%;
-			table-layout: fixed;
-			border-top: 1px solid #eee;
-			border-collapse: collapse;
-			a {
-				display: table-cell;
-				vertical-align: middle;
-				text-align: center;
-				@include pad(rem(10) rem(15));
-				border-right: 1px solid #eee;
-				color: $blue;
-				@include transition(all .25s ease-in-out);
-				&:last-child {
-					border: none;
-				}
-				&:hover {
-					background-color: #fafafa;
-					color: $blue-hover;
-				}
-			}
-		}
-	}
 
 	&__body {
 		@include span-columns(7);
@@ -89,6 +43,54 @@
 		}
 	}
 }
+
+.author__aside, .author-aside {
+		@include span-columns(3);
+		.author__picture {
+			@include pad(rem(30) 0 rem(5));
+			text-align: center;
+			img {
+				border-radius: 100px;
+				width: 104px;
+				height: 104px;
+			}
+		}
+		.author__meta {
+			@include pad(0 rem(20) rem(30));
+			text-align: center;
+		}
+		.author-name {
+			font-weight: 600;
+		}
+		.author-title {
+			font-size: rem(14);
+			font-family: $serif;
+			color: $medium-gray;
+		}
+		.author__links {
+			display: table;
+			width: 100.1%;
+			table-layout: fixed;
+			border-top: 1px solid #eee;
+			border-collapse: collapse;
+			a {
+				display: table-cell;
+				vertical-align: middle;
+				text-align: center;
+				@include pad(rem(10) rem(15));
+				border-right: 1px solid #eee;
+				color: $blue;
+				@include transition(all .25s ease-in-out);
+				&:last-child {
+					border: none;
+				}
+				&:hover {
+					background-color: #fafafa;
+					color: $blue-hover;
+				}
+			}
+		}
+	}
 
 .headline-categories {
 	margin-bottom: rem(12);

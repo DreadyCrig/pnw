@@ -68,10 +68,12 @@
 	margin-bottom: 2.5em;
 }
 .plan-details {
-	a {
+	.modal-trigger {
+		color: $blue;
 		text-transform: uppercase;
 		border-bottom: 1px solid;
 		font-size: rem(14);
+		font-weight: normal;
 	}
 }
 

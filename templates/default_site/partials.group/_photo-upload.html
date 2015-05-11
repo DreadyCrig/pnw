@@ -1,0 +1,19 @@
+{exp:channel:form channel="members" entry_id="{embed:entry_id}" author_only="yes" return="/members"}
+	<div class="edit-member-photo">
+		<div class="photo-uploader">
+			
+			{if '{member_photo}{file_name}{/member_photo}' == ""}
+			<span class="trigger-photo btn btn--outline btn--sm" ng-click="showUpload = true">Add a photo</span>
+			{if:else}
+			<span class="trigger-photo btn btn--outline btn--sm" ng-click="showUpload = true">Change photo</span>
+			{/if}
+			
+			<div class="photo-upload-container animated fadeIn" ng-show="showUpload" ng-cloak>
+				<input type="file" name="member_photo" id="photoFileField" class="photo-file-field">
+				<button type="submit" class="btn btn--sm btn--rounded">Upload Photo</button>
+			</div>
+			<input type="hidden" name="member_photo_directory" value="9">
+			<input type="hidden" name="member_photo_hidden_file" value="">
+		</div>
+	</div>
+{/exp:channel:form}

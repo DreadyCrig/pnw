@@ -1,0 +1,7 @@
+{exp:channel:form channel="members" entry_id="{embed:entry_id}" author_only="yes" return="/members"}
+<div class="form-group form-group--edit" ng-show="showAbout" ng-cloak>
+	<textarea name="member_bio" cols="30" rows="6"></textarea>
+	<button class="btn btn--md" type="submit">Submit</button>
+	<button class="btn btn--md btn--outline btn--secondary" type="button" ng-click="showAbout=false"><span class="iconic iconic-sm-xs" data-glyph="circle-x"></span> Cancel</button>
+</div>
+{/exp:channel:form}

@@ -20,7 +20,7 @@
 		<div class="headline__content">
 			<div class="headline-categories">
 				{categories}
-        <a href="#">{category_name}</a>
+        <a href="/news/category/{category_name}">{category_name}</a>
 				{/categories}
 			</div>
 			<h1>{title}</h1>
@@ -38,9 +38,6 @@
 			<aside class="author__aside">
 				<div class="card">
 					<div class="card__body">
-						
-        		
-						
 						<div class="author">
 							{exp:zoo_visitor:details member_id="{author_id}"}
 							<div class="author__picture">
@@ -61,15 +58,13 @@
 							</div>
 							{/exp:zoo_visitor:details}
 						</div>
-						
 					</div>
 					<footer class="card__footer card__footer--sm text-center">
-						<a href="#">All Posts</a>
+						<a href="/author-posts/{author_id}">All Posts</a>
 					</footer>
 				</div>
 			</aside>
 			<div class="article__body">
-				
 				{article_body}
 					{heading}
 						<header class="article__header">
@@ -94,7 +89,6 @@
 						{/files}
 					{/assets}
 				{/article_body}
-
 				<div class="share-bar">
 					<a href="#" class="btn btn--social btn--facebook">
 						<span class="iconic" data-glyph="social-facebook" aria-hidden="true"></span> Share

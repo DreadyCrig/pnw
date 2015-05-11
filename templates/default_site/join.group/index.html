@@ -24,7 +24,21 @@
 					{membership_excerpt}
 				</p>
 				<div class="plan-details">
-					<a href="/join/">View Plan Details</a>
+					<div class="modal">
+					  <label for="modal-{entry_id}">
+					    <span class="modal-trigger">View Plan Details</span>
+					  </label>
+					  <input class="modal-state" id="modal-{entry_id}" type="checkbox" />
+					  <div class="modal-fade-screen">
+					    <div class="modal-inner">
+					      <div class="modal-close" for="modal-{entry_id}"></div>
+					      <h1>{title}</h1>
+					      <p class="modal-intro">Intro text lorem ipsum dolor sit ametm, quas, eaque facilis aliquid cupiditate tempora cumque ipsum accusantium illo modi commodi  minima.</p>
+					      <p class="modal-content">Body text lorem ipsum dolor ipsum dolor sit sit possimus amet, consectetur adipisicing elit. Itaque, placeat, explicabo, veniam quos aperiam molestias eriam molestias molestiae suscipit ipsum enim quasi sit possimus quod atque nobis voluptas earum odit accusamus quibusdam. Body text lorem ipsum dolor ipsum dolor sit sit possimus amet.</p>
+					    </div>
+					  </div>
+					</div>
+
 				</div>
 			</div>
 			<footer class="plan__footer">

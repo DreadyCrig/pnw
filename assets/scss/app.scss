@@ -8,8 +8,11 @@
 @import "join";
 @import "breadcrumbs";
 @import "headers";
+@import "events";
 @import "membership";
 @import "leadership";
+@import "members";
+@import "results";
 @import "footer";
 
 // 3rd Party
@@ -35,6 +38,7 @@
 @import "pagination";
 @import "alerts";
 @import "atc";
+@import "modal";
 
 
 // Patterns
@@ -44,7 +48,6 @@
 @import "contact";
 @import "visa";
 @import "about";
-@import "events";
 
 
 // Helpers

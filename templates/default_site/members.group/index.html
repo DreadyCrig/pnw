@@ -1,0 +1,129 @@
+{layout="layouts/index" bg="alt-bg"}
+<div class="profile-tabbar">
+	<ul class="profile-tabbar__list">
+		<li class="active"><a href="#">Profile</a></li>
+		<li><a href="#">Search Members</a></li>
+		<li><a href="#">Post a Job</a></li>
+		<li><a href="#">Post an opportunity</a></li>
+	</ul>
+</div>
+<main class="main main--white">
+	<div class="main-container">
+	{exp:channel:entries
+		channel="members"
+		disable="categories|category_fields|pagination|trackbacks"
+		author_id="CURRENT_USER"
+	}
+		<div class="member-profile">
+			<aside class="member-badge animated zoomInUp">
+				<div class="card">
+					<div class="card__body">
+						<h3 class="member-badge__name">{title}</h3>
+						<div class="member-badge__photo">
+							<div class="member-photo__picture">
+								{if member_photo}
+								<img src="{member_photo}" alt="{title}">
+								{if:else}
+								<img src="/assets/img/avatar-lg.png" alt="{title}">
+								{/if}
+								{embed="partials/_photo-upload" entry_id="{entry_id}"}
+							</div>
+						</div>
+					</div>
+				</div>
+			</aside>
+			<div class="profile-info">
+				<header class="profile-info__header">
+					<h1>{title}'s Profile</h1>
+				</header>
+				<div class="member-general">
+					<section class="basic-information">
+						<header class="basic-information__header">
+							<h2>General Information</h2>
+						</header>
+						<div class="member-info-body">
+							<table class="member-info-table">
+								<tbody>
+									<tr>
+										<td class="member-info-label">Email &amp; Username</td>
+										<td class="member-info-value">{email}</td>
+									</tr>
+									<tr>
+										<td class="member-info-label">Company</td>
+										<td class="member-info-value">{member_company}</td>
+									</tr>
+									<tr>
+										<td class="member-info-label">Job Title</td>
+										<td class="member-info-value">{member_job_title}</td>
+									</tr>
+									<tr>
+										<td class="member-info-label">Phone</td>
+										<td class="member-info-value">{member_phone}</td>
+									</tr>
+									<tr>
+										<td class="member-info-label member-info-address">Address</td>
+										<td class="member-info-value member-info-address">
+											<address>
+												<span>{member_address}</span><br>
+												<span>{member_city}, {member_state} {member_zip}</span>
+											</address>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+							<div class="member-bio">
+								<h3>Your Bio</h3>
+								{if member_bio}
+								<div class="bio">{member_bio}</div>
+
+								{embed="partials/_add-bio" entry_id="{entry_id}"}
+								<span ng-click="showAbout=true" ng-hide="showAbout" ng-cloak class="bio-callout btn btn--sm btn--outline">Edit your bio</span>
+								{if:else}
+								{embed="partials/_add-bio" entry_id="{entry_id}"}
+								<span ng-click="showAbout=true" ng-cloak ng-hide="showAbout" class="bio-callout btn btn--sm btn--outline">Add a brief bio</span>
+								{/if}
+							</div>
+						</div>
+					</section>
+				</div>
+				<aside class="member-meta">
+					<section class="account-information">
+						<header class="account-information__header">
+							<h2>Account Information</h2>
+						</header>
+						<div class="member-info-body">
+							<table class="member-info-table">
+								<tbody>
+									<tr>
+										<td class="member-info-label">Join Date</td>
+										<td class="member-info-value">{entry_date format="%M %d, %Y"}</td>
+									</tr>
+									<tr>
+										<td class="member-info-label current-member-type">Membership Type</td>
+										<td class="member-info-value current-member-type">
+											{if member_group == 6}
+											Individual
+											{if:elseif member_group == 7}
+											Small Business
+											{if:elseif member_group == 8}
+											Corporate
+											{if:else}
+											Patron
+											{/if}
+										</td>
+									</tr>
+									<tr>
+										<td colspan="2" class="upgrade-plan-cta"><a href="#" class="btn btn--sm btn--outline btn--secondary">Upgrade Membership</a></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</section>
+				</aside>
+			</div>
+		</div>
+	{/exp:channel:entries}
+	</div>
+</main>
+
+<link href="{path=css/_ee_channel_form_css}" type="text/css" rel="stylesheet" media="screen">

@@ -2,6 +2,22 @@
 
 app = angular.module('app', ['angAccordion', 'ngAnimate', 'ng']);
 
+app.controller('loginCtrl', [
+  '$scope',
+  function($scope){
+    $scope.loginVisible = false;
+    $scope.showLogin = function(){
+      $scope.loginVisible = true;
+    };
+    $scope.hideLogin = function(){
+      $scope.loginVisible = false;
+    };
+    $scope.submitItcpr = function(){
+      alert('ok');
+      return false;
+    };
+  }
+]);
 
 var hero = document.querySelector('.hero');
 var heroFlick = new Flickity( hero, {
@@ -13,6 +29,7 @@ var heroFlick = new Flickity( hero, {
 });
 
 $(function() {
+
   // Carousels
   $('.card__carousel').flickity({
     // options
@@ -74,5 +91,25 @@ $(function() {
       });
     }
   }
+
+  // Modals
+  $(function() {
+    $("[id^=modal]").on("change", function() {
+      if ($(this).is(":checked")) {
+        $("body").addClass("modal-open");
+      } else {
+        $("body").removeClass("modal-open");
+      }
+    });
+
+    $(".modal-fade-screen, .modal-close").on("click", function() {
+      $(".modal-state:checked").prop("checked", false).change();
+    });
+
+    $(".modal-inner").on("click", function(e) {
+      e.stopPropagation();
+    });
+  });
+
 
 });

@@ -1,0 +1,142 @@
+.member-profile {
+	margin-bottom: 5em;
+	@include row();
+}
+.member-badge {
+	@include span-columns(3);
+}
+
+.profile-info {
+	@include span-columns(9);	
+}
+
+.member-meta {
+	@include span-columns(4 of 9);
+	@include pad(0 0 0 rem(20));
+}
+.member-general {
+	@include span-columns(5 of 9);
+	@include pad(0 0 0 rem(20));
+}
+
+.profile-info__header {
+	@include span-columns(9 of 9);
+	@include pad(0 0 0 rem(20));
+	h1 {
+		font-size: rem(30);
+		font-weight: 600;
+		color: $blue;
+		
+		
+	}
+}
+
+.basic-information, .account-information {
+	&__header {
+		h2 {
+			font-size: rem(20);
+		}
+	}
+}
+
+.member-info-label {
+	font-weight: 600;
+	
+}
+
+
+.member-badge__name {
+	padding-top: 1em;
+	margin-bottom: rem(10);
+	text-align: center;
+}
+.member-photo__picture {
+	@include pad(rem(5) 0);
+	text-align: center;
+	img {
+		border-radius: 100px;
+		width: 104px;
+		height: 104px;
+		display: inline-block;
+		margin-bottom: .5em;
+	}
+}
+
+.edit-member-photo {
+	margin-bottom: 1.5em;
+}
+.photo-upload-container {
+	font-weight: normal;
+	text-align: center;
+	display: block;
+	background: #f9f9f9;
+	padding: 20px;
+	border-top: 1px solid #eee;
+	border-bottom: 1px solid #eee; 
+}
+.photo-file-field {
+	margin-bottom: 5px;
+}
+.trigger-photo {
+	cursor: pointer;
+	margin: 1.5em 0;
+}
+
+.member-info-address {
+	vertical-align: top;
+}
+
+.form-group--edit {
+	&.ng-hide-remove {
+		@include transition(all .25s ease-in-out);
+		-webkit-animation-fill-mode: both;
+  	animation-fill-mode: both;
+  	-webkit-animation-name: fadeInUp;
+	  animation-name: fadeInUp;
+	  -webkit-transform-origin: center bottom;
+	  transform-origin: center bottom;
+	  -webkit-animation-duration: .35s;
+  	animation-duration: .35s;
+	}
+	&.ng-hide-add {
+		@include transition(all .25s ease-out);
+		-webkit-animation-fill-mode: both;
+  	animation-fill-mode: both;
+  	-webkit-animation-name: slideOutDown;
+	  animation-name: slideOutDown;
+	  -webkit-transform-origin: center top;
+	  transform-origin: center top;
+	  -webkit-animation-duration: .35s;
+  	animation-duration: .35s;
+	}
+
+	button {
+		margin-right: 5px;
+		margin-top: 5px;
+		position: relative;
+	}
+}
+
+.bio-callout {
+	cursor: pointer;
+	display: inline-block;
+	&.btn {
+		text-decoration: none;
+	}
+}
+
+.member-bio {
+	padding-top: rem(12);
+	.bio {
+		margin-bottom: 1em;
+	}
+}
+
+.upgrade-plan-cta {
+	border-top: none;
+	padding-top: 0;
+	padding-bottom: rem(20);
+}
+.current-member-type {
+	border-bottom: none;
+}

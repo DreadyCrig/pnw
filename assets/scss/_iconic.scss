@@ -65,6 +65,10 @@ $iconic-font-path: '../fonts/';
     font-weight: 400;
     font-size: 16px;
   }
+  &.iconic-sm-xs:before {
+    font-weight: 400;
+    font-size: 12px;
+  }
 
   &.iconic-md:before {
     font-weight: 500;

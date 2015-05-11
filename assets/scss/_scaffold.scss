@@ -6,6 +6,9 @@ body {
 	background-color: #F9F9F9;
 	margin-bottom: 108px;
 }
+body.alt-bg {
+	background-color: #fff;
+}
 
 .main {
 	@include pad(rem(30) 0);

@@ -1,0 +1,32 @@
+.search-results {
+	@include span-columns(8);
+	@include shift(2);
+}
+.results {
+	@include pad(rem(20));
+}
+.results-header {
+	text-transform: uppercase;
+	.result-count {
+		float: right;
+	}
+}
+
+.results-listing {
+	h3 {
+		margin-bottom: .25em;
+	}
+	padding-bottom: .5em;
+	margin-bottom: 1em;
+	border-bottom: 1px solid $lighter-gray;
+}
+.results-listing__meta {
+	margin-bottom: .5em;
+	text-transform: uppercase;
+	color: $red;
+	font-size: rem(14);
+}
+
+.results-listing__excerpt {
+	padding-right: rem(40);
+}

@@ -7,7 +7,7 @@
 				<!-- Events -->
 				<div class="card">
 					<header class="card__header">
-						<h2>Latest News</h2>
+						<h2>{if triggers:entries_title}{triggers:entries_title}{if:else}Latest News{/if}</h2>
 						<span class="card-icon card-icon--middle">
 							<a href="#">
 								<img data-src="/assets/svg/rss-alt.svg" class="iconic iconic-sm iconic--rss" alt="rss">
@@ -20,6 +20,7 @@
 							disable="category_fields|member_data|trackbacks"
 							dynamic="off"
 							limit="10"
+							{triggers:entries}
 						}
 						<div class="post post--with-thumb">
 							{article_banner}
@@ -39,17 +40,13 @@
 										{if article_contributing_author}
 										{article_contributing_author}
 										{if:else}
-										{author}
+										<a href="/author-posts/{author_id}">{author}</a>
 										{/if}
 									</div>
 									<div class="post-date">Posted on: {entry_date format="%F %d, %Y"}</div>
 								</div>
 								<div class="post-excerpt">
-									{article_body}
-										{textarea}
-											{value}
-										{/textarea}
-									{/article_body}
+									{article_excerpt}
 								</div>
 							</div>
 						</div>

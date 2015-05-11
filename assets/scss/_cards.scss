@@ -37,7 +37,7 @@
 			@include pad(rem(10) rem(20));
 		}
 		position: relative;
-		a {
+		a, .emphasis {
 			font-size: rem(14);
 			font-weight: 600;
 			letter-spacing: 1.5px;
