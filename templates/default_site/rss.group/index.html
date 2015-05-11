@@ -1,40 +1,48 @@
 {preload_replace:master_channel_name="news"}
-{preload_replace:atom_feed_location="rss/index"}
-
 {exp:rss:feed channel="{master_channel_name}"}
 
 <?xml version="1.0" encoding="{encoding}"?>
-<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="{channel_language}">
+<rss version="2.0"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+    xmlns:admin="http://webns.net/mvcb/"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:content="http://purl.org/rss/1.0/modules/content/">
 
-    <title type="text">BABC PNW News</title>
-    <subtitle type="text">Fostering commerce, friendship and economic growth between the United States and the United Kingdom</subtitle>
-    <link rel="alternate" type="text/html" href="{site_url}news" />
-    <link rel="self" type="application/atom+xml" href="{site_url}rss" />
-    <updated>{gmt_edit_date format='%Y-%m-%dT%H:%i:%sZ'}</updated>
-    <rights>Copyright (c) {gmt_date format="%Y"}</rights>
-    <generator uri="http://expressionengine.com/" version="{version}">ExpressionEngine</generator>
-    <id>tag:{trimmed_url},{gmt_date format="%Y:%m:%d"}</id>
-
-{exp:channel:entries channel="{master_channel_name}" limit="15" dynamic_start="on" disable="member_data|pagination"}
-    <entry>
-      <title><![CDATA[{title}]]></title>
-      <link rel="alternate" type="text/html" href="{page_url}" />
-      <id>tag:{trimmed_url},{gmt_entry_date format="%Y"}:{page_url}</id>
-      <published>{gmt_entry_date format="%Y-%m-%dT%H:%i:%sZ"}</published>
-      <updated>{gmt_edit_date format='%Y-%m-%dT%H:%i:%sZ'}</updated>
-      <author>
-        <name>{author}</name>
-      </author>
-{categories}
-      <category term="<![CDATA[{category_name}]]>"
-        scheme="{site_url}news/category/{category_name}"
-        label="<![CDATA[{category_name}]]>" />{/categories}
-      <content type="html"><![CDATA[
-        {article_excerpt}
-      ]]></content>
-    </entry>
+    <channel>
+    
+    <title>BABC PNW</title>
+    <link>http://babcpnw.org</link>
+    <description>
+      Fostering commerce, friendship and economic growth between the United States and the United Kingdom
+    </description>
+    <dc:language>
+      en-us
+    </dc:language>
+    <dc:creator>
+      membership@babcpnw.org
+    </dc:creator>
+    <dc:rights>
+      Copyright {gmt_date format="%Y"}
+    </dc:rights>
+    <dc:date>
+      {gmt_date format="%Y-%m-%dT%H:%i:%s%Q"}
+    </dc:date>
+    <admin:generatorAgent rdf:resource="Advento" />
+    
+{exp:channel:entries channel="{master_channel_name}" limit="10" dynamic_start="on" disable="member_data|pagination"}
+  <item>
+    <title><![CDATA[{title}]]></title>
+    <link>{page_url}</link>
+    <guid>{page_url}</guid>
+    <description>{article_excerpt}></description>
+    <dc:subject>
+      {categories backspace="1"}{category_name}, {/categories}</dc:subject>
+    <dc:date>{gmt_entry_date format="%Y-%m-%dT%H:%i:%s%Q"}</dc:date>
+  </item>
 {/exp:channel:entries}
-
-</feed>
+    
+    </channel>
+</rss>
 
 {/exp:rss:feed}
