@@ -1,8 +1,9 @@
-{layout="layouts/index"}
+{layout="layouts/index" editorial="yes" entry_id="entry_id"}
 
 {exp:channel:entries
 	disable="category_fields|member_data|trackbacks"
 }
+{layout:set name="entry_id" value="{entry_id}"}
 {article_banner}
 {if background}
 <header class="headline headline--rich" style="background-image: url('{background}');">
