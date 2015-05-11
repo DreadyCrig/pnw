@@ -9,8 +9,8 @@
 					<header class="card__header">
 						<h2>Upcoming &amp; Featured Events</h2>
 						<span class="card-icon card-icon--middle">
-							<a href="#">
-								<img data-src="/assets/svg/rss-alt.svg" class="iconic iconic-sm iconic--rss" alt="rss">
+							<a href="/rss/event">
+								<span class="iconic" data-glyph="rss-alt"></span>
 							</a>
 						</span>
 					</header>
@@ -53,9 +53,7 @@
 								{/event_banner}
 								<div class="post__body">
 									<p class="post-excerpt">
-										{event_details}
-										{excerpt text_only="yes"}
-										{/event_details}
+										{event_excerpt text_only="yes"}
 									</p>
 								</div>
 							</div>

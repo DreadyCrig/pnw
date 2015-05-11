@@ -1,128 +1,356 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" style="font-family: 'Proxima Nova', 'Avenir', 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
-<head>
-<meta name="viewport" content="width=device-width" />
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Billing e.g. invoices and receipts</title>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://xxx.x0.---/XX/xxxxx0/XXX/xxxxx0-xxxxxxxxxxxx.---">
+<html xmlns="http://xxx.x0.---/0000/xxxxx" style="font-family: 'proxima-nova' 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin: 0; padding: 0;">
+  
+  <head>
+    <!-- If you delete this meta tag, Half Life 3 will never be released. -->
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style>
+      /* ------------------------------------- 
+            GLOBAL 
+      ------------------------------------- */
+      * { 
+        margin:0;
+        padding:0;
+      }
+      * { font-family: "proxima-nova" "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; }
+      
+      img { 
+        max-width: 100%; 
+      }
+      .collapse {
+        margin:0;
+        padding:0;
+      }
+      body {
+        -webkit-font-smoothing:antialiased; 
+        -webkit-text-size-adjust:none; 
+        width: 100%!important; 
+        height: 100%;
+        font-size:18px; 
+        line-height:1.6;
+        color: #33373A;
+      }
+      
+      
+      /* ------------------------------------- 
+          ELEMENTS 
+      ------------------------------------- */
+      a { color: #29B2E6;}
+      
+      .btn {
+        text-decoration:none;
+        color: #FFF;
+        background-color: #29B2E6;
+        padding:10px 16px;
+        font-weight:bold;
+        margin-right:10px;
+        text-align:center;
+        cursor:pointer;
+        display: inline-block;
+      }
+      
+      p.callout {
+        padding:15px;
+        background-color:#DEDFE1;
+        margin-bottom: 25px;
+        color: #8C8D8F;
+        text-align: center;
+      }
+      
+      p.caption {
+        color: #979797;
+        font-size: 13px;
+        margin-top: 10px;
+      }
+      
+      p.footer {
+        color: #979797;
+        font-size: 13px;
+        text-align: left;
+      }
+      
+      hr.footer {
+        border: 0;
+        color: #D1D1D1;
+        background-color: #D1D1D1;
+        height: 3px;
+        margin-bottom: 10px;
+      }
+      
+      .button {
+        background: #29B2E6;
+        padding-top: 6px;
+        padding-right: 40px;
+        padding-bottom: 6px;
+        padding-left: 40px;
+        -webkit-border-radius: 2px;
+        -moz-border-radius: 2px;
+        border-radius: 2px;
+        color: #fff;
+        font-weight: bold;
+        text-decoration: none;
+        font-family: Helvetica, Arial, sans-serif;
+        display: inline-block;
+        margin-right: 10px;   
+      }
+      
+      table.social {
+      /*  padding:15px; */
+        background-color: #ebebeb;
+        
+      }
+      .social .soc-btn {
+        padding: 3px 7px;
+        font-size:12px;
+        margin-bottom:10px;
+        text-decoration:none;
+        color: #FFF;font-weight:bold;
+        display:block;
+        text-align:center;
+      }
+      a.fb { background-color: #3B5998!important; }
+      a.tw { background-color: #1daced!important; }
+      a.gp { background-color: #DB4A39!important; }
+      a.ms { background-color: #000!important; }
+      
+      .sidebar .soc-btn { 
+        display:block;
+        width:100%;
+      }
+      
+      /* ------------------------------------- 
+          HEADER 
+      ------------------------------------- */
+      table.head-wrap { width: 100%;}
+      
+      .header.container table td.logo { padding: 15px; }
+      .header.container table td.label { padding: 15px; padding-left:0px;}
+      
+      
+      /* ------------------------------------- 
+          BODY 
+      ------------------------------------- */
+      table.body-wrap { width: 100%;}
+      
+      
+      /* ------------------------------------- 
+          FOOTER 
+      ------------------------------------- */
+      table.footer-wrap { width: 100%;  clear:both!important;
+      }
+      .footer-wrap .container td.content  p { border-top: 1px solid rgb(215,215,215); padding-top:15px;}
+      .footer-wrap .container td.content p {
+        font-size:10px;
+        font-weight: bold;
+        
+      }
+      
+      
+      /* ------------------------------------- 
+          TYPOGRAPHY 
+      ------------------------------------- */
+      h1,h2,h3,h4,h5,h6 {
+      font-family: "proxima-nova", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; line-height: 1.4; margin-bottom:25px; color:#30373D;
+      }
+      h1 small, h2 small, h3 small, h4 small, h5 small, h6 small { font-size: 60%; color: #6f6f6f; line-height: 0; text-transform: none; }
+      
+      h1 { font-weight:500; font-size: 44px;}
+      h2 { font-weight:500; font-size: 30px;}
+      h3 { font-weight:500; font-size: 27px;}
+      h4 { font-weight:500; font-size: 23px;}
+      h5 { font-weight:900; font-size: 17px;}
+      h6 { font-weight:900; font-size: 14px; text-transform: uppercase; color:#444;}
+      
+      .collapse { margin:0!important;}
+      
+      p, ul, ol { 
+        margin-bottom: 30px; 
+        font-weight: normal; 
+        color: #30373D;
+        font-size:18px; 
+        line-height:1.6;
+      }
+      p.lead { font-size:22px; }
+      p.last { margin-bottom:0px;}
+      
+      ul li {
+        margin-left:24px;
+        list-style-position: inside;
+        margin-bottom: 14px;
+      }
+      
+      ol li {
+        margin-left:32px;
+        list-style-position: outside;
+        margin-bottom: 14px;
+      }
+      
+      blockquote {
+        margin: 30px 0;
+        border: 4px solid #F6F6F6;
+        padding: 10px;
+      }
+      
+      blockquote p{
+        color: #33373b;
+        font-weight: 200;
+        line-height: 26px;
+        font-size: 18px;
+        margin: 0;
+      }
+      
+      cite {
+        display: block;
+      }
+      
+      .small { font-size: 12px; }
+      .grey { color: #8C8D8F;}
+      
+      
+      /* --------------------------------------------------- 
+          RESPONSIVENESS
+          Nuke it from orbit. It's the only way to be sure. 
+      ------------------------------------------------------ */
+      
+      /* Set a max-width, and make it display as block so it will automatically stretch to that width, but will also shrink down on a phone or something */
+      .container {
+        display:block!important;
+        max-width:600px!important;
+        margin:0 auto!important; /* makes it centered */
+        clear:both!important;
+      }
+      
+      /* This should also be a block element, so that it will fill 100% of the .container */
+      .content {
+        padding:15px;
+        max-width:600px;
+        margin:0 auto;
+        display:block; 
+      }
+      
+      .logo_content {
+        padding:15px 15px 0 15px;
+        max-width:600px;
+        margin:0 auto;
+        display:block; 
+      }
+      /* Let's make sure tables in the content area are 100% wide */
+      .content table { width: 100%; }
+      
+      
+      /* Odds and ends */
+      .column {
+        width: 300px;
+        float:left;
+      }
+      .column tr td { padding: 15px; }
+      .column-wrap { 
+        padding:0!important; 
+        margin:0 auto; 
+        max-width:600px!important;
+      }
+      .column table { width:100%;}
+      .social .column {
+        width: 280px;
+        min-width: 279px;
+        float:left;
+      }
+      
+      /* Be sure to place a .clear element after each set of columns, just to be safe */
+      .clear { display: block; clear: both; }
+      
+      
+      /* ------------------------------------------- 
+          PHONE
+          For clients that support media queries.
+          Nothing fancy. 
+      -------------------------------------------- */
+      @media only screen and (max-width: 600px) {
+        
+        a[class="btn"] { display:block!important; margin-bottom:10px!important; background-image:none!important; margin-right:0!important;}
+      
+        div[class="column"] { width: auto!important; float:none!important;}
+        
+        table.social div[class="column"] {
+          width:auto!important;
+        }
+      
+      }
+    </style>
+  </head>
+  
+  <body bgcolor="#FFFFFF" style="font-family: 'proxima-nova' 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; -webkit-text-size-adjust: none; width: 100% !important; height: 100%; font-size: 18px; line-height: 1.6; color: #33373A; margin: 0; padding: 0;">
+    <!-- BODY -->
+    <table class="body-wrap" style="font-family: 'proxima-nova' 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; width: 100%; margin: 0; padding: 0;">
+      <tr style="font-family: 'proxima-nova' 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin: 0; padding: 0;">
+        <td style="font-family: 'proxima-nova' 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin: 0; padding: 0;"></td>
+        <td class="container" bgcolor="#FFFFFF" style="font-family: 'proxima-nova' 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; display: block !important; max-width: 600px !important; clear: both !important; margin: 0 auto; padding: 0;">
+          <div class="content" style="font-family: 'proxima-nova' 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; max-width: 600px; display: block; margin: 0 auto; padding: 15px;">
+            <table style="font-family: 'proxima-nova' 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; width: 100%; margin: 0; padding: 0;">
+              <tr style="font-family: 'proxima-nova' 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin: 0; padding: 0;">
+                <td style="font-family: 'proxima-nova' 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin: 0; padding: 0;">
+                  <p style="font-family: 'proxima-nova' 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; font-weight: normal; color: #30373D; font-size: 18px; line-height: 1.6; margin: 0 0 30px; padding: 0;">Dear {customer_name},</p>
+                  <p style="font-family: 'proxima-nova' 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; font-weight: normal; color: #30373D; font-size: 18px; line-height: 1.6; margin: 0 0 30px; padding: 0;">Welcome to the British American Business Council-Pacific Northwest (BABC-PNW). We are pleased to confirm your individual membership and thank you for supporting our mission to advance UK-US economic, business, trade and cultural connections.</p>
+                  <p
+                  style="font-family: 'proxima-nova' 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; font-weight: normal; color: #30373D; font-size: 18px; line-height: 1.6; margin: 0 0 30px; padding: 0;"><b style="font-family: 'proxima-nova' 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin: 0; padding: 0;">Get started with your member benefits!</b>
+                    </p>
+                    <p style="font-family: 'proxima-nova' 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; font-weight: normal; color: #30373D; font-size: 18px; line-height: 1.6; margin: 0 0 30px; padding: 0;">The Individual Membership is perfect for individuals or students seeking to develop/grow their British-American relationships, enhance their personal business networks and make connections with other BABC members to develop valuable business relationships. Benefits include:</p>
+                    <ul>
+                    	<li style="font-family: 'proxima-nova' 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; font-weight: normal; color: #30373D; font-size: 14px; line-height: 1.6; margin: 0 0 10px; padding: 0;">Member rates on BABC-PNW events</li>
+                    	<li style="font-family: 'proxima-nova' 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; font-weight: normal; color: #30373D; font-size: 14px; line-height: 1.6; margin: 0 0 10px; padding: 0;">Opportunity to join a committee to influence BABC events and membership policy</li>
+                    	<li style="font-family: 'proxima-nova' 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; font-weight: normal; color: #30373D; font-size: 14px; line-height: 1.6; margin: 0 0 10px; padding: 0;">Opportunities to make contacts with other BABC members to develop valuable business relationships</li>
+                    </ul>
+                    <p style="font-family: 'proxima-nova' 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; font-weight: normal; color: #30373D; font-size: 18px; line-height: 1.6; margin: 0 0 30px; padding: 0;">Established in 1995, BABC-PNW has long been the regional heartbeat of business and culture spanning both sides of the pond. This region has a long Anglo-American history, beginning as far back as the 1790s with exploration by British Royal Navy officer George Vancouver.
+                    </p>
+                    <p style="font-family: 'proxima-nova' 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; font-weight: normal; color: #30373D; font-size: 18px; line-height: 1.6; margin: 0 0 30px; padding: 0;">Today UK companies employ almost 28K Pacific Northwesterners across the region - spanning Alaska, Idaho, Oregon and Washington. And there is potential for more. An independent study, co-commissioned by UKinUSA, found that the Transatlantic Trade and Investment Partnership (TTIP), currently under negotiation, could create more than 30K additional jobs in our region. Beyond all this we share a common understanding of cloudy weather and that “drizzle” is not really rain!
+                    </p>
+                    <p style="font-family: 'proxima-nova' 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; font-weight: normal; color: #30373D; font-size: 18px; line-height: 1.6; margin: 0 0 30px; padding: 0;">Regionally, our chapter supports local businesses, as well as cultural links between both countries. We organize <a href="http://babcpnw.org/events">events</a> throughout the year in a variety of key industries and feature opportunities for casual networking spanning from quarterly breakfasts, to business socials, to our wonderful annual Christmas luncheon at the end of the year.</p>
+                    <p style="font-family: 'proxima-nova' 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; font-weight: normal; color: #30373D; font-size: 18px; line-height: 1.6; margin: 0 0 30px; padding: 0;">The Chapter is, however, only as successful as its members, thus we encourage you to take part in our activities, and promote to your friends and colleagues. If you have ideas that relate to your company or interests feel free to suggest them.</p>
+                    <p style="font-family: 'proxima-nova' 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; font-weight: normal; color: #30373D; font-size: 18px; line-height: 1.6; margin: 0 0 30px; padding: 0;">Should you have any questions about your membership or related benefits, please don’t hesitate to contact us at <a href="mailto:membership@babcpnw.org">membership@babcpnw.org</a>. We look forward to hopefully seeing you at our Annual General Meeting on March 18 and appreciate your membership commitment with us!
+                    </p>
+                    <p style="font-family: 'proxima-nova' 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; font-weight: normal; color: #30373D; font-size: 18px; line-height: 1.6; margin: 0 0 30px; padding: 0;">Sincere Regards,</p>
+                    <p style="font-family: 'proxima-nova' 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; font-weight: normal; color: #30373D; font-size: 18px; line-height: 1.6; margin: 0 0 30px; padding: 0;">The BABC-PNW Membership Team</p>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <!-- /content -->
+        </td>
+        <td style="font-family: 'proxima-nova' 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin: 0; padding: 0;"></td>
+      </tr>
+    </table>
+    <!-- /BODY -->
+    <!-- FOOTER -->
+    <table class="footer-wrap" style="font-family: 'proxima-nova' 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; width: 100%; clear: both !important; margin: 0; padding: 0;">
+      <tr style="font-family: 'proxima-nova' 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin: 0; padding: 0;">
+        <td style="font-family: 'proxima-nova' 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin: 0; padding: 0;"></td>
+        <td class="container" style="font-family: 'proxima-nova' 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; display: block !important; max-width: 600px !important; clear: both !important; margin: 0 auto; padding: 0;">
+          <!-- content -->
+          <div class="content" style="font-family: 'proxima-nova' 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; max-width: 600px; display: block; margin: 0 auto; padding: 15px;">
+            <table style="font-family: 'proxima-nova' 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; width: 100%; margin: 0; padding: 0;">
+              <tr style="font-family: 'proxima-nova' 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin: 0; padding: 0;">
+                <td style="font-family: 'proxima-nova' 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin: 0; padding: 0;">
+                  <p class="footer" style="font-family: 'proxima-nova' 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; color: #979797; font-size: 13px; text-align: left; font-weight: normal; line-height: 1.6; margin: 0 0 30px; padding: 0;"
+                  align="left">Follow us on
+                    <a href="https://twitter.com/#!/babcpnw"
+                    style="font-family: 'proxima-nova' 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; color: #29B2E6; margin: 0; padding: 0;">Twitter</a>  or
+                    <a href="http://www.facebook.com/pages/British-American-Business-Council-of-the-PNW/125671207508344"
+                    style="font-family: 'proxima-nova' 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; color: #29B2E6; margin: 0; padding: 0;">Facebook</a>
+                    <br style="font-family: 'proxima-nova' 'Helvetica Neue', 'Helvetica', Helvetica, Arial,
+sans-serif; margin: 0; padding: 0;">
+                  </p>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <!-- /content -->
+        </td>
+        <td style="font-family: 'proxima-nova' 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin: 0; padding: 0;"></td>
+      </tr>
+    </table>
+    <!-- /FOOTER -->
+    <img src="http://links.screenhero.com/e/o/eyJlbWFpbF9pZCI6Ik1qQTNNem9XQkNJQ1pBQUNjd0FYQVg0aUdnRkx2ck90M2hVT0dGVHRQRlFCWlRvMVpHVXpNMkl4WVMxaVl6bGlMVEV4WlRRdE9EUTRZeTB4TTJFeE9ESmhPRGcxTVdRNk1UUXlOekF4QUE9PSJ9">
+  </body>
 
-
-<style type="text/css">
-img {
-max-width: 100%;
-}
-body {
--webkit-font-smoothing: antialiased; -webkit-text-size-adjust: none; width: 100% !important; height: 100%; line-height: 1.6;
-}
-body {
-background-color: #f6f6f6;
-}
-@media only screen and (max-width: 640px) {
-  h1 {
-    font-weight: 600 !important; margin: 20px 0 5px !important;
-  }
-  h2 {
-    font-weight: 600 !important; margin: 20px 0 5px !important;
-  }
-  h3 {
-    font-weight: 600 !important; margin: 20px 0 5px !important;
-  }
-  h4 {
-    font-weight: 600 !important; margin: 20px 0 5px !important;
-  }
-  h1 {
-    font-size: 22px !important;
-  }
-  h2 {
-    font-size: 18px !important;
-  }
-  h3 {
-    font-size: 16px !important;
-  }
-  .container {
-    width: 100% !important;
-  }
-  .content {
-    padding: 10px !important;
-  }
-  .content-wrap {
-    padding: 10px !important;
-  }
-  .invoice {
-    width: 100% !important;
-  }
-}
-</style>
-</head>
-
-<body style="font-family: 'Proxima Nova', 'Avenir', 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; -webkit-font-smoothing: antialiased; -webkit-text-size-adjust: none; width: 100% !important; height: 100%; line-height: 1.6; background: #f6f6f6; margin: 0;">
-
-<table class="body-wrap" style="font-family: 'Proxima Nova', 'Avenir', 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; width: 100%; background: #f6f6f6; margin: 0;">
-	<tr style="font-family: 'Proxima Nova', 'Avenir', 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
-		<td style="font-family: 'Proxima Nova', 'Avenir', 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0;" valign="top"></td>
-		<td class="container" width="600" style="font-family: 'Proxima Nova', 'Avenir', 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; display: block !important; max-width: 600px !important; clear: both !important; margin: 0 auto;" valign="top">
-			<div class="content" style="font-family: 'Proxima Nova', 'Avenir', 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; max-width: 600px; display: block; margin: 0 auto; padding: 20px;">
-				<table class="main" width="100%" cellpadding="0" cellspacing="0" style="font-family: 'Proxima Nova', 'Avenir', 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; border-radius: 3px; background: #fff; margin: 0; border: 1px solid #e9e9e9;">
-					<tr style="font-family: 'Proxima Nova', 'Avenir', 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
-						<td class="content-wrap aligncenter" style="font-family: 'Proxima Nova', 'Avenir', 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; text-align: center; margin: 0; padding: 20px;" align="center" valign="top">
-							<table width="100%" cellpadding="0" cellspacing="0" style="font-family: 'Proxima Nova', 'Avenir', 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
-								<tr style="font-family: 'Proxima Nova', 'Avenir', 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
-									<td class="content-block" style="font-family: 'Proxima Nova', 'Avenir', 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 0 0 20px;" valign="top">
-										<h1 style="font-family: 'Proxima Nova', 'Avenir', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; box-sizing: border-box; font-size: 32px; color: #000; line-height: 1.2; font-weight: 500; margin: 40px 0 0;">{amount_currency_formatted} Paid</h1>
-									</td>
-								</tr>
-								<tr style="font-family: 'Proxima Nova', 'Avenir', 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
-									<td class="content-block" style="font-family: 'Proxima Nova', 'Avenir', 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 0 0 20px;" valign="top">
-										<h2 style="font-family: 'Proxima Nova', 'Avenir', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; box-sizing: border-box; font-size: 24px; color: #000; line-height: 1.2; font-weight: 400; margin: 40px 0 0;">Thanks for joining BABC PNW!</h2>
-									</td>
-								</tr>
-								<tr style="font-family: 'Proxima Nova', 'Avenir', 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
-									<td class="content-block" style="font-family: 'Proxima Nova', 'Avenir', 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 0 0 20px;" valign="top">
-										<table class="invoice" style="font-family: 'Proxima Nova', 'Avenir', 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; text-align: left; width: 80%; margin: 40px auto;">
-											<tr style="font-family: 'Proxima Nova', 'Avenir', 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
-												<td style="font-family: 'Proxima Nova', 'Avenir', 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 5px 0;" valign="top">{customer_name}</td>
-											</tr>
-											<tr style="font-family: 'Proxima Nova', 'Avenir', 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
-												<td style="font-family: 'Proxima Nova', 'Avenir', 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 5px 0;" valign="top">
-													<table class="invoice-items" cellpadding="0" cellspacing="0" style="font-family: 'Proxima Nova', 'Avenir', 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; width: 100%; margin: 0;">
-														<tr style="font-family: 'Proxima Nova', 'Avenir', 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
-															<td style="font-family: 'Proxima Nova', 'Avenir', 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; border-top-width: 1px; border-top-color: #eee; border-top-style: solid; margin: 0; padding: 5px 0;" valign="top">Individual Membership</td>
-															<td class="alignright" style="font-family: 'Proxima Nova', 'Avenir', 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; text-align: right; border-top-width: 1px; border-top-color: #eee; border-top-style: solid; margin: 0; padding: 5px 0;" align="right" valign="top">{amount_currency_formatted}</td>
-														</tr>
-														<tr class="total" style="font-family: 'Proxima Nova', 'Avenir', 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
-															<td class="alignright" width="80%" style="font-family: 'Proxima Nova', 'Avenir', 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; text-align: right; border-top-width: 2px; border-top-color: #333; border-top-style: solid; border-bottom-color: #333; border-bottom-width: 2px; border-bottom-style: solid; font-weight: 700; margin: 0; padding: 5px 0;" align="right" valign="top">Total: &nbsp;</td>
-															<td class="alignright" style="font-family: 'Proxima Nova', 'Avenir', 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; text-align: right; border-top-width: 2px; border-top-color: #333; border-top-style: solid; border-bottom-color: #333; border-bottom-width: 2px; border-bottom-style: solid; font-weight: 700; margin: 0; padding: 5px 0;" align="right" valign="top">{amount_currency_formatted}</td>
-														</tr>
-													</table>
-												</td>
-											</tr>
-										</table>
-									</td>
-								</tr>
-								<tr style="font-family: 'Proxima Nova', 'Avenir', 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
-									<td class="content-block" style="font-family: 'Proxima Nova', 'Avenir', 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 0 0 20px;" valign="top">
-										<a href="http://www.mailgun.com" style="font-family: 'Proxima Nova', 'Avenir', 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; color: #348eda; text-decoration: underline; margin: 0;">View in browser</a>
-									</td>
-								</tr>
-								<tr style="font-family: 'Proxima Nova', 'Avenir', 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
-									<td class="content-block" style="font-family: 'Proxima Nova', 'Avenir', 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 0 0 20px;" valign="top">
-										BABC PNW
-									</td>
-								</tr>
-							</table>
-						</td>
-					</tr>
-				</table>
-				<div class="footer" style="font-family: 'Proxima Nova', 'Avenir', 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; width: 100%; clear: both; color: #999; margin: 0; padding: 20px;">
-					<table width="100%" style="font-family: 'Proxima Nova', 'Avenir', 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
-						<tr style="font-family: 'Proxima Nova', 'Avenir', 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
-							<td class="aligncenter content-block" style="font-family: 'Proxima Nova', 'Avenir', 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 12px; vertical-align: top; text-align: center; margin: 0; padding: 0 0 20px;" align="center" valign="top">Questions? Email <a href="mailto:" style="font-family: 'Proxima Nova', 'Avenir', 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 12px; color: #999; text-decoration: underline; margin: 0;">support@acme.inc</a></td>
-						</tr>
-					</table>
-				</div></div>
-		</td>
-		<td style="font-family: 'Proxima Nova', 'Avenir', 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0;" valign="top"></td>
-	</tr>
-</table>
-
-</body>
 </html>

@@ -6,7 +6,7 @@
 
 {event_banner}
 {if background}
-<header class="headline headline--rich headline--event headline--rich-center" style="background-image: url('{background}')">
+<header class="headline headline--rich headline--event headline--rich-center" style="background-image: url('{background}')" data-adaptive-background="1" data-ab-css-background="1">
 {if:else}
 <header class="headline">
 {/if}
@@ -43,8 +43,6 @@
 					<div class="card__body">
 						<div class="event-details">
 							{event_details}
-							{body}
-							{/event_details}
 						</div>
 						{if event_proceeds}
 						<div class="proceeds">
@@ -66,11 +64,32 @@
 					<div class="card__body">
 						<div class="speakers">
 							{event_speakers}
+							
+
 							<div class="speaker">
-								<a href="#" class="speaker__photo">{exp:ce_img:single src="{photo}" allow_scale_larger="yes" width="108" height="108" attributes='alt="{name}"'}</a>
+								<div class="modal">
+								  <label for="modal-{row_id}">
+								    <span class="modal-trigger speaker__photo">
+										{exp:ce_img:single src="{photo}" allow_scale_larger="yes" width="108" height="108" attributes='alt="{name}"'}
+								    </span>
+								  </label>
+								  <input class="modal-state" id="modal-{row_id}" type="checkbox" />
+								  <div class="modal-fade-screen">
+								    <div class="modal-inner">
+								      <div class="modal-close" for="modal-{row_id}"></div>
+								      <h1>{name}</h1>
+								      
+								      <p class="modal-content">{bio}</p>
+								    </div>
+								  </div>
+								</div>
+
+
 								<span class="speaker__name"><a href="#">{name}</a></span>
 								<span class="speaker__meta">{organization}</span>
 							</div>
+
+
 							{/event_speakers}
 						</div>
 					</div>

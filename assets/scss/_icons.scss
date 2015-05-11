@@ -1,19 +1,8 @@
 .iconic--bookmark {
-	path { fill: $red; }
-	.card__header & {
-		width: 22px !important;
-		height: 22px !important;
-	}
-}
-.iconic--rss {
-	path { 
-		stroke: $blue; 
-		fill: $blue;
-	}
-	.card__header & {
-		width: 14px !important;
-		height: 14px !important;
-	}
+	color: $red;
+	position: relative;
+	top:-1px;
+
 }
 
 .iconic--social {

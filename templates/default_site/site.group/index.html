@@ -5,7 +5,7 @@
 <div class="hero">
 	{home_hero}
 	<div class="hero-item" style="background-image: url('{background}');">
-		<div class="hero-content">
+		<div class="hero-content" ng-cloak>
 			<h2>{caption}</h2>
 			<p>{subtext}</p>
 			<div class="hero-cta">
@@ -36,8 +36,8 @@
 					<header class="card__header">
 						<h2>News &amp; Featured Articles</h2>
 						<span class="card-icon card-icon--middle">
-							<a href="#">
-								<img data-src="/assets/svg/rss-alt.svg" class="iconic iconic-sm iconic--rss" alt="rss">
+							<a href="/rss/feed">
+								<span class="iconic" data-glyph="rss-alt"></span>
 							</a>
 						</span>
 					</header>
@@ -119,8 +119,8 @@
 					<header class="card__header text-center">
 						<h2>Upcoming Events</h2>
 						<span class="card-icon card-icon--top">
-							<a href="#">
-								<img data-src="/assets/svg/bookmark.svg" class="iconic iconic-md iconic--bookmark" alt="bookmark">
+							<a href="/rss/event">
+								<span class="iconic iconic-md iconic--bookmark" data-glyph="bookmark"></span>
 							</a>
 						</span>
 					</header>
@@ -130,7 +130,8 @@
 							channel="events"
 							disable="categories|category_fields|member_data|pagination|trackbacks"
 							dynamic="off"
-							date="now;+3 weeks"
+							limit="3"
+							date="now;+8 weeks"
 						}
 						<div class="post post--micro">
 							<div class="post__body">
@@ -143,11 +144,11 @@
 										<time>{event_date:start_date format="%g:%i %A"} - {event_date:end_date format="%g:%i %A"}</time>
 									</div>
 								</div>
-								{event_details}
 								<p class="post-excerpt">
-									{micro_excerpt}
+									{exp:eehive_hacksaw chars="80" append="..."}
+									{event_excerpt text_only="yes"}
+									{/exp:eehive_hacksaw}
 								</p>
-								{/event_details}
 							</div>
 						</div>
 						{/exp:low_events:entries}

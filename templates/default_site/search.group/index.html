@@ -23,11 +23,7 @@
               <h3><a href="{page_url}">{title}</a></h3>
               <div class="results-listing__meta">Found in {low_search_collection_label}</div>
               <p class="results-listing__excerpt">
-                {if low_search_collection_label == "Events"}
-                  {event_details}{micro_excerpt}{/event_details}
-                {if:else}
-                  {low_search_excerpt}
-                {/if}
+                {low_search_excerpt}
               </p>
             </div>
           </div>
