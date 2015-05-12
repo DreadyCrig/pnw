@@ -36,12 +36,6 @@
 			color: $dark-gray;
 		}
 	}
-	.share-bar {
-		@include pad(rem(22) 0);
-		a:first-child {
-			margin-right: 5px;
-		}
-	}
 }
 
 .author__aside, .author-aside {
@@ -131,3 +125,4 @@
 		}
 	}
 }
+

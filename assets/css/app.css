@@ -4737,6 +4737,26 @@ body.stop-scrolling {
       width: 65px;
       position: relative; }
 
+.share-bar {
+  padding: 1.375rem 0; }
+
+.hj_social_bookmarks {
+  padding: 0;
+  margin: 0; }
+  .hj_social_bookmarks::after {
+    clear: both;
+    content: "";
+    display: table; }
+  .hj_social_bookmarks li {
+    list-style: none;
+    float: left;
+    margin-right: 10px; }
+    .hj_social_bookmarks li img {
+      width: 128px;
+      height: 36px; }
+    .hj_social_bookmarks li.last {
+      margin-right: 0; }
+
 .search {
   background-color: #fff; }
   .search .form-group {
@@ -5542,10 +5562,6 @@ input.login-field {
     .article blockquote p {
       margin: 0;
       color: #3B3D40; }
-  .article .share-bar {
-    padding: 1.375rem 0; }
-    .article .share-bar a:first-child {
-      margin-right: 5px; }
 
 .author__aside, .author-aside {
   float: left;
