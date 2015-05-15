@@ -8,6 +8,9 @@
 	&__intro {
 		@include span-columns(6);
 		@include pad(0 30px 0 0);
+		.lead {
+			font-weight: 600;
+		}
 	}
 
 	&__faq {
@@ -15,6 +18,9 @@
 	}
 	.faqs {
 		margin: 2em 0;
+		&--resources {
+			margin-top: 0;
+		}
 	}
 }
 

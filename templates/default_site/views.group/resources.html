@@ -1,0 +1,36 @@
+{layout="layouts/index" bg="alt-bg"}
+
+{exp:channel:entries
+	disable="categories|category_fields|member_data|pagination|trackbacks"
+}
+<header class="headline">
+	<div class="headline__content">
+		<h1>{title}</h1>
+	</div>
+</header>
+
+<main class="main main--white">
+	<div class="main-container">
+		<div class="j1">
+			<div class="j1__intro">
+				{resources_body}
+			</div>
+			<div class="j1__body">
+				<div class="j1__faq">
+					<div class="faqs faqs--resources">
+						<ang-accordion one-at-a-time="true">
+				      {resource_sections}
+				      <collapsible-item title="{label}">
+				        <div ng-cloak class="collapse-body">
+				        	{content}
+				        </div>
+				      </collapsible-item>
+				     {/resource_sections}
+				    </ang-accordion>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</main>
+{/exp:channel:entries}

@@ -14,7 +14,7 @@
 IndexIgnore *
 
 # EE 404 page for missing pages
-ErrorDocument 404 /index.php?/
+ErrorDocument 404 /index.php?/site/404
 
 # Simple 404 for missing files
 <FilesMatch "(\.jpe?g|gif|png|bmp)$">

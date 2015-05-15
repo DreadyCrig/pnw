@@ -72,11 +72,7 @@
 									<div class="post-date">Posted on: {entry_date format="%F %d, %Y"}</div>
 								</div>
 								<div class="post-excerpt">
-									{article_body}
-										{textarea}
-											{value}
-										{/textarea}
-									{/article_body}
+									{article_excerpt}
 								</div>
 							</div>
 						</div>
@@ -130,8 +126,9 @@
 							channel="events"
 							disable="categories|category_fields|member_data|pagination|trackbacks"
 							dynamic="off"
-							limit="3"
-							date="now;+8 weeks"
+							limit="4"
+							{!-- date="now;+8 weeks" --}
+							unit="custom" date_from="-6 weeks" date_to="+6 weeks"
 						}
 						<div class="post post--micro">
 							<div class="post__body">

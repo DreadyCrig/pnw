@@ -28,7 +28,7 @@
 }
 
 .hj_social_bookmarks {
-	padding: 0;
+	padding: 0 !important;
 	margin: 0;
 	@include clearfix();
 	li {

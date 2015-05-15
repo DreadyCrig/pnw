@@ -17,6 +17,15 @@
   $modal-image-width: $modal-image-height;
   $modal-trigger-image-width: 300px;
 
+  ul {
+    margin-top: 1.5em;
+    list-style: disc;
+    padding-left: rem(20);
+    li {
+      margin-bottom: .5em;
+    }
+  }
+
   label {
     cursor: pointer;
     margin-bottom: 0;
@@ -43,9 +52,10 @@
     text-align: left;
     visibility: hidden;
     z-index: 99999999999;
-
+    overflow: hidden;
+    outline: 0;
     @include media($large-screen) {
-      padding-top: 10em;
+      padding-top: 6em;
     }
 
     .modal-bg {
@@ -142,6 +152,8 @@
   .modal-state:checked + .modal-fade-screen {
     opacity: 1;
     visibility: visible;
+    overflow-x: hidden;
+    overflow-y: auto;
   }
 
   .modal-state:checked + .modal-fade-screen .modal-inner {

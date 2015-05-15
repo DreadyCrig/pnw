@@ -924,6 +924,19 @@ body.alt-bg {
   margin-top: .5em;
   font-weight: 600; }
 
+.join__header {
+  margin-bottom: 3em; }
+  .join__header h2 {
+    text-transform: uppercase;
+    text-align: center;
+    color: #4577AA; }
+  .join__header p {
+    font-size: 1.125rem;
+    max-width: 580px;
+    text-align: center;
+    margin-bottom: 2em;
+    margin: auto; }
+
 .signup-breadcrumb, .profile-tabbar {
   background-color: #01243D; }
   .signup-breadcrumb::after, .profile-tabbar::after {
@@ -4741,7 +4754,7 @@ body.stop-scrolling {
   padding: 1.375rem 0; }
 
 .hj_social_bookmarks {
-  padding: 0;
+  padding: 0 !important;
   margin: 0; }
   .hj_social_bookmarks::after {
     clear: both;
@@ -5199,6 +5212,13 @@ body.stop-scrolling {
 .atc-style-blue .atcb-item:hover {
   background: #4577AA; }
 
+.modal ul {
+  margin-top: 1.5em;
+  list-style: disc;
+  padding-left: 1.25rem; }
+  .modal ul li {
+    margin-bottom: .5em; }
+
 .modal label {
   cursor: pointer;
   margin-bottom: 0; }
@@ -5225,10 +5245,12 @@ body.stop-scrolling {
   padding-top: 0.6em;
   text-align: left;
   visibility: hidden;
-  z-index: 99999999999; }
+  z-index: 99999999999;
+  overflow: hidden;
+  outline: 0; }
   @media screen and (min-width: 53.75em) {
     .modal .modal-fade-screen {
-      padding-top: 10em; } }
+      padding-top: 6em; } }
   .modal .modal-fade-screen .modal-bg {
     position: absolute;
     top: 0px;
@@ -5321,7 +5343,9 @@ body.stop-scrolling {
 
 .modal .modal-state:checked + .modal-fade-screen {
   opacity: 1;
-  visibility: visible; }
+  visibility: visible;
+  overflow-x: hidden;
+  overflow-y: auto; }
 
 .modal .modal-state:checked + .modal-fade-screen .modal-inner {
   top: 0.5em; }
@@ -5716,6 +5740,8 @@ input.login-field {
     padding: 0 30px 0 0; }
     .j1__intro:last-child {
       margin-right: 0; }
+    .j1__intro .lead {
+      font-weight: 600; }
   .j1__faq {
     float: left;
     display: block;
@@ -5725,6 +5751,8 @@ input.login-field {
       margin-right: 0; }
   .j1 .faqs {
     margin: 2em 0; }
+    .j1 .faqs--resources {
+      margin-top: 0; }
 
 .collapsible-item {
   margin-bottom: 2px; }
