@@ -39,3 +39,11 @@
 		}
 	}
 }
+.flickity-page-dots {
+    .dot {
+        display:none;
+    }
+    .dot:nth-child(4n+1){
+        display:inline-block;
+    }     
+}

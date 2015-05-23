@@ -3817,6 +3817,17 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/assets\/img\/images\/_thumbs\/stock-photo-53140402-woman-in-a-creative-office.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 3431,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/stock-photo-53140402-woman-in-a-creative-office.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/stock-photo-53140402-woman-in-a-creative-office.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/assets\/img\/images\/_thumbs\/uk-vote.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
@@ -4110,6 +4121,17 @@
 		"initialSize": 114624,
 		"inputAbbreviatedPath": "\/assets\/img\/images\/startup-weekend@2x.png",
 		"outputAbbreviatedPath": "\/assets\/img\/images\/startup-weekend@2x.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/stock-photo-53140402-woman-in-a-creative-office.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 104250,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/stock-photo-53140402-woman-in-a-creative-office.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/stock-photo-53140402-woman-in-a-creative-office.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
