@@ -27,7 +27,7 @@ _thumbs/
 
 # Codekit
 .codekit-cache
-#config.codekit
+config.codekit
 
 #PHPStorm
 *.iml
@@ -35,3 +35,5 @@ _thumbs/
 .idea/
 # Local Database File
 #env/config.local.php
+
+admin/expressionengine/cache/current_version
