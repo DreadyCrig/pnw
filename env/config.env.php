@@ -21,7 +21,7 @@ if ( ! defined('ENV'))
 			define('ENV_DEBUG', FALSE);
 		break;
 
-		case 'pnw-stg.advento.io' :
+		case 'stg.babcpnw.org' :
 			define('ENV', 'stage');
 			define('ENV_FULL', 'Staging');
 			define('ENV_DEBUG', FALSE);
