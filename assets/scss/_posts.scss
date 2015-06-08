@@ -82,7 +82,7 @@
 
 .post--event {
 	.post-title {
-		@include span-columns(8);
+		@include span-columns(7);
 		margin-bottom: 0;
 		@include pad(25px 20px 12px);
 	}

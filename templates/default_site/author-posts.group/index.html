@@ -18,7 +18,7 @@
 							<div class="author__links">
 								
 								{visitor:member_social_links}
-								<a href="{url}">
+								<a href="{service_url}" target="_blank">
 									<span class="iconic" data-glyph="social-{service}" aria-hidden="true"></span>
 								</a>
 								{/visitor:member_social_links}
@@ -30,9 +30,9 @@
 					<footer class="card__footer card__footer--sm text-center">
 						<span class="emphasis">
 							{exp:channel:entries
-								channel="news"
+								channel="news|columns"
 								disable="custom_fields|pagination|category_fields|member_data|trackbacks"
-								author_id="14"
+								author_id="{segment_2}"
 								dynamic="off"
 							}
 							{if count == "1"}
@@ -47,10 +47,10 @@
 				<!-- Events -->
 				<div class="card">
 					{exp:channel:entries
-						channel="news"
+						channel="news|columns"
 						disable="category_fields|member_data|trackbacks"
 						limit="10"
-						author_id="14"
+						author_id="{segment_2}"
 						dynamic="off"
 					}
 					{if count == "1"}

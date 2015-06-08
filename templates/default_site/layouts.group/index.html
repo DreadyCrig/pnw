@@ -11,7 +11,7 @@
     <link href="/assets/css/app.css" rel="stylesheet">
     {if layout:editorial == "yes"}
       {exp:channel:entries
-        channel="news"
+        channel="news|columns"
         disable="categories|category_fields|member_data|pagination|trackbacks"
         dynamic="off"
         entry_id="{layout:entry_id}"
@@ -48,10 +48,13 @@
     
     <script src="/assets/js/vendor/angular.min.js"></script>
     <script src="/assets/js/vendor/angular-animate.min.js"></script>
+    <script src="/assets/js/vendor/angular.route.min.js"></script>
     <script src="{exp:charge:stripe_js}"></script>
     <script src="{exp:charge:js}"></script>
     <script src="/assets/js/vendor/iconic.min.js"></script>
     <script src="/assets/js/vendor/flickity.min.js"></script>
+    <script src="/assets/js/vendor/galleria/galleria-1.4.2.min.js"></script>
+    <script src="/assets/js/vendor/galleria/themes/classic/galleria.classic.min.js"></script>
     <script src="/assets/js/vendor/jquery.form.min.js"></script>
     <script src="/assets/js/vendor/sweetalert.min.js"></script>
     <script src="/assets/js/vendor/bghint.js"></script>

@@ -156,6 +156,11 @@ $config['upload_preferences'] = array(
         'name'        => 'Member Photos',
         'server_path' => $base_path . '/assets/img/member-photos/',
         'url'         => $base_url  . '/assets/img/member-photos/'
+    ),
+    10 => array(
+        'name'        => 'Galleries',
+        'server_path' => $base_path . '/assets/img/galleries/',
+        'url'         => $base_url  . '/assets/img/galleries/'
     )
 );
 

@@ -23,7 +23,11 @@
 			<div class="headline__meta">
 				<span class="date">
 					<span class="iconic" data-glyph="calendar" aria-hidden="true"></span> 
-					{event_date:start_date format="%l, %F %d%S"} - {event_date:start_date format="%g:%i %A"} to {event_date:end_date format="%g:%i %A"}
+					{event_date:start_date format="%l, %F %d%S"} 
+					{if "{event_date:all_day}" == "y"}
+					{if:else}
+					- {event_date:start_date format="%g:%i %A"} to {event_date:end_date format="%g:%i %A"}
+					{/if}
 				</span>
 				<div class="save-the-date">
 				</div>
@@ -64,8 +68,6 @@
 					<div class="card__body">
 						<div class="speakers">
 							{event_speakers}
-							
-
 							<div class="speaker">
 								<div class="modal">
 								  <label for="modal-{row_id}">
@@ -83,13 +85,11 @@
 								    </div>
 								  </div>
 								</div>
-
-
-								<span class="speaker__name"><a href="#">{name}</a></span>
+								<span class="speaker__name">
+									<a href="#">{name}</a>
+								</span>
 								<span class="speaker__meta">{organization}</span>
 							</div>
-
-
 							{/event_speakers}
 						</div>
 					</div>
@@ -268,20 +268,28 @@
 								{address}
 							</address>
 							<time>
-								{event_date:start_date format="%l, %F %d%S"} - {event_date:start_date format="%g:%i %A"} to {event_date:end_date format="%g:%i %A"}
+								{event_date:start_date format="%l, %F %d%S"} 
+								<br>
+								{if "{event_date:all_day}" == "y"}
+								{if:else}
+								{event_date:start_date format="%g:%i %A"} to {event_date:end_date format="%g:%i %A"}
+								{/if}
+
 							</time>
-							<span class="addtocalendar atc-style-blue">
-				        <var class="atc_event">
-			            <var class="atc_date_start">{event_date:start_date format="%Y-%m-%d %G:%i:00"}</var>
-			            <var class="atc_date_end">{event_date:end_date format="%Y-%m-%d %G:%i:00"}</var>
-			            <var class="atc_timezone">America/Los_Angeles</var>
-			            <var class="atc_title">{title}</var>
-			            <var class="atc_description">{event_details}{micro_excerpt}{/event_details}</var>
-			            <var class="atc_location">{name}, {address}</var>
-			            <var class="atc_organizer">BABC PNW</var>
-			            <var class="atc_organizer_email">events@babcpnw.org</var>
-				        </var>
-    					</span>
+							<div>
+								<span class="addtocalendar atc-style-blue">
+					        <var class="atc_event">
+				            <var class="atc_date_start">{event_date:start_date format="%Y-%m-%d %G:%i:00"}</var>
+				            <var class="atc_date_end">{event_date:end_date format="%Y-%m-%d %G:%i:00"}</var>
+				            <var class="atc_timezone">America/Los_Angeles</var>
+				            <var class="atc_title">{title}</var>
+				            <var class="atc_description">{event_details}{micro_excerpt}{/event_details}</var>
+				            <var class="atc_location">{name}, {address}</var>
+				            <var class="atc_organizer">BABC PNW</var>
+				            <var class="atc_organizer_email">events@babcpnw.org</var>
+					        </var>
+	    					</span>
+							</div>
 						</div>
 						{/event_venue}
 					</div>

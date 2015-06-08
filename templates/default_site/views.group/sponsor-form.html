@@ -1,0 +1,55 @@
+{layout="layouts/index"}
+{exp:channel:entries
+	disable="categories|category_fields|member_data|pagination|trackbacks"
+}
+<header class="headline">
+	<div class="headline__content">
+		<h1>{title}</h1>
+	</div>
+</header>
+<main class="main main--white">
+	<div class="main-container">
+		<div class="about">
+			<div class="about__body">
+				<div class="babc-intro">
+					{page_body}
+				</div>
+				<div class="sponsor-form-wrapper" style="width:85%">
+					<div class="card">
+						<div class="card__body">
+							{exp:freeform:form form:class="sponsor-form" form_name="sponsor_form" required="full_name|email|phone"}
+								<div class="form-group">
+							    <label for="fullName">Full Name</label>
+							    <input type="text" class="form-control" id="fullName" placeholder="Enter your full name" name="full_name">
+							  </div>
+							  <div class="form-group">
+							    <label for="email">Email</label>
+							    <input type="email" class="form-control" id="email" placeholder="Enter your email" name="email">
+							  </div>
+							  <div class="form-group">
+							    <label for="phone">Phone</label>
+							    <input type="text" class="form-control" id="phone" placeholder="Enter your phone" name="phone">
+							  </div>
+								<div class="form-group">
+							    <label for="contactComment">Your Comment</label>
+							    <textarea name="user_message" id="contactComment" cols="30" rows="7"></textarea>
+							  </div>
+							  <div class="form-group">
+							    <div class="form-control">
+							    	<button type="submit" class="btn">Submit Inquiry</button>
+							    </div>
+							  </div>
+							{/exp:freeform:form}
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="about__aside">
+				{page_aside}
+				{embed="partials/_testimonial-card" entry_id="{entry_id}"}
+				{/page_aside}
+			</div>
+		</div>
+	</div>
+</main>
+{/exp:channel:entries}

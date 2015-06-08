@@ -5,6 +5,7 @@
 <div class="hero">
 	{home_hero}
 	<div class="hero-item" style="background-image: url('{background}');">
+		<div class="hero__overlay" style="background-color: rgba(17, 17, 17, 0.{overlay});" ng-cloak></div>
 		<div class="hero-content" ng-cloak>
 			<h2>{caption}</h2>
 			<p>{subtext}</p>
@@ -83,6 +84,10 @@
 					</footer>
 				</div>
 				<!-- Member Opportunities -->
+				{exp:channel:entries
+					disable="categories|category_fields|member_data|pagination|trackbacks"
+				}
+				{if home_opportunities}
 				<div class="card member-opportunities">
 					<header class="card__header">
 						<h2>Member Opportunities</h2>
@@ -90,9 +95,6 @@
 
 					<div class="card__body card__body--padded">
 						<div class="card__carousel">
-							{exp:channel:entries
-								disable="categories|category_fields|member_data|pagination|trackbacks"
-							}
 							{home_opportunities}
 							{opportunity_ad}
 							<div class="carousel-item">
@@ -104,10 +106,12 @@
 							</div>
 							{/opportunity_ad}
 							{/home_opportunities}
-							{/exp:channel:entries}
+							
 						</div>
 					</div>
 				</div>
+				{/if}
+				{/exp:channel:entries}
 			</div>
 
 			<aside class="home-aside">
@@ -127,8 +131,8 @@
 							disable="categories|category_fields|member_data|pagination|trackbacks"
 							dynamic="off"
 							limit="4"
-							{!-- date="now;+8 weeks" --}
-							unit="custom" date_from="-6 weeks" date_to="+6 weeks"
+							<!-- date="now;+180 weeks" -->
+							unit="custom" date_from="-2 weeks" date_to="+72 weeks"
 						}
 						<div class="post post--micro">
 							<div class="post__body">
@@ -138,7 +142,10 @@
 								<div class="post-meta">
 									<div class="post-date">
 										{event_date:start_date format="%F %d"}
+										{if "{event_date:all_day}" == "y"}
+										{if:else}
 										<time>{event_date:start_date format="%g:%i %A"} - {event_date:end_date format="%g:%i %A"}</time>
+										{/if}
 									</div>
 								</div>
 								<p class="post-excerpt">

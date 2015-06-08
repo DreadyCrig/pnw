@@ -19,7 +19,7 @@
 							channel="events"
 							disable="categories|category_fields|member_data|trackbacks"
 							dynamic="off"
-							unit="custom" date_from="-6 weeks" date_to="+6 weeks"
+							unit="custom" date_from="-2 weeks" date_to="+72 weeks"
 							show_passed="yes"
 						}
 						<div class="post post--event post--event--{event_type} post--with-thumb">
@@ -34,7 +34,13 @@
 								</h3>
 								<time class="event-date">
 									<div class="day">{event_date:start_date format="%l, %F %d%S"}</div>
-									<div class="time">{event_date:start_date format="%g:%i %A"} - {event_date:end_date format="%g:%i %A"}</div>
+									<div class="time">
+									{if "{event_date:all_day}" == "y"}
+										Time to be announced
+										{if:else}
+										{event_date:start_date format="%g:%i %A"} - {event_date:end_date format="%g:%i %A"}
+									{/if}
+									</div>
 								</time>
 							</header>
 							<div class="post--event__body">

@@ -2,6 +2,13 @@
 .hero {
   height: 500px;
   background-color: $blue;
+  position: relative;
+}
+
+.hero__overlay {
+	position: absolute;
+	width: 100%;
+	min-height: 500px;
 }
 
 /* cell inherit height from gallery */

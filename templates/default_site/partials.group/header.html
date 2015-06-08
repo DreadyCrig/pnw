@@ -50,12 +50,12 @@
 					</div>
 					{if:else}
 					<div class="login" ng-show="loginVisible" ng-cloak >
-						{exp:zoo_visitor:login_form error_handling="inline" id="loginForm"}
+						{exp:zoo_visitor:login_form error_handling="inline" id="loginForm" json="yes"}
 						<div class="form-group">
 							<input id="username" name="username" type="text" class="login-field" placeholder="Email">
 							<input id="password" name="password" type="password" class="login-field" placeholder="Password">
-							<button class="btn btn--rounded btn--secondary">Sign In</button> 
-							<span class="btn btn--outline btn--rounded" ng-click="hideLogin()">Cancel</span>
+							<button class="btn btn--rounded btn--secondary">Sign In</button>
+							<span class="btn btn--outline btn--rounded" ng-click="loginVisible = false">Cancel</span>
 						</div>
 						{error:login}
 						{/exp:zoo_visitor:login_form}

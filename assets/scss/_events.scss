@@ -213,7 +213,7 @@
 	border-bottom: 1px solid #eee;
 }
 
-.rsvp-form {
+.rsvp-form, .sponsor-form {
 	@include pad(rem(20));
 	background-color: #fafafa;
 }

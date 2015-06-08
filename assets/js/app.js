@@ -4,7 +4,7 @@ app = angular.module('app', ['angAccordion', 'ngAnimate', 'ng']);
 
 app.controller('loginCtrl', [
   '$scope',
-  function($scope){
+  function($scope, $route, $http){
     $scope.loginVisible = false;
     $scope.showLogin = function(){
       $scope.loginVisible = true;
@@ -12,12 +12,30 @@ app.controller('loginCtrl', [
     $scope.hideLogin = function(){
       $scope.loginVisible = false;
     };
-    $scope.submitItcpr = function(){
-      alert('ok');
-      return false;
-    };
   }
 ]);
+
+// Login Intercept
+// Step 1: Intercept form submission
+$('#loginForm').ajaxForm({
+  dataType: 'json',
+  success: function(data) {
+    // Step 2: If successful, return to page
+    if (data.success) {
+      location.reload();
+    } else {
+      swal({
+        title: "Login Error",
+        text: data.errors.login,
+        type: "error",
+        html: true
+      });
+    }
+  }
+});
+
+
+
 
 var hero = document.querySelector('.hero');
 var heroFlick = new Flickity( hero, {
@@ -44,7 +62,7 @@ $(function() {
     autoPlay: 3000
   });
 
-  // Newsletter SignUp
+  // Inquiry Form Handlers
   $('.newsletter__form').ajaxForm({
     target: ".newsletter-response"
   });
@@ -55,6 +73,10 @@ $(function() {
   $('.rsvp-form').ajaxForm({
     dataType: 'json',
     success: processRsvpRequest
+  });
+  $('.sponsor-form').ajaxForm({
+    dataType: 'json',
+    success: processSponsorRequest
   });
 
   function processContactRequest(data) {
@@ -70,6 +92,23 @@ $(function() {
       swal({
         title: "Thank You",
         text: "We have successfuly received your contact request",
+        type: "success"
+      });
+    }
+  }
+  function processSponsorRequest(data) {
+    if (data.success == false) {
+      swal({
+        title: "Oops, something went wrong!",
+        text: "Please ensure that you've entered your full name, <br>and a valid email address.",
+        type: "error",
+        html: true
+      });
+
+    } else {
+      swal({
+        title: "Thank You",
+        text: "We have successfuly received your sponsor inquiry",
         type: "success"
       });
     }
@@ -109,6 +148,13 @@ $(function() {
     $(".modal-inner").on("click", function(e) {
       e.stopPropagation();
     });
+  });
+
+  $('.speaker__name').each(function(e){
+    $(this).click(function(e) {
+      e.preventDefault();
+      $(this).parents('.speaker').find('.modal label').trigger("click");
+    })
   });
 
   $.adaptiveBackground.run();

@@ -1,0 +1,10 @@
+{exp:channel:entries
+	channel="events"
+	disable="categories|category_fields|member_data|pagination|trackbacks"
+	dynamic="off"
+}
+
+{title} | {event_date:all_day} {if "{event_date:all_day}" == "y"}yes{if:else}no{/if}<br>
+
+	
+{/exp:channel:entries}
