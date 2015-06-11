@@ -159,4 +159,11 @@ $(function() {
 
   $.adaptiveBackground.run();
 
+  // Adapt Headline Text
+  $(".fit-text").fitText(1.2, { minFontSize: '20px', maxFontSize: '32px' });
+  $(".headline__content h1").fitText(1.2, { minFontSize: '2.625rem', maxFontSize: '54px' });
+
+  // Mask phone numbers
+  $("#member_phone").mask("(999) 999-9999");
+
 });

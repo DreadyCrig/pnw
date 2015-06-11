@@ -3403,6 +3403,17 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/assets\/img\/banners\/_thumbs\/atavus-banner.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 3154,
+		"inputAbbreviatedPath": "\/assets\/img\/banners\/_thumbs\/atavus-banner.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/banners\/_thumbs\/atavus-banner.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/assets\/img\/banners\/_thumbs\/christmas-luncheon.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
@@ -3544,6 +3555,17 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/assets\/img\/banners\/atavus-banner.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 130680,
+		"inputAbbreviatedPath": "\/assets\/img\/banners\/atavus-banner.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/banners\/atavus-banner.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/assets\/img\/banners\/christmas-luncheon.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
@@ -3581,7 +3603,7 @@
 		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 105690,
+		"initialSize": 196928,
 		"inputAbbreviatedPath": "\/assets\/img\/banners\/magna-carta-1.jpg",
 		"outputAbbreviatedPath": "\/assets\/img\/banners\/magna-carta-1.jpg",
 		"outputPathIsOutsideProject": 0,
@@ -3636,7 +3658,7 @@
 		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 294743,
+		"initialSize": 1.96106e+06,
 		"inputAbbreviatedPath": "\/assets\/img\/banners\/sightlife-hero.jpg",
 		"outputAbbreviatedPath": "\/assets\/img\/banners\/sightlife-hero.jpg",
 		"outputPathIsOutsideProject": 0,
@@ -3923,6 +3945,17 @@
 		"initialSize": 2689,
 		"inputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/aerospace-thumb.jpg",
 		"outputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/aerospace-thumb.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/_thumbs\/atavus-logo.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2871,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/atavus-logo.png",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/atavus-logo.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -4328,6 +4361,17 @@
 		"initialSize": 47735,
 		"inputAbbreviatedPath": "\/assets\/img\/images\/aerospace-thumb.jpg",
 		"outputAbbreviatedPath": "\/assets\/img\/images\/aerospace-thumb.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/atavus-logo.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 17689,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/atavus-logo.png",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/atavus-logo.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -5340,6 +5384,17 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
+	"\/assets\/img\/member-photos\/_thumbs\/robin-1.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2802,
+		"inputAbbreviatedPath": "\/assets\/img\/member-photos\/_thumbs\/robin-1.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/member-photos\/_thumbs\/robin-1.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/assets\/img\/member-photos\/_thumbs\/robin.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
@@ -5358,6 +5413,17 @@
 		"initialSize": 223138,
 		"inputAbbreviatedPath": "\/assets\/img\/member-photos\/catherine.jpg",
 		"outputAbbreviatedPath": "\/assets\/img\/member-photos\/catherine.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/member-photos\/robin-1.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 82479,
+		"inputAbbreviatedPath": "\/assets\/img\/member-photos\/robin-1.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/member-photos\/robin-1.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -5712,6 +5778,17 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/assets\/img\/staff-photos\/_thumbs\/denise.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2631,
+		"inputAbbreviatedPath": "\/assets\/img\/staff-photos\/_thumbs\/denise.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/staff-photos\/_thumbs\/denise.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/assets\/img\/staff-photos\/_thumbs\/erin.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
@@ -5926,6 +6003,17 @@
 		"initialSize": 223138,
 		"inputAbbreviatedPath": "\/assets\/img\/staff-photos\/catherine.jpg",
 		"outputAbbreviatedPath": "\/assets\/img\/staff-photos\/catherine.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/staff-photos\/denise.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 19049,
+		"inputAbbreviatedPath": "\/assets\/img\/staff-photos\/denise.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/staff-photos\/denise.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -6417,12 +6505,34 @@
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
 		},
+	"\/assets\/js\/vendor\/jquery.fittext.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/assets\/js\/vendor\/jquery.fittext.js",
+		"outputAbbreviatedPath": "\/assets\/js\/vendor\/assets\/js\/jquery.fittext.min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 0
+		},
 	"\/assets\/js\/vendor\/jquery.form.min.js": {
 		"fileType": 64,
 		"ignore": 1,
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/assets\/js\/vendor\/jquery.form.min.js",
 		"outputAbbreviatedPath": "\/assets\/js\/vendor\/assets\/js\/jquery.form.min.min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 0
+		},
+	"\/assets\/js\/vendor\/mask-input.min.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/assets\/js\/vendor\/mask-input.min.js",
+		"outputAbbreviatedPath": "\/assets\/js\/vendor\/assets\/js\/mask-input.min.min.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,
@@ -9666,6 +9776,15 @@
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/templates\/default_site\/layouts.group\/index.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/templates\/default_site\/members.group\/import.html": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/templates\/default_site\/members.group\/import.html",
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0

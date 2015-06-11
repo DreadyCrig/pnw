@@ -1,0 +1,74 @@
+{layout="layouts/index" bg="alt-bg"}
+
+<main class="main main--white">
+	<div class="main-container">
+		{exp:zoo_visitor:registration_form error_handling="inline" allowed_groups="6" return="/members/import"}
+
+      <input type="hidden" value="6" name="group_id">
+      <input id="password" name="password" type="hidden" value="indimember" />
+      <input id="password_confirm" name="password_confirm" type="hidden" value="indimember" />
+      <select name="member_title" class="account-member-title form-control">
+				<option value="mr" selected>Mr.</option>
+				<option value="ms">Ms.</option>
+				<option value="mrs">Mrs.</option>
+				<option value="dr">Dr.</option>
+			</select>
+			
+			<div class="inline-form-group">
+	      <div class="form-group form-group--half">
+	      	<label for="member_first_name">First Name:</label>
+	      	<input class="form-control" id="member_first_name" name="member_first_name" type="text" value="" />
+	      	{error:member_first_name}
+	      </div>
+	      <div class="form-group form-group--half">
+	      	<label for="member_last_name">Last Name:</label>
+	      	<input class="form-control" id="member_last_name" name="member_last_name" type="text" value="" />
+	      	{error:member_last_name}
+	      </div>
+
+	    </div>
+
+      <div class="inline-form-group">
+			  <div class="form-group form-group--half">
+			    <label for="Company">Company</label>
+			    <input type="text" class="form-control" id="company" placeholder="Enter your company" name="member_company">
+			  </div>
+		  </div>
+		  <div class="form-group">
+		    <label for="address">Address</label>
+		    <input type="text" class="form-control" id="address" placeholder="Enter your street address" name="member_address">
+		  </div>
+		  <div class="inline-form-group">
+			  <div class="form-group form-group--3-quarters--lg">
+			  	<label for="city">City &amp; State</label>
+			  	<input type="text" class="form-control city" id="city" placeholder="Enter your city" name="member_city"> 
+			  	<select name="member_state" id="state" class="state">
+			  		{exp:reegion_select:states}
+						<option value="{region_alpha2}">{region_name}</option>
+			  		{/exp:reegion_select:states}
+			  	</select>
+			  </div>
+			  <div class="form-group form-group--1-quarter--sm">
+			  	<label for="zip">Zip Code</label>
+			  	<input type="text" class="form-control zip" id="zip" placeholder="Zip" name="member_zip"> 
+			  </div>
+		  </div>
+
+      Phone: <input id="member_phone" name="member_phone" type="text" value="" />
+      {error:member_phone}
+
+      <div class="form-group form-group--half">
+	      <label for="email">Email: </label>
+	      <input id="email" name="email" type="text" value="" class="form-control" />
+	      {error:email}
+      </div>
+
+
+
+      <input class="form-submit" type="submit" value="Register" />
+
+		{/exp:zoo_visitor:registration_form}
+	</div>
+</main>
+
+<link href="{path=css/_ee_channel_form_css}" type="text/css" rel="stylesheet" media="screen">

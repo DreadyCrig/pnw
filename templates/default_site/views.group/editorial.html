@@ -81,15 +81,18 @@
 						{files}
 							{if kind != "image"}
 							<div class="article__file">
+								{if title OR caption}
 								<div class="file-header">
-									<h4>Sponsor Form</h4>
-									<p>Gain access to our bad ass sponsor form</p>
+									{if title}<h4>{title}</h4>{/if}
+									{if caption}<p>{caption}</p>{/if}
 								</div>
+								{/if}
+
 								<div class="file-body">
 									<a href="{url}" download="{filename}.{extension}" class="btn btn--md btn--secondary btn--rounded">
 										
-										{if title}
-											{title}
+										{if alt_text}
+											{alt_text}
 										{if:else}
 											{filename}.{extension}
 										{/if}
