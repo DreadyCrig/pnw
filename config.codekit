@@ -3658,7 +3658,7 @@
 		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 1.96106e+06,
+		"initialSize": 294743,
 		"inputAbbreviatedPath": "\/assets\/img\/banners\/sightlife-hero.jpg",
 		"outputAbbreviatedPath": "\/assets\/img\/banners\/sightlife-hero.jpg",
 		"outputPathIsOutsideProject": 0,
@@ -6132,7 +6132,7 @@
 		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 40281,
+		"initialSize": 64736,
 		"inputAbbreviatedPath": "\/assets\/img\/staff-photos\/stephen.jpg",
 		"outputAbbreviatedPath": "\/assets\/img\/staff-photos\/stephen.jpg",
 		"outputPathIsOutsideProject": 0,
@@ -9767,6 +9767,15 @@
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/templates\/default_site\/join.group\/payment-error.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/templates\/default_site\/join.group\/test.html": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/templates\/default_site\/join.group\/test.html",
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
