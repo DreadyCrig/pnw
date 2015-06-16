@@ -21,6 +21,12 @@ if ( ! defined('ENV'))
 			define('ENV_DEBUG', FALSE);
 		break;
 
+		case 'www.babcpnw.org' :
+			define('ENV', 'prod');
+			define('ENV_FULL', 'Production');
+			define('ENV_DEBUG', FALSE);
+		break;
+
 		case 'stg.babcpnw.org' :
 			define('ENV', 'stage');
 			define('ENV_FULL', 'Staging');
