@@ -3603,7 +3603,7 @@
 		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 196928,
+		"initialSize": 105690,
 		"inputAbbreviatedPath": "\/assets\/img\/banners\/magna-carta-1.jpg",
 		"outputAbbreviatedPath": "\/assets\/img\/banners\/magna-carta-1.jpg",
 		"outputPathIsOutsideProject": 0,
@@ -5937,6 +5937,17 @@
 		"initialSize": 2167,
 		"inputAbbreviatedPath": "\/assets\/img\/staff-photos\/_thumbs\/tom.jpg",
 		"outputAbbreviatedPath": "\/assets\/img\/staff-photos\/_thumbs\/tom.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/staff-photos\/adrian.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 7059,
+		"inputAbbreviatedPath": "\/assets\/img\/staff-photos\/adrian.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/staff-photos\/adrian.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -9767,15 +9778,6 @@
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/templates\/default_site\/join.group\/payment-error.html",
-		"outputAbbreviatedPath": "No Output Path",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0
-		},
-	"\/templates\/default_site\/join.group\/test.html": {
-		"fileType": 8192,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/templates\/default_site\/join.group\/test.html",
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
