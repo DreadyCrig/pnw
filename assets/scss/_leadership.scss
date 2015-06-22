@@ -21,14 +21,20 @@
 	&-sidebar {
 		@include span-columns(3);
 	}
+	&__header {
+		padding-top: 1.25em;
+		margin-bottom: 1.5em;
+	}
+}
+
+.leadership__row--last {
+	margin-bottom: 2em;
 }
 .board-officers {
 	font-weight: 600;
 	border-bottom: 1px solid #eee;
 	border-top: 1px solid #eee;
-	padding-top: 10px;
-	padding-left: 20px;
-	margin-bottom: rem(30);
+	margin-bottom: rem(20);
 }
 .board-officers-chip {
 	display: block;

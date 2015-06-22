@@ -13,10 +13,14 @@
 <main class="main main--white">
 	<div class="main-container">
 		<section class="leadership">
+			<header class="leadership__header">
+				<h2>Board Members</h2>
+			</header>
 			{exp:low_reorder:entries set="board_members"
 				channel="board"
 				disable="categories|category_fields|member_data|pagination|trackbacks"
 				dynamic="off"
+				search:staff_department="=not staff_member|ex_officio"
 			}
 			{switch="<div class='leadership__row'>||"}
 				<div class="leader">
@@ -25,7 +29,13 @@
 							<div class="staff {if staff_officer}staff--officer{/if}">
 								{staff_meta}
 								<div class="staff__picture">
-									<a href="{page_url}"><img src="{photo}" alt="{title}"></a>
+									<a href="{page_url}">
+										{if photo}
+										<img src="{photo}" alt="{title}">
+										{if:else}
+										<img src="/assets/img/staff-avatar.svg" alt="{title}">
+										{/if}
+									</a>
 								</div>
 								{/staff_meta}
 								<div class="staff__meta">
@@ -58,6 +68,105 @@
 					<p><span class="board-officers-chip"></span> Board Officers</p>
 				</div>
 			</div>
+			<header class="leadership__header">
+				<h2>Ex Officio</h2>
+			</header>
+			{exp:low_reorder:entries set="board_members"
+				channel="board"
+				disable="categories|category_fields|member_data|pagination|trackbacks"
+				dynamic="off"
+				search:staff_department="=not staff_member|board_member"
+			}
+			{switch="<div class='leadership__row'>||"}
+				<div class="leader">
+					<div class="card">
+						<div class="card__body">
+							<div class="staff {if staff_officer}staff--officer{/if}">
+								{staff_meta}
+								<div class="staff__picture">
+									<a href="{page_url}">
+										{if photo}
+										<img src="{photo}" alt="{title}">
+										{if:else}
+										<img src="/assets/img/staff-avatar.svg" alt="{title}">
+										{/if}
+									</a>
+								</div>
+								{/staff_meta}
+								<div class="staff__meta">
+									<div class="staff-name">{title}</div>
+									{staff_meta}
+									<div class="staff-company">{company}</div>
+									<div class="staff-title">{role}</div>
+									{/staff_meta}
+								</div>
+								<div class="staff__links">
+									<a href="{page_url}">
+										<span class="iconic" data-glyph="info" aria-hidden="true"></span>
+									</a>
+									{staff_social}
+									<a href="{url}" target="_blank">
+										<span class="iconic" data-glyph="social-{service}" aria-hidden="true"></span>
+									</a>
+									{/staff_social}
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			{if count != total_results}{switch="||</div>"}{/if}
+      {if count == total_results}</div>{/if}
+			{/exp:low_reorder:entries}
+
+			<header class="leadership__header">
+				<h2>Staff Members</h2>
+			</header>
+			{exp:low_reorder:entries set="board_members"
+				channel="board"
+				disable="categories|category_fields|member_data|pagination|trackbacks"
+				dynamic="off"
+				search:staff_department="=not ex_officio|board_member"
+			}
+			{switch="<div class='leadership__row leadership__row--last'>||"}
+				<div class="leader">
+					<div class="card">
+						<div class="card__body">
+							<div class="staff {if staff_officer}staff--officer{/if}">
+								{staff_meta}
+								<div class="staff__picture">
+									<a href="{page_url}">
+										{if photo}
+										<img src="{photo}" alt="{title}">
+										{if:else}
+										<img src="/assets/img/staff-avatar.svg" alt="{title}">
+										{/if}
+									</a>
+								</div>
+								{/staff_meta}
+								<div class="staff__meta">
+									<div class="staff-name">{title}</div>
+									{staff_meta}
+									<div class="staff-company">{company}</div>
+									<div class="staff-title">{role}</div>
+									{/staff_meta}
+								</div>
+								<div class="staff__links">
+									<a href="{page_url}">
+										<span class="iconic" data-glyph="info" aria-hidden="true"></span>
+									</a>
+									{staff_social}
+									<a href="{url}" target="_blank">
+										<span class="iconic" data-glyph="social-{service}" aria-hidden="true"></span>
+									</a>
+									{/staff_social}
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			{if count != total_results}{switch="||</div>"}{/if}
+      {if count == total_results}</div>{/if}
+			{/exp:low_reorder:entries}
 			<div class="leadership__row">
 				{embed="partials/_newsletter-card"}
 			</div>
