@@ -5695,6 +5695,9 @@ body.stop-scrolling {
 .logo {
   display: block;
   padding: 1.5625rem 3.75rem 1.625rem; }
+  .logo img {
+    width: auto;
+    max-height: 89px; }
 
 .global-navigation {
   float: left;

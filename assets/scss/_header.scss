@@ -13,11 +13,14 @@
 .brand {
 	float: left;
 	border-right: 1px solid $lighter-gray;
-	
 }
 
 .logo {
 	display: block;
+	img {
+		width: auto;
+		max-height: 89px;
+	}
 	@include pad(rem(25) rem(60) rem(26));
 	@include media(max-width 1024px) {
 
