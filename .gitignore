@@ -18,7 +18,6 @@ images/uploads/
 # Caches
 sized/
 thumbs/
-_thumbs/
 */expressionengine/cache/*
 #*/expressionengine/config/config.php
 

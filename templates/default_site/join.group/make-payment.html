@@ -69,6 +69,15 @@
 		    <input type="text" class="form-control" id="card_address_zip" name="card_address_zip" placeholder="12345" value="">
 		  </div>
 		</div>
+		<div class="inline-form-group">
+		  <div class="form-group form-group--1-quarters">
+		    <label for="plan_coupon">Promo Code</label>
+		    <input type="text" class="form-control" id="plan_coupon" name="plan_coupon" placeholder="Enter Promo Code" value="{plan_coupon}">
+		    {if error_plan_coupon}
+					<span class="help-text help-text--danger">{error_plan_coupon_message}</span>
+				{/if}
+		  </div>
+		</div>
 	  <div class="form-group form-group--button form-group--center">
 	    <button class="btn btn--secondary" type="submit">Process Payment</button>
 	  </div>

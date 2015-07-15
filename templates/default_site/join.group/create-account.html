@@ -16,12 +16,27 @@
 		</section>
 	</header>
 
-	{exp:zoo_visitor:registration_form return="/join/make-payment/{segment_3}" id="createMemberForm" class="membership-form" include_jquery="no" error_handling="inline"}
+	{exp:zoo_visitor:registration_form 
+		return="/join/make-payment/{segment_3}" 
+		id="createMemberForm" 
+		class="membership-form" 
+		include_jquery="no" 
+		error_handling="inline"
+		error_delimiters="<span class='help-text help-text--danger'>|</span>"
+	}
 		<div class="existing-account">
 			{if error:email}
-				<div class="alert alert--danger alert--no-top-margin">
+				<div class="email-error-msg" style="display:none;">{error:email}</div>
+				<div class="alert alert--danger alert--no-top-margin duplicate-email" style="display:none;">
 					An account with this email already exists. <a href="/login">You can click here</a> if you remember your login or <a href="/recover-password">click here to recover your password</a>.
 				</div>
+				<script>
+					var emailError = $('.email-error-msg').text();
+					if (emailError == "The email you chose is not available") {
+						$('.duplicate-email').show();
+					};
+					
+				</script>
 			{/if}
 		</div>
 		<div class="form-group">
@@ -36,20 +51,24 @@
 			<div class="form-group form-group--half">
 		    <label for="firstName">First Name</label>
 		    <input type="text" class="form-control" id="firstName" placeholder="Enter your first name" name="member_first_name">
+		    {error:member_first_name}
 		  </div>
 		  <div class="form-group form-group--half">
 		    <label for="lastName">Last Name</label>
 		    <input type="text" class="form-control" id="lastName" placeholder="Enter your last name" name="member_last_name">
+		    {error:member_last_name}
 		  </div>
 		</div>
 		<div class="inline-form-group">
 		  <div class="form-group form-group--half">
 		    <label for="email">Email</label>
 		    <input type="email" class="form-control" id="email" placeholder="Enter your email" name="email">
+		    {error:email}
 		  </div>
 		  <div class="form-group form-group--half">
-		    <label for="phone">Phone</label>
-		    <input type="text" class="form-control" id="phone" placeholder="Enter your phone" name="member_phone">
+		    <label for="member_phone">Phone</label>
+		    <input type="text" class="form-control" id="member_phone" placeholder="Enter your phone" name="member_phone">
+		    {error:member_phone}
 		  </div>
 	  </div>
 	  <div class="inline-form-group">
@@ -82,8 +101,23 @@
 		  </div>
 	  </div>
 	  <div class="form-group">
+	    <label for="referred">How did you hear about us?</label>
+	    <select name="member_referral" id="referred">
+	    	<option value="choose-one">Choose One</option>
+	    	<option value="by-member">BABC-PNW Member</option>
+	    	<option value="by-website">BABC-PNW Website</option>
+	    	<option value="by-newsletter">BABC-PNW E-Newsletter</option>
+	    	<option value="by-social">BABC-PNW Facebook Page</option>
+	    	<option value="by-event">Attended an event</option>
+	    	<option value="by-friend">Referred by a friend</option>
+	    	<option value="by-recurrent">Returning/current member</option>
+	    	<option value="by-other">Other</option>
+	    </select>
+	  </div>
+	  <div class="form-group">
 	    <label for="password">Password</label>
 	    <input type="password" class="form-control" id="password" placeholder="Choose password" name="password">
+	    {error:password}
 	  </div>
 	  <div class="form-group form-group--button form-group--center">
 	    <button class="btn btn--secondary" type="submit">Create Account</button>

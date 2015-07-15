@@ -3425,6 +3425,61 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/assets\/img\/banners\/_thumbs\/clipper-banner-2.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 3669,
+		"inputAbbreviatedPath": "\/assets\/img\/banners\/_thumbs\/clipper-banner-2.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/banners\/_thumbs\/clipper-banner-2.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/banners\/_thumbs\/clipper-leg.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2678,
+		"inputAbbreviatedPath": "\/assets\/img\/banners\/_thumbs\/clipper-leg.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/banners\/_thumbs\/clipper-leg.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/banners\/_thumbs\/clipper-roundtheworld.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2946,
+		"inputAbbreviatedPath": "\/assets\/img\/banners\/_thumbs\/clipper-roundtheworld.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/banners\/_thumbs\/clipper-roundtheworld.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/banners\/_thumbs\/clipper-sails-action.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 3875,
+		"inputAbbreviatedPath": "\/assets\/img\/banners\/_thumbs\/clipper-sails-action.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/banners\/_thumbs\/clipper-sails-action.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/banners\/_thumbs\/clipper-sails.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2559,
+		"inputAbbreviatedPath": "\/assets\/img\/banners\/_thumbs\/clipper-sails.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/banners\/_thumbs\/clipper-sails.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/assets\/img\/banners\/_thumbs\/football-rugby-alt.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
@@ -3577,6 +3632,61 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/assets\/img\/banners\/clipper-banner-2.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 363351,
+		"inputAbbreviatedPath": "\/assets\/img\/banners\/clipper-banner-2.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/banners\/clipper-banner-2.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/banners\/clipper-leg.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 1.96314e+06,
+		"inputAbbreviatedPath": "\/assets\/img\/banners\/clipper-leg.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/banners\/clipper-leg.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/banners\/clipper-roundtheworld.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 231869,
+		"inputAbbreviatedPath": "\/assets\/img\/banners\/clipper-roundtheworld.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/banners\/clipper-roundtheworld.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/banners\/clipper-sails-action.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 279189,
+		"inputAbbreviatedPath": "\/assets\/img\/banners\/clipper-sails-action.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/banners\/clipper-sails-action.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/banners\/clipper-sails.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 1.17568e+06,
+		"inputAbbreviatedPath": "\/assets\/img\/banners\/clipper-sails.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/banners\/clipper-sails.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/assets\/img\/banners\/football-rugby-alt.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
@@ -3603,7 +3713,7 @@
 		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 105690,
+		"initialSize": 196928,
 		"inputAbbreviatedPath": "\/assets\/img\/banners\/magna-carta-1.jpg",
 		"outputAbbreviatedPath": "\/assets\/img\/banners\/magna-carta-1.jpg",
 		"outputPathIsOutsideProject": 0,
@@ -3658,7 +3768,7 @@
 		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 294743,
+		"initialSize": 1.96106e+06,
 		"inputAbbreviatedPath": "\/assets\/img\/banners\/sightlife-hero.jpg",
 		"outputAbbreviatedPath": "\/assets\/img\/banners\/sightlife-hero.jpg",
 		"outputPathIsOutsideProject": 0,
@@ -4048,6 +4158,17 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/assets\/img\/images\/_thumbs\/clipper-white-logo.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 1917,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/clipper-white-logo.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/clipper-white-logo.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/assets\/img\/images\/_thumbs\/england.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
@@ -4130,6 +4251,28 @@
 		"initialSize": 2645,
 		"inputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/investment.jpg",
 		"outputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/investment.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/_thumbs\/king-county-thumb.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2732,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/king-county-thumb.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/king-county-thumb.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/_thumbs\/kings-county.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2702,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/kings-county.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/kings-county.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -4332,6 +4475,17 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/assets\/img\/images\/_thumbs\/uk-budget.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2490,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/uk-budget.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/uk-budget.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/assets\/img\/images\/_thumbs\/uk-vote.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
@@ -4372,6 +4526,17 @@
 		"initialSize": 17689,
 		"inputAbbreviatedPath": "\/assets\/img\/images\/atavus-logo.png",
 		"outputAbbreviatedPath": "\/assets\/img\/images\/atavus-logo.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/bab-mag.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 43201,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/bab-mag.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/bab-mag.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -4464,6 +4629,28 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/assets\/img\/images\/clipper-logo.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 22370,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/clipper-logo.png",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/clipper-logo.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/clipper-white-logo.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 5735,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/clipper-white-logo.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/clipper-white-logo.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/assets\/img\/images\/england.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
@@ -4537,6 +4724,28 @@
 		"initialSize": 42875,
 		"inputAbbreviatedPath": "\/assets\/img\/images\/investment.jpg",
 		"outputAbbreviatedPath": "\/assets\/img\/images\/investment.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/king-county-thumb.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 23650,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/king-county-thumb.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/king-county-thumb.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/kings-county.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 16284,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/kings-county.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/kings-county.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -4735,6 +4944,17 @@
 		"initialSize": 40830,
 		"inputAbbreviatedPath": "\/assets\/img\/images\/trade-map.jpg",
 		"outputAbbreviatedPath": "\/assets\/img\/images\/trade-map.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/uk-budget.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 13973,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/uk-budget.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/uk-budget.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -6069,6 +6289,17 @@
 		"initialSize": 35635,
 		"inputAbbreviatedPath": "\/assets\/img\/staff-photos\/jason.jpg",
 		"outputAbbreviatedPath": "\/assets\/img\/staff-photos\/jason.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/staff-photos\/jason_1.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 17362,
+		"inputAbbreviatedPath": "\/assets\/img\/staff-photos\/jason_1.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/staff-photos\/jason_1.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
