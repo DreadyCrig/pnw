@@ -294,13 +294,14 @@
 						{/event_venue}
 					</div>
 				</div>
-				{if event_sponsorship}
+				{if event_sponsorship OR event_sponsorship_intro}
 				<div class="card">
 					<header class="card__header">
 						<h2>Sponsorship Opportunities</h2>
 					</header>
 					<div class="card__body">
 						<div class="sponsorship">
+							{event_sponsorship_intro}
 							<ul class="sponsorship-list">
 								{event_sponsorship}
 								<li>
@@ -341,7 +342,7 @@
 					</div>
 				</div>
 				{/if}
-				{if event_sponsors}
+				{if event_partners}
 				<div class="card">
 					<header class="card__header">
 						<h2>Partners</h2>

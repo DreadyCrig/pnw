@@ -17,6 +17,7 @@
 					<div class="card__body">
 						{exp:low_events:entries
 							channel="events"
+							limit="5"
 							disable="categories|category_fields|member_data|trackbacks"
 							dynamic="off"
 							unit="custom" date_from="-2 weeks" date_to="+72 weeks"
@@ -83,13 +84,13 @@
 								{previous_page}
 								<li class="previous">
 									<a href="{pagination_url}">
-										<span class="iconic" data-glyph="arrow-left-line-large-oblique" aria-hidden="true"></span> Older
+										<span class="iconic" data-glyph="arrow-left-line-large-oblique" aria-hidden="true"></span> Previous
 									</a>
 								</li>
 								{/previous_page}
 								{next_page}
 	    					<li class="next">
-	    						<a href="{pagination_url}">Newer 
+	    						<a href="{pagination_url}">Next 
 	    							<span class="iconic" data-glyph="arrow-right-line-large-oblique" aria-hidden="true"></span>
 	    						</a>
 	    					</li>

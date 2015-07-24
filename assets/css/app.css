@@ -1111,6 +1111,15 @@ body.alt-bg {
     font-size: 1.25rem; }
   .event-details p {
     padding-right: 2.5rem; }
+  .event-details .lead {
+    font-weight: 600; }
+  .event-details ul {
+    list-style: disc;
+    padding-left: 1.25rem;
+    padding-right: 2.5rem; }
+    .event-details ul li {
+      margin-bottom: 1em;
+      color: #4577AA; }
   .event-details .alert {
     margin-bottom: 0;
     margin-top: 1.25rem;
@@ -1247,7 +1256,8 @@ body.alt-bg {
     .event__aside .sponsors li a, .event__aside .partners li a {
       display: inline-block; }
       .event__aside .sponsors li a img, .event__aside .partners li a img {
-        box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25); }
+        box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
+        max-width: 220px; }
 
 .rsvp-intro {
   padding: 1.25rem;

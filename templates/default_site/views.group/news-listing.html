@@ -19,7 +19,7 @@
 							channel="news"
 							disable="category_fields|member_data|trackbacks"
 							dynamic="off"
-							limit="10"
+							limit="5"
 							{triggers:entries}
 						}
 						<div class="post post--with-thumb">
@@ -58,13 +58,13 @@
 								{previous_page}
 								<li class="previous">
 									<a href="{pagination_url}">
-										<span class="iconic" data-glyph="arrow-left-line-large-oblique" aria-hidden="true"></span> Older
+										<span class="iconic" data-glyph="arrow-left-line-large-oblique" aria-hidden="true"></span> Previous
 									</a>
 								</li>
 								{/previous_page}
 								{next_page}
 	    					<li class="next">
-	    						<a href="{pagination_url}">Newer 
+	    						<a href="{pagination_url}">Next 
 	    							<span class="iconic" data-glyph="arrow-right-line-large-oblique" aria-hidden="true"></span>
 	    						</a>
 	    					</li>
@@ -80,6 +80,8 @@
 			{exp:channel:entries disable="categories|category_fields|member_data|pagination|trackbacks"}
 			<aside class="home-aside">
 				{embed="partials/_column-card"}
+				{embed="partials/_events-card"}
+
 				{page_aside}
 					{if channel_short_name == "testimonials"}
 						{embed="partials/_testimonial-card" entry_id="{entry_id}"}

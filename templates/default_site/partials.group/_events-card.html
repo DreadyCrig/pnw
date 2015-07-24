@@ -1,0 +1,46 @@
+<div class="card">
+	<header class="card__header text-center">
+		<h2>Upcoming Events</h2>
+		<span class="card-icon card-icon--top">
+			<a href="/rss/event">
+				<span class="iconic iconic-md iconic--bookmark" data-glyph="bookmark"></span>
+			</a>
+		</span>
+	</header>
+	<div class="card__body">
+		<!-- Micro Post -->
+		{exp:low_events:entries
+			channel="events"
+			disable="categories|category_fields|member_data|pagination|trackbacks"
+			dynamic="off"
+			limit="4"
+			<!-- date="now;+180 weeks" -->
+			unit="custom" date_from="-2 weeks" date_to="+72 weeks"
+		}
+		<div class="post post--micro">
+			<div class="post__body">
+				<h3 class="post-title">
+					<a href="{page_url}">{title}</a>
+				</h3>
+				<div class="post-meta">
+					<div class="post-date">
+						{event_date:start_date format="%F %d"}
+						{if "{event_date:all_day}" == "y"}
+						{if:else}
+						<time>{event_date:start_date format="%g:%i %A"} - {event_date:end_date format="%g:%i %A"}</time>
+						{/if}
+					</div>
+				</div>
+				<p class="post-excerpt">
+					{exp:eehive_hacksaw chars="80" append="..."}
+					{event_excerpt text_only="yes"}
+					{/exp:eehive_hacksaw}
+				</p>
+			</div>
+		</div>
+		{/exp:low_events:entries}
+	</div>
+	<footer class="card__footer text-center">
+		<a href="/events">More Events</a>
+	</footer>
+</div>
