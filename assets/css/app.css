@@ -5008,7 +5008,8 @@ body.stop-scrolling {
   max-width: 790px;
   margin: auto;
   position: relative;
-  top: 128px; }
+  top: 128px;
+  z-index: 10; }
   .hero-content h2 {
     color: #fff;
     font-size: 3.25rem;
