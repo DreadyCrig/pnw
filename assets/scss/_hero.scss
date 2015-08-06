@@ -3,21 +3,26 @@
   height: 500px;
   background-color: $blue;
   position: relative;
+  overflow: hidden;
 }
 
 .hero__overlay {
 	position: absolute;
 	width: 100%;
-	min-height: 500px;
+	height: 500px;
 }
 
 /* cell inherit height from gallery */
 .hero-item {
 	background-size: cover;
 	background-repeat: no-repeat;
-  height: 100%;
+  height: 500px;
   width: 100%;
   margin: 0;
+}
+
+.is-selected {
+	display: block !important;
 }
 
 .hero-content {
@@ -29,7 +34,7 @@
 	h2 {
 		color: #fff;
 		font-size: rem(52);
-		font-weight: 700;
+		font-weight: 600;
 		margin-bottom: .2em;
 	}
 
