@@ -43,7 +43,7 @@ var heroFlick = new Flickity( hero, {
   cellAlign: 'left',
   contain: true,
   pageDots: false,
-  draggable: false
+  imagesLoaded: true
 });
 
 $(function() {

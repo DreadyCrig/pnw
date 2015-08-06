@@ -7057,7 +7057,7 @@
 		"inputAbbreviatedPath": "\/assets\/js\/app.js",
 		"outputAbbreviatedPath": "\/assets\/js\/assets\/js\/app.min.js",
 		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 1,
+		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 0
 		},
@@ -7166,17 +7166,6 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/assets\/js\/vendor\/bghint.js",
 		"outputAbbreviatedPath": "\/assets\/js\/vendor\/assets\/js\/bghint.min.js",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 1,
-		"syntaxCheckerStyle": 0
-		},
-	"\/assets\/js\/vendor\/flickity.min.js": {
-		"fileType": 64,
-		"ignore": 1,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/assets\/js\/vendor\/flickity.min.js",
-		"outputAbbreviatedPath": "\/assets\/js\/vendor\/assets\/js\/flickity.min.min.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,
