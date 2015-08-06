@@ -3480,6 +3480,17 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/assets\/img\/banners\/_thumbs\/EvF_header_image.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 3200,
+		"inputAbbreviatedPath": "\/assets\/img\/banners\/_thumbs\/EvF_header_image.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/banners\/_thumbs\/EvF_header_image.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/assets\/img\/banners\/_thumbs\/football-rugby-alt.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
@@ -3687,6 +3698,17 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/assets\/img\/banners\/EvF_header_image.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 75859,
+		"inputAbbreviatedPath": "\/assets\/img\/banners\/EvF_header_image.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/banners\/EvF_header_image.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/assets\/img\/banners\/football-rugby-alt.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
@@ -3713,7 +3735,7 @@
 		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 105690,
+		"initialSize": 196928,
 		"inputAbbreviatedPath": "\/assets\/img\/banners\/magna-carta-1.jpg",
 		"outputAbbreviatedPath": "\/assets\/img\/banners\/magna-carta-1.jpg",
 		"outputPathIsOutsideProject": 0,
@@ -4224,6 +4246,17 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/assets\/img\/images\/_thumbs\/EvF_header_image.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 3200,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/EvF_header_image.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/EvF_header_image.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/assets\/img\/images\/_thumbs\/friends-networking.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
@@ -4339,6 +4372,17 @@
 		"initialSize": 2930,
 		"inputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/london-gherkin.jpg",
 		"outputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/london-gherkin.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/_thumbs\/luncheon-strip.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 3044,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/luncheon-strip.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/luncheon-strip.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -4548,6 +4592,17 @@
 		"initialSize": 2656,
 		"inputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/space-needle.jpg",
 		"outputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/space-needle.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/_thumbs\/space-post-image.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 3455,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/space-post-image.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/space-post-image.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -4827,6 +4882,17 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/assets\/img\/images\/EvF_header_image.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 75859,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/EvF_header_image.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/EvF_header_image.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/assets\/img\/images\/friends-networking.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
@@ -4933,6 +4999,17 @@
 		"initialSize": 29850,
 		"inputAbbreviatedPath": "\/assets\/img\/images\/london-gherkin.jpg",
 		"outputAbbreviatedPath": "\/assets\/img\/images\/london-gherkin.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/luncheon-strip.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 42478,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/luncheon-strip.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/luncheon-strip.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -5142,6 +5219,17 @@
 		"initialSize": 130415,
 		"inputAbbreviatedPath": "\/assets\/img\/images\/space-needle.jpg",
 		"outputAbbreviatedPath": "\/assets\/img\/images\/space-needle.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/space-post-image.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 43689,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/space-post-image.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/space-post-image.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -5437,6 +5525,17 @@
 		"initialSize": 2695,
 		"inputAbbreviatedPath": "\/assets\/img\/logos\/_thumbs\/pasha.jpg",
 		"outputAbbreviatedPath": "\/assets\/img\/logos\/_thumbs\/pasha.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/logos\/_thumbs\/red-sky.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 4478,
+		"inputAbbreviatedPath": "\/assets\/img\/logos\/_thumbs\/red-sky.png",
+		"outputAbbreviatedPath": "\/assets\/img\/logos\/_thumbs\/red-sky.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -5771,6 +5870,17 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/assets\/img\/logos\/red-sky.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 32833,
+		"inputAbbreviatedPath": "\/assets\/img\/logos\/red-sky.png",
+		"outputAbbreviatedPath": "\/assets\/img\/logos\/red-sky.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/assets\/img\/logos\/reign-fc.png": {
 		"fileType": 32768,
 		"ignore": 0,
@@ -5914,6 +6024,17 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/assets\/img\/member-photos\/_thumbs\/avatar-lg.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 3060,
+		"inputAbbreviatedPath": "\/assets\/img\/member-photos\/_thumbs\/avatar-lg.png",
+		"outputAbbreviatedPath": "\/assets\/img\/member-photos\/_thumbs\/avatar-lg.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/assets\/img\/member-photos\/_thumbs\/catherine.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
@@ -5952,6 +6073,17 @@
 		"initialSize": 2886,
 		"inputAbbreviatedPath": "\/assets\/img\/member-photos\/_thumbs\/robin.jpg",
 		"outputAbbreviatedPath": "\/assets\/img\/member-photos\/_thumbs\/robin.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/member-photos\/avatar-lg.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 14700,
+		"inputAbbreviatedPath": "\/assets\/img\/member-photos\/avatar-lg.png",
+		"outputAbbreviatedPath": "\/assets\/img\/member-photos\/avatar-lg.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
