@@ -1,0 +1,113 @@
+.analytics-panel th {
+	background: #DDD;
+	color: #333;
+}
+
+.analytics-panel td {
+	background: #fff;
+	border-color: #DDD;		
+	color: #333;
+}
+
+.analytics-stat, .analytics-stat-col {
+	color: #333;
+	text-shadow: 0 1px 0 #eee;
+}
+
+#cp_analytics_home_container {
+	margin: 0 3.3%;
+	padding: 10px;
+}
+
+#cp_analytics_home_content {
+	background: #FFF;
+	-moz-box-shadow: rgb(238, 238, 238) 0px 2px 2px 0px !important;
+	-o-box-shadow: rgb(238, 238, 238) 0px 2px 2px 0px !important;
+	-webkit-box-shadow: rgb(238, 238, 238) 0px 2px 2px 0px !important;
+	box-shadow: rgb(238, 238, 238) 0px 2px 2px 0px !important;
+	-moz-border-radius: 5px;
+	-o-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;	
+	-moz-background-clip:padding;
+	-webkit-background-clip:padding;
+	-o-background-clip:padding-box;
+	-ms-background-clip:padding-box;
+	-khtml-background-clip:padding-box;
+	background-clip:padding-box;
+}
+
+#cp_analytics_chart {
+	background: #FFFFFF;
+}
+
+#cp_analytics_home_container h3 {
+	color: #999;
+}
+
+#cp_analytics_realtime {
+	color: #333;
+}
+
+.cp-analytics-active-users strong {
+	color: #333;
+	font-family: 'Source Sans Pro', 'Lucida Grande', 'Lucida Sans Unicode', Arial, Verdana, sans-serif;
+}
+
+.cp-analytics-rt-devices .desktop, .cp-analytics-rt-device-legend .desktop {
+	background: #333;
+}
+
+.cp-analytics-rt-devices .tablet, .cp-analytics-rt-device-legend .tablet {
+	background: #CCC;
+}
+
+.cp-analytics-rt-devices .mobile, .cp-analytics-rt-device-legend .mobile {
+	background: #666;
+}
+
+.cp-analytics-rt-table {
+	border-bottom: 1px solid #DDD;
+}
+
+.cp-analytics-rt-table td {
+	border-top: 1px solid #DDD;
+}
+
+.cp-analytics-rt-table .odd td {
+	background: #F3F3F3;
+}
+
+.cp-analytics-rt-table td.cp-analytics-rt-visitors-col {
+	color: #999;
+}
+
+.cp-analytics-rt-table .cp-analytics-rt-visitors-col strong {
+	color: #333;
+}
+
+.cp_analytics_chart_widget .widget-content, .cp_analytics_realtime_widget .widget-content {
+	background: #FFF;
+}
+
+
+@media all and (max-width: 768px), all and (max-device-width: 768px) {
+
+#cp_analytics_home_content {
+	-moz-border-radius: 0;
+	-o-border-radius: 0;
+	-webkit-border-radius: 0;
+	border-radius: 0;
+}
+
+#cp_analytics_home_container {
+	margin: 0 2%;
+}
+
+.cp-analytics-rt-col {
+	float: none;
+	padding: 10px;
+	width: auto;
+}
+	
+}

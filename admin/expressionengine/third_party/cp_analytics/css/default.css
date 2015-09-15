@@ -1,0 +1,336 @@
+/*
+	Accessory	
+*/
+
+.analytics-panel {
+	margin-bottom: 1em;
+	width: auto;
+}
+
+.analytics-panel th {
+	background: rgb(21,28,33);
+	background: rgba(0,0,0,0.4);
+	border-bottom: 1px solid #445058;
+	color: #FFF;
+	font-weight: bold;
+	padding: 8px 8px 6px;
+	text-align: left;
+	text-shadow: 0 1px 1px #000;
+	text-transform: uppercase;
+}
+
+.analytics-panel td {
+	background: rgb(27,36,42);	
+	background: rgba(0,0,0,0.25);	
+	color: #AAA;
+	color: rgba(255,255,255,0.65);
+	padding: 8px;
+	width: 50%;
+}
+
+/* Firefox doesn't want to respect the 50% equal width */
+.recent-stats td {
+	min-width: 100px;
+}
+
+.last-month td {
+	min-width: 120px;
+}
+
+td.analytics-stat-col {
+	text-align: center;
+}
+
+td.visits {
+	border: 1px solid #445058;
+	border-width: 0 1px 1px 0;
+}
+
+.top-left {
+	-moz-border-radius-topleft: 8px;
+	-webkit-border-top-left-radius: 8px;
+	border-top-left-radius: 8px;
+}
+
+.top-right {
+	-moz-border-radius-topright: 8px;
+	-webkit-border-top-right-radius: 8px;	
+	border-top-right-radius: 8px;	
+}
+
+.bottom-left {
+	-moz-border-radius-bottomleft: 8px;
+	-webkit-border-bottom-left-radius: 8px;
+	border-bottom-left-radius: 8px;
+}
+
+.bottom-right {
+	-moz-border-radius-bottomright: 8px;
+	-webkit-border-bottom-right-radius: 8px;
+	border-bottom-right-radius: 8px;
+}
+
+td.pageviews {
+	border-bottom: 1px solid #445058;		
+}
+
+td.pages-per-visit {
+	border-right: 1px solid #445058;
+}
+
+.analytics-stat-col .analytics-stat {
+	color: #FFF;
+	display: block;
+	font: bold 24px/24px Arial, Helvetica, sans;
+	text-shadow: 0 1px 1px #000;
+}
+
+td.analytics-stat-row, td.analytics-sparkline {
+	border-bottom: 1px solid #445058;
+	padding: 11px 10px;	
+}
+
+td.cap {
+	border-bottom-width: 0 !important;
+}
+
+.analytics-stat-row .analytics-stat {
+	color: #FFF;
+	font-size: 14px;
+	font-weight: bold;
+	margin-right: 3px;
+	text-shadow: 0 1px 1px #000;
+}
+
+td.analytics-sparkline {
+	text-align: center;
+}
+
+.analytics-reports th.top-right {
+	text-align: right;
+}
+
+.analytics-reports td {
+	border-bottom: 1px solid #445058;
+	width: auto;
+}
+
+td.analytics-count {
+	padding-left: 30px;
+	text-align: right;
+}
+
+td.analytics-report-link {
+	font-weight: bold;
+	text-align: center;
+}
+
+#cp_analytics_acc p {
+	line-height: 16px;
+	text-align: center;
+}
+
+/*
+	Home page	
+*/
+
+#cp_analytics_home_container {
+	padding: 20px 3.3% 0;
+}
+
+#cp_analytics_home_container h2 {
+	background-image: none;
+}
+
+#cp_analytics_home_container h3 {
+	border: none;
+	color: #97a8b3;
+	font: bold 14px/17px sans-serif;
+	margin: 0;
+	padding: 10px 0 0;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+#cp_analytics_realtime + h3 {
+	padding-top: 0 !important;
+}
+
+#cp_analytics_home_content {
+	background: #ECF1F4;
+	-moz-border-radius-bottomleft: 10px;
+	-webkit-border-bottom-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+	-moz-border-radius-bottomright: 10px;
+	-webkit-border-bottom-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+
+#cp_analytics_chart_container {
+	clear: both;
+	overflow: hidden;
+	padding: 0 0 10px;
+	text-align: center;
+}
+
+#cp_analytics_chart iframe {
+	margin: 0 auto;
+}
+
+#cp_analytics_realtime {
+	color: #3e4c54;
+	min-height: 100px;
+	position: relative;
+}
+
+.cp-analytics-rt-col {
+	float: left;
+	padding: 10px 1%;
+	text-align: center;
+	width: 23%;
+}
+
+.cp-analytics-active-users {
+	font-size: 12px;
+	line-height: 16px;
+	padding-bottom: 10px;
+}
+
+.cp-analytics-active-users strong {
+	color: #27343c;
+	display: block;
+	font-family: "Helvetica Neue", Helvetica, sans-serif;
+	font-size: 72px;
+	font-weight: bold;
+	line-height: 72px;
+}
+
+.cp-analytics-rt-devices span {
+	border-right: 1px solid #FFF;
+	box-sizing: border-box;
+	float: left;
+	font-size: 11px;
+	line-height: 14px;
+	padding: 7px 0;
+}
+
+.cp-analytics-rt-devices span:last-child {
+	border-right: 0;
+}
+
+.cp-analytics-rt-devices .desktop, .cp-analytics-rt-device-legend .desktop {
+	background: #3e4c54;
+	color: #FFF;
+}
+
+.cp-analytics-rt-devices .tablet, .cp-analytics-rt-device-legend .tablet {
+	background: #d1dae0;
+}
+
+.cp-analytics-rt-devices .mobile, .cp-analytics-rt-device-legend .mobile {
+	background: #97a8b3;
+	color: #FFF;
+}
+
+.cp-analytics-rt-users .cp-analytics-rt-device-legend {
+	border: 0;
+	padding-top: 5px;
+}
+
+.cp-analytics-rt-device-legend li {
+	display: inline;
+	font-size: 10px;
+	line-height: 14px;
+	margin: 0 6px 0 0;
+	padding: 0;
+}
+
+.cp-analytics-rt-device-legend span {
+	border: 1px solid #FFF;
+	display: inline-block;
+	height: 12px;
+	margin-right: 2px;
+	vertical-align: middle;
+	width: 12px;
+}
+
+.cp-analytics-rt-table {
+	border-bottom: 1px solid #FFF;
+	table-layout: fixed;
+	width: 100%;
+}
+
+.cp-analytics-rt-table th {
+	font-size: 11px;
+	line-height: 14px;
+	padding: 3px 6px;
+	text-align: left;
+	text-transform: uppercase;
+}
+
+.cp-analytics-rt-table td {
+	border-top: 1px solid #FFF;
+	font-size: 11px;
+	line-height: 14px;
+	padding: 3px 6px;
+	text-align: left;
+	vertical-align: top;
+}
+
+.cp-analytics-rt-table .odd td {
+	background: rgba(255,255,255,0.5);
+}
+
+.cp-analytics-rt-table .cp-analytics-rt-visitors-col {
+	text-align: right;
+	width: 30%;
+}
+
+.cp-analytics-rt-table td.cp-analytics-rt-visitors-col {
+	color: #97a8b3;
+}
+
+.cp-analytics-rt-table .cp-analytics-rt-visitors-col strong {
+	color: #3e4c54;
+	font-weight: normal;
+}
+
+.cp-analytics-rt-table .cp-analytics-rt-label-col {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	width: 70%;
+}
+
+.cp-analytics-rt-table td.cp-analytics-no-data {
+	font-style: italic;
+	text-align: center;
+}
+
+.cp-analytics-group:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+
+/*
+	Dashee widgets
+*/
+
+.cp_analytics_chart_widget #cp_analytics_chart_container {
+	padding: 0 5px 10px;
+}
+
+.cp_analytics_realtime_widget .cp-analytics-rt-col {
+	float: none;
+	padding: 10px;
+	width: auto;
+}
+
+.cp-analytics-reload {
+	padding: 10px;
+	text-align: center;
+}
