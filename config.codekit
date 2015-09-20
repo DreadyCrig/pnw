@@ -1,6 +1,6 @@
 {
 "CodeKitInfo": "This is a CodeKit 2.x project configuration file. It is designed to sync project settings across multiple machines. MODIFYING THE CONTENTS OF THIS FILE IS A POOR LIFE DECISION. If you do so, you will likely cause CodeKit to crash. This file is not useful unless accompanied by the project that created it in CodeKit 2. This file is not backwards-compatible with CodeKit 1.x. For more information, see: http:\/\/incident57.com\/codekit",
-"creatorBuild": "19033",
+"creatorBuild": "19051",
 "files": {
 	"\/admin.php": {
 		"fileType": 8192,
@@ -3042,6 +3042,17 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/assets\/img\/ads\/_thumbs\/AV_Logo_-_Steve.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2824,
+		"inputAbbreviatedPath": "\/assets\/img\/ads\/_thumbs\/AV_Logo_-_Steve.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/ads\/_thumbs\/AV_Logo_-_Steve.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/assets\/img\/ads\/_thumbs\/bennett-foundation.png": {
 		"fileType": 32768,
 		"ignore": 0,
@@ -3137,6 +3148,17 @@
 		"initialSize": 2272,
 		"inputAbbreviatedPath": "\/assets\/img\/ads\/_thumbs\/greater-portland.png",
 		"outputAbbreviatedPath": "\/assets\/img\/ads\/_thumbs\/greater-portland.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/ads\/_thumbs\/Hobart_Machined.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2700,
+		"inputAbbreviatedPath": "\/assets\/img\/ads\/_thumbs\/Hobart_Machined.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/ads\/_thumbs\/Hobart_Machined.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -3337,6 +3359,28 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/assets\/img\/ads\/AV_Logo_-_Steve.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 518600,
+		"inputAbbreviatedPath": "\/assets\/img\/ads\/AV_Logo_-_Steve.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/ads\/AV_Logo_-_Steve.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/ads\/Hobart_Machined.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 3709,
+		"inputAbbreviatedPath": "\/assets\/img\/ads\/Hobart_Machined.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/ads\/Hobart_Machined.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/assets\/img\/avatar-lg.png": {
 		"fileType": 32768,
 		"ignore": 0,
@@ -3370,6 +3414,28 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/assets\/img\/banners\/468x60-b.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 61999,
+		"inputAbbreviatedPath": "\/assets\/img\/banners\/468x60-b.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/banners\/468x60-b.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/banners\/728x90-b.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 103958,
+		"inputAbbreviatedPath": "\/assets\/img\/banners\/728x90-b.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/banners\/728x90-b.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/assets\/img\/banners\/9k.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
@@ -3377,6 +3443,28 @@
 		"initialSize": 340850,
 		"inputAbbreviatedPath": "\/assets\/img\/banners\/9k.jpg",
 		"outputAbbreviatedPath": "\/assets\/img\/banners\/9k.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/banners\/_thumbs\/468x60-b.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 3863,
+		"inputAbbreviatedPath": "\/assets\/img\/banners\/_thumbs\/468x60-b.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/banners\/_thumbs\/468x60-b.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/banners\/_thumbs\/728x90-b.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2853,
+		"inputAbbreviatedPath": "\/assets\/img\/banners\/_thumbs\/728x90-b.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/banners\/_thumbs\/728x90-b.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -3399,6 +3487,17 @@
 		"initialSize": 2357,
 		"inputAbbreviatedPath": "\/assets\/img\/banners\/_thumbs\/aerospace.jpg",
 		"outputAbbreviatedPath": "\/assets\/img\/banners\/_thumbs\/aerospace.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/banners\/_thumbs\/Aerospace_Update.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2831,
+		"inputAbbreviatedPath": "\/assets\/img\/banners\/_thumbs\/Aerospace_Update.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/banners\/_thumbs\/Aerospace_Update.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -3480,6 +3579,17 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/assets\/img\/banners\/_thumbs\/Delta_Air_Lines.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2202,
+		"inputAbbreviatedPath": "\/assets\/img\/banners\/_thumbs\/Delta_Air_Lines.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/banners\/_thumbs\/Delta_Air_Lines.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/assets\/img\/banners\/_thumbs\/EvF_header_image.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
@@ -3487,6 +3597,17 @@
 		"initialSize": 3200,
 		"inputAbbreviatedPath": "\/assets\/img\/banners\/_thumbs\/EvF_header_image.jpg",
 		"outputAbbreviatedPath": "\/assets\/img\/banners\/_thumbs\/EvF_header_image.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/banners\/_thumbs\/Food_and_Drink_Photo.JPG": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 3265,
+		"inputAbbreviatedPath": "\/assets\/img\/banners\/_thumbs\/Food_and_Drink_Photo.JPG",
+		"outputAbbreviatedPath": "\/assets\/img\/banners\/_thumbs\/Food_and_Drink_Photo.JPG",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -3522,6 +3643,17 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/assets\/img\/banners\/_thumbs\/M-A2.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 3007,
+		"inputAbbreviatedPath": "\/assets\/img\/banners\/_thumbs\/M-A2.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/banners\/_thumbs\/M-A2.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/assets\/img\/banners\/_thumbs\/magna-carta-1.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
@@ -3544,6 +3676,28 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/assets\/img\/banners\/_thumbs\/Masthead2.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 3447,
+		"inputAbbreviatedPath": "\/assets\/img\/banners\/_thumbs\/Masthead2.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/banners\/_thumbs\/Masthead2.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/banners\/_thumbs\/MGF-SEATTLE-LOGO.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 1938,
+		"inputAbbreviatedPath": "\/assets\/img\/banners\/_thumbs\/MGF-SEATTLE-LOGO.png",
+		"outputAbbreviatedPath": "\/assets\/img\/banners\/_thumbs\/MGF-SEATTLE-LOGO.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/assets\/img\/banners\/_thumbs\/o-TOAST-facebook.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
@@ -3555,6 +3709,17 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/assets\/img\/banners\/_thumbs\/orig_2875308472_5eda7256df_b.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2887,
+		"inputAbbreviatedPath": "\/assets\/img\/banners\/_thumbs\/orig_2875308472_5eda7256df_b.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/banners\/_thumbs\/orig_2875308472_5eda7256df_b.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/assets\/img\/banners\/_thumbs\/seattle-skyline.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
@@ -3562,6 +3727,17 @@
 		"initialSize": 1543,
 		"inputAbbreviatedPath": "\/assets\/img\/banners\/_thumbs\/seattle-skyline.jpg",
 		"outputAbbreviatedPath": "\/assets\/img\/banners\/_thumbs\/seattle-skyline.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/banners\/_thumbs\/Seattle_Clipper.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2262,
+		"inputAbbreviatedPath": "\/assets\/img\/banners\/_thumbs\/Seattle_Clipper.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/banners\/_thumbs\/Seattle_Clipper.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -3588,6 +3764,17 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/assets\/img\/banners\/_thumbs\/skyline.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 9002,
+		"inputAbbreviatedPath": "\/assets\/img\/banners\/_thumbs\/skyline.png",
+		"outputAbbreviatedPath": "\/assets\/img\/banners\/_thumbs\/skyline.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/assets\/img\/banners\/_thumbs\/trade-map-banner.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
@@ -3610,6 +3797,17 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/assets\/img\/banners\/_thumbs\/Xmas.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 3329,
+		"inputAbbreviatedPath": "\/assets\/img\/banners\/_thumbs\/Xmas.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/banners\/_thumbs\/Xmas.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/assets\/img\/banners\/aerospace.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
@@ -3617,6 +3815,17 @@
 		"initialSize": 136726,
 		"inputAbbreviatedPath": "\/assets\/img\/banners\/aerospace.jpg",
 		"outputAbbreviatedPath": "\/assets\/img\/banners\/aerospace.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/banners\/Aerospace_Update.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 36498,
+		"inputAbbreviatedPath": "\/assets\/img\/banners\/Aerospace_Update.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/banners\/Aerospace_Update.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -3698,6 +3907,17 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/assets\/img\/banners\/Delta_Air_Lines.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 21777,
+		"inputAbbreviatedPath": "\/assets\/img\/banners\/Delta_Air_Lines.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/banners\/Delta_Air_Lines.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/assets\/img\/banners\/EvF_header_image.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
@@ -3705,6 +3925,17 @@
 		"initialSize": 75859,
 		"inputAbbreviatedPath": "\/assets\/img\/banners\/EvF_header_image.jpg",
 		"outputAbbreviatedPath": "\/assets\/img\/banners\/EvF_header_image.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/banners\/Food_and_Drink_Photo.JPG": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 154544,
+		"inputAbbreviatedPath": "\/assets\/img\/banners\/Food_and_Drink_Photo.JPG",
+		"outputAbbreviatedPath": "\/assets\/img\/banners\/Food_and_Drink_Photo.JPG",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -3731,6 +3962,17 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/assets\/img\/banners\/M-A2.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 803687,
+		"inputAbbreviatedPath": "\/assets\/img\/banners\/M-A2.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/banners\/M-A2.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/assets\/img\/banners\/magna-carta-1.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
@@ -3753,6 +3995,28 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/assets\/img\/banners\/Masthead2.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 160253,
+		"inputAbbreviatedPath": "\/assets\/img\/banners\/Masthead2.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/banners\/Masthead2.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/banners\/MGF-SEATTLE-LOGO.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 20882,
+		"inputAbbreviatedPath": "\/assets\/img\/banners\/MGF-SEATTLE-LOGO.png",
+		"outputAbbreviatedPath": "\/assets\/img\/banners\/MGF-SEATTLE-LOGO.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/assets\/img\/banners\/o-TOAST-facebook.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
@@ -3764,6 +4028,17 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/assets\/img\/banners\/orig_2875308472_5eda7256df_b.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 511000,
+		"inputAbbreviatedPath": "\/assets\/img\/banners\/orig_2875308472_5eda7256df_b.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/banners\/orig_2875308472_5eda7256df_b.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/assets\/img\/banners\/seattle-skyline.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
@@ -3771,6 +4046,17 @@
 		"initialSize": 117021,
 		"inputAbbreviatedPath": "\/assets\/img\/banners\/seattle-skyline.jpg",
 		"outputAbbreviatedPath": "\/assets\/img\/banners\/seattle-skyline.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/banners\/Seattle_Clipper.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 32983,
+		"inputAbbreviatedPath": "\/assets\/img\/banners\/Seattle_Clipper.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/banners\/Seattle_Clipper.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -3797,6 +4083,17 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/assets\/img\/banners\/skyline.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 250318,
+		"inputAbbreviatedPath": "\/assets\/img\/banners\/skyline.png",
+		"outputAbbreviatedPath": "\/assets\/img\/banners\/skyline.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/assets\/img\/banners\/trade-map-banner.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
@@ -3815,6 +4112,17 @@
 		"initialSize": 612783,
 		"inputAbbreviatedPath": "\/assets\/img\/banners\/transatlantic.jpg",
 		"outputAbbreviatedPath": "\/assets\/img\/banners\/transatlantic.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/banners\/Xmas.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 49403,
+		"inputAbbreviatedPath": "\/assets\/img\/banners\/Xmas.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/banners\/Xmas.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -4070,6 +4378,50 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/assets\/img\/images\/20150618_185821.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 3.36091e+06,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/20150618_185821.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/20150618_185821.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/728x90-b.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 103958,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/728x90-b.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/728x90-b.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/_thumbs\/20150618_185821.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2527,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/20150618_185821.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/20150618_185821.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/_thumbs\/728x90-b.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2853,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/728x90-b.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/728x90-b.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/assets\/img\/images\/_thumbs\/aerospace-thumb.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
@@ -4081,6 +4433,28 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/assets\/img\/images\/_thumbs\/Aerospace_Update.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2831,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/Aerospace_Update.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/Aerospace_Update.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/_thumbs\/Airplane_silhouette_blue.svg.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 1872,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/Airplane_silhouette_blue.svg.png",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/Airplane_silhouette_blue.svg.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/assets\/img\/images\/_thumbs\/atavus-logo.png": {
 		"fileType": 32768,
 		"ignore": 0,
@@ -4088,6 +4462,28 @@
 		"initialSize": 2871,
 		"inputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/atavus-logo.png",
 		"outputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/atavus-logo.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/_thumbs\/bab_final.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 1441,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/bab_final.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/bab_final.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/_thumbs\/BABC_Aero_Conf_Flyer.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2724,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/BABC_Aero_Conf_Flyer.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/BABC_Aero_Conf_Flyer.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -4143,6 +4539,17 @@
 		"initialSize": 2711,
 		"inputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/british-open-business.jpg",
 		"outputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/british-open-business.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/_thumbs\/British_Embassy.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 5533,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/British_Embassy.png",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/British_Embassy.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -4213,6 +4620,94 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/assets\/img\/images\/_thumbs\/Clipper_Crew.JPG": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 3648,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/Clipper_Crew.JPG",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/Clipper_Crew.JPG",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/_thumbs\/clipper_round_the_world_race.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 3625,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/clipper_round_the_world_race.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/clipper_round_the_world_race.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/_thumbs\/Clipper_Start_in_London.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2259,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/Clipper_Start_in_London.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/Clipper_Start_in_London.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/_thumbs\/Clipper_Yacht_Design.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2074,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/Clipper_Yacht_Design.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/Clipper_Yacht_Design.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/_thumbs\/Clipper_Yacht_Naming_Ceremony.JPG": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 3411,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/Clipper_Yacht_Naming_Ceremony.JPG",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/Clipper_Yacht_Naming_Ceremony.JPG",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/_thumbs\/cw-logo1.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2390,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/cw-logo1.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/cw-logo1.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/_thumbs\/DeltaSEA150903-01.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 3395,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/DeltaSEA150903-01.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/DeltaSEA150903-01.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/_thumbs\/DeltaSEA150903-02.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 3338,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/DeltaSEA150903-02.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/DeltaSEA150903-02.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/assets\/img\/images\/_thumbs\/easy-business.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
@@ -4253,6 +4748,28 @@
 		"initialSize": 3200,
 		"inputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/EvF_header_image.jpg",
 		"outputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/EvF_header_image.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/_thumbs\/FFF.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2203,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/FFF.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/FFF.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/_thumbs\/Food_and_Drink_Photo.JPG": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 3351,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/Food_and_Drink_Photo.JPG",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/Food_and_Drink_Photo.JPG",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -4343,6 +4860,17 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/assets\/img\/images\/_thumbs\/IRF.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 3675,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/IRF.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/IRF.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/assets\/img\/images\/_thumbs\/king-county-thumb.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
@@ -4387,6 +4915,17 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/assets\/img\/images\/_thumbs\/M-A2.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 3007,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/M-A2.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/M-A2.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/assets\/img\/images\/_thumbs\/magnacarta.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
@@ -4416,6 +4955,17 @@
 		"initialSize": 2652,
 		"inputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/marketing.jpg",
 		"outputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/marketing.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/_thumbs\/MGF-SEATTLE-LOGO.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 1938,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/MGF-SEATTLE-LOGO.png",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/MGF-SEATTLE-LOGO.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -4475,6 +5025,28 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/assets\/img\/images\/_thumbs\/News-Image-3.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2298,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/News-Image-3.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/News-Image-3.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/_thumbs\/Open_for_Biz_-_Food_and_Drink.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 10112,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/Open_for_Biz_-_Food_and_Drink.png",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/Open_for_Biz_-_Food_and_Drink.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/assets\/img\/images\/_thumbs\/per.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
@@ -4493,6 +5065,17 @@
 		"initialSize": 4293,
 		"inputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/per.png",
 		"outputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/per.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/_thumbs\/Photo_3.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 3633,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/Photo_3.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/Photo_3.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -4585,6 +5168,17 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/assets\/img\/images\/_thumbs\/Sir_Ken.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2499,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/Sir_Ken.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/Sir_Ken.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/assets\/img\/images\/_thumbs\/space-needle.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
@@ -4603,6 +5197,17 @@
 		"initialSize": 3455,
 		"inputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/space-post-image.jpg",
 		"outputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/space-post-image.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/_thumbs\/Sponsor_bronze.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 5802,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/Sponsor_bronze.png",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/Sponsor_bronze.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -4651,6 +5256,17 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/assets\/img\/images\/_thumbs\/TTIP_food_and_drink_event.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2873,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/TTIP_food_and_drink_event.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/_thumbs\/TTIP_food_and_drink_event.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/assets\/img\/images\/_thumbs\/uk-budget.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
@@ -4695,6 +5311,28 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/assets\/img\/images\/Aerospace_Update.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 36498,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/Aerospace_Update.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/Aerospace_Update.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/Airplane_silhouette_blue.svg.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 34674,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/Airplane_silhouette_blue.svg.png",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/Airplane_silhouette_blue.svg.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/assets\/img\/images\/atavus-logo.png": {
 		"fileType": 32768,
 		"ignore": 0,
@@ -4713,6 +5351,28 @@
 		"initialSize": 43201,
 		"inputAbbreviatedPath": "\/assets\/img\/images\/bab-mag.jpg",
 		"outputAbbreviatedPath": "\/assets\/img\/images\/bab-mag.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/bab_final.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 239238,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/bab_final.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/bab_final.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/BABC_Aero_Conf_Flyer.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 409703,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/BABC_Aero_Conf_Flyer.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/BABC_Aero_Conf_Flyer.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -4768,6 +5428,17 @@
 		"initialSize": 23856,
 		"inputAbbreviatedPath": "\/assets\/img\/images\/british-open-business.jpg",
 		"outputAbbreviatedPath": "\/assets\/img\/images\/british-open-business.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/British_Embassy.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 6817,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/British_Embassy.png",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/British_Embassy.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -4849,6 +5520,94 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/assets\/img\/images\/Clipper_Crew.JPG": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2.32488e+06,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/Clipper_Crew.JPG",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/Clipper_Crew.JPG",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/clipper_round_the_world_race.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 14743,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/clipper_round_the_world_race.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/clipper_round_the_world_race.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/Clipper_Start_in_London.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2.12117e+06,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/Clipper_Start_in_London.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/Clipper_Start_in_London.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/Clipper_Yacht_Design.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 550803,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/Clipper_Yacht_Design.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/Clipper_Yacht_Design.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/Clipper_Yacht_Naming_Ceremony.JPG": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 1.55351e+06,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/Clipper_Yacht_Naming_Ceremony.JPG",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/Clipper_Yacht_Naming_Ceremony.JPG",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/cw-logo1.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 6564,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/cw-logo1.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/cw-logo1.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/DeltaSEA150903-01.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 728518,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/DeltaSEA150903-01.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/DeltaSEA150903-01.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/DeltaSEA150903-02.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 791606,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/DeltaSEA150903-02.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/DeltaSEA150903-02.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/assets\/img\/images\/easy-business.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
@@ -4889,6 +5648,28 @@
 		"initialSize": 75859,
 		"inputAbbreviatedPath": "\/assets\/img\/images\/EvF_header_image.jpg",
 		"outputAbbreviatedPath": "\/assets\/img\/images\/EvF_header_image.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/FFF.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 9031,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/FFF.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/FFF.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/Food_and_Drink_Photo.JPG": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 4.94103e+06,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/Food_and_Drink_Photo.JPG",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/Food_and_Drink_Photo.JPG",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -4970,6 +5751,17 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/assets\/img\/images\/IRF.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 66111,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/IRF.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/IRF.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/assets\/img\/images\/king-county-thumb.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
@@ -5014,6 +5806,17 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/assets\/img\/images\/M-A2.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 803687,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/M-A2.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/M-A2.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/assets\/img\/images\/magnacarta.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
@@ -5043,6 +5846,17 @@
 		"initialSize": 35331,
 		"inputAbbreviatedPath": "\/assets\/img\/images\/marketing.jpg",
 		"outputAbbreviatedPath": "\/assets\/img\/images\/marketing.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/MGF-SEATTLE-LOGO.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 20882,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/MGF-SEATTLE-LOGO.png",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/MGF-SEATTLE-LOGO.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -5102,6 +5916,28 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/assets\/img\/images\/News-Image-3.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 71550,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/News-Image-3.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/News-Image-3.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/Open_for_Biz_-_Food_and_Drink.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 1.38704e+07,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/Open_for_Biz_-_Food_and_Drink.png",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/Open_for_Biz_-_Food_and_Drink.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/assets\/img\/images\/per.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
@@ -5120,6 +5956,17 @@
 		"initialSize": 6752,
 		"inputAbbreviatedPath": "\/assets\/img\/images\/per.png",
 		"outputAbbreviatedPath": "\/assets\/img\/images\/per.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/Photo_3.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 35439,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/Photo_3.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/Photo_3.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -5212,6 +6059,17 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/assets\/img\/images\/Sir_Ken.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 16719,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/Sir_Ken.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/Sir_Ken.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/assets\/img\/images\/space-needle.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
@@ -5230,6 +6088,17 @@
 		"initialSize": 43689,
 		"inputAbbreviatedPath": "\/assets\/img\/images\/space-post-image.jpg",
 		"outputAbbreviatedPath": "\/assets\/img\/images\/space-post-image.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/Sponsor_bronze.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 7920,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/Sponsor_bronze.png",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/Sponsor_bronze.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -5274,6 +6143,17 @@
 		"initialSize": 40830,
 		"inputAbbreviatedPath": "\/assets\/img\/images\/trade-map.jpg",
 		"outputAbbreviatedPath": "\/assets\/img\/images\/trade-map.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/images\/TTIP_food_and_drink_event.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 8879,
+		"inputAbbreviatedPath": "\/assets\/img\/images\/TTIP_food_and_drink_event.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/images\/TTIP_food_and_drink_event.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -5344,6 +6224,17 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/assets\/img\/logos\/_thumbs\/AV_Logo_-_Steve.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2824,
+		"inputAbbreviatedPath": "\/assets\/img\/logos\/_thumbs\/AV_Logo_-_Steve.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/logos\/_thumbs\/AV_Logo_-_Steve.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/assets\/img\/logos\/_thumbs\/bae-systems.png": {
 		"fileType": 32768,
 		"ignore": 0,
@@ -5395,6 +6286,17 @@
 		"initialSize": 5859,
 		"inputAbbreviatedPath": "\/assets\/img\/logos\/_thumbs\/boys-girls-club.png",
 		"outputAbbreviatedPath": "\/assets\/img\/logos\/_thumbs\/boys-girls-club.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/logos\/_thumbs\/CAMPS.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 1904,
+		"inputAbbreviatedPath": "\/assets\/img\/logos\/_thumbs\/CAMPS.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/logos\/_thumbs\/CAMPS.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -5487,6 +6389,17 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/assets\/img\/logos\/_thumbs\/Hobart.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 1951,
+		"inputAbbreviatedPath": "\/assets\/img\/logos\/_thumbs\/Hobart.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/logos\/_thumbs\/Hobart.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/assets\/img\/logos\/_thumbs\/index.html": {
 		"fileType": 8192,
 		"ignore": 0,
@@ -5525,6 +6438,17 @@
 		"initialSize": 2695,
 		"inputAbbreviatedPath": "\/assets\/img\/logos\/_thumbs\/pasha.jpg",
 		"outputAbbreviatedPath": "\/assets\/img\/logos\/_thumbs\/pasha.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/logos\/_thumbs\/pnaa_rgb_stacked.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 3737,
+		"inputAbbreviatedPath": "\/assets\/img\/logos\/_thumbs\/pnaa_rgb_stacked.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/logos\/_thumbs\/pnaa_rgb_stacked.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -5694,6 +6618,17 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/assets\/img\/logos\/AV_Logo_-_Steve.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 518600,
+		"inputAbbreviatedPath": "\/assets\/img\/logos\/AV_Logo_-_Steve.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/logos\/AV_Logo_-_Steve.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/assets\/img\/logos\/bae-systems.png": {
 		"fileType": 32768,
 		"ignore": 0,
@@ -5745,6 +6680,17 @@
 		"initialSize": 0,
 		"inputAbbreviatedPath": "\/assets\/img\/logos\/boys-girls-club.png",
 		"outputAbbreviatedPath": "\/assets\/img\/logos\/boys-girls-club.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/logos\/CAMPS.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 3739,
+		"inputAbbreviatedPath": "\/assets\/img\/logos\/CAMPS.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/logos\/CAMPS.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -5837,6 +6783,17 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/assets\/img\/logos\/Hobart.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 3510,
+		"inputAbbreviatedPath": "\/assets\/img\/logos\/Hobart.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/logos\/Hobart.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/assets\/img\/logos\/kpmg.png": {
 		"fileType": 32768,
 		"ignore": 0,
@@ -5866,6 +6823,17 @@
 		"initialSize": 58882,
 		"inputAbbreviatedPath": "\/assets\/img\/logos\/pasha.jpg",
 		"outputAbbreviatedPath": "\/assets\/img\/logos\/pasha.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/logos\/pnaa_rgb_stacked.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 635432,
+		"inputAbbreviatedPath": "\/assets\/img\/logos\/pnaa_rgb_stacked.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/logos\/pnaa_rgb_stacked.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -6046,6 +7014,17 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/assets\/img\/member-photos\/_thumbs\/headshot.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2785,
+		"inputAbbreviatedPath": "\/assets\/img\/member-photos\/_thumbs\/headshot.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/member-photos\/_thumbs\/headshot.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/assets\/img\/member-photos\/_thumbs\/index.html": {
 		"fileType": 8192,
 		"ignore": 0,
@@ -6095,6 +7074,17 @@
 		"initialSize": 223138,
 		"inputAbbreviatedPath": "\/assets\/img\/member-photos\/catherine.jpg",
 		"outputAbbreviatedPath": "\/assets\/img\/member-photos\/catherine.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/member-photos\/headshot.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 50977,
+		"inputAbbreviatedPath": "\/assets\/img\/member-photos\/headshot.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/member-photos\/headshot.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -6154,6 +7144,17 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/assets\/img\/speaker-photos\/_thumbs\/Bob_Noble.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2453,
+		"inputAbbreviatedPath": "\/assets\/img\/speaker-photos\/_thumbs\/Bob_Noble.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/speaker-photos\/_thumbs\/Bob_Noble.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/assets\/img\/speaker-photos\/_thumbs\/carl-smith.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
@@ -6187,6 +7188,39 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/assets\/img\/speaker-photos\/_thumbs\/Dave_Kingstone.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2408,
+		"inputAbbreviatedPath": "\/assets\/img\/speaker-photos\/_thumbs\/Dave_Kingstone.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/speaker-photos\/_thumbs\/Dave_Kingstone.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/speaker-photos\/_thumbs\/Dave_Kingstone_2T4A0256.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2365,
+		"inputAbbreviatedPath": "\/assets\/img\/speaker-photos\/_thumbs\/Dave_Kingstone_2T4A0256.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/speaker-photos\/_thumbs\/Dave_Kingstone_2T4A0256.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/speaker-photos\/_thumbs\/Devin_Liddell_200x250.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2563,
+		"inputAbbreviatedPath": "\/assets\/img\/speaker-photos\/_thumbs\/Devin_Liddell_200x250.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/speaker-photos\/_thumbs\/Devin_Liddell_200x250.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/assets\/img\/speaker-photos\/_thumbs\/ian-gray.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
@@ -6206,6 +7240,17 @@
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
+		},
+	"\/assets\/img\/speaker-photos\/_thumbs\/John_Murray_president_Concept_Laser_Inc.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2280,
+		"inputAbbreviatedPath": "\/assets\/img\/speaker-photos\/_thumbs\/John_Murray_president_Concept_Laser_Inc.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/speaker-photos\/_thumbs\/John_Murray_president_Concept_Laser_Inc.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
 		},
 	"\/assets\/img\/speaker-photos\/_thumbs\/justin-fitzpatrick.jpg": {
 		"fileType": 16384,
@@ -6317,6 +7362,28 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/assets\/img\/speaker-photos\/_thumbs\/Simon_Pickup.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2008,
+		"inputAbbreviatedPath": "\/assets\/img\/speaker-photos\/_thumbs\/Simon_Pickup.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/speaker-photos\/_thumbs\/Simon_Pickup.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/speaker-photos\/_thumbs\/Simon_Pickup_Airbus_Portrait_LARGE_Sept_2015.JPG": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2499,
+		"inputAbbreviatedPath": "\/assets\/img\/speaker-photos\/_thumbs\/Simon_Pickup_Airbus_Portrait_LARGE_Sept_2015.JPG",
+		"outputAbbreviatedPath": "\/assets\/img\/speaker-photos\/_thumbs\/Simon_Pickup_Airbus_Portrait_LARGE_Sept_2015.JPG",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/assets\/img\/speaker-photos\/_thumbs\/Sports_bcondotta-100x100.png": {
 		"fileType": 32768,
 		"ignore": 0,
@@ -6335,6 +7402,17 @@
 		"initialSize": 18000,
 		"inputAbbreviatedPath": "\/assets\/img\/speaker-photos\/barry-eccleston.jpg",
 		"outputAbbreviatedPath": "\/assets\/img\/speaker-photos\/barry-eccleston.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/speaker-photos\/Bob_Noble.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 6716,
+		"inputAbbreviatedPath": "\/assets\/img\/speaker-photos\/Bob_Noble.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/speaker-photos\/Bob_Noble.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -6372,6 +7450,39 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/assets\/img\/speaker-photos\/Dave_Kingstone.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2716,
+		"inputAbbreviatedPath": "\/assets\/img\/speaker-photos\/Dave_Kingstone.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/speaker-photos\/Dave_Kingstone.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/speaker-photos\/Dave_Kingstone_2T4A0256.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 1.93514e+06,
+		"inputAbbreviatedPath": "\/assets\/img\/speaker-photos\/Dave_Kingstone_2T4A0256.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/speaker-photos\/Dave_Kingstone_2T4A0256.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/speaker-photos\/Devin_Liddell_200x250.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 53838,
+		"inputAbbreviatedPath": "\/assets\/img\/speaker-photos\/Devin_Liddell_200x250.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/speaker-photos\/Devin_Liddell_200x250.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/assets\/img\/speaker-photos\/ian-gray.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
@@ -6379,6 +7490,17 @@
 		"initialSize": 20672,
 		"inputAbbreviatedPath": "\/assets\/img\/speaker-photos\/ian-gray.jpg",
 		"outputAbbreviatedPath": "\/assets\/img\/speaker-photos\/ian-gray.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/speaker-photos\/John_Murray_president_Concept_Laser_Inc.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 42080,
+		"inputAbbreviatedPath": "\/assets\/img\/speaker-photos\/John_Murray_president_Concept_Laser_Inc.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/speaker-photos\/John_Murray_president_Concept_Laser_Inc.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -6493,6 +7615,28 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/assets\/img\/speaker-photos\/Simon_Pickup.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2211,
+		"inputAbbreviatedPath": "\/assets\/img\/speaker-photos\/Simon_Pickup.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/speaker-photos\/Simon_Pickup.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/speaker-photos\/Simon_Pickup_Airbus_Portrait_LARGE_Sept_2015.JPG": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2.52401e+06,
+		"inputAbbreviatedPath": "\/assets\/img\/speaker-photos\/Simon_Pickup_Airbus_Portrait_LARGE_Sept_2015.JPG",
+		"outputAbbreviatedPath": "\/assets\/img\/speaker-photos\/Simon_Pickup_Airbus_Portrait_LARGE_Sept_2015.JPG",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/assets\/img\/speaker-photos\/Sports_bcondotta-100x100.png": {
 		"fileType": 32768,
 		"ignore": 0,
@@ -6577,6 +7721,17 @@
 		"initialSize": 2631,
 		"inputAbbreviatedPath": "\/assets\/img\/staff-photos\/_thumbs\/denise.jpg",
 		"outputAbbreviatedPath": "\/assets\/img\/staff-photos\/_thumbs\/denise.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/staff-photos\/_thumbs\/EAdam.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2363,
+		"inputAbbreviatedPath": "\/assets\/img\/staff-photos\/_thumbs\/EAdam.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/staff-photos\/_thumbs\/EAdam.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -6817,6 +7972,17 @@
 		"initialSize": 19049,
 		"inputAbbreviatedPath": "\/assets\/img\/staff-photos\/denise.jpg",
 		"outputAbbreviatedPath": "\/assets\/img\/staff-photos\/denise.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/staff-photos\/EAdam.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 3363,
+		"inputAbbreviatedPath": "\/assets\/img\/staff-photos\/EAdam.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/staff-photos\/EAdam.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -8202,7 +9368,7 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
+		"shouldRunAutoprefixer": 1,
 		"shouldRunBless": 0,
 		"useLibsass": 1
 		},
@@ -10360,6 +11526,17 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/images\/made\/assets\/img\/speaker-photos\/Bob_Noble_79_108_s.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 8294,
+		"inputAbbreviatedPath": "\/images\/made\/assets\/img\/speaker-photos\/Bob_Noble_79_108_s.jpg",
+		"outputAbbreviatedPath": "\/images\/made\/assets\/img\/speaker-photos\/Bob_Noble_79_108_s.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/images\/made\/assets\/img\/speaker-photos\/chris-buckner_108_108_s.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
@@ -10371,6 +11548,39 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/images\/made\/assets\/img\/speaker-photos\/Dave_Kingstone_104_108_s.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 10023,
+		"inputAbbreviatedPath": "\/images\/made\/assets\/img\/speaker-photos\/Dave_Kingstone_104_108_s.jpg",
+		"outputAbbreviatedPath": "\/images\/made\/assets\/img\/speaker-photos\/Dave_Kingstone_104_108_s.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/made\/assets\/img\/speaker-photos\/Dave_Kingstone_2T4A0256_77_108_s.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 9070,
+		"inputAbbreviatedPath": "\/images\/made\/assets\/img\/speaker-photos\/Dave_Kingstone_2T4A0256_77_108_s.jpg",
+		"outputAbbreviatedPath": "\/images\/made\/assets\/img\/speaker-photos\/Dave_Kingstone_2T4A0256_77_108_s.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/made\/assets\/img\/speaker-photos\/Devin_Liddell_200x250_86_108_s.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 9636,
+		"inputAbbreviatedPath": "\/images\/made\/assets\/img\/speaker-photos\/Devin_Liddell_200x250_86_108_s.jpg",
+		"outputAbbreviatedPath": "\/images\/made\/assets\/img\/speaker-photos\/Devin_Liddell_200x250_86_108_s.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/images\/made\/assets\/img\/speaker-photos\/ian-gray_108_108_s.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
@@ -10378,6 +11588,28 @@
 		"initialSize": 13346,
 		"inputAbbreviatedPath": "\/images\/made\/assets\/img\/speaker-photos\/ian-gray_108_108_s.jpg",
 		"outputAbbreviatedPath": "\/images\/made\/assets\/img\/speaker-photos\/ian-gray_108_108_s.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/made\/assets\/img\/speaker-photos\/John_Murray_president_Concept_Laser_Inc_108_108_s.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 10567,
+		"inputAbbreviatedPath": "\/images\/made\/assets\/img\/speaker-photos\/John_Murray_president_Concept_Laser_Inc_108_108_s.jpg",
+		"outputAbbreviatedPath": "\/images\/made\/assets\/img\/speaker-photos\/John_Murray_president_Concept_Laser_Inc_108_108_s.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/made\/assets\/img\/speaker-photos\/John_Murray_president_Concept_Laser_Inc_86_108_s.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 9190,
+		"inputAbbreviatedPath": "\/images\/made\/assets\/img\/speaker-photos\/John_Murray_president_Concept_Laser_Inc_86_108_s.jpg",
+		"outputAbbreviatedPath": "\/images\/made\/assets\/img\/speaker-photos\/John_Murray_president_Concept_Laser_Inc_86_108_s.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -10400,6 +11632,28 @@
 		"initialSize": 10917,
 		"inputAbbreviatedPath": "\/images\/made\/assets\/img\/speaker-photos\/pierre-munch_108_108_s.jpg",
 		"outputAbbreviatedPath": "\/images\/made\/assets\/img\/speaker-photos\/pierre-munch_108_108_s.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/made\/assets\/img\/speaker-photos\/Simon_Pickup_79_108_s.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 7141,
+		"inputAbbreviatedPath": "\/images\/made\/assets\/img\/speaker-photos\/Simon_Pickup_79_108_s.jpg",
+		"outputAbbreviatedPath": "\/images\/made\/assets\/img\/speaker-photos\/Simon_Pickup_79_108_s.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/made\/assets\/img\/speaker-photos\/Simon_Pickup_Airbus_Portrait_LARGE_Sept_2015_108_100_s.JPG": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 11500,
+		"inputAbbreviatedPath": "\/images\/made\/assets\/img\/speaker-photos\/Simon_Pickup_Airbus_Portrait_LARGE_Sept_2015_108_100_s.JPG",
+		"outputAbbreviatedPath": "\/images\/made\/assets\/img\/speaker-photos\/Simon_Pickup_Airbus_Portrait_LARGE_Sept_2015_108_100_s.JPG",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -11510,10 +12764,6 @@
 			}
 		},
 	"jsLintFlags2": {
-		"ass": {
-			"active": 0,
-			"flagValue": -1
-			},
 		"bitwise": {
 			"active": 0,
 			"flagValue": -1
@@ -11522,15 +12772,7 @@
 			"active": 1,
 			"flagValue": -1
 			},
-		"closure": {
-			"active": 0,
-			"flagValue": -1
-			},
-		"continue": {
-			"active": 0,
-			"flagValue": -1
-			},
-		"debug": {
+		"couch": {
 			"active": 0,
 			"flagValue": -1
 			},
@@ -11538,75 +12780,27 @@
 			"active": 0,
 			"flagValue": -1
 			},
-		"eqeq": {
+		"es6": {
 			"active": 0,
 			"flagValue": -1
 			},
-		"evil": {
+		"eval": {
 			"active": 0,
 			"flagValue": -1
 			},
-		"forin": {
+		"for": {
 			"active": 0,
 			"flagValue": -1
-			},
-		"indent": {
-			"active": 0,
-			"flagValue": 4
 			},
 		"maxlen": {
 			"active": 0,
 			"flagValue": 150
 			},
-		"newcap": {
-			"active": 0,
-			"flagValue": -1
-			},
 		"node": {
 			"active": 0,
 			"flagValue": -1
 			},
-		"nomen": {
-			"active": 0,
-			"flagValue": -1
-			},
-		"plusplus": {
-			"active": 0,
-			"flagValue": -1
-			},
-		"properties": {
-			"active": 0,
-			"flagValue": -1
-			},
-		"regexp": {
-			"active": 0,
-			"flagValue": -1
-			},
-		"rhino": {
-			"active": 0,
-			"flagValue": -1
-			},
-		"sloppy": {
-			"active": 0,
-			"flagValue": -1
-			},
-		"stupid": {
-			"active": 0,
-			"flagValue": -1
-			},
-		"sub": {
-			"active": 0,
-			"flagValue": -1
-			},
-		"todo": {
-			"active": 0,
-			"flagValue": -1
-			},
-		"unparam": {
-			"active": 0,
-			"flagValue": -1
-			},
-		"vars": {
+		"this": {
 			"active": 0,
 			"flagValue": -1
 			},

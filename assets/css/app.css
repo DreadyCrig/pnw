@@ -172,7 +172,6 @@ figure {
  * Address differences between Firefox and other browsers.
  */
 hr {
-  -moz-box-sizing: content-box;
   box-sizing: content-box;
   height: 0; }
 
@@ -300,8 +299,6 @@ input[type="number"]::-webkit-outer-spin-button {
 input[type="search"] {
   -webkit-appearance: textfield;
   /* 1 */
-  -moz-box-sizing: content-box;
-  -webkit-box-sizing: content-box;
   /* 2 */
   box-sizing: content-box; }
 
@@ -388,11 +385,13 @@ button, .btn, .btn--rounded, .btn--social {
   padding: 0.75em 1em;
   text-decoration: none;
   text-transform: uppercase;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   vertical-align: middle;
   white-space: nowrap;
   -webkit-transition: all 0.25s ease-in-out;
-  -moz-transition: all 0.25s ease-in-out;
   transition: all 0.25s ease-in-out; }
   button:hover,
   button:focus, input[type="button"]:hover,
@@ -537,7 +536,8 @@ textarea {
   font-size: 1em;
   margin-bottom: 0.75em;
   padding: 0.5em;
-  transition: border-color;
+  -webkit-transition: border-color;
+          transition: border-color;
   width: 100%; }
   input[type="color"]:hover, input[type="date"]:hover, input[type="datetime"]:hover, input[type="datetime-local"]:hover, input[type="email"]:hover, input[type="month"]:hover, input[type="number"]:hover, input[type="password"]:hover, input[type="search"]:hover, input[type="tel"]:hover, input[type="text"]:hover, input[type="time"]:hover, input[type="url"]:hover, input[type="week"]:hover, textarea:hover,
   select[multiple=multiple]:hover,
@@ -740,7 +740,8 @@ p {
 a {
   color: #4577AA;
   text-decoration: none;
-  transition: color 0.1s linear; }
+  -webkit-transition: color 0.1s linear;
+          transition: color 0.1s linear; }
   a:active,
   a:focus,
   a:hover {
@@ -1492,27 +1493,27 @@ body.alt-bg {
 
 .form-group--edit.ng-hide-remove {
   -webkit-transition: all 0.25s ease-in-out;
-  -moz-transition: all 0.25s ease-in-out;
   transition: all 0.25s ease-in-out;
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
   -webkit-animation-name: fadeInUp;
   animation-name: fadeInUp;
   -webkit-transform-origin: center bottom;
-  transform-origin: center bottom;
+  -ms-transform-origin: center bottom;
+      transform-origin: center bottom;
   -webkit-animation-duration: .35s;
   animation-duration: .35s; }
 
 .form-group--edit.ng-hide-add {
   -webkit-transition: all 0.25s ease-out;
-  -moz-transition: all 0.25s ease-out;
   transition: all 0.25s ease-out;
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
   -webkit-animation-name: slideOutDown;
   animation-name: slideOutDown;
   -webkit-transform-origin: center top;
-  transform-origin: center top;
+  -ms-transform-origin: center top;
+      transform-origin: center top;
   -webkit-animation-duration: .35s;
   animation-duration: .35s; }
 
@@ -3756,13 +3757,15 @@ body.stop-scrolling {
   padding: 0 10px;
   max-height: 0;
   webkit-transition: padding 0.15s, max-height 0.15s;
-  transition: padding 0.15s, max-height 0.15s; }
+  -webkit-transition: padding 0.15s, max-height 0.15s;
+          transition: padding 0.15s, max-height 0.15s; }
 
 .sweet-alert .sa-error-container.show {
   padding: 10px 0;
   max-height: 100px;
   webkit-transition: padding 0.2s, max-height 0.2s;
-  transition: padding 0.25s, max-height 0.25s; }
+  -webkit-transition: padding 0.25s, max-height 0.25s;
+          transition: padding 0.25s, max-height 0.25s; }
 
 .sweet-alert .sa-error-container .icon {
   display: inline-block;
@@ -3786,9 +3789,11 @@ body.stop-scrolling {
   height: 20px;
   opacity: 0;
   -webkit-transform: scale(0.5);
-  transform: scale(0.5);
+  -ms-transform: scale(0.5);
+      transform: scale(0.5);
   -webkit-transform-origin: 50% 50%;
-  transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+      transform-origin: 50% 50%;
   -webkit-transition: all 0.1s;
   transition: all 0.1s; }
 
@@ -3806,16 +3811,19 @@ body.stop-scrolling {
 
 .sweet-alert .sa-input-error::before {
   -webkit-transform: rotate(-45deg);
-  transform: rotate(-45deg); }
+  -ms-transform: rotate(-45deg);
+      transform: rotate(-45deg); }
 
 .sweet-alert .sa-input-error::after {
   -webkit-transform: rotate(45deg);
-  transform: rotate(45deg); }
+  -ms-transform: rotate(45deg);
+      transform: rotate(45deg); }
 
 .sweet-alert .sa-input-error.show {
   opacity: 1;
   -webkit-transform: scale(1);
-  transform: scale(1); }
+  -ms-transform: scale(1);
+      transform: scale(1); }
 
 .sweet-alert input {
   width: 100%;
@@ -3846,7 +3854,8 @@ body.stop-scrolling {
   opacity: 0.5; }
 
 .sweet-alert input:focus::-webkit-input-placeholder {
-  transition: opacity 0.3s 0.03s ease;
+  -webkit-transition: opacity 0.3s 0.03s ease;
+          transition: opacity 0.3s 0.03s ease;
   opacity: 0.5; }
 
 .sweet-alert input::-moz-placeholder {
@@ -3870,7 +3879,6 @@ body.stop-scrolling {
   border-radius: 3px;
   padding: 0.75em 1em;
   font-weight: 500;
-  -webkit-border-radius: 4px;
   border-radius: 5px;
   padding: 10px 32px;
   margin: 26px 5px 10px 5px;
@@ -3911,7 +3919,6 @@ body.stop-scrolling {
   width: 80px;
   height: 80px;
   border: 4px solid gray;
-  -webkit-border-radius: 40px;
   border-radius: 40px;
   border-radius: 50%;
   margin: 20px auto;
@@ -3937,12 +3944,14 @@ body.stop-scrolling {
 
 .sweet-alert .sa-icon.sa-error .sa-line.sa-left {
   -webkit-transform: rotate(45deg);
-  transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
   left: 17px; }
 
 .sweet-alert .sa-icon.sa-error .sa-line.sa-right {
   -webkit-transform: rotate(-45deg);
-  transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+      transform: rotate(-45deg);
   right: 16px; }
 
 .sweet-alert .sa-icon.sa-warning {
@@ -3954,7 +3963,6 @@ body.stop-scrolling {
   height: 47px;
   left: 50%;
   top: 10px;
-  -webkit-border-radius: 2px;
   border-radius: 2px;
   margin-left: -2px;
   background-color: #F8BB86; }
@@ -3963,7 +3971,6 @@ body.stop-scrolling {
   position: absolute;
   width: 7px;
   height: 7px;
-  -webkit-border-radius: 50%;
   border-radius: 50%;
   margin-left: -3px;
   left: 50%;
@@ -3999,7 +4006,6 @@ body.stop-scrolling {
 
 .sweet-alert .sa-icon.sa-success::before, .sweet-alert .sa-icon.sa-success::after {
   content: '';
-  -webkit-border-radius: 40px;
   border-radius: 40px;
   border-radius: 50%;
   position: absolute;
@@ -4007,33 +4013,35 @@ body.stop-scrolling {
   height: 120px;
   background: white;
   -webkit-transform: rotate(45deg);
-  transform: rotate(45deg); }
+  -ms-transform: rotate(45deg);
+      transform: rotate(45deg); }
 
 .sweet-alert .sa-icon.sa-success::before {
-  -webkit-border-radius: 120px 0 0 120px;
   border-radius: 120px 0 0 120px;
   top: -7px;
   left: -33px;
   -webkit-transform: rotate(-45deg);
-  transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+      transform: rotate(-45deg);
   -webkit-transform-origin: 60px 60px;
-  transform-origin: 60px 60px; }
+  -ms-transform-origin: 60px 60px;
+      transform-origin: 60px 60px; }
 
 .sweet-alert .sa-icon.sa-success::after {
-  -webkit-border-radius: 0 120px 120px 0;
   border-radius: 0 120px 120px 0;
   top: -11px;
   left: 30px;
   -webkit-transform: rotate(-45deg);
-  transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+      transform: rotate(-45deg);
   -webkit-transform-origin: 0px 60px;
-  transform-origin: 0px 60px; }
+  -ms-transform-origin: 0px 60px;
+      transform-origin: 0px 60px; }
 
 .sweet-alert .sa-icon.sa-success .sa-placeholder {
   width: 80px;
   height: 80px;
   border: 4px solid rgba(165, 220, 134, 0.2);
-  -webkit-border-radius: 40px;
   border-radius: 40px;
   border-radius: 50%;
   box-sizing: content-box;
@@ -4051,7 +4059,8 @@ body.stop-scrolling {
   top: 8px;
   z-index: 1;
   -webkit-transform: rotate(-45deg);
-  transform: rotate(-45deg); }
+  -ms-transform: rotate(-45deg);
+      transform: rotate(-45deg); }
 
 .sweet-alert .sa-icon.sa-success .sa-line {
   height: 5px;
@@ -4066,14 +4075,16 @@ body.stop-scrolling {
   left: 14px;
   top: 46px;
   -webkit-transform: rotate(45deg);
-  transform: rotate(45deg); }
+  -ms-transform: rotate(45deg);
+      transform: rotate(45deg); }
 
 .sweet-alert .sa-icon.sa-success .sa-line.sa-long {
   width: 47px;
   right: 8px;
   top: 38px;
   -webkit-transform: rotate(-45deg);
-  transform: rotate(-45deg); }
+  -ms-transform: rotate(-45deg);
+      transform: rotate(-45deg); }
 
 .sweet-alert .sa-icon.sa-custom {
   background-size: contain;
@@ -5053,7 +5064,6 @@ body.stop-scrolling {
     letter-spacing: 1.4px;
     border-bottom: 3px solid #fff;
     -webkit-transition: border 0.25s ease-in-out;
-    -moz-transition: border 0.25s ease-in-out;
     transition: border 0.25s ease-in-out; }
     .navigation--bar a:hover, .navigation--bar a:focus {
       color: #4577AA;
@@ -5325,7 +5335,6 @@ body.stop-scrolling {
     border-right: 1px solid #eee;
     color: #4577AA;
     -webkit-transition: all 0.25s ease-in-out;
-    -moz-transition: all 0.25s ease-in-out;
     transition: all 0.25s ease-in-out; }
     .staff__links a:last-child {
       border: none; }
@@ -5500,7 +5509,6 @@ body.stop-scrolling {
   border-radius: 3px;
   zoom: 1;
   -webkit-transition: all 0.25s ease-in-out;
-  -moz-transition: all 0.25s ease-in-out;
   transition: all 0.25s ease-in-out; }
   .atc-style-blue .atcb-link:hover,
   .atc-style-blue .atcb-link:hover:hover,
@@ -5565,7 +5573,6 @@ body.stop-scrolling {
 
 .modal .modal-fade-screen {
   -webkit-transition: opacity 0.25s ease;
-  -moz-transition: opacity 0.25s ease;
   transition: opacity 0.25s ease;
   position: fixed;
   top: 0px;
@@ -5607,9 +5614,7 @@ body.stop-scrolling {
     bottom: 0;
     left: 50%;
     -webkit-transform: rotate(45deg);
-    -moz-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
-    -o-transform: rotate(45deg);
     transform: rotate(45deg);
     height: 1.5em;
     width: 0.15em;
@@ -5622,14 +5627,11 @@ body.stop-scrolling {
     background: #c4c4c4; }
   .modal .modal-close:before {
     -webkit-transform: rotate(-45deg);
-    -moz-transform: rotate(-45deg);
     -ms-transform: rotate(-45deg);
-    -o-transform: rotate(-45deg);
     transform: rotate(-45deg); }
 
 .modal .modal-inner {
   -webkit-transition: opacity 0.25s ease;
-  -moz-transition: opacity 0.25s ease;
   transition: opacity 0.25s ease;
   background: #fff;
   border-radius: 4px;
@@ -5691,7 +5693,6 @@ body.stop-scrolling {
   position: relative;
   z-index: 2;
   -webkit-transition: all 0.25s ease-in-out;
-  -moz-transition: all 0.25s ease-in-out;
   transition: all 0.25s ease-in-out; }
 
 .header-block {
@@ -5748,7 +5749,6 @@ body.stop-scrolling {
     .utility-block--member.shown {
       background-color: #F1F7F9;
       -webkit-transition: all 0.35s ease-in-out;
-      -moz-transition: all 0.35s ease-in-out;
       transition: all 0.35s ease-in-out;
       border-left: none; }
   .utility-block--social {
@@ -5756,14 +5756,14 @@ body.stop-scrolling {
     padding-right: 2.5rem; }
     .utility-block--social.ng-hide-remove {
       -webkit-transition: all 0.25s ease-in-out;
-      -moz-transition: all 0.25s ease-in-out;
       transition: all 0.25s ease-in-out;
       -webkit-animation-fill-mode: both;
       animation-fill-mode: both;
       -webkit-animation-name: fadeInDown;
       animation-name: fadeInDown;
       -webkit-transform-origin: center bottom;
-      transform-origin: center bottom;
+      -ms-transform-origin: center bottom;
+          transform-origin: center bottom;
       -webkit-animation-duration: .35s;
       animation-duration: .35s; }
     .utility-block--social a {
@@ -5777,14 +5777,14 @@ body.stop-scrolling {
   padding: 1.3125rem 0; }
   .login-cta.ng-hide-remove {
     -webkit-transition: all 0.25s ease-in-out;
-    -moz-transition: all 0.25s ease-in-out;
     transition: all 0.25s ease-in-out;
     -webkit-animation-fill-mode: both;
     animation-fill-mode: both;
     -webkit-animation-name: fadeInDown;
     animation-name: fadeInDown;
     -webkit-transform-origin: center bottom;
-    transform-origin: center bottom;
+    -ms-transform-origin: center bottom;
+        transform-origin: center bottom;
     -webkit-animation-duration: .35s;
     animation-duration: .35s; }
   .login-cta a {
@@ -5792,14 +5792,14 @@ body.stop-scrolling {
 
 .login.ng-hide-remove {
   -webkit-transition: all 0.25s ease-in-out;
-  -moz-transition: all 0.25s ease-in-out;
   transition: all 0.25s ease-in-out;
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
   -webkit-animation-name: fadeInDown;
   animation-name: fadeInDown;
   -webkit-transform-origin: center bottom;
-  transform-origin: center bottom;
+  -ms-transform-origin: center bottom;
+      transform-origin: center bottom;
   -webkit-animation-duration: .35s;
   animation-duration: .35s; }
 
@@ -5959,7 +5959,6 @@ input.login-field {
       border-right: 1px solid #eee;
       color: #4577AA;
       -webkit-transition: all 0.25s ease-in-out;
-      -moz-transition: all 0.25s ease-in-out;
       transition: all 0.25s ease-in-out; }
       .author__aside .author__links a:last-child, .author-aside .author__links a:last-child {
         border: none; }
@@ -6127,7 +6126,6 @@ input.login-field {
   background-color: #f5f5f5;
   color: #4577AA;
   -webkit-transition: all 0.25s ease-in-out;
-  -moz-transition: all 0.25s ease-in-out;
   transition: all 0.25s ease-in-out; }
   .collapsible-item .title:hover {
     background-color: #D0021B;
@@ -6138,7 +6136,6 @@ input.login-field {
   position: relative;
   overflow: hidden;
   -webkit-transition: all 0.5s ease-in-out;
-  -moz-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
   background-color: #f5f5f5; }
 
@@ -6256,14 +6253,11 @@ input.login-field {
     background-color: rgba(7, 7, 22, 0.6); }
   .hover-tile-outer .hover-tile-container:hover > .hover-tile {
     -webkit-transform: translate(0, -100%);
-    -moz-transform: translate(0, -100%);
     -ms-transform: translate(0, -100%);
-    -o-transform: translate(0, -100%);
     transform: translate(0, -100%);
     text-transform: uppercase; }
   .hover-tile-outer .hover-tile {
     -webkit-transition: all, 0.2s ease-in-out;
-    -moz-transition: all, 0.2s ease-in-out;
     transition: all, 0.2s ease-in-out;
     background: inherit;
     color: white;
@@ -6400,7 +6394,8 @@ Copyright (c) 2015 Daniel Eden
   -webkit-animation-name: bounce;
   animation-name: bounce;
   -webkit-transform-origin: center bottom;
-  transform-origin: center bottom; }
+  -ms-transform-origin: center bottom;
+      transform-origin: center bottom; }
 
 @-webkit-keyframes flash {
   0%, 50%, 100% {
@@ -6557,7 +6552,8 @@ Copyright (c) 2015 Daniel Eden
 
 .swing {
   -webkit-transform-origin: top center;
-  transform-origin: top center;
+  -ms-transform-origin: top center;
+      transform-origin: top center;
   -webkit-animation-name: swing;
   animation-name: swing; }
 
@@ -8626,5 +8622,4 @@ Copyright (c) 2015 Daniel Eden
   color: #D0021B;
   font-size: 0.875rem;
   margin-bottom: 1em; }
-
 /*# sourceMappingURL=app.css.map */
