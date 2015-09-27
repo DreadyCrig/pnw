@@ -122,7 +122,7 @@ class Zenbu_matrix_ft extends Matrix_ft
 								}
 
 							break;
-							case "date":
+							case "date": case "dropdate":
 								//$output_date = $this->EE->zenbu_get->_get_member_date_settings();
 								$cell = display_date($entry_id, $channel_id, $col_data, $matrix_data, $field_id, $settings, $rules);
 							break;

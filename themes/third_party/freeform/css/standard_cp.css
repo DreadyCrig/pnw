@@ -53,6 +53,7 @@
 .solspace_ui_wrapper .insert_element_width { width: 200px !important; min-height: 18px; }
 .solspace_ui_wrapper .insert_element_width.taller { min-height: 24px; }
 .solspace_ui_wrapper .ss_notice { color: #ce0000 !important; font-weight: bold; }
+.solspace_ui_wrapper .bullet-list {margin: 0 0 15px 20px;list-style: disc; }
 
 /*----------------------------------
 	clear fix

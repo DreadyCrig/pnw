@@ -4,7 +4,7 @@
  * Charge Action Model class
  *
  * @package         charge_ee_addon
- * @version         1.9.2
+ * @version         1.9.6
  * @author          Joel Bradbury ~ <joel@squarebit.co.uk>
  * @link            http://squarebit.co.uk/software/expressionengine/charge
  * @copyright       Copyright (c) 2015, Joel Bradbury/Square Bit
@@ -17,26 +17,27 @@ class Charge_action_model extends Charge_model {
     private $channels;
 
 
-    public $settings = array('email_customer' =>
-                                 array('enabled'     => 'bool',
-                                       'template'  => 'required',
-                                       'subject'   => 'required'),
-                             'email_admin' =>
-                                 array('enabled'     => 'bool',
-                                       'addresses' => 'required',
-                                       'template'  => 'required',
-                                       'subject'   => 'required'),
-                             'entry_update'  =>
+    public $settings = array(
+                            'entry_update'  =>
                                  array('enabled'     => 'bool',
                                        'status'  => 'required'),
-                             'entry_create' =>
+                            'entry_create' =>
                                  array('enabled'     => 'bool',
                                        'title'     => 'required',
                                        'status'    => 'required',
                                        'channel'   => 'required'),
-                             'member_subscription'  =>
+                            'member_subscription'  =>
                                  array('enabled'     => 'bool',
-                                       'id'  => 'required'));
+                                       'id'  => 'required'),
+                            'email_customer' =>
+                                 array('enabled'     => 'bool',
+                                       'template'  => 'required',
+                                       'subject'   => 'required'),
+                            'email_admin' =>
+                                 array('enabled'     => 'bool',
+                                       'addresses' => 'required',
+                                       'template'  => 'required',
+                                       'subject'   => 'required'),);
 
     public $this_settings = array();
 
@@ -69,7 +70,7 @@ class Charge_action_model extends Charge_model {
                 'timestamp'             => 'int(10) unsigned NOT NULL default 0',
                 'last_triggered'        => 'int(10) unsigned NOT NULL default 0',
                 'triggered_count'       => 'int(10) unsigned NOT NULL default 0',
-                'settings'              => 'text NOT NULL default ""')
+                'settings'              => 'text')
 
         );
 
@@ -290,7 +291,7 @@ class Charge_action_model extends Charge_model {
     }
 
 
-    private function _run_action_entry($group_key, $action, $data)
+    private function _run_action_entry($group_key, $action, &$data)
     {
         // Do we have protected data
         if(empty($this->protected)) return FALSE;
@@ -370,6 +371,11 @@ class Charge_action_model extends Charge_model {
         $ret = $this->_update_entry($r['entry_id'], $cdata);
 
         if($ret === FALSE) return FALSE;
+
+        $data['connected_entry_id'] = $r['entry_id'];
+        // Mark this as connected on the original item too
+        $this->_mark_connected_entry($data['charge_id'], $r['entry_id']);
+
         return TRUE;
     }
 
@@ -680,6 +686,12 @@ class Charge_action_model extends Charge_model {
         $name = $type.'_'.($state?'success':'failed');
 
         ee()->charge_log->log_action_response($name, $data);
+    }
+
+    private function _mark_connected_entry($charge_id, $entry_id)
+    {
+        ee()->charge_stripe->update($charge_id, array('connected_entry_id' => $entry_id));
+        return;
     }
 
     // --------------------------------------------------------------------

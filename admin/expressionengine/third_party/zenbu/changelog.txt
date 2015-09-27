@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.9.4
+
+- **New**: Added Dropdate display support in Matrix fields.
+- **New**: The number of decimals can be controlled for input fields set to "Decimal", similar to those set to "Number"
+- **Improved**: Some internal refactoring.
+- **Fix**: Potential PHP error when accessing Zenbu under a newly created MSM site.
+- **Fix**: Fixed PHP errors when displaying CartThrob sub-items in CT's "CartThrob Order Items" fieldtype.
+- **Fix**: Fixed potential issues on detecting redirection to Zenbu upon entry delete or edit when EE uses the new CP URL structure (EE 2.8+).
+
 ## 1.9.3.1
 
 - **Fix**: Fixed an issue where 3rd-party column settings would not display in Display Settings if the 3rd-party add-on was installed after having some Display Settings saved for some channels.

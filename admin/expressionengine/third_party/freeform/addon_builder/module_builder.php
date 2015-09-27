@@ -10,7 +10,7 @@
  * @copyright	Copyright (c) 2008-2014, Solspace, Inc.
  * @link		http://solspace.com/docs/
  * @license		http://www.solspace.com/license_agreement/
- * @version		1.5.7
+ * @version		1.5.8
  * @filesource 	addon_builder/module_builder.php
  */
 
@@ -427,5 +427,48 @@ class Module_builder_freeform extends Addon_builder_freeform
 		return sanitize_search_terms($str);
 	}
 	// END sanitize_search_terms()
+
+
+	// --------------------------------------------------------------------
+
+	/**
+	 * mod_link
+	 *
+	 * makes $this->base . AMP . 'key=value' out of arrays
+	 *
+	 * @access	public
+	 * @param 	array 	key value pair of get vars to add to base
+	 * @param 	bool 	$real_amp 	use a real ampersand?
+	 * @return	string
+	 */
+
+	private function mod_link($vars = array(), $real_amp = FALSE)
+	{
+		$link	= $this->base;
+		$amp	= $real_amp ? '&' : AMP;
+
+		if ($real_amp)
+		{
+			$link = str_replace(AMP, '&', $link);
+		}
+		else
+		{
+			//Swap all to regular amp first so we don't get false
+			//positives. Could do this with negative lookups, but
+			//those are spottier than this.
+			$link = str_replace('&', AMP, str_replace(AMP, '&', $link));
+		}
+
+		if ( ! empty($vars))
+		{
+			foreach ($vars as $key => $value)
+			{
+				$link .= $amp . $key . '=' . $value;
+			}
+		}
+
+		return $link;
+	}
+	//END mod_link
 }
 // END Module_builder Class

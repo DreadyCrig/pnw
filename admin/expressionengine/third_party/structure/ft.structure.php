@@ -52,7 +52,7 @@ class Structure_ft extends EE_Fieldtype {
 	
 	public function accepts_content_type($name)
 	{
-	    return ($name == 'channel' || $name == 'grid');
+	    return ($name == 'channel' || $name == 'grid' || $name == 'blocks/1');
 	}
 	
 	// --------------------------------------------------------------------
@@ -76,6 +76,7 @@ class Structure_ft extends EE_Fieldtype {
 		return $this->build_dropdown($data, $this->cell_name, $this->field_id);
 	}
 	
+	
 	function grid_display_cell($data)
 	{
 		return $this->display_cell($data);
@@ -84,8 +85,14 @@ class Structure_ft extends EE_Fieldtype {
 
 	function grid_display_settings($data)
 	{
+		
 		return array(
-			$this->grid_settings_row( "Populate with...", $this->_get_dropdown($data) )
+			$this->grid_dropdown_row(
+				"Populate with....",
+				$this->field_name,
+				$this->_get_grid_dropdown($data),
+				structure_array_get($data, 'structure_list_type', null)
+			)
 		);
 	    
 	}
@@ -132,7 +139,25 @@ class Structure_ft extends EE_Fieldtype {
 			}
 		}
 
+		
 	   return form_dropdown('structure_list_type', $dropdown_options, $selected);
+	}
+	
+	function _get_grid_dropdown($data)
+	{
+		
+	    $rows = array();
+		$listing_channels = $this->sql->get_structure_channels('listing');
+
+		$dropdown_options = array('pages' => 'Pages Tree');
+		if ($listing_channels) {
+			foreach ($listing_channels as $id => $channel) {
+				$dropdown_options[$id] = 'Listing Channel: '. $channel['channel_title'];
+			}
+		}
+
+		
+	   return $dropdown_options;
 	}
 	
 	

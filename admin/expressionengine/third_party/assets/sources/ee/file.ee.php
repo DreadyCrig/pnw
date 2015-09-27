@@ -100,6 +100,23 @@ class Assets_ee_file extends Assets_base_file
 	}
 
 	/**
+	 * Return the revved file URL
+	 *
+	 * @param string $manipulation_name
+	 * @return string
+	 */
+	function revved_url($manipulation_name = '')
+	{
+		$url = $this->url($manipulation_name);
+
+		$parts = explode(".", $url);
+		$final_part = array_pop($parts);
+		$url = join(".", $parts) . '.' . $this->row['date_modified'] . '.' . $final_part;
+
+		return $url;
+	}
+
+	/**
 	 * Returns a local copy of the file
 	 *
 	 * @return mixed

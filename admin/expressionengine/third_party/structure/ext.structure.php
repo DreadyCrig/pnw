@@ -120,9 +120,9 @@ class Structure_ext {
 		if (isset($settings['redirect_on_login']) && $settings['redirect_on_login'] == 'y')
 		{
 
-			if (APP_VER < '2.6.0') {
+			if (version_compare(APP_VER, '2.6.0', '=<')) {
 				$this->EE->functions->redirect(BASE.AMP.'C=addons_modules'.AMP.'M=show_module_cp'.AMP.'module=structure');
-			} elseif (APP_VER <= '2.7.3') {
+			} elseif (version_compare(APP_VER, '2.7.3', '=<')) {
 
 				// Yay, workaround for EE 2.6.0 session bug
 				$s = 0;
@@ -389,6 +389,13 @@ class Structure_ext {
 		if ($this->EE->extensions->last_call !== FALSE)
 			$config = $this->EE->extensions->last_call;
 
+		$trailing_slash = isset($settings['add_trailing_slash']) && $settings['add_trailing_slash'] === 'y';
+		$slash="";
+		
+		if ($trailing_slash !== FALSE)
+		{
+			$slash="/";
+		}
 
 		// get EE's record of site pages
 		$site_pages = $this->EE->config->item('site_pages');
@@ -406,7 +413,7 @@ class Structure_ext {
 				$config['link_types']['Structure Pages'][] = array(
 					'label' => $page_data['title'],
 					'label_depth' => $page_data['depth'],
-					'url' => $this->EE->functions->create_page_url($site_pages[$site_id]['url'], $site_pages[$site_id]['uris'][$entry_id], false)
+					'url' => $this->EE->functions->create_page_url($site_pages[$site_id]['url'].$slash, $site_pages[$site_id]['uris'][$entry_id], false)
 				);
 			}
 
@@ -519,6 +526,7 @@ class Structure_ext {
 		$default_template = $listing_entry ? $listing_entry['template_id'] : $this->sql->get_default_template($channel_id);
 
 		$template_id = pick(
+			$this->EE->input->post('structure_template_id'),
 			structure_array_get($obj->entry, 'structure_template_id'),
 			structure_array_get($this->site_pages['templates'], $entry_id)
 		);
@@ -537,6 +545,7 @@ class Structure_ext {
 
 		$uri = Structure_Helper::tidy_url(
 			pick(
+				$this->EE->input->post('structure_uri'),
 				structure_array_get($obj->entry, 'structure_uri'),
 				Structure_Helper::get_slug($default_uri),
 				$obj->entry['url_title']
@@ -551,6 +560,7 @@ class Structure_ext {
 		$default_parent_id = $channel_type == 'listing' ? $this->sql->get_listing_parent($channel_id) : 0;
 
 		$parent_id = pick(
+			$this->EE->input->post('structure_parent_id'),
 			structure_array_get($obj->entry, 'structure_parent_id'),
 			$this->sql->get_parent_id($entry_id, null),
 			$default_parent_id

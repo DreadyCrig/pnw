@@ -53,10 +53,10 @@ class Cp_analytics_model {
 	
 	function get_action_url()
 	{
-		if($action_id = ee()->functions->fetch_action_id('Cp_analytics', 'get_realtime_data'))
+		if($action_id = $this->EE->functions->fetch_action_id('Cp_analytics', 'get_realtime_data'))
 		{
-			$base = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') ? str_replace('http://', 'https://', ee()->config->item('site_url')) : ee()->config->item('site_url');
-			return $base.'?ACT='.ee()->functions->insert_action_ids($action_id);
+			$base = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') ? str_replace('http://', 'https://', $this->EE->config->item('site_url')) : $this->EE->config->item('site_url');
+			return $base.'?ACT='.$this->EE->functions->insert_action_ids($action_id);
 		}
 	}
 	

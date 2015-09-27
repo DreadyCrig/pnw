@@ -348,15 +348,19 @@ class Low_search_filter_ranges extends Low_search_filter {
 			$field = substr($field, 0, $i);
 		}
 
-		if ($this->fields->is_date($field) || (
-			($this->fields->is_grid($field) || $this->fields->is_matrix($field)) &&
-			($val = ee()->localize->string_to_timestamp($val)))
-		)
+		if ($this->fields->is_date($field) || $this->fields->is_grid($field) || $this->fields->is_matrix($field))
 		{
-			// Oh, edit_date, you so cray-cray!
-			if ($field == 'edit_date')
+			if ($val = ee()->localize->string_to_timestamp($val))
 			{
-				$val = date('YmdHis', $val);
+				// Oh, edit_date, you so cray-cray!
+				if ($field == 'edit_date')
+				{
+					$val = date('YmdHis', $val);
+				}
+			}
+			else
+			{
+				$val = NULL;
 			}
 
 			return $val;

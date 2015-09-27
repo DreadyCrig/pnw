@@ -93,7 +93,35 @@ class Zenbu_cartthrob_order_items_ft extends Cartthrob_order_items_ft
 						{
 							if($k != "row_id")
 							{
-								$data_array_output[] = ( ! empty($v)) ? $v : '&nbsp;';
+								if( ! empty($v) && ! is_array($v))
+								{
+									$data_array_output[] = $v;								
+								}
+								elseif( ! empty($v) && is_array($v) )
+								{
+									$voutput = '<ul>';
+									foreach($v as $vkey => $vval)
+									{
+										$voutput .= '<li>';
+										if(is_array($vval))
+										{
+											foreach($vval as $vvkey => $vvval)
+											{
+												$voutput .= '<strong>'.$this->EE->lang->line($vvkey).'</strong>: '.$vvval.BR;
+											}
+										}
+										else
+										{
+											$voutput .= $vval;
+										}
+										$voutput .= BR.'</li>';
+									}
+									$data_array_output[] = $voutput . '</ul>';
+								}
+								else
+								{
+									$data_array_output[] = NBS;
+								}
 							}
 						}
 						unset($data_array['extra']);

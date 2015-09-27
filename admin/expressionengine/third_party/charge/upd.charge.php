@@ -7,7 +7,7 @@ include PATH_THIRD.'charge/config'.EXT;
  * Charge Update Class
  *
  * @package         charge_ee_addon
- * @version         1.9.2
+ * @version         1.9.5
  * @author          Joel Bradbury ~ <joel@squarebit.co.uk>
  * @link            http://squarebit.co.uk/software/expressionengine/charge
  * @copyright       Copyright (c) 2015, Joel Bradbury/Square Bit
@@ -264,6 +264,13 @@ class Charge_upd {
         }
 
 
+        if( version_compare( $current, '1.9.3' ) < 1 )
+        {
+            $this->_update_from_193();
+        }
+
+
+
 
 
         // Get the current actions list and compare to the actions list up top.
@@ -315,6 +322,16 @@ class Charge_upd {
 		}
 	}
 
+
+	private function _update_from_193()
+	{
+		$sql = array();
+        $sql[] = "ALTER TABLE  `exp_charge_stripe` ADD  `connected_entry_id` varchar(100) NOT NULL DEFAULT ''";
+
+        foreach($sql as $s) {
+            ee()->db->query($s);
+        }
+	}
     private function _update_from_1814()
     {
         $sql = array();

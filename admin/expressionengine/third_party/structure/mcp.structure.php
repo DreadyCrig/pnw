@@ -828,7 +828,7 @@ class Structure_mcp
 	private function set_cp_title($title)
 	{
 	    if (APP_VER < '2.6.0') {
-	        $this->EE->cp->set_variable('cp_page_title', $this->EE->lang->line($title));
+	        $this->EE->cp->cp_page_title = $this->EE->lang->line($title);
 	    } else {
 	        $this->EE->view->cp_page_title = $this->EE->lang->line($title);
 	    }

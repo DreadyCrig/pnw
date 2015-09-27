@@ -2,6 +2,7 @@
 @session_start();
 if (!defined('BASEPATH')) exit('Invalid file request');
 require_once PATH_THIRD . 'zoo_visitor/config.php';
+
 /**
  * Zoo visitor Extension Class
  *
@@ -112,13 +113,13 @@ class Zoo_visitor_ext
 		$admin_session_type = (version_compare(APP_VER, 2.8, '>=')) ? $this->EE->config->item('cp_session_type') : $this->EE->config->item('admin_session_type');
 
 		if (version_compare(APP_VER, 2.8, '<')) {
-			if (isset($_GET['M'])){
+			if (isset($_GET['M'])) {
 				$method = $_GET['M'];
 			}
-			if (isset($_GET['C'])){
+			if (isset($_GET['C'])) {
 				$class = $_GET['C'];
 			}
-		}else{
+		} else {
 			$class = ee()->router->class;
 			//print_r(ee()->router->directory);
 			$method = ee()->router->method;
@@ -222,13 +223,14 @@ class Zoo_visitor_ext
 		if (isset($method) && ($method == 'view_all_members')) {
 			if ($this->zoo_settings['redirect_view_all_members'] == 'yes') {
 
+
 				/* Thanks to devot-ee member totalserve for reporting this and providing a patch */
 				/* Allows correct redirects for all 3 session types: Cookies and session ID, Cookies only, Session ID only */
 				switch ($admin_session_type) {
 					case 'cs':
 						if (version_compare(APP_VER, 2.6, '<')) {
 							$location = '?S=' . $SESS->sdata['session_id'] . AMP . 'D=cp' . AMP . 'C=content_edit' . AMP . 'channel_id=' . $this->zoo_settings['member_channel_id'];
-						}else{
+						} else {
 							$location = '?S=' . $SESS->sdata['fingerprint'] . AMP . 'D=cp' . AMP . 'C=content_edit' . AMP . 'channel_id=' . $this->zoo_settings['member_channel_id'];
 						}
 						break;
@@ -240,7 +242,8 @@ class Zoo_visitor_ext
 						break;
 				}
 
-				$this->EE->functions->redirect($location);
+				@$this->EE->functions->redirect($location);
+
 			}
 		}
 
@@ -257,7 +260,7 @@ class Zoo_visitor_ext
 						case 'cs':
 							if (version_compare(APP_VER, 2.6, '<')) {
 								$location = '?S=' . $SESS->sdata['session_id'] . AMP . 'D=cp' . AMP . 'C=content_publish' . AMP . 'M=entry_form' . AMP . 'channel_id=' . $this->zoo_settings['member_channel_id'] . AMP . 'entry_id=' . $member_entry_id;
-							}else{
+							} else {
 								$location = '?S=' . $SESS->sdata['fingerprint'] . AMP . 'D=cp' . AMP . 'C=content_publish' . AMP . 'M=entry_form' . AMP . 'channel_id=' . $this->zoo_settings['member_channel_id'] . AMP . 'entry_id=' . $member_entry_id;
 							}
 							break;
@@ -269,7 +272,8 @@ class Zoo_visitor_ext
 							break;
 					}
 
-					@$this->EE->functions->redirect($location);
+					header("Location: $location");
+					//@$this->EE->functions->redirect($location);
 				}
 			}
 		}
@@ -303,8 +307,7 @@ class Zoo_visitor_ext
 
 			if ($query->num_rows() == 0) {
 				$_SESSION['zoo_visitor_has_other_entries'] = 'no';
-			}
-			else {
+			} else {
 				$_SESSION['zoo_visitor_has_other_entries'] = 'yes';
 			}
 		}
@@ -359,9 +362,9 @@ class Zoo_visitor_ext
 			$title_data['status']     = 'open';
 			$title_data['ip_address'] = $data['ip_address'];
 			$title_data['entry_date'] = $this->EE->localize->now;
-			$title_data['year'] = '';
-			$title_data['month'] = '';
-			$title_data['day'] = '';
+			$title_data['year']       = '';
+			$title_data['month']      = '';
+			$title_data['day']        = '';
 			$this->EE->db->insert('channel_titles', $title_data);
 
 			$entry_id = $this->EE->db->insert_id();
@@ -545,12 +548,28 @@ class Zoo_visitor_ext
 
 		//Validation rules based on the "rules" parameter
 		$additional_rule_fields = array('screen_name', 'username', 'email', 'password', 'current_password', 'new_password', 'new_password_confirm');
-		$rules                  = $this->EE->input->post('rules');
 
-		if ($rules) {
-			foreach ($additional_rule_fields as $additional_rule) {
-				if (array_key_exists($additional_rule, $rules)) {
-					$this->EE->form_validation->set_rules($additional_rule, $this->EE->lang->line($additional_rule), $obj->decrypt_input($rules[$additional_rule]));
+		if (version_compare(APP_VER, 2.7, '>=')) {
+			$meta = $_POST['meta'];
+			ee()->load->library('encrypt');
+			$meta = ee()->encrypt->decode($meta, ee()->db->username . ee()->db->password);
+
+			$meta = unserialize($meta);
+
+			if (isset($meta['rules'])) {
+				foreach ($additional_rule_fields as $additional_rule) {
+					if (array_key_exists($additional_rule, $meta['rules'])) {
+						$this->EE->form_validation->set_rules($additional_rule, $this->EE->lang->line($additional_rule), $meta['rules'][$additional_rule]);
+					}
+				}
+			}
+		}else{
+			$rules                  = $this->EE->input->post('rules');
+			if ($rules) {
+				foreach ($additional_rule_fields as $additional_rule) {
+					if (array_key_exists($additional_rule, $rules)) {
+						$this->EE->form_validation->set_rules($additional_rule, $this->EE->lang->line($additional_rule), $obj->decrypt_input($rules[$additional_rule]));
+					}
 				}
 			}
 		}
@@ -577,11 +596,11 @@ class Zoo_visitor_ext
 
 		$obj->field_errors                                    = array_merge($obj->field_errors, $this->EE->session->cache['zoo_visitor_field_errors']);
 		$this->EE->session->cache['zoo_visitor_field_errors'] = array();
-
+		$is_valid                                             = TRUE;
 
 		/** ----------------------------------------
-		/**  Zoo visitor action is set to register
-		/** ----------------------------------------*/
+		 * /**  Zoo visitor action is set to register
+		 * /** ----------------------------------------*/
 		//$this->EE->lang->loadfile('zoo_visitor');
 
 		if (isset($_POST['zoo_visitor_action'])) {
@@ -611,6 +630,7 @@ class Zoo_visitor_ext
 					$this->EE->db->where('entry_id', $obj->entry('entry_id'));
 					$this->EE->db->delete('channel_data');
 
+					$is_valid = FALSE;
 					//do nothing. let safecracker handle the error reporting
 
 				} else {
@@ -623,8 +643,8 @@ class Zoo_visitor_ext
 					if ($this->EE->extensions->end_script === TRUE) return;
 
 					/** ----------------------------------------
-					/** No Safecracker errors, register EE member
-					/** ----------------------------------------*/
+					 * /** No Safecracker errors, register EE member
+					 * /** ----------------------------------------*/
 					$reg_result = $this->EE->zoo_visitor_lib->register_member($this);
 
 					//EE member registration is complete, check result
@@ -656,8 +676,8 @@ class Zoo_visitor_ext
 					} else {
 
 						/** ----------------------------------------
-						/** EE member registration failed
-						/** ----------------------------------------*/
+						 * /** EE member registration failed
+						 * /** ----------------------------------------*/
 
 						$this->EE->extensions->end_script = TRUE;
 
@@ -698,6 +718,8 @@ class Zoo_visitor_ext
 
 					//do nothing. let safecracker handle the error reporting
 
+					$is_valid = FALSE;
+
 				} else {
 
 					// -------------------------------------------
@@ -717,96 +739,99 @@ class Zoo_visitor_ext
 				}
 			}
 
-			//sync the screen_name based on the provided override fields
-			if ($this->zoo_settings['use_screen_name'] == "no" && $this->zoo_settings['screen_name_override'] != '') {
-				$this->EE->zoo_visitor_lib->update_screen_name($member_id);
-			}
-
-			if (!isset($_POST['use_dynamic_title'])) {
-				$this->EE->zoo_visitor_lib->update_entry_title($obj->entry('entry_id'));
-			}
-
-			//set membergroup status
-			$this->EE->zoo_visitor_cp->sync_member_status($member_id);
-
-
-			// ===================
-			// = Post processing =
-			// ===================
-			if (isset($reg_result['result']) && $reg_result['result'] == "registration_complete") {
-				// -------------------------------------------
-				// 'zoo_visitor_register' hook.
-				//  - Additional processing when a member is created through the registration form tag
-				//  Still present for backward compatibility with other add-ons using the old register hook
-				//
-				$edata = $this->EE->extensions->call('zoo_visitor_register', array_merge($reg_result['member_data'], $_POST), $reg_result['member_data']['member_id']);
-				if ($this->EE->extensions->end_script === TRUE) return;
-
-				// -------------------------------------------
-				// 'zoo_visitor_register_end' hook.
-				//  - Additional processing when a member is created through the registration form tag
-				//
-				$edata = $this->EE->extensions->call('zoo_visitor_register_end', array_merge($reg_result['member_data'], $_POST), $reg_result['member_data']['member_id']);
-				if ($this->EE->extensions->end_script === TRUE) return;
-
-
-				//check activation method, if none, auto-login
-				if ($this->EE->config->item('req_mbr_activation') == 'none') {
-
-					if (isset($_POST['autologin']) && $_POST['autologin'] == 'no') {
-					} else {
-						$this->autologin($reg_result['member_data'], $member_id);
-					}
-
-					//is redirect set?
-					if ($this->zoo_settings['redirect_after_activation'] == "yes") {
-
-						$this->EE->extensions->end_script = TRUE;
-
-						//sync the screen_name based on the provided override fields before the redirect
-						if ($this->zoo_settings['use_screen_name'] == "no" && $this->zoo_settings['screen_name_override'] != '') {
-							$this->EE->zoo_visitor_lib->update_screen_name($member_id);
-						}
-
-						//$this->redirect();	
-
-					}
+			//check if is has passed validation, if not, block the further processing
+			if ($is_valid) {
+				//sync the screen_name based on the provided override fields
+				if ($this->zoo_settings['use_screen_name'] == "no" && $this->zoo_settings['screen_name_override'] != '') {
+					$this->EE->zoo_visitor_lib->update_screen_name($member_id);
 				}
 
-				// ==============================================
-				// = Send JSON RESPONSE WITH MEMBER ID INCLUDED =
-				// ==============================================
-				if ($obj->json) {
-					if (is_array($obj->errors)) {
-						//add the field name to custom_field_empty errors
-						foreach ($obj->errors as $field_name => $error) {
-							if ($error == $this->EE->lang->line('custom_field_empty')) {
-								$obj->errors[$field_name] = $error . ' ' . $field_name;
+				if (!isset($_POST['use_dynamic_title'])) {
+					$this->EE->zoo_visitor_lib->update_entry_title($obj->entry('entry_id'));
+				}
+
+				//set membergroup status
+				$this->EE->zoo_visitor_cp->sync_member_status($member_id);
+
+
+				// ===================
+				// = Post processing =
+				// ===================
+				if (isset($reg_result['result']) && $reg_result['result'] == "registration_complete") {
+					// -------------------------------------------
+					// 'zoo_visitor_register' hook.
+					//  - Additional processing when a member is created through the registration form tag
+					//  Still present for backward compatibility with other add-ons using the old register hook
+					//
+					$edata = $this->EE->extensions->call('zoo_visitor_register', array_merge($reg_result['member_data'], $_POST), $reg_result['member_data']['member_id']);
+					if ($this->EE->extensions->end_script === TRUE) return;
+
+					// -------------------------------------------
+					// 'zoo_visitor_register_end' hook.
+					//  - Additional processing when a member is created through the registration form tag
+					//
+					$edata = $this->EE->extensions->call('zoo_visitor_register_end', array_merge($reg_result['member_data'], $_POST), $reg_result['member_data']['member_id']);
+					if ($this->EE->extensions->end_script === TRUE) return;
+
+
+					//check activation method, if none, auto-login
+					if ($this->EE->config->item('req_mbr_activation') == 'none') {
+
+						if (isset($_POST['autologin']) && $_POST['autologin'] == 'no') {
+						} else {
+							$this->autologin($reg_result['member_data'], $member_id);
+						}
+
+						//is redirect set?
+						if ($this->zoo_settings['redirect_after_activation'] == "yes") {
+
+							$this->EE->extensions->end_script = TRUE;
+
+							//sync the screen_name based on the provided override fields before the redirect
+							if ($this->zoo_settings['use_screen_name'] == "no" && $this->zoo_settings['screen_name_override'] != '') {
+								$this->EE->zoo_visitor_lib->update_screen_name($member_id);
+							}
+
+							//$this->redirect();
+
+						}
+					}
+
+					// ==============================================
+					// = Send JSON RESPONSE WITH MEMBER ID INCLUDED =
+					// ==============================================
+					if ($obj->json) {
+						if (is_array($obj->errors)) {
+							//add the field name to custom_field_empty errors
+							foreach ($obj->errors as $field_name => $error) {
+								if ($error == $this->EE->lang->line('custom_field_empty')) {
+									$obj->errors[$field_name] = $error . ' ' . $field_name;
+								}
 							}
 						}
+
+						return $obj->send_ajax_response(
+							array(
+								'success'      => (empty($obj->errors) && empty($obj->field_errors)) ? 1 : 0,
+								'errors'       => (empty($obj->errors)) ? array() : $obj->errors,
+								'field_errors' => (empty($obj->field_errors)) ? array() : $obj->field_errors,
+								'entry_id'     => $obj->entry('entry_id'),
+								'member_id'    => $member_id,
+								'url_title'    => $obj->entry('url_title'),
+								'channel_id'   => $obj->entry('channel_id'),
+							)
+						);
 					}
-
-					return $obj->send_ajax_response(
-						array(
-							'success'      => (empty($obj->errors) && empty($obj->field_errors)) ? 1 : 0,
-							'errors'       => (empty($obj->errors)) ? array() : $obj->errors,
-							'field_errors' => (empty($obj->field_errors)) ? array() : $obj->field_errors,
-							'entry_id'     => $obj->entry('entry_id'),
-							'member_id'    => $member_id,
-							'url_title'    => $obj->entry('url_title'),
-							'channel_id'   => $obj->entry('channel_id'),
-						)
-					);
 				}
-			}
 
-			if ($_POST['zoo_visitor_action'] == 'update_profile' || $_POST['zoo_visitor_action'] == 'update') {
-				// -------------------------------------------
-				// 'zoo_visitor_update_end' hook.
-				//  - Additional processing when a member is update through the update form tag
-				//
-				$edata = $this->EE->extensions->call('zoo_visitor_update_end', $_POST, $member_id);
-				if ($this->EE->extensions->end_script === TRUE) return;
+				if ($_POST['zoo_visitor_action'] == 'update_profile' || $_POST['zoo_visitor_action'] == 'update') {
+					// -------------------------------------------
+					// 'zoo_visitor_update_end' hook.
+					//  - Additional processing when a member is update through the update form tag
+					//
+					$edata = $this->EE->extensions->call('zoo_visitor_update_end', $_POST, $member_id);
+					if ($this->EE->extensions->end_script === TRUE) return;
+				}
 			}
 		}
 	}

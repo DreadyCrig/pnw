@@ -8,7 +8,7 @@
  * @copyright	Copyright (c) 2008-2015, Solspace, Inc.
  * @link		http://solspace.com/docs/freeform
  * @license		http://www.solspace.com/license_agreement
- * @version		4.2.2
+ * @version		4.2.3
  * @filesource	freeform/mod.freeform.php
  */
 
@@ -339,6 +339,7 @@ class Freeform extends Module_builder_freeform
 		ee()->load->model('freeform_form_model');
 		ee()->load->model('freeform_entry_model');
 		ee()->load->model('freeform_field_model');
+		ee()->load->model('freeform_file_upload_model');
 		ee()->load->library('freeform_forms');
 		ee()->load->library('freeform_fields');
 
@@ -844,6 +845,7 @@ class Freeform extends Module_builder_freeform
 		$to_prefix = array(
 			'absolute_count',
 			'absolute_results',
+			'attachment_count',
 			'author_id',
 			'author',
 			'complete',
@@ -860,6 +862,36 @@ class Freeform extends Module_builder_freeform
 		$total_results	= count($result_array);
 		$count			= 0;
 
+		// -------------------------------------
+		//	get file attachment count for entries
+		// -------------------------------------
+
+		$att_results = ee()->freeform_file_upload_model
+						->select('form_id, entry_id, COUNT(*) as file_count')
+						->where_in('form_id', $form_ids)
+						->group_by('form_id, entry_id')
+						->get();
+
+
+		$attached_counts = array();
+
+		if ( ! empty($att_results))
+		{
+			foreach ($att_results as $att_row)
+			{
+				if ( ! isset($attached_counts[$att_row['form_id']]))
+				{
+					$attached_counts[$att_row['form_id']] = array();
+				}
+
+				$attached_counts[$att_row['form_id']][$att_row['entry_id']] = $att_row['file_count'];
+			}
+		}
+
+		// -------------------------------------
+		//	build results
+		// -------------------------------------
+
 		foreach ($result_array as $row)
 		{
 			//apply replace tag to our field data
@@ -873,13 +905,16 @@ class Freeform extends Module_builder_freeform
 				'tagdata'			=> $tagdata
 			));
 
-
 			$row = array_merge(
 				$output_labels,
 				$field_descriptions,
 				$row,
 				$field_parse['variables']
 			);
+
+			$row['attachment_count'] = isset($attached_counts[$row['form_id']][$row['entry_id']]) ?
+										$attached_counts[$row['form_id']][$row['entry_id']] :
+										0;
 
 			if ($replace_tagdata == '')
 			{
@@ -914,7 +949,6 @@ class Freeform extends Module_builder_freeform
 			$row['freeform:reverse_count']		= $total_results - $count++;
 			$row['freeform:absolute_count']		= ++$absolute_count;
 			$row['freeform:absolute_results']	= $total_entries;
-
 
 			$variable_rows[] = $row;
 		}
@@ -1062,7 +1096,7 @@ class Freeform extends Module_builder_freeform
 
 		$this->default_mp_page_marker = 'page';
 
-		$this->set_form_params();
+		$this->set_form_params(TRUE);
 
 		//	----------------------------------------
 		//	Check for duplicate

@@ -762,7 +762,7 @@ class Assets_lib
 		$random = $order_type == 'random';
 		$skip_limits = $fixed || $random;
 
-		$order_by = in_array(strtolower($order_by), array('name', 'folder', 'date', 'size', 'file_id', 'date_modified')) ? strtolower($order_by) : false;
+		$order_by = in_array(strtolower($order_by), array('name', 'title', 'folder', 'date', 'size', 'file_id', 'date_modified')) ? strtolower($order_by) : false;
 		$order_type = in_array(strtolower($order_type), array('asc', 'desc', 'random')) ? strtolower($order_type) : 'asc';
 
 		$folder_ids = array_filter($folder_ids);
@@ -807,7 +807,14 @@ class Assets_lib
 			return array();
 		}
 
-		$sql = 'SELECT * FROM exp_assets_files WHERE 1 ';
+		$sql = 'SELECT * FROM exp_assets_files ';
+
+		if ($order_by && $order_by == 'folder')
+		{
+			$sql .= ' JOIN exp_assets_folders ON exp_assets_files.folder_id = exp_assets_folders.folder_id ';
+		}
+
+		$sql .= ' WHERE 1 ';
 
 		if (!empty($full_folder_list))
 		{
@@ -914,7 +921,6 @@ class Assets_lib
 			{
 				case 'folder':
 				{
-					$sql .= 'JOIN exp_assets_folders ON exp_assets_files.folder_id = exp_assets_folders.folder_id ';
 					$sql .= 'ORDER BY exp_assets_folders.full_path ' . $order_type;
 					break;
 				}
@@ -925,6 +931,12 @@ class Assets_lib
 					break;
 				}
 
+				case 'title':
+				{
+					$sql .= 'ORDER BY exp_assets_files.title ' . $order_type;
+					break;
+				}
+
 				case 'date':
 				{
 					$sql .= 'ORDER BY exp_assets_files.date ' . $order_type . ', exp_assets_files.date_modified ' . $order_type;
@@ -932,9 +944,9 @@ class Assets_lib
 				}
 
 				default:
-				{
+					{
 					$sql .= 'ORDER BY exp_assets_files.`' . $order_by . '` ' . $order_type;
-				}
+					}
 			}
 		}
 

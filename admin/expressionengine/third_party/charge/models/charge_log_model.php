@@ -4,7 +4,7 @@
  * Charge Log Model class
  *
  * @package         charge_ee_addon
- * @version         1.9.2
+ * @version         1.9.5
  * @author          Joel Bradbury ~ <joel@squarebit.co.uk>
  * @link            http://squarebit.co.uk/software/expressionengine/charge
  * @copyright       Copyright (c) 2015, Joel Bradbury/Square Bit
@@ -127,6 +127,11 @@ class Charge_log_model extends Charge_model {
 	public function log( $data = array() )
 	{
 		if( empty( $data )) return FALSE;
+
+		if(!is_array($data)) {
+			$arr = array('message' => $data);
+			$data = $arr;
+		}
 
 		if( !isset( $data['member_id'] ) OR $data['member_id'] == 0 ) $data['member_id'] = ee()->session->userdata('member_id');
 		if( !isset( $data['site_id'] ) ) $data['site_id'] = ee()->config->item('site_id');
@@ -365,6 +370,10 @@ class Charge_log_model extends Charge_model {
 	public function log_exception( $data = array() )
 	{
 		//if( empty( $data ) ) return FALSE;
+		if(!is_array($data)) {
+			$arr = array('message' => $data);
+			$data = $arr;
+		}
 
 		$log_data					= $data;
 		$log_data['type'] 			= 'charge_exception';
@@ -379,6 +388,10 @@ class Charge_log_model extends Charge_model {
 	public function log_stripe_exception( $data = array() )
 	{
 		//if( empty( $data ) ) return FALSE;
+		if(!is_array($data)) {
+			$arr = array('message' => $data);
+			$data = $arr;
+		}
 
 		$log_data					= $data;
 		$log_data['type'] 			= 'charge_stripe_exception';

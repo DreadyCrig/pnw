@@ -640,7 +640,7 @@ class Zoo_visitor_mcp
 				$status_data['status']       = format_status($row->group_title, $row->group_id);
 				$status_data['site_id']      = $this->EE->config->item('site_id');
 				$status_data['group_id']     = $status_group_id;
-				$status_data['status_order'] = '';
+				$status_data['status_order'] = '1';
 				$status_data['highlight'] = '';
 
 				$this->EE->db->insert('statuses', $status_data);

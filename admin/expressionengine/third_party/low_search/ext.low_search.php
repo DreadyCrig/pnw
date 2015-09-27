@@ -57,9 +57,6 @@ class Low_search_ext extends Low_search_base {
 	 */
 	public function __construct($settings = array())
 	{
-		// Add path for CP requests
-		if (REQ == 'CP') ee()->load->add_package_path(PATH_THIRD.$this->package);
-
 		// Call Base constructor
 		parent::__construct();
 
@@ -183,70 +180,6 @@ class Low_search_ext extends Low_search_base {
 		$query = ee()->low_search_filters->results($query);
 
 		return $query;
-	}
-
-	// --------------------------------------------------------------------
-
-	/**
-	 * Change collections when a custom field is deleted
-	 */
-	public function custom_field_modify_data($ft, $method, $data)
-	{
-		// -------------------------------------------
-		// Get the latest version of $data
-		// -------------------------------------------
-
-		if (ee()->extensions->last_call !== FALSE)
-		{
-			$data = ee()->extensions->last_call;
-		}
-
-		// -------------------------------------------
-		// Remove reference to field if found in collection settings
-		// -------------------------------------------
-
-		if ($method == 'settings_modify_column')
-		{
-			$collections = ee()->low_search_collection_model->get_all();
-
-			foreach ($data AS $row)
-			{
-				// Skip if not deleting
-				if ($row['ee_action'] != 'delete') continue;
-
-				foreach ($collections AS $col_id => $col)
-				{
-					// Init update array
-					$update = array();
-
-					// Is the field the excerpt? If so, fall back to title
-					if ($row['field_id'] == $col['excerpt'])
-					{
-						$update['excerpt'] = 0;
-					}
-
-					// Is the field part of a collection's settings?
-					// If so, remove it
-					if (array_key_exists($row['field_id'], $col['settings']))
-					{
-						unset($col['settings'][$row['field_id']]);
-						$update['settings'] = low_search_encode($col['settings'], FALSE);
-
-						// also update edit date to trigger 'rebuild index' message
-						$update['edit_date'] = ee()->localize->now;
-					}
-
-					// If we need to update, do so
-					if ( ! empty($update))
-					{
-						ee()->low_search_collection_model->update($col_id, $update);
-					}
-				}
-			}
-		}
-
-		// Return the data again
-		return $data;
 	}
 
 	// --------------------------------------------------------------------

@@ -156,6 +156,17 @@ abstract class Assets_base_file
 	}
 
 	/**
+	 * Return the revved file URL
+	 *
+	 * @param string $manipulation_name
+	 * @return string
+	 */
+	public function revved_url($manipulation_name = '')
+	{
+		return $this->url($manipulation_name);
+	}
+
+	/**
 	 * Return the file height
 	 *
 	 * @param string $manipulation_name

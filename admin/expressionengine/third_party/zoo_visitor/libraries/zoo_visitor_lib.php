@@ -355,6 +355,8 @@ class Zoo_visitor_lib
 			'RET'            => $ret
 		);
 
+		$data = array_merge($data, $this->EE->TMPL->tagparams);
+
 		$tagdata = $this->EE->TMPL->parse_variables($tagdata, $vars);
 
 		$form_declared = $this->EE->functions->form_declaration($data);
@@ -950,6 +952,8 @@ class Zoo_visitor_lib
 	function _member_delete()
 	{
 
+		$this->EE->load->language("member");
+
 		// No sneakiness - we'll do this in case the site administrator
 		// has foolishly turned off secure forms and some monkey is
 		// trying to delete their account from an off-site form or
@@ -1350,7 +1354,7 @@ class Zoo_visitor_lib
 		$data   = array();
 		$fields = array('bday_y', 'bday_m', 'bday_d', 'birthday', 'url', 'location', 'occupation', 'interests', 'aol_im', 'icq', 'yahoo_im', 'msn_im', 'bio', 'signature', 'avatar', 'photo', 'timezone', 'time_format', 'language');
 
-		if (APP_VER < '2.6.0') {
+		if (version_compare(APP_VER, '2.6.0', '<')) {
 			$fields[] = 'daylight_savings';
 		}
 
@@ -2078,7 +2082,7 @@ class Zoo_visitor_lib
 		$data['time_format'] = ($this->EE->config->item('time_format')) ? $this->EE->config->item('time_format') : 'us';
 		$data['timezone']    = ($this->EE->config->item('default_site_timezone') && $this->EE->config->item('default_site_timezone') != '') ? $this->EE->config->item('default_site_timezone') : $this->EE->config->item('server_timezone');
 
-		if (APP_VER < '2.6.0') {
+		if (version_compare(APP_VER, '2.6.0', '<')) {
 			$data['daylight_savings'] = ($this->EE->config->item('default_site_dst') && $this->EE->config->item('default_site_dst') != '') ? $this->EE->config->item('default_site_dst') : $this->EE->config->item('daylight_savings');
 		}
 

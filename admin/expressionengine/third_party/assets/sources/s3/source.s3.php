@@ -122,9 +122,9 @@ class Assets_s3_source extends Assets_base_source
 	{
 		$bucket_data = $this->get_source_settings();
 
-		$old_folder = trim($old_folder_path, '/') . '/';
+		$old_folder = $this->_get_path_prefix().trim($old_folder_path, '/') . '/';
 		$this->s3->setEndpoint($this->get_endpoint_by_location($bucket_data->location));
-		$files_to_move = $this->s3->getBucket($bucket_data->bucket, $this->_get_path_prefix().$old_folder);
+		$files_to_move = $this->s3->getBucket($bucket_data->bucket, $old_folder);
 
 		rsort($files_to_move);
 		foreach ($files_to_move as $file)
@@ -743,9 +743,9 @@ class Assets_s3_source extends Assets_base_source
 
 		$this->_s3_set_creds($bucket_data->access_key_id, $bucket_data->secret_access_key);
 		$this->s3->setEndpoint(self::get_endpoint_by_location($bucket_data->location));
-		$file_list = $this->s3->getBucket($bucket_data->bucket, $this->_get_path_prefix().$folder_row->full_path);
+		$file_list = $this->s3->getBucket($bucket_data->bucket, $this->_get_path_prefix() . $folder_row->full_path);
 
-		if (!isset($file_list[$folder_row->full_path . $file_name]))
+		if (!isset($file_list[$this->_get_path_prefix() . $folder_row->full_path . $file_name]))
 		{
 			return $file_name;
 		}
@@ -758,7 +758,7 @@ class Assets_s3_source extends Assets_base_source
 		$index = 1;
 
 		while (
-			(isset($file_list[$folder_row->full_path . $file_name_start . $index . '.' . $extension]))
+			(isset($file_list[$this->_get_path_prefix() . $folder_row->full_path . $file_name_start . $index . '.' . $extension]))
 			|| $this->EE->assets_lib->get_file_id_by_folder_id_and_name($folder_row->folder_id, $file_name_start . $index . '.' . $extension)
 		)
 		{

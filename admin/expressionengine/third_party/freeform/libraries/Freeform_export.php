@@ -165,7 +165,15 @@ class Freeform_export extends Addon_builder_freeform
 				// -------------------------------------
 
 				header('Content-disposition: attachment; filename=' . $filename);
-				header('Content-type: ' . get_mime_by_extension($filename));
+				if (version_compare($this->ee_version, '2.10.0', '>='))
+				{
+					ee()->load->library('mime_type');
+					header('Content-type: ' . ee()->mime_type->ofFile($filepath));
+				}
+				else
+				{
+					header('Content-type: ' . get_mime_by_extension($filename));
+				}
 				readfile($filepath);
 				exit();
 			}

@@ -214,6 +214,7 @@ class Low_search_params {
 		// --------------------------------------
 
 		$this->_sql_params();
+		$this->_alias_params();
 
 		// --------------------------------------
 		// Also set the site IDs
@@ -249,6 +250,41 @@ class Low_search_params {
 
 			// Log it
 			ee()->TMPL->log_item(LOW_SEARCH_NAME.": SQL param {$key}=\"{$val}\"");
+		}
+	}
+
+	/**
+	 * Account for aliased parameters:
+	 *
+	 * alias:keywords="q"
+	 * alias:range-from:grid_field:grid_col="min"
+	 * alias:range-to:grid_field:grid_col="max"
+	 */
+	private function _alias_params()
+	{
+		$pfx = 'alias:';
+
+		$aliases = low_array_get_prefixed($this->_tagparams, $pfx, TRUE);
+
+		foreach ($aliases as $key => $alias)
+		{
+			// Get the aliased value
+			$val = $this->get($alias);
+
+			// If it is empty, delete the target
+			if (low_not_empty($val))
+			{
+				// Set aliased key based on alias
+				$this->set($key, $val);
+			}
+			else
+			{
+				$this->delete($key);
+			}
+
+			// Then delete both the alias and alias:key params
+			$this->delete($alias);
+			$this->delete($pfx.$key);
 		}
 	}
 
@@ -634,20 +670,10 @@ class Low_search_params {
 	 */
 	public function prep($key, $val)
 	{
-		$val = $this->_contains_words_value($key, $val);
-		$val = $this->_require_all_value($key, $val);
-		$val = $this->_exclude_value($key, $val);
-		$val = $this->_exact_value($key, $val);
-		$val = $this->_starts_with_value($key, $val);
-		$val = $this->_ends_with_value($key, $val);
-		return $val;
-	}
+		// --------------------------------------
+		// Account for contains_words: \W
+		// --------------------------------------
 
-	/**
-	 * Check if given key is in the contains_words="" parameter
-	 */
-	private function _contains_words_value($key, $val)
-	{
 		if ($this->in_param($key, 'contains_words'))
 		{
 			list($items, $in) = $this->explode($val);
@@ -663,71 +689,57 @@ class Low_search_params {
 			$val = $this->implode($items, $in);
 		}
 
-		return $val;
-	}
+		// --------------------------------------
+		// Account for require_all: & / &&
+		// --------------------------------------
 
-	/**
-	 * Check if given key is in the require_all="" parameter
-	 */
-	private function _require_all_value($key, $val)
-	{
 		if ($this->in_param($key, 'require_all'))
 		{
 			$amp = (substr($key, 0, 7) == 'search:') ? '&&' : '&';
 			$val = str_replace('|', $amp, $val);
 		}
 
-		return $val;
-	}
+		// --------------------------------------
+		// Stuff to add to the beginning of the value
+		// --------------------------------------
 
-	/**
-	 * Check if given key is in the exclude="" parameter
-	 */
-	private function _exclude_value($key, $val)
-	{
-		if ($this->in_param($key, 'exclude') && substr($val, 0, 4) != 'not ')
+		$prepend = array(
+			'gt'          => '>',
+			'gte'         => '>=',
+			'lt'          => '<',
+			'lte'         => '<=',
+			'exclude'     => 'not ',
+			'exact'       => '=',
+			'starts_with' => '^',
+		);
+
+		foreach ($prepend AS $param => $str)
 		{
-			$val = 'not '.$val;
+			if ($this->in_param($key, $param) && substr($val, 0, strlen($str)) != $str)
+			{
+				$val = $str.$val;
+			}
 		}
 
-		return $val;
-	}
+		// --------------------------------------
+		// Stuff to add to the end of the value
+		// --------------------------------------
 
-	/**
-	 * Check if given key is in the exact="" parameter
-	 */
-	private function _exact_value($key, $val)
-	{
-		if ($this->in_param($key, 'exact') && substr($val, 0, 1) != '=')
+		$append = array(
+			'ends_with' => '$'
+		);
+
+		foreach ($append AS $param => $str)
 		{
-			$val = '='.$val;
+			if ($this->in_param($key, $param) && substr($val, -strlen($str)) != $str)
+			{
+				$val = $val.$str;
+			}
 		}
 
-		return $val;
-	}
-
-	/**
-	 * Check if given key is in the starts_with="" parameter
-	 */
-	private function _starts_with_value($key, $val)
-	{
-		if ($this->in_param($key, 'starts_with') && substr($val, 0, 1) != '^')
-		{
-			$val = '^'.$val;
-		}
-
-		return $val;
-	}
-
-	/**
-	 * Check if given key is in the ends_with="" parameter
-	 */
-	private function _ends_with_value($key, $val)
-	{
-		if ($this->in_param($key, 'ends_with') && substr($val, -1) != '$')
-		{
-			$val = $val.'$';
-		}
+		// --------------------------------------
+		// All done
+		// --------------------------------------
 
 		return $val;
 	}

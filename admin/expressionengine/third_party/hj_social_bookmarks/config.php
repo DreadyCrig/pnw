@@ -3,7 +3,7 @@
 if (!defined('HJ_SB_NAME')) {
 	
 	define('HJ_SB_NAME', 'HJ Social Bookmarks');
-	define('HJ_SB_VERSION', '0.9.8');
+	define('HJ_SB_VERSION', '0.9.8.2');
 	define('HJ_SB_AUTHOR', 'Berry Timmermans');
 	define('HJ_SB_AUTHOR_URL', 'http://www.berrytimmermans.nl/');
 	define('HJ_SB_DESCRIPTION', 'The HJ Social Bookmarks plugin adds social bookmarking functionality to your ExpressionEngine 2.+ entries');

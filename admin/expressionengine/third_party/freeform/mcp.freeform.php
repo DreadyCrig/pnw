@@ -10,7 +10,7 @@
  * @copyright	Copyright (c) 2008-2015, Solspace, Inc.
  * @link		http://solspace.com/docs/freeform
  * @license		http://www.solspace.com/license_agreement
- * @version		4.2.2
+ * @version		4.2.3
  * @filesource	freeform/mcp.freeform.php
  */
 
@@ -5321,12 +5321,14 @@ class Freeform_mcp extends Module_builder_freeform
 					$freeform_affected[] = $form_data['form_label'];
 				}
 
-				$extra_form_data .= '<p>' .
-										'<strong>' .
-											$row['field_label'] .
-										'</strong>: ' .
-										implode(', ', $freeform_affected) .
-									'</p>';
+				$extra_form_data .= $this->view(
+					'error_list.html',
+					array(
+						'field_label'		=> $row['field_label'],
+						'freeform_affected'	=> $freeform_affected
+					),
+					true
+				);
 			}
 		}
 

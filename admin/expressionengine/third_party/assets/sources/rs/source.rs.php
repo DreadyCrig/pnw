@@ -88,7 +88,7 @@ class Assets_rs_source extends Assets_base_source
 	{
 		$old_folder = trim($old_path, '/') . '/';
 
-		$file_list = $this->_get_file_list($old_path);
+		$file_list = $this->_get_file_list($this->_prepare_request_uri($this->settings()->container, $old_path));
 		$files_to_move = array();
 
 		foreach ($file_list as $file)
@@ -123,7 +123,7 @@ class Assets_rs_source extends Assets_base_source
 	 */
 	protected function _delete_source_folder($server_path)
 	{
-		$objects_to_delete = $this->_get_file_list($server_path);
+		$objects_to_delete = $this->_get_file_list($this->_prepare_request_uri($this->settings()->container, $server_path));
 		foreach ($objects_to_delete as $object)
 		{
 			$this->_delete_object($this->_prepare_request_uri($this->settings()->container, $object->name));
@@ -173,7 +173,7 @@ class Assets_rs_source extends Assets_base_source
 	 */
 	protected function _source_file_exists($server_path)
 	{
-		return is_object($this->get_object_info($server_path));
+		return is_object($this->get_object_info($this->_prepare_request_uri($this->settings()->container, $server_path)));
 	}
 
 	/**
@@ -184,7 +184,7 @@ class Assets_rs_source extends Assets_base_source
 	 */
 	protected function _source_folder_exists($server_path)
 	{
-		$info = $this->get_object_info(rtrim($server_path, '/'));
+		$info = $this->get_object_info(rtrim($this->_prepare_request_uri($this->settings()->container, $server_path), '/'));
 		if (is_object($info) && $info->content_type == 'application/directory')
 		{
 			return TRUE;

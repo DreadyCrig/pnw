@@ -107,6 +107,12 @@ abstract class Low_search_base {
 	public function __construct()
 	{
 		// -------------------------------------
+		//  Load it. I don't care what EL recommends.
+		// -------------------------------------
+
+		ee()->load->add_package_path(PATH_THIRD.$this->package);
+
+		// -------------------------------------
 		//  Load helper, libraries and models
 		// -------------------------------------
 

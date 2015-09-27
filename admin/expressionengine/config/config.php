@@ -19,7 +19,7 @@ $images_folder                     = 'images';
 $images_path                       = $base_path . '/' . $images_folder;
 $images_url                        = $base_url . '/' . $images_folder;
 
-$config['app_version'] = '292';
+$config['app_version'] = '2.10.1';
 $config['license_contact'] = 'fa6ian@me.com';
 $config['license_number'] = '0672-2827-8288-0580';
 $config['index_page']          = "";
@@ -163,8 +163,11 @@ $config['upload_preferences'] = array(
         'url'         => $base_url  . '/assets/img/galleries/'
     )
 );
+$config['cache_driver'] = 'file';
+$config['doc_url'] = '';
 
 // END EE config items
+
 
 
 /*

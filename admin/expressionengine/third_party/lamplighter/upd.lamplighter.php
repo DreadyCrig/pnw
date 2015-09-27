@@ -11,8 +11,8 @@ require_once PATH_THIRD.'/lamplighter/config.php';
  * @author		Masuga Design
  * @link
  */
-
-class Lamplighter_upd {
+class Lamplighter_upd
+{
 
 	public $version = LAMPLIGHTER_VERSION;
 
@@ -60,6 +60,10 @@ class Lamplighter_upd {
 		    'class'     => 'Lamplighter',
 		    'method'    => 'api_request'
 		);
+		// csrf_exempt was added in a later release of ExpressionEngine.
+		if ( $this->EE->db->field_exists('csrf_exempt', 'actions')) {
+			$data['csrf_exempt'] = 1;
+		}
 		$this->EE->db->insert('actions', $data);
 
 		return TRUE;
@@ -159,12 +163,18 @@ class Lamplighter_upd {
 			}
 		}
 
-		// Module version numbers get updated automatically by EE.
 		/*
-		$this->EE->db->set('module_version', $this->version)
-					->where('module_name', 'Lamplighter')
-					->update('modules');
+		csrf_exempt was added in a later release of ExpressionEngine. Let's always be sure
+		that any existing installation is updated if EE has been updated since Lamplighter
+		was originally installed.
 		*/
+		if ( $this->EE->db->field_exists('csrf_exempt', 'actions')) {
+			$this->EE->db->update('actions', array(
+				'csrf_exempt' => 1
+			), array(
+				'class' => 'Lamplighter'
+			));
+		}
 
 		return TRUE;
 	}

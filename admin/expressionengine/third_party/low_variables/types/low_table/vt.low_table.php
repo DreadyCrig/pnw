@@ -38,7 +38,7 @@ class Low_table extends Low_variables_type {
 		$cols = array_map('trim', explode('|', $cols));
 
 		// Return the view based on these vars
-		return ee()->load->view('mcp_vt_table', array(
+		return ee()->load->view(LOW_VAR_PACKAGE.'/mcp_vt_table', array(
 			'var_id'  => $var_id,
 			'columns' => $cols,
 			'col_count' => count($cols),
@@ -72,7 +72,7 @@ class Low_table extends Low_variables_type {
 			if ($rows)
 			{
 				$cols = $this->get_setting('columns', $var_settings);
-				$data = ee()->load->view('mod_vt_table', array(
+				$data = ee()->load->view(LOW_VAR_PACKAGE.'/mod_vt_table', array(
 					'var_id'  => $var_id,
 					'columns' => array_map('trim', explode('|', $cols)),
 					'rows'    => $rows,

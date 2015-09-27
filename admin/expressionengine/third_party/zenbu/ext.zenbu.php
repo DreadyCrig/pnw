@@ -66,7 +66,7 @@ class Zenbu_ext {
 	{
 		// return_to_zenbu attempts to fetch the latest rules saved in session if present
 		// First, check if we're in the CP and that we're accessing the delete_entries method.
-		if($_GET['D'] == 'cp' && $_GET['C'] == 'content_edit' && $_GET['M'] == 'delete_entries')
+		if((ee()->uri->segment(1) == 'cp' && ee()->uri->segment(2) == 'content_edit' && ee()->uri->segment(3) == 'delete_entries') || (isset($_GET['D']) && $_GET['D'] == 'cp' && isset($_GET['C']) && $_GET['C'] == 'content_edit' && isset($_GET['M']) && $_GET['M'] == 'delete_entries'))
 		{
 			$this->EE->functions->redirect(BASE.AMP.'C=addons_modules'.AMP.'M=show_module_cp'.AMP.'module=zenbu'.AMP."return_to_zenbu=y");
 		}
@@ -82,7 +82,7 @@ class Zenbu_ext {
 		// Taking over redirection
 		// return_to_zenbu attempts to fetch the latest rules saved in session if present
 		// First, check if we're in the CP and that we're accessing the update_multi_entries routine.
-		if($_GET['D'] == 'cp' && $_GET['C'] == 'content_edit' && $_GET['M'] == 'update_multi_entries')
+		if((ee()->uri->segment(1) == 'cp' && ee()->uri->segment(2) == 'content_edit' && ee()->uri->segment(3) == 'update_multi_entries') || (isset($_GET['D']) && $_GET['D'] == 'cp' && isset($_GET['C']) && $_GET['C'] == 'content_edit' && isset($_GET['M']) && $_GET['M'] == 'delete_entries'))
 		{
 			unset($_POST['redirect']);
 			$_POST['redirect'] = base64_encode(BASE.AMP."C=addons_modules".AMP."M=show_module_cp".AMP."module=zenbu".AMP."return_to_zenbu=y");

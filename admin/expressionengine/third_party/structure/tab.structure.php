@@ -161,7 +161,7 @@ class Structure_tab
 		/**  Field: Template
 		/** -------------------------------------*/
 
-		$template_id 	= array_key_exists($entry_id, $site_pages['uris']) ? $site_pages['templates'][$entry_id] : $structure_channels[$channel_id]['template_id'];
+		$template_id = array_key_exists($entry_id, $site_pages['uris']) ? $site_pages['templates'][$entry_id] : $structure_channels[$channel_id]['template_id'];
 		$templates = $this->get_template_fields($entry_id, $data, $channel_id, $structure_settings);
 		$structure_channels = $this->structure->get_structure_channels('', $channel_id);
 		$selected_template = $entry_id != 0 && array_key_exists($entry_id, $site_pages['templates']) ? array($site_pages['templates'][$entry_id]) : array($structure_channels[$channel_id]['template_id']);

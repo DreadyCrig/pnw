@@ -66,13 +66,18 @@
 			</div>
 			<div class="site-menu">
 				<div class="menu-block">
-					<ul class="navigation navigation--bar">
+					<ul id="main-navigation" class="navigation navigation--bar">
 						<li {if segment_1 == ""}class="active"{/if}><a href="/">Home</a></li>
 						<li {if segment_1 == "about"}class="active"{/if}><a href="/about">About</a></li>
 						<li {if segment_1 == "events"}class="active"{/if}><a href="/events">Events</a></li>
 						<li {if segment_1 == "news"}class="active"{/if}><a href="/news">News</a></li>
 						<li {if segment_1 == "j1-visa"}class="active"{/if}><a href="/j1-visa">J1 Visa</a></li>
-						<li {if segment_1 == "resources"}class="active"{/if}><a href="/resources">Resources</a></li>
+						<li {if segment_1 == "resources"}class="active"{/if}>
+							<a href="/resources">Resources</a>
+							<ul class="dropdown">
+								<li><a href="#">Policy Updates</a></li>
+							</ul>
+						</li>
 						<li {if segment_1 == "contact"}class="active"{/if}><a href="/contact">Contact</a></li>
 					</ul>
 				</div>

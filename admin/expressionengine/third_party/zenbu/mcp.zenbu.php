@@ -4,7 +4,7 @@
  *  Zenbu
  * =======
  * See more data in your control panel entry listing
- * @version 	1.9.3.1
+ * @version 	1.9.4
  * @copyright 	Nicolas Bottari - Zenbu Studio 2011-2014
  * @author 		Nicolas Bottari - Zenbu Studio
  * ------------------------------
@@ -68,15 +68,7 @@ class Zenbu_mcp {
 		// Make a local reference to the ExpressionEngine super object
 		$this->EE =& get_instance();
 		$this->EE->load->model(array('zenbu_get', 'zenbu_display', 'zenbu_db'));
-		$this->EE->load->helper(array('form', 'date', 'text', 'loader', 'display_helper'));
-		$this->EE->load->library(array('javascript', 'table'));
-		$this->EE->lang->loadfile('content', 'cp');	// We'll need a few strings from there
-
-		$this->site_id          = $this->EE->session->userdata['site_id'];
-		$this->member_group_id  = $this->EE->session->userdata['group_id'];
-		$this->member_id        = ($this->EE->session->cache('zenbu', 'member_id')) ? $this->EE->session->cache('zenbu', 'member_id') : $this->EE->session->userdata['member_id'];
-		$this->cp_call          = (REQ == 'CP') ? TRUE : FALSE;
-		$this->local_time       = version_compare(APP_VER, '2.6', '>') ? $this->EE->localize->now : $this->EE->localize->set_localized_time();
+		$this->initialize();
 		$this->settings         = $this->EE->zenbu_get->_get_settings();
 		$this->installed_addons = $this->EE->zenbu_get->_get_installed_addons();
 		$this->assigned_data 	= $this->EE->zenbu_get->get_assigned_data();
@@ -95,6 +87,19 @@ class Zenbu_mcp {
 	}
 
 	// --------------------------------------------------------------------
+
+	public function initialize()
+	{
+		$this->EE->lang->loadfile('content', 'cp');	// We'll need a few strings from there
+		$this->EE->load->helper(array('form', 'date', 'text', 'loader', 'display_helper'));
+		$this->EE->load->library(array('javascript', 'table'));
+		$this->site_id          = $this->EE->session->userdata['site_id'];
+		$this->member_group_id  = $this->EE->session->userdata['group_id'];
+		$this->member_id        = ($this->EE->session->cache('zenbu', 'member_id')) ? $this->EE->session->cache('zenbu', 'member_id') : $this->EE->session->userdata['member_id'];
+		$this->cp_call          = (REQ == 'CP') ? TRUE : FALSE;
+		$this->local_time       = version_compare(APP_VER, '2.6', '>') ? $this->EE->localize->now : $this->EE->localize->set_localized_time();
+
+	}
 
 	/**
 	 * Main Page
@@ -563,6 +568,7 @@ class Zenbu_mcp {
 			$this->EE->cp->load_package_js('zenbu_index');
 			$this->EE->cp->load_package_js('zenbu_script');
 
+
 			//	----------------------------------------
 			//	CP Page Title
 			//	----------------------------------------
@@ -596,10 +602,14 @@ class Zenbu_mcp {
 
 		if(AJAX_REQUEST)
 		{
-			return $this->EE->load->view('_results_ajax', $vars, TRUE);
+			$output = $this->EE->load->view('_results_ajax', $vars, TRUE);
 		} else {
-			return $this->EE->load->view('zenbu_index', $vars, TRUE);
+			$output = $this->EE->load->view('zenbu_index', $vars, TRUE);
 		}
+
+		$this->EE->load->remove_package_path(PATH_THIRD.'zenbu');
+
+		return $output;
 
 	} // END index()
 
@@ -956,7 +966,7 @@ class Zenbu_mcp {
 	 */
 	function ajax_results($output = "")
 	{
-		$output .= $this->index();
+		$output = $this->index();
 
 		$this->EE->output->send_ajax_response($output);
 

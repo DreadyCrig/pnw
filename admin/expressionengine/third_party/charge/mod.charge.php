@@ -8,7 +8,7 @@ include PATH_THIRD.'charge/config'.EXT;
  * Charge Module Class
  *
  * @package         charge_ee_addon
- * @version         1.9.2
+ * @version         1.9.5
  * @author          Joel Bradbury ~ <joel@squarebit.co.uk>
  * @link            http://squarebit.co.uk/software/expressionengine/charge
  * @copyright       Copyright (c) 2015, Joel Bradbury/Square Bit
@@ -370,8 +370,7 @@ class Charge {
             $data['has_error'] = TRUE;
 
             $data['error_message'] = ee()->session->flashdata('charge_stripe_error_message');
-            $data['error_type'] = ee()->session->flashdata('charge_stripe_error_type');
-
+            //$data['error_type'] = ee()->session->flashdata('charge_stripe_error_type');
         }
 
 
@@ -624,7 +623,6 @@ class Charge {
 
     private function _handle_errors()
     {
-
         if(empty($this->errors)) return;
         if(empty($this->data)) return;
 
@@ -723,9 +721,10 @@ class Charge {
                 $flashdata = array();
                 $flashdata['charge_stripe_error'] = TRUE;
 
-                // Add all the errors
+
+                // We can only really handle one error
                 foreach(ee()->charge_stripe->errors as $error_key => $error_val) {
-                    $flashdata['charge_stripe_error_'.$error_key] = $error_val;
+                    $flashdata['charge_stripe_error_message'] = $error_val;//.$error_key] = $error_val;
                 }
                 ee()->session->set_flashdata($flashdata);
             }
@@ -795,6 +794,12 @@ class Charge {
         if(isset($this->data['plan']['length']) AND is_numeric($this->data['plan']['length'])) {
             // Even if this is a one-time charge, we handle it as a simple recurring payment, but
             // immediately cancel it after the first payment
+
+            // In this case, we need to have a valid interval value also
+            if(!isset($this->data['plan']['interval']) OR $this->data['plan']['interval'] == '') {
+                $this->data['plan']['interval'] = 'month';
+            }
+
 
             // Add a marker to show this is a spoofed recurring plan
             if(!isset($this->data['plan']['interval_count']) OR $this->data['plan']['interval_count'] == '0') {
@@ -1001,7 +1006,10 @@ class Charge {
             $hidden[] = '<input type="hidden" name="'.$hidden_key.'" value="'.$hidden_val.'"/>';
         }
 
-        $bare = "<form name='charge_form'". $form_class . $form_id ." method='".$form_method."' action='".$action_url."'>";
+        // data attributes?
+        $dataparams = $this->_prep_dataparams();
+
+        $bare = "<form name='charge_form'". $form_class . $form_id ." method='".$form_method."' action='".$action_url."' accept-charset='UTF-8' ".$dataparams.">";
 
         $bare .= implode(' ',$hidden);
 
@@ -1021,6 +1029,22 @@ class Charge {
         return $t;
     }
 
+    private function _prep_dataparams()
+    {
+        $params = array();
+
+        foreach(ee()->TMPL->tagparams as $key => $val)
+        {
+            if(strpos($key, 'data-') === 0)
+            {
+                $params[] = $key . '="'.$val.'"';
+            }
+        }
+
+        if(empty($params)) return '';
+
+        return implode(' ', $params);
+    }
 
 
     private function _get_action_url($method_name)
@@ -1111,7 +1135,8 @@ class Charge {
                     }
                 break;
                 case 'alphanumeric'  :
-                    preg_match("/[^a-zA-Z\d\s]/", $val, $matches);
+                    preg_match("/[^\pL\d\s]/u", $val, $matches);
+
                     if(!empty($matches)) {
                         $valid = FALSE;
                         $this->errors[$post_name] = lang('charge_error_not_alphanumeric');
@@ -1258,6 +1283,14 @@ class Charge {
 
         if($this->data['plan']['length'] < 1) unset($this->data['plan']['length']); // Ignore it
         else {
+
+            // If this is a one-time payment, we've got a hard limit on the max set length we can set.
+            // If it's a recurring payment, we can be more flexible.
+            $limit = false;
+            if($this->_pick_path() == 'charge') {
+                $limit = true;
+            }
+
             $this->data['plan']['length'] = floor($this->data['plan']['length']);
             // We let the dev specify the plan_length_interval multiple ways
             // 1. Directly by plan_length_interval
@@ -1273,13 +1306,13 @@ class Charge {
             // Now check we're within our limits
             switch($length_interval) {
                 case 'week' :
-                    if($this->data['plan']['length'] > 52) $this->errors['plan_length'] = 'charge_error_plan_length_too_long';
+                    if($this->data['plan']['length'] > 52 && $limit) $this->errors['plan_length'] = 'charge_error_plan_length_too_long';
                 break;
                 case 'month' :
-                    if($this->data['plan']['length'] > 12) $this->errors['plan_length'] = 'charge_error_plan_length_too_long';
+                    if($this->data['plan']['length'] > 12 && $limit) $this->errors['plan_length'] = 'charge_error_plan_length_too_long';
                 break;
                 case 'year' :
-                    if($this->data['plan']['length'] > 1) $this->errors['plan_length'] = 'charge_error_plan_length_too_long';
+                    if($this->data['plan']['length'] > 1 && $limit) $this->errors['plan_length'] = 'charge_error_plan_length_too_long';
                 break;
                 default :
                     $this->errors['plan_length'] = 'charge_error_plan_length_invalid';
@@ -1371,20 +1404,19 @@ class Charge {
         // Sanity Check
         if($discount_amount <= 0) {
             // nope, discount is zero.
-            $this->errors['plan_coupon'] = lang('charge_craft_coupon_invalid');
+            $this->errors['plan_coupon'] = lang('charge_coupon_error_invalid');
             return;
         }
 
         if($final_amount >= $base_amount) {
             // nope, somehow this 'discount' has increased the price
-            $this->errors['plan_coupon'] = lang('charge_craft_coupon_invalid');
+            $this->errors['plan_coupon'] = lang('charge_coupon_error_invalid');
             return;
         }
 
         // Check we're still above the min transaction price
         if($final_amount <= 0.5) {
-            $this->errors['plan_coupon'] = lang('charge_craft_coupon_below_min');
-            $model->addError('planCoupon', Craft::t('Sorry, applying this coupon brings your total below the minimum we can charge'));
+            $this->errors['plan_coupon'] = lang('charge_coupon_error_below_min');
             return;
         }
 

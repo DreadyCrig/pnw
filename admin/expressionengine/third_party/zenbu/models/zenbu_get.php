@@ -6,13 +6,9 @@ class Zenbu_get extends Zenbu_mcp {
 	{
 		// Make a local reference to the ExpressionEngine super object
 		$this->EE =& get_instance();
-		$this->EE->lang->loadfile('content', 'cp');	// We'll need a few strings from there
-		$this->site_id          = $this->EE->session->userdata['site_id'];
-		$this->member_group_id  = $this->EE->session->userdata['group_id'];
-		$this->member_id        = ($this->EE->session->cache('zenbu', 'member_id')) ? $this->EE->session->cache('zenbu', 'member_id') : $this->EE->session->userdata['member_id'];
-		$this->dbprefix         = $this->EE->db->dbprefix;
-		$this->cp_call          = (REQ == 'CP') ? TRUE : FALSE;
-		$this->local_time       = version_compare(APP_VER, '2.6', '>') ? $this->EE->localize->now : $this->EE->localize->set_localized_time();
+		$this->EE->load->model(array('zenbu_display', 'zenbu_db'));
+		parent::initialize();
+
 		$this->settings         = $this->_get_settings();
 		$this->installed_addons = $this->_get_installed_addons();
 		$this->assigned_data    = $this->get_assigned_data();
@@ -450,6 +446,11 @@ class Zenbu_get extends Zenbu_mcp {
 			WHERE member_group_id = " . $this->member_group_id . "
 			AND site_id = " . $this->site_id);
 		}
+
+		// zenbu_db model should be loaded in all cases, 
+		// yet some users report errors when 
+		// new MSM sites are added :/
+		$this->EE->load->model('zenbu_db');
 
 		if($results->num_rows() > 0)
 		{
@@ -1752,7 +1753,6 @@ class Zenbu_get extends Zenbu_mcp {
 	 */
 	function _get_entry_data($settings, $field_ids, $rules, $channel_id, $output_channel, $categories, $fieldtypes)
 	{
-		$this->EE->load->model('zenbu_display');
 		$this->EE->load->helper('display');
 		$this->EE->load->helper('loader');
 
@@ -3217,7 +3217,6 @@ class Zenbu_get extends Zenbu_mcp {
 		$output_upload_prefs	= $this->_get_file_upload_prefs();
 		$extra_options			= isset($settings['setting'][(string) $channel_id]['extra_options']) ? $settings['setting'][(string) $channel_id]['extra_options'] : array();
 
-		$this->EE->load->model('zenbu_display');
 		$this->EE->load->helper(array('display', 'loader', 'date', 'url', 'text'));
 
 		if( ! is_numeric($field_id))

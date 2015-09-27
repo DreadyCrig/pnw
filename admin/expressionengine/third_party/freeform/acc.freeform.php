@@ -10,7 +10,7 @@
  * @copyright	Copyright (c) 2008-2015, Solspace, Inc.
  * @link		http://solspace.com/docs/freeform
  * @license		http://www.solspace.com/license_agreement
- * @version		4.2.2
+ * @version		4.2.3
  * @filesource	freeform/act.freeform.php
  */
 
@@ -119,10 +119,13 @@ class Freeform_acc extends Module_builder_freeform
 
 		foreach ($forms as $form)
 		{
-			$field_ids += $form['field_ids'];
+			if (isset($form['field_ids']) && !is_null($form['field_ids']))
+			{
+				$field_ids += $form['field_ids'];
+			}
 		}
 
-		array_unique($field_ids);
+		$field_ids = array_unique($field_ids);
 
 		$fields = ee()->freeform_field_model
 					->where_in('field_id', $field_ids)
@@ -158,12 +161,15 @@ class Freeform_acc extends Module_builder_freeform
 			$info['field_names']		= array();
 			$info['form_data']			= $form;
 
-			foreach ($form['field_ids'] as $fid)
+			if (isset($form['field_ids']) && !is_null($form['field_ids']))
 			{
-				if (isset($fields[$fid]))
+				foreach ($form['field_ids'] as $fid)
 				{
-					$info['field_names'][] = $fields[$fid];
-				}
+					if (isset($fields[$fid]))
+					{
+						$info['field_names'][] = $fields[$fid];
+					}
+				}				
 			}
 
 			$form_info[$form['form_id']] = $info;

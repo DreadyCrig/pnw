@@ -36,11 +36,12 @@ class Hj_social_bookmarks {
 		$entry_id = $this->EE->TMPL->fetch_param('entry_id');
 		$field_name = $this->EE->TMPL->fetch_param('field_name');
 		$show_hyperlink_text = $this->EE->TMPL->fetch_param('show_hyperlink_text');
-		$pinterest_media = (!$this->EE->TMPL->fetch_param('pinterest_media')) ? '' : urlencode($this->EE->TMPL->fetch_param('pinterest_media'));
-		$tweet_via = (!$this->EE->TMPL->fetch_param('tweet_via')) ? '' : '&amp;via=' . $this->EE->TMPL->fetch_param('tweet_via');
-		$class_name = (!$this->EE->TMPL->fetch_param('class')) ? 'hj_social_bookmarks' : $this->EE->TMPL->fetch_param('class');
+		$pinterest_media = (!$this->EE->TMPL->fetch_param('pinterest_media') ? '' : urlencode($this->EE->TMPL->fetch_param('pinterest_media')));
+		$tweet_via = (!$this->EE->TMPL->fetch_param('tweet_via') ? '' : '&amp;via=' . $this->EE->TMPL->fetch_param('tweet_via'));
+		$class_name = (!$this->EE->TMPL->fetch_param('class') ? 'hj_social_bookmarks' : $this->EE->TMPL->fetch_param('class'));
+		$html5 = (!$this->EE->TMPL->fetch_param('html5') ? 'no' : $this->EE->TMPL->fetch_param('html5'));
 
-		$query_string = (isset($_SERVER['QUERY_STRING']) AND $_SERVER['QUERY_STRING'] != '') ? '?'. $_SERVER['QUERY_STRING'] : '';
+		$query_string = ((isset($_SERVER['QUERY_STRING']) && $_SERVER['QUERY_STRING'] != '') ? '?'. $_SERVER['QUERY_STRING'] : '');
     	$current_url = urlencode(reduce_double_slashes($this->EE->config->item('site_url') . $this->EE->uri->uri_string . $query_string));
 	    			
 		if(isset($field_name) && $field_name != '') {
@@ -237,7 +238,7 @@ class Hj_social_bookmarks {
 
 				'WhatsApp' => array( 
 					'short_name' => 'whatsapp',
-					'url' => 'whatsapp://send?text=' . $current_url
+					'url' => 'whatsapp://send?text=' . $title . ': ' . $current_url
 				)
 			
 			);
@@ -331,7 +332,7 @@ See: ' . HJ_SB_DOCS . ' for more information.
 		    		
 		    	} else {
 
-			    	$this->return_data .= '<img src="' . HJ_SB_IMGPATH . $favicon . '" alt="' . $description . '" />';
+			    	$this->return_data .= '<img src="' . HJ_SB_IMGPATH . $favicon . '" alt="' . $description . '"' . ((isset($html5) && $html5 == 'yes') ? '' : ' /') . '>';
 			    	
 		    	}
 			    	
@@ -422,6 +423,19 @@ See: ' . HJ_SB_DOCS . ' for more information.
 			[OPTIONAL]
 			
 			This lets you specify the value of the class attribute in the opening <ul> tag. The default value is .hj_social_bookmarks.
+
+		html5=
+			
+			[OPTIONAL]
+			
+			This parameter allows you to turn off self-closing <img> tags.
+			
+			Valid options are:
+			
+			- yes
+			- no
+			
+			By default, self-closing <img> tags are turned on.
 			
 		show_hyperlink_text=
 			

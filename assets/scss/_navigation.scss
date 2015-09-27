@@ -1,9 +1,11 @@
 .navigation--bar {
 	@include clearfix();
 	background-color: #fff;
-	li {
+	position: relative;
+	> li {
 		float: left;		
 		box-sizing: border-box;
+		position: relative;
 		&:first-child {
 			padding-left: rem(12);
 		}
@@ -13,19 +15,41 @@
 		&.active a {
 			border-bottom: 3px solid $blue;
 		}
-	}
-	a {
-		display: block;
-		font-size: rem(13.8);
-		font-weight: 600;
-		padding: rem(24) rem(12) rem(23);
-		text-transform: uppercase;
-		letter-spacing: 1.4px;
-		border-bottom: 3px solid #fff;
-		@include transition(border .25s ease-in-out);
-		&:hover, &:focus {
-			color: $blue;
-			border-color: $blue;
+		> a {
+			display: block;
+			font-size: rem(13.8);
+			font-weight: 600;
+			padding: rem(24) rem(12) rem(23);
+			text-transform: uppercase;
+			letter-spacing: 1.4px;
+			border-bottom: 3px solid #fff;
+			@include transition(border .25s ease-in-out);
+			&:hover, &:focus {
+				color: $blue;
+				border-color: $blue;
+			}
+		}
+		.dropdown {
+			position: absolute;
+			z-index: 3000;
+			min-width: 170px;
+			background-color: $blue;
+			border-radius: 4px;
+			top: 73px;
+			left: -18px;
+			li {
+
+			}
+			a {
+				color: #fff;
+				font-weight: 700;
+				font-size: rem(13.8);
+				letter-spacing: 1.4px;
+				display: block;
+				padding: rem(12) rem(12) rem(12);
+				text-transform: uppercase;
+				text-align: center;
+			}
 		}
 	}
 }

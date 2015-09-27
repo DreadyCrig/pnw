@@ -10,7 +10,7 @@
  * @copyright	Copyright (c) 2008-2015, Solspace, Inc.
  * @link		http://solspace.com/docs/freeform
  * @license		http://www.solspace.com/license_agreement
- * @version		4.2.2
+ * @version		4.2.3
  * @filesource	freeform/data.freeform.php
  */
 

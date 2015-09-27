@@ -508,17 +508,18 @@ class Assets_helper
 			return '';
 		}
 
-		$manipulatable_tags = array('url', 'server_path', 'subfolder', 'filename', 'extension', 'date_modified', 'kind',
+		$manipulatable_tags = array('url', 'revved_url', 'server_path', 'subfolder', 'filename', 'extension', 'date_modified', 'kind',
 			'width', 'height', 'size');
 
 		$manipulation_tags = array();
-		$pattern = '/\{' . $var_prefix . '(?P<tag_name>' . join('|', $manipulatable_tags) . '):(?P<manipulation>[a-z\-_0-9]+)\}/i';
+		$pattern = '/\{' . $var_prefix . '(?P<tag_name>' . join('|', $manipulatable_tags) . '):(?P<manipulation>[a-z\-_0-9]+)(\s.*)?\}/i';
 
 		if (preg_match_all($pattern, $tagdata, $matches))
 		{
 			foreach ($matches['manipulation'] as $i => $manipulation_name)
 			{
 				$manipulation_tags[$manipulation_name][] = $matches['tag_name'][$i];
+				$manipulation_tags[$manipulation_name] = array_unique($manipulation_tags[$manipulation_name]);
 			}
 		}
 
@@ -535,6 +536,7 @@ class Assets_helper
 				$var_prefix.'file_id'                => $file->file_id(),
 				$var_prefix.'asset_id'               => $file->file_id(),
 				$var_prefix.'url'                    => $file->url(),
+				$var_prefix.'revved_url'             => $file->revved_url(),
 				$var_prefix.'server_path'            => $file->server_path(),
 				$var_prefix.'subfolder'              => $file->subfolder(),
 				$var_prefix.'filename'               => $file->filename_sans_extension(),
@@ -564,24 +566,36 @@ class Assets_helper
 							switch ($tag)
 							{
 								case 'size':
-									$val = self::format_filesize($file->size($manipulation_name));
-									$val = ($val == '2 GB' ? '> 2 GB' : $val);
+									$unformatted_size = $file->size($manipulation_name);
+
+									$formatted_size = self::format_filesize($unformatted_size);
+									$formatted_size = ($formatted_size == '2 GB' ? '> 2 GB' : $formatted_size);
+
+									$val = array(
+										$manipulation_name                      => $formatted_size,
+										$manipulation_name.' unformatted="yes"' => $unformatted_size
+									);
+
 									break;
 								default:
-									$val = $file->$tag($manipulation_name);
+									$val = array($manipulation_name => $file->$tag($manipulation_name));
 							}
 						}
 						else
 						{
-							$val = '';
+							$val = array($manipulation_name => '');
 						}
 					}
 					catch (Exception $e)
 					{
-						$val = $e->getMessage();
+						$val = array($manipulation_name => $e->getMessage());
 					}
 
-					$file_vars[$var_prefix.$tag.':'.$manipulation_name] = $val;
+					foreach ($val as $manipulation_name => $value)
+					{
+						$file_vars[$var_prefix.$tag.':'.$manipulation_name] = $value;
+					}
+
 				}
 			}
 

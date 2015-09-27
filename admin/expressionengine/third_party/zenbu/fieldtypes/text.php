@@ -44,7 +44,7 @@ class Zenbu_text_ft extends Text_ft
 		// Convert to "regular" number if data is numeric and number is in scientific nomenclature
 		if( isset($settings['setting'][$channel_id]['extra_options']['field_'.$field_id]['text_option_3'])
 			&& $settings['setting'][$channel_id]['extra_options']['field_'.$field_id]['text_option_3'] == 'y'
-			&& $data != "" && $data != 0)
+			&& $data != "")
 		{
 			if( isset($settings['setting'][$channel_id]['extra_options']['field_'.$field_id]['text_option_4']) )
 			{
@@ -91,12 +91,20 @@ class Zenbu_text_ft extends Text_ft
 		);
 		$output['text_option_2'] = form_dropdown('settings['.$channel_id.']['.$table_col.'][text_option_2]', $text_option_2_dropdown, $extra_text_option_2, 'class="bottom-margin "' );
 
-		if(isset($field_settings['field_content_type']) && $field_settings['field_content_type'] == 'numeric')
+		if(isset($field_settings['field_content_type']) && ($field_settings['field_content_type'] == 'numeric' || $field_settings['field_content_type'] == 'decimal'))
 		{
 			$extra_text_option_3 = (isset($extra_options['text_option_3']) && $extra_options['text_option_3'] == 'y') ? TRUE : FALSE;
 			$extra_text_option_4 = (isset($extra_options['text_option_4'])) ? $extra_options['text_option_4'] : '2';
 
-			$output['text_option_3'] = BR . form_label( form_checkbox('settings['.$channel_id.']['.$table_col.'][text_option_3]', 'y', $extra_text_option_3).'&nbsp;'.$this->EE->lang->line('convert_to_regular_number') );
+			if($field_settings['field_content_type'] == 'decimal')
+			{
+				$output['text_option_3'] = form_hidden('settings['.$channel_id.']['.$table_col.'][text_option_3]', 'y');	
+			}
+			else
+			{
+				$output['text_option_3'] = BR . form_label( form_checkbox('settings['.$channel_id.']['.$table_col.'][text_option_3]', 'y', $extra_text_option_3).'&nbsp;'.$this->EE->lang->line('convert_to_regular_number') );
+			}
+
 			$output['text_option_4'] = BR . form_label($this->EE->lang->line('number_of_decimals').'&nbsp;'.form_input('settings['.$channel_id.']['.$table_col.'][text_option_4]', $extra_text_option_4, 'size="2" class="bottom-margin "'));
 		}
 

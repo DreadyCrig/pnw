@@ -934,10 +934,14 @@ class Low_variables_mcp extends Low_variables_base
 		// prep var name for sprintf
 		if ($suffix)
 		{
-			$var_name
-				= (strpos($var_name, '{suffix}') !== FALSE)
-				? str_replace('{suffix}', '%s', $var_name)
-				: $var_name . '_%s';
+			if (strpos($var_name, '{suffix}') !== FALSE)
+			{
+				$var_name = str_replace('{suffix}', '%s', $var_name);
+			}
+			elseif (strpos($var_name, '%s') === FALSE)
+			{
+				$var_name .= '_%s';
+			}
 		}
 
 		// Check if variable name is valid
@@ -1078,18 +1082,14 @@ class Low_variables_mcp extends Low_variables_base
 
 			$existing = low_flatten_results($query->result_array(), 'variable_name');
 
-			foreach (explode(' ', $suffix) AS $sfx)
+			foreach (array_unique(explode(' ', $suffix)) AS $sfx)
 			{
 				// Skip illegal ones
-				if ( ! preg_match('/^[a-zA-Z0-9\-_]+$/', $sfx)) continue;
-
-				// Remove underscore if it's there
-				if (substr($sfx, 0, 1) == '_') $sfx = substr($sfx, 1);
-
-				// Skip suffix if name already exists
-				if (in_array(sprintf($var_name, $sfx), $existing)) continue;
-
-				$suffixes[] = $sfx;
+				if (preg_match('/^[\w-:]+$/', $sfx) &&
+					! in_array(sprintf($var_name, $sfx), $existing))
+				{
+					$suffixes[] = $sfx;
+				}
 			}
 		}
 

@@ -44,8 +44,7 @@ class Low_search_upd extends Low_search_base {
 		'delete_entries_loop',
 		'channel_entries_query_result',
 		'category_save',
-		'category_delete',
-		'custom_field_modify_data'
+		'category_delete'
 	);
 
 	// --------------------------------------------------------------------
@@ -243,15 +242,6 @@ class Low_search_upd extends Low_search_base {
 		}
 
 		// --------------------------------------
-		// Update to 3.1.4
-		// --------------------------------------
-
-		if (version_compare($current, '3.1.4', '<'))
-		{
-			$this->_v314();
-		}
-
-		// --------------------------------------
 		// Update to 3.3.0
 		// --------------------------------------
 
@@ -285,6 +275,15 @@ class Low_search_upd extends Low_search_base {
 		if (version_compare($current, '4.0.0', '<'))
 		{
 			$this->_v400();
+		}
+
+		// --------------------------------------
+		// Update to 4.3.0
+		// --------------------------------------
+
+		if (version_compare($current, '4.3.0', '<'))
+		{
+			$this->_v430();
 		}
 
 		// --------------------------------------
@@ -434,18 +433,6 @@ class Low_search_upd extends Low_search_base {
 	}
 
 	/**
-	 * Update routines for version 3.1.4
-	 *
-	 * @access     private
-	 * @return     void
-	 */
-	private function _v314()
-	{
-		// Register channel fields hooks
-		$this->_add_hook($this->hooks[5]);
-	}
-
-	/**
 	 * Update routines for version 3.3.0
 	 *
 	 * @access     private
@@ -508,6 +495,21 @@ class Low_search_upd extends Low_search_base {
 	private function _v400()
 	{
 		ee()->low_search_word_model->install();
+	}
+
+	/**
+	 * Update routines for version 4.3.0
+	 *
+	 * @access     private
+	 * @return     void
+	 */
+	private function _v430()
+	{
+		// Remove custom_field_modify_data hook
+		ee()->db
+			->where('class', $this->class_name.'_ext')
+			->where('method', 'custom_field_modify_data')
+			->delete('extensions');
 	}
 
 } // End class

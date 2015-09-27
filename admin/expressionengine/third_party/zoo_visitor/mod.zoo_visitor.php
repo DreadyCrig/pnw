@@ -134,9 +134,10 @@ class Zoo_visitor
 							$form = '{exp:safecracker channel="' . $this->settings['member_channel_name'] . '" use_live_url="no"  logged_out_member_id="' . $this->settings['anonymous_member_id'] . '" ' . $this->get_params() . ' }';
 						}else{
 
-							//XID needs to be restored, otherwise security check fails when using inline error reporting
-							$this->EE->security->restore_xid();
-
+							if (version_compare(APP_VER, 2.8, '<=')) {
+								//XID needs to be restored, otherwise security check fails when using inline error reporting
+								$this->EE->security->restore_xid();
+							}
 							//wrap in channel form tags
 							$form = '{exp:channel:form channel="' . $this->settings['member_channel_name'] . '" use_live_url="no"  logged_out_member_id="' . $this->settings['anonymous_member_id'] . '" ' . $this->get_params() . ' }';
 						}
@@ -245,9 +246,10 @@ class Zoo_visitor
 					$form = '{exp:safecracker channel="' . $this->settings['member_channel_name'] . '" entry_id="' . $entry_id . '"  use_live_url="no" ' . $this->get_params() . '}';
 				}else{
 
-					//XID needs to be restored, otherwise security check fails when using inline error reporting
-					$this->EE->security->restore_xid();
-
+					if (version_compare(APP_VER, 2.8, '<=')) {
+						//XID needs to be restored, otherwise security check fails when using inline error reporting
+						$this->EE->security->restore_xid();
+					}
 					//wrap in channel form tags
 					$form = '{exp:channel:form channel="' . $this->settings['member_channel_name'] . '" entry_id="' . $entry_id . '"  use_live_url="no" ' . $this->get_params() . '}';
 				}
@@ -309,6 +311,7 @@ class Zoo_visitor
 		$params   = array();
 		$params[] = array('include_jquery', 'yes', true);
 		$params[] = array('safecracker_head', 'yes', true);
+		$params[] = array('include_assets', 'yes', true);
 		$params[] = array('preserve_checkboxes', 'yes', true);
 		$params[] = array('json', 'yes', false);
 		$params[] = array('datepicker', 'no', false);
@@ -352,12 +355,13 @@ class Zoo_visitor
 		foreach ($this->EE->TMPL->tagparams as $key => $value) {
 			// If the param was included in the tag make sure it is used
 			if (!in_array($key, $included_params)) {
-				$param_str .= $key . '="' . $value . '"';
+				$param_str .= $key . '="' . $value . '" ';
 			}
 
-			if (preg_match('/^rules:(.+)/', $key, $match)) {
-				$param_str .= "rules:" . $match[1] . '="' . $value . '"';
-			}
+//			if (preg_match('/^rules:(.+)/', $key, $match)) {
+//				$param_str .= " rules:" . $match[1] . '="' . $value . '"';
+//			}
+
 		}
 
 		return $param_str;

@@ -7,14 +7,22 @@
       <input type="hidden" value="6" name="group_id">
       <input id="password" name="password" type="hidden" value="indimember" />
       <input id="password_confirm" name="password_confirm" type="hidden" value="indimember" />
-      <select name="member_title" class="account-member-title form-control">
-				<option value="mr" selected>Mr.</option>
-				<option value="ms">Ms.</option>
-				<option value="mrs">Mrs.</option>
-				<option value="dr">Dr.</option>
+      
+      <select class="account-member-type form-control" id="account-type">
+				<option value="" selected>Choose Account Type</option>
+				<option value="indimember">Individual</option>
+				<option value="sbmember">Small Business</option>
+				<option value="corpmember">Corporate</option>
+				<option value="patronmember">Patron</option>
 			</select>
 			
 			<div class="inline-form-group">
+				<select name="member_title" class="account-member-title form-control">
+					<option value="mr" selected>Mr.</option>
+					<option value="ms">Ms.</option>
+					<option value="mrs">Mrs.</option>
+					<option value="dr">Dr.</option>
+				</select>
 	      <div class="form-group form-group--half">
 	      	<label for="member_first_name">First Name:</label>
 	      	<input class="form-control" id="member_first_name" name="member_first_name" type="text" value="" />
@@ -72,3 +80,26 @@
 </main>
 
 <link href="{path=css/_ee_channel_form_css}" type="text/css" rel="stylesheet" media="screen">
+
+<script>
+	$(function() {
+	/* on account-type change, grab account-type's selected value, 
+	pass it to the value of the password and password confirm fields */
+	var pass = $('#password'),
+			passConf = $('#password_confirm'),
+			passVal = pass.val() + " " + passConf.val(),
+			accType = $('#account-type');
+	
+	accType.change(function() {
+		var typeVal = $(this).val();
+		if( $(this).val() == "") {
+			pass.val('indimember');
+			passConf.val('indimember');
+		} else {
+			pass.val(typeVal);
+			passConf.val(typeVal);
+		}
+	});
+
+	});
+</script>

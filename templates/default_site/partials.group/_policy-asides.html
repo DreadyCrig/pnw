@@ -1,0 +1,231 @@
+{if embed:editorial == "yes"}
+	{if embed:cat_id != "7"}
+	<div class="card">
+		<header class="card__header text-center">
+			<h2>Regional Issues</h2>
+		</header>
+		<div class="card__body">
+			{exp:channel:entries
+				channel="policy_updates"
+				category="7"
+				disable="member_data|trackbacks"
+				dynamic="off"
+				limit="3"
+			}
+			<div class="post post--micro">
+				<div class="post__body">
+					<h3 class="post-title">
+						<a href="{page_url}">{title}</a>
+					</h3>
+					<div class="post-meta">
+						<div class="post-date">
+							{entry_date format="%F %d"}
+							<time>{entry_date format="%g:%i %A"}</time>
+						</div>
+					</div>
+					<p class="post-excerpt">
+						{exp:eehive_hacksaw chars="80" append="..."}
+						{article_excerpt:excerpt}
+						{/exp:eehive_hacksaw}
+					</p>
+				</div>
+			</div>
+			{/exp:channel:entries}
+		</div>
+		<footer class="card__footer text-center">
+			<a href="/resources/policy-updates/category/regional-issues">More Regional Issues</a>
+		</footer>
+	</div>
+	{/if}
+	{if embed:cat_id != "8"}
+	<div class="card">
+		<header class="card__header text-center">
+			<h2>National Issues</h2>
+		</header>
+		<div class="card__body">
+			{exp:channel:entries
+				channel="policy_updates"
+				category="8"
+				disable="member_data|trackbacks"
+				dynamic="off"
+				limit="3"
+			}
+			<div class="post post--micro">
+				<div class="post__body">
+					<h3 class="post-title">
+						<a href="{page_url}">{title}</a>
+					</h3>
+					<div class="post-meta">
+						<div class="post-date">
+							{entry_date format="%F %d"}
+							<time>{entry_date format="%g:%i %A"}</time>
+						</div>
+					</div>
+					<p class="post-excerpt">
+						{exp:eehive_hacksaw chars="80" append="..."}
+						{article_excerpt:excerpt}
+						{/exp:eehive_hacksaw}
+					</p>
+				</div>
+			</div>
+			{/exp:channel:entries}
+		</div>
+		<footer class="card__footer text-center">
+			<a href="/resources/policy-updates/category/national-issues">More National Issues</a>
+		</footer>
+	</div>
+	{/if}
+	{if embed:cat_id != "9"}
+	<div class="card">
+		<header class="card__header text-center">
+			<h2>UK/Intl. Issues</h2>
+		</header>
+		<div class="card__body">
+			{exp:channel:entries
+				channel="policy_updates"
+				category="9"
+				disable="member_data|trackbacks"
+				dynamic="off"
+				limit="3"
+			}
+			<div class="post post--micro">
+				<div class="post__body">
+					<h3 class="post-title">
+						<a href="{page_url}">{title}</a>
+					</h3>
+					<div class="post-meta">
+						<div class="post-date">
+							{entry_date format="%F %d"}
+							<time>{entry_date format="%g:%i %A"}</time>
+						</div>
+					</div>
+					<p class="post-excerpt">
+						{exp:eehive_hacksaw chars="80" append="..."}
+						{article_excerpt:excerpt}
+						{/exp:eehive_hacksaw}
+					</p>
+				</div>
+			</div>
+			{/exp:channel:entries}
+		</div>
+		<footer class="card__footer text-center">
+			<a href="/resources/policy-updates/category/uk-intl-issues">More UK/Intl. Issues</a>
+		</footer>
+	</div>
+	{/if}
+{if:else}
+<div class="card">
+	<header class="card__header text-center">
+		<h2>Regional Issues</h2>
+	</header>
+	<div class="card__body">
+		{exp:channel:entries
+			channel="policy_updates"
+			category="7"
+			disable="member_data|trackbacks"
+			dynamic="off"
+			limit="1"
+		}
+		<div class="post post--micro">
+			<div class="post__body">
+				<h3 class="post-title">
+					<a href="{page_url}">{title}</a>
+				</h3>
+				<div class="post-meta">
+					<div class="post-date">
+						{entry_date format="%F %d"}
+						<time>{entry_date format="%g:%i %A"}</time>
+					</div>
+				</div>
+				<p class="post-excerpt">
+					{exp:eehive_hacksaw chars="80" append="..."}
+					{article_excerpt:excerpt}
+					{/exp:eehive_hacksaw}
+				</p>
+			</div>
+		</div>
+		{/exp:channel:entries}
+	</div>
+	<footer class="card__footer text-center">
+		<a href="/resources/policy-updates/category/regional-issues">More Regional Issues</a>
+	</footer>
+</div>
+<div class="card">
+	<header class="card__header text-center">
+		<h2>National Issues</h2>
+	</header>
+	<div class="card__body">
+		{exp:channel:entries
+			channel="policy_updates"
+			category="8"
+			disable="member_data|trackbacks"
+			dynamic="off"
+			limit="1"
+		}
+		<div class="post post--micro">
+			<div class="post__body">
+				<h3 class="post-title">
+					<a href="{page_url}">{title}</a>
+				</h3>
+				<div class="post-meta">
+					<div class="post-date">
+						{entry_date format="%F %d"}
+						<time>{entry_date format="%g:%i %A"}</time>
+					</div>
+				</div>
+				<p class="post-excerpt">
+					{exp:eehive_hacksaw chars="80" append="..."}
+					{article_excerpt:excerpt}
+					{/exp:eehive_hacksaw}
+				</p>
+			</div>
+		</div>
+		{/exp:channel:entries}
+	</div>
+	<footer class="card__footer text-center">
+		<a href="/resources/policy-updates/category/national-issues">More National Issues</a>
+	</footer>
+</div>
+<div class="card">
+	<header class="card__header text-center">
+		<h2>UK/Intl. Issues</h2>
+	</header>
+	<div class="card__body">
+		{exp:channel:entries
+			channel="policy_updates"
+			category="9"
+			disable="member_data|trackbacks"
+			dynamic="off"
+			limit="1"
+		}
+		<div class="post post--micro">
+			<div class="post__body">
+				<h3 class="post-title">
+					<a href="{page_url}">{title}</a>
+				</h3>
+				<div class="post-meta">
+					<div class="post-date">
+						{entry_date format="%F %d"}
+						<time>{entry_date format="%g:%i %A"}</time>
+					</div>
+				</div>
+				<p class="post-excerpt">
+					{exp:eehive_hacksaw chars="80" append="..."}
+					{article_excerpt:excerpt}
+					{/exp:eehive_hacksaw}
+				</p>
+			</div>
+		</div>
+		{/exp:channel:entries}
+	</div>
+	<footer class="card__footer text-center">
+		<a href="/resources/policy-updates/category/uk-intl-issues">More UK/Intl. Issues</a>
+	</footer>
+</div>
+{/if}
+<div class="card">
+	<header class="card__header text-center">
+		<h2>Policy Resources</h2>
+	</header>
+	<div class="card__body"></div>
+</div>

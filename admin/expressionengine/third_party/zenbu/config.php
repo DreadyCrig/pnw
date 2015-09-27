@@ -1,7 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 $config['name'] = 'Zenbu';
-$config['version'] = '1.9.3.1';
+$config['version'] = '1.9.4';
 $config['nsm_addon_updater']['versions_xml'] = 'http://zenbustudio.com/software/version_check/zenbu';
 if( ! defined('ZENBU_VER') )
 {

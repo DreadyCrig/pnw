@@ -20,17 +20,20 @@ class Zoo_visitor_ft extends EE_Fieldtype
 	 */
 	function Zoo_visitor_ft()
 	{
+
 		if ((version_compare(APP_VER, '2.6.0', '<'))) {
 			parent::EE_Fieldtype();
 		} else {
 			EE_Fieldtype::__construct();
 		}
 
-		$this->EE->load->add_package_path(PATH_THIRD . 'zoo_visitor/');
-		$this->EE->load->library('zoo_visitor_lib');
+		//$this->EE->load->add_package_path(PATH_THIRD . 'zoo_visitor');
+		//$this->EE->load->library('zoo_visitor_lib');
 		$this->EE->load->helper('zoo_visitor');
 		$this->EE->lang->loadfile('zoo_visitor');
 		$this->zoo_settings = get_zoo_settings($this->EE);
+		//works in some cases, same EE version, for some weird conflict sometimes it doesn't...
+		//$this->EE->load->remove_package_path(PATH_THIRD . 'zoo_visitor');
 
 		if (REQ == 'CP') {
 			$this->EE->cp->add_to_head('<link rel="stylesheet" href="' . _theme_url($this->EE) . 'css/zoo_visitor.css" type="text/css" media="screen" /> ');

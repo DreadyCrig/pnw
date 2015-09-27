@@ -59,7 +59,7 @@ $lang = array(
 	'charge_coupon_error_invalid_recurring'	=> 'This coupon can only be used with recurring payments',
 	'charge_coupon_error_invalid_charge'	=> 'This coupon can only be used with one-off payments',
 	'charge_coupon_error_invalid' 			=> 'Sorry, this coupon is invalid',
-	'plan_coupon'							=> 'Sorry, applying this coupon brings your total below the minimum we can charge',
+	'charge_coupon_error_below_min'			=> 'Sorry, applying this coupon brings your total below the minimum we can charge',
 
 
 

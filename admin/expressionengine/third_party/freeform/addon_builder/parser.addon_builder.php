@@ -13,7 +13,7 @@
  * @copyright	Copyright (c) 2008-2014, Solspace, Inc.
  * @link		http://solspace.com/docs/
  * @license		http://www.solspace.com/license_agreement/
- * @version		1.5.7
+ * @version		1.5.8
  * @filesource 	addon_builder/parser.addon_builder.php
  */
 

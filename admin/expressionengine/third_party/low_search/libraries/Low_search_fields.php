@@ -15,7 +15,8 @@ class Low_search_fields {
 	 */
 	private $_native_strings = array(
 		'title',
-		'url_title'
+		'url_title',
+		'status'
 	);
 
 	/**
@@ -100,13 +101,13 @@ class Low_search_fields {
 	 * @param       array
 	 * @return      int
 	 */
-	public function id($str, $fields = array())
+	public function id($str, $fields = NULL)
 	{
 		// --------------------------------------
 		// Get custom channel fields from cache
 		// --------------------------------------
 
-		if ( ! $fields)
+		if ( ! is_array($fields))
 		{
 			$fields = $this->get();
 		}

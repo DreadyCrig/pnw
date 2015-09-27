@@ -22,24 +22,23 @@ class Lamplighter_acc
 	public $description = 'Monitor your add-ons for updates.';
 	public $sections    = array();
 
+
 	/**
 	 * CodeIgniter super object
-	 *
 	 * @var  CI_Controller
 	 */
 	protected $EE;
 
+
 	/**
 	 * URL to the theme files
-	 *
 	 * @var  string
 	 */
 	protected $theme_url;
 
+
 	/**
 	 * Constructor
-	 *
-	 * @return  void
 	 */
 	public function __construct()
 	{
@@ -54,9 +53,9 @@ class Lamplighter_acc
 
 	}
 
+
 	/**
 	 * Install accessory
-	 *
 	 * @return  bool
 	 */
 	public function install()
@@ -74,9 +73,9 @@ class Lamplighter_acc
 		return TRUE;
 	}
 
+
 	/**
 	 * Update accessory
-	 *
 	 * @return  bool
 	 */
 	public function update()
@@ -94,9 +93,9 @@ class Lamplighter_acc
 		return TRUE;
 	}
 
+
 	/**
 	 * Uninstall accessory
-	 *
 	 * @return  bool
 	 */
 	public function uninstall()
@@ -109,9 +108,9 @@ class Lamplighter_acc
 		return TRUE;
 	}
 
+
 	/**
 	 * Set accessory sections
-	 *
 	 * @return  void
 	 */
 	public function set_sections()
@@ -123,9 +122,9 @@ class Lamplighter_acc
 		$this->EE->cp->add_to_foot('<script type="text/javascript" src="' . $this->theme_url . 'scripts/accessory.js?v=' . $this->version . '"></script>');
 	}
 
+
 	/**
 	 * Initial view of the accessory... allows us to load it through Ajax
-	 *
 	 * @return  string
 	 */
 	protected function _init()
@@ -138,19 +137,18 @@ class Lamplighter_acc
 		), TRUE);
 	}
 
+
 	/**
 	 * AJAX method for loading the initial view
-	 *
-	 * @return  void
 	 */
 	public function process_load()
 	{
 		$this->process_refresh(FALSE);
 	}
 
+
 	/**
 	 * AJAX method for clearing cache and reloading the add-ons list
-	 *
 	 * @param   bool  Whether to delete the cache
 	 * @return  void
 	 */
@@ -170,9 +168,9 @@ class Lamplighter_acc
 		}
 	}
 
+
 	/**
 	 * AJAX method for hiding certain add-ons from the accessory
-	 *
 	 * @return  void
 	 */
 	public function process_hide_addon()
@@ -190,10 +188,10 @@ class Lamplighter_acc
 		}
 	}
 
+
 	/**
 	 * AJAX method for including hidden add-ons in the list of installed
 	 * add-ons.
-	 *
 	 * @return	void
 	 */
 	public function process_display_hidden_addons()
@@ -207,7 +205,6 @@ class Lamplighter_acc
 	/**
 	 * AJAX method for removing an add-on from the lamplighter_hidden_addons
 	 * table so that is shows up in the add-on list normally.
-	 *
 	 * @return  void
 	 */
 	public function process_unhide_addon()
@@ -225,10 +222,10 @@ class Lamplighter_acc
 		}
 	}
 
+
 	/**
 	 * This method fetches general site data to be used as
 	 * debug information.
-	 *
 	 * @return void
 	 */
 	public function process_debug_info()
@@ -256,4 +253,5 @@ class Lamplighter_acc
 		header('Content-Type : text/plain');
 		exit( $this->EE->load->view('acc_debug_info', $vars, TRUE) );
 	}
+
 }

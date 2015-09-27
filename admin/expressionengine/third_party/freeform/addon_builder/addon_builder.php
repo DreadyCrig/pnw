@@ -11,7 +11,7 @@
  * @copyright	Copyright (c) 2008-2014, Solspace, Inc.
  * @link		http://solspace.com/docs/
  * @license		http://www.solspace.com/license_agreement/
- * @version		1.5.7
+ * @version		1.5.8
  * @filesource 	addon_builder/addon_builder.php
  */
 
@@ -2500,9 +2500,14 @@ EOT;
 
 		if ( $paginate === FALSE )
 		{
-			return ee()->functions->prep_conditionals(
+			$tagdata = ee()->functions->prep_conditionals(
 				$tagdata,
 				array($tag_paginate => FALSE)
+			);
+
+			return ee()->TMPL->parse_variables(
+				$tagdata,
+				array(array($tag_paginate => array()))
 			);
 		}
 

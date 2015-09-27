@@ -1161,11 +1161,37 @@ class Assets_ft extends EE_Fieldtype
 	{
 
 		// ignore if it doesn't look like Assets data
-		if (! is_array($data) OR empty($this->settings['col_id']) OR empty($this->settings['grid_row_name'])) {
+		if (empty($this->settings['col_id']) OR empty($this->settings['grid_row_name'])) {
 			return '';
 		}
 
-		$file_ids = array_filter($data);
+		if (!is_array($data))
+		{
+			$field_name = $this->EE->db->get_where('channel_fields', array('field_id' => $this->settings['grid_field_id']))->row()->field_name;
+			$row_name = $this->settings['grid_row_name'];
+			$col_name = $this->field_name;
+
+			$filedir_id = isset($_POST[$field_name][$row_name][$col_name.'_filedir']) ? $_POST[$field_name][$row_name][$col_name.'_filedir'] : '';
+			$source_id = isset($_POST[$field_name][$row_name][$col_name.'_source']) ? $_POST[$field_name][$row_name][$col_name.'_source'] : '';
+
+
+			if (!empty($_FILES[$col_name]['name']) && (!empty($filedir_id) || !empty($source_id)))
+			{
+				$file_array = array(
+					'name' => $_FILES[$col_name]['name'],
+					'tmp_name' => $_FILES[$col_name]['tmp_name']);
+
+				$file_ids = array($this->_simple_html_upload($file_array, $filedir_id, $source_id));
+			}
+			else
+			{
+				return '';
+			}
+		}
+		else
+		{
+			$file_ids = array_filter($data);
+		}
 
 		$this->cache['field_data']['grid'][$this->settings['grid_row_name']][$this->settings['col_id']] = $file_ids;
 
@@ -1189,7 +1215,7 @@ class Assets_ft extends EE_Fieldtype
 			$source_id = isset($_POST[$field_name][$row_name][$col_name.'_source']) ? $_POST[$field_name][$row_name][$col_name.'_source'] : '';
 
 
-			if (!empty($_FILES[$field_name]['name'][$row_name][$col_name]) && !empty($filedir_id))
+			if (!empty($_FILES[$field_name]['name'][$row_name][$col_name]) && (!empty($filedir_id) || !empty($source_id)))
 			{
 				$file_array = array(
 					'name' => $_FILES[$field_name]['name'][$row_name][$col_name],
@@ -1616,8 +1642,16 @@ class Assets_ft extends EE_Fieldtype
 		}
 
 		$prop_params = array('server_path', 'subfolder', 'filename', 'extension', 'date_modified', 'kind', 'width', 'height', 'size', 'asset_id', 'file_id');
-		$meta_params = array_keys($data[0]->row());
-		$search_params = array_merge($prop_params, $meta_params);
+
+		if (!empty($data[0]))
+		{
+			$meta_params = array_keys($data[0]->row());
+			$search_params = array_merge($prop_params, $meta_params);
+		}
+		else
+		{
+			$search_params = $prop_params;
+		}
 
 		foreach ($search_params as $param)
 		{
@@ -1772,6 +1806,12 @@ class Assets_ft extends EE_Fieldtype
 	{
 
 		$field_name = ee()->db->select('field_name')->from('channel_fields')->where(array('field_id' => $this->field_id))->get()->row('field_name');
+
+		if (! $field_name)
+		{
+			$field_name = ee()->db->select('variable_name')->from('global_variables')->where('variable_id', $this->field_id)->get()->row('variable_name');
+		}
+
 		$col_name = ee()->db->select('col_name')->from('grid_columns')->where(array('field_id' => $this->field_id, 'col_id' => $this->col_id))->get()->row('col_name');
 
 		$var_prefix = (isset($params['var_prefix']) && $params['var_prefix']) ? rtrim($params['var_prefix'], ':') . ':' : '';
@@ -1840,25 +1880,30 @@ class Assets_ft extends EE_Fieldtype
 	{
 		if ($modifier && is_array($file_info))
 		{
-			$modifier_parts = explode(':', $modifier);
+			$this->_apply_params($file_info, $params);
 
-			$file = array_shift($file_info);
-
-			if (!is_object($file))
+			if (!empty($file_info))
 			{
-				return;
-			}
+				$modifier_parts = explode(':', $modifier);
 
-			if (count($modifier_parts) == 2)
-			{
-				$tag_func = $modifier_parts[0];
-				$manipulation = $modifier_parts[1];
+				$file = array_shift($file_info);
 
-				return $file->$tag_func($manipulation);
-			}
-			else
-			{
-				return $this->replace_tag($file_info, $params, $tagdata);
+				if (!is_object($file))
+				{
+					return;
+				}
+
+				if (count($modifier_parts) == 2)
+				{
+					$tag_func = $modifier_parts[0];
+					$manipulation = $modifier_parts[1];
+
+					return $file->$tag_func($manipulation);
+				}
+				else
+				{
+					return $this->replace_tag($file_info, $params, $tagdata);
+				}
 			}
 		}
 
@@ -1897,6 +1942,14 @@ class Assets_ft extends EE_Fieldtype
 		if (! $data) return;
 
 		return $data[0]->url();
+	}
+
+	/**
+	 * Replace Revved URL
+	 */
+	function replace_revved_url($data, $params)
+	{
+		return $data[0]->revved_url();
 	}
 
 	/**
@@ -2228,7 +2281,7 @@ class Assets_ft extends EE_Fieldtype
 
 			$result = $source->upload_file($folder_id, $file_info['tmp_name'], $file_name);
 
-			if ($result['file_id'])
+			if (isset($result['file_id']))
 			{
 				$file_id = $result['file_id'];
 			}

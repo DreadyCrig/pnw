@@ -4,7 +4,7 @@
  * Charge Stripe Model class
  *
  * @package         charge_ee_addon
- * @version         1.9.2
+ * @version         1.9.5
  * @author          Joel Bradbury ~ <joel@squarebit.co.uk>
  * @link            http://squarebit.co.uk/software/expressionengine/charge
  * @copyright       Copyright (c) 2015, Joel Bradbury/Square Bit
@@ -102,6 +102,7 @@ class Charge_stripe_model extends Charge_model
                 'customer_name'         => 'varchar(255) NOT NULL default ""',
                 'customer_email'        => 'varchar(255) NOT NULL default ""',
 
+                'connected_entry_id'    => 'varchar(100) NOT NULL default ""',
                 'meta'                  => 'text',
                 'stripe'                => 'text',
                 'messages'              => 'text',
@@ -228,7 +229,6 @@ class Charge_stripe_model extends Charge_model
         ee()->charge_log->log_donate_attempt_start_one_off($this->data);
 
         try {
-
             $description = $this->_create_description();
 
             $metadata = $this->_collect_metadata();
@@ -251,7 +251,6 @@ class Charge_stripe_model extends Charge_model
                 "metadata"    => $metadata
             ));
 
-
             // Now wipe the customer card
             $card = $this->_get_customer_card($customer, true);
 
@@ -261,10 +260,9 @@ class Charge_stripe_model extends Charge_model
             return $this->_record($charge);
 
         } catch (Exception $e) {
-            $json = $e->getJsonBody();
-            ee()->charge_log->log_exception($json);
-
-            $this->errors = $json['error'];
+            $message = $e->getMessage();
+            ee()->charge_log->log_exception($message);
+            $this->errors[] = $message;
         }
 
         ee()->charge_log->log_error_creating_charge($this->data);
@@ -419,6 +417,7 @@ class Charge_stripe_model extends Charge_model
         $data['amount'] = number_format($data['plan_amount'] / 100);
         $data['time_wordy'] = date('H:i', $data['timestamp']) . ' on ' . date('l jS F', $data['timestamp']);
         $data['ended_on_wordy'] = date('H:i', $data['ended_on']) . ' on ' . date('l jS F', $data['ended_on']);
+
 
         return $data;
     }
@@ -699,9 +698,9 @@ class Charge_stripe_model extends Charge_model
 
             return $p;
         } catch (Exception $e) {
-            $json = $e->getJsonBody();
-            ee()->charge_log->log_exception($json);
-            $this->errors = $json['error'];
+            $message = $e->getMessage();
+            ee()->charge_log->log_exception($message);
+            $this->errors[] = $message;
         }
 
         ee()->charge_log->log_error_plan_creation($plan);
@@ -805,7 +804,6 @@ class Charge_stripe_model extends Charge_model
                 "metadata"    => $metadata
             );
 
-
             if (!is_null($plan)) {
                 $stripe_arr['plan'] = $plan;
 
@@ -891,9 +889,9 @@ class Charge_stripe_model extends Charge_model
             return $customer;
 
         } catch (Exception $e) {
-            $json = $e->getJsonBody();
-            ee()->charge_log->log_exception($json);
-            $this->errors = $json['error'];
+            $message = $e->getMessage();
+            ee()->charge_log->log_exception($message);
+            $this->errors[] = $message;
         }
 
         ee()->charge_log->log_error_creating_customer($this->data);
@@ -1010,6 +1008,8 @@ class Charge_stripe_model extends Charge_model
             // Break this down. return the first 20, but keep the rest for local records
             $meta = array_slice($meta, 0, 20);
         }
+
+        $meta = array_filter($meta);
 
         return $meta;
     }

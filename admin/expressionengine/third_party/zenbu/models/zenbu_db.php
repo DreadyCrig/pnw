@@ -6,11 +6,8 @@ class Zenbu_db extends Zenbu_mcp {
 	{
 		// Make a local reference to the ExpressionEngine super object
 		$this->EE =& get_instance();
-		$this->site_id = $this->EE->session->userdata['site_id'];
-		$this->member_group_id = $this->EE->session->userdata['group_id'];
-		$this->member_id = ($this->EE->session->cache('zenbu', 'member_id')) ? $this->EE->session->cache('zenbu', 'member_id') : $this->EE->session->userdata['member_id'];
-		$this->cp_call = (REQ == 'CP') ? TRUE : FALSE;
-		$this->local_time = version_compare(APP_VER, '2.6', '>') ? $this->EE->localize->now : $this->EE->localize->set_localized_time();
+		$this->EE->load->model(array('zenbu_display'));
+		parent::initialize();
 	}
 
 

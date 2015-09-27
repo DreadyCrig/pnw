@@ -112,7 +112,7 @@ class Zoo_visitor_cp
 		$data['language']         = $this->EE->config->item('deft_lang');
 		$data['timezone']         = ($this->EE->config->item('default_site_timezone') && $this->EE->config->item('default_site_timezone') != '') ? $this->EE->config->item('default_site_timezone') : $this->EE->config->item('server_timezone');
 
-		if(APP_VER < '2.6.0'){
+		if(version_compare(APP_VER, '2.6.0', '<')){
 			$data['daylight_savings'] = ($this->EE->config->item('default_site_dst') && $this->EE->config->item('default_site_dst') != '') ? $this->EE->config->item('default_site_dst') : $this->EE->config->item('daylight_savings');
 		}
 

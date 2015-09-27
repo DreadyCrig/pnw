@@ -159,12 +159,6 @@ class Low_variables_base
 	public function __construct()
 	{
 		// -------------------------------------
-		//  Define the package path
-		// -------------------------------------
-
-		ee()->load->add_package_path(PATH_THIRD.$this->package);
-
-		// -------------------------------------
 		//  Load helper
 		// -------------------------------------
 
@@ -506,7 +500,7 @@ class Low_variables_base
 			));
 		}
 
-		return ee()->load->view($file, $this->data, TRUE);
+		return ee()->load->view($this->package.'/'.$file, $this->data, TRUE);
 	}
 
 	// --------------------------------------------------------------------

@@ -10,7 +10,7 @@
  * @copyright	Copyright (c) 2008-2015, Solspace, Inc.
  * @link		http://solspace.com/docs/freeform
  * @license		http://www.solspace.com/license_agreement
- * @version		4.2.2
+ * @version		4.2.3
  * @filesource	freeform/act.freeform.php
  */
 
@@ -179,7 +179,7 @@ class Freeform_actions extends Addon_builder_freeform
 		$capture_old = (
 			$template_set &&
 			$require_aob_parser &&
-			get_class(ee()->TMPL) !== $parser_shim
+			( get_class(ee()->TMPL) !== $parser_shim && ! $this->test_mode)
 		);
 
 		if ($capture_old OR ! $template_set)

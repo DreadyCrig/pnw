@@ -1744,7 +1744,7 @@ class File_upload_freeform_ft extends Freeform_base_ft
 
 		foreach ($data_query as $file_data)
 		{
-			$url 		= urlencode($upload_prefs['url'] . $file_data['filename']);
+			$url		= $upload_prefs['url'] . urlencode($file_data['filename']);
 			$full_path	= $upload_prefs['server_path'] . $file_data['filename'];
 
 			//something to look at if nothing attached

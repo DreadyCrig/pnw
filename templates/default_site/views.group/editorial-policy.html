@@ -1,0 +1,116 @@
+{layout="layouts/index" editorial="yes" entry_id="entry_id"}
+
+{exp:channel:entries
+	disable="category_fields|member_data|trackbacks"
+}
+{layout:set name="entry_id" value="{entry_id}"}
+{article_banner}
+{if background}
+<header class="headline headline--rich" style="background-image: url('{background}');">
+{if:else}
+<header class="headline">
+{/if}
+{/article_banner}
+
+	<div class="overlay" 
+		{article_banner}
+		style="background-color: rgba(17, 17, 17, 0.{overlay});"
+		}
+		{/article_banner}
+	>
+		<div class="headline__content">
+			<div class="headline-categories">
+				{categories}
+        <a href="/resources/policy-updates/category/{category_url_title}">{category_name}</a>
+				{/categories}
+			</div>
+			<h1>{title}</h1>
+			<div class="headline__meta">
+				<span class="date">
+					{entry_date format="%F %d, %Y @ %g:%i %A"}
+				</span>
+			</div>
+		</div>
+	</div>
+</header>
+<main class="main main--white">
+	<div class="main-container">
+		<article class="article">
+			<div class="article__body article__body-alt">
+				{article_body}
+					{heading}
+						<header class="article__header">
+							{value}
+						</header>
+					{/heading}
+					{wygwam}
+						<section class="article__section">
+							{value}
+						</section>
+					{/wygwam}
+					{assets}
+						{files}
+							{if kind != "image"}
+							<div class="article__file">
+								{if title OR caption}
+								<div class="file-header">
+									{if title}<h4>{title}</h4>{/if}
+									{if caption}<p>{caption}</p>{/if}
+								</div>
+								{/if}
+
+								<div class="file-body">
+									<a href="{url}" download="{filename}.{extension}" class="btn btn--md btn--secondary btn--rounded">
+										
+										{if alt_text}
+											{alt_text}
+										{if:else}
+											{filename}.{extension}
+										{/if}
+									</a>
+								</div>
+							</div>
+							{if:else}
+								<div class="article__photo">
+									<div class="photo-frame">
+										<img src="{url}" alt="{alt_text}">
+									</div>
+									{if caption}
+									<div class="photo-caption">
+										<p>{caption}</p>
+									</div>
+									{/if}
+								</div>
+							{/if}
+						{/files}
+					{/assets}
+					{gallery}
+						{if images}
+						<script>
+							$(function(){
+								Galleria.run('.galleria');
+							});
+						</script>
+						<div class="gallery-frame" ng-cloak>
+							<div class="galleria">
+								{images}
+						    <img src="{image}" data-description="{caption}">
+						    {/images}
+							</div>
+						</div>
+						{/if}
+					{/gallery}
+				{/article_body}
+				<div class="share-bar">
+					{exp:hj_social_bookmarks sites="Facebook|Google+|Twitter|LinkedIn" entry_id="{entry_id}"}
+				</div>
+			</div>
+			<div class="article__aside">
+				{categories}
+				{embed="partials/_policy-asides" cat_id="{category_id}" editorial="yes"}
+				{/categories}
+			</div>
+		</article>
+	</div>
+</main>
+{/exp:channel:entries}

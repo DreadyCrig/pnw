@@ -1630,7 +1630,9 @@ class Sql_structure
 		$word_separator = $this->EE->config->item('word_separator');
 		$separator = $word_separator != 'dash' ? '_' : '-';
 
-		if (in_array($uri, $pages))
+		$trailing_slash = isset($settings['add_trailing_slash']) && $settings['add_trailing_slash'] === 'y' ? '/' : '';
+
+		if (in_array($uri.$trailing_slash, $pages))
 		{
 			$uri = rtrim($uri, '/').$separator.'1/';
 
@@ -1706,8 +1708,10 @@ class Sql_structure
 		if (empty($site_id))
 			$site_id = $this->EE->config->item('site_id');
 		
-		foreach($site_pages['uris'] AS &$uri)
-			$uri = rtrim($uri, '/');
+		foreach($site_pages['uris'] AS &$uri) {
+			if ($uri!="/")
+				{ $uri = rtrim($uri, '/');}
+		}
 		
 		$pages[$site_id] = $site_pages;
 
@@ -2098,7 +2102,7 @@ class Sql_structure
 		{
 			$uri = '/'; # e.g. pagination segment off homepage
 		}
-
+		
 		return $uri;
 	}
 
