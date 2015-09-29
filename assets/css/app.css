@@ -4966,6 +4966,22 @@ body.stop-scrolling {
     background-color: #666D70;
     color: #fff; }
 
+.post--event--cultural .event-date {
+  background-color: #5a5caa; }
+
+.post--event--cultural .event-type {
+  color: #6B6DB3; }
+
+.post--event--cultural .post--event__header {
+  background-color: #6B6DB3; }
+
+.post--event--cultural .btn, .post--event--cultural .btn--rounded, .post--event--cultural .btn--social {
+  border-color: #6B6DB3;
+  color: #6B6DB3; }
+  .post--event--cultural .btn:hover, .post--event--cultural .btn--rounded:hover, .post--event--cultural .btn--social:hover {
+    background-color: #6B6DB3;
+    color: #fff; }
+
 .post-meta {
   margin-bottom: 0.3125rem; }
   .post--micro .post-meta {

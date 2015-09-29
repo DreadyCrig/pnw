@@ -150,6 +150,25 @@
 		}
 	}
 }
+.post--event--cultural {
+	.event-date {
+		background-color: darken($purple, 5);
+	}
+	.event-type {
+		color: $purple;
+	}
+	.post--event__header {
+		background-color: $purple;
+	}
+	.btn {
+		border-color: $purple;
+		color: $purple;
+		&:hover {
+			background-color: $purple;
+			color: #fff;
+		}
+	}
+}
 
 .post-meta {
 	margin-bottom: rem(5);
