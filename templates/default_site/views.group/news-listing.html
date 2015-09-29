@@ -16,12 +16,14 @@
 					</header>
 					<div class="card__body">
 						{exp:channel:entries
-							channel="news"
+							channel="news|policy_updates"
 							disable="category_fields|member_data|trackbacks"
 							dynamic="off"
 							limit="5"
+							search:policy_make_public="=not n"
 							{triggers:entries}
 						}
+						{if channel_short_name == "news"}
 						<div class="post post--with-thumb">
 							{article_banner}
 							{if thumbnail}
@@ -50,6 +52,39 @@
 								</div>
 							</div>
 						</div>
+						{if:else}
+						<div class="post post--with-thumb">
+							{policy_banner}
+							{if thumbnail}
+							<div class="post__thumb">
+								<a href="{page_url}"><img src="{thumbnail}" alt="{thumbnail:alt_text}"></a>
+							</div>
+							{/if}
+							{/policy_banner}
+							<div class="post__body">
+								<h3 class="post-title">
+									<a href="{page_url}">{title}</a>
+								</h3>
+								<div class="post-meta">
+									<div class="post-author">
+									By: 
+										{if policy_contributing_author}
+										{policy_contributing_author}
+										{if:else}
+										<a href="/author-posts/{author_id}">{author}</a>
+										{/if}
+									</div>
+									<div class="post-date">Posted on: {entry_date format="%F %d, %Y"}</div>
+								</div>
+								<div class="post-excerpt">
+									{policy_excerpt:excerpt}
+								</div>
+							</div>
+						</div>
+
+						{/if}
+						
+
 						{paginate}
 						{pagination_links}
 						<div class="pagination">

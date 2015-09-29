@@ -4,19 +4,19 @@
 	disable="category_fields|member_data|trackbacks"
 }
 {layout:set name="entry_id" value="{entry_id}"}
-{article_banner}
+{policy_banner}
 {if background}
 <header class="headline headline--rich" style="background-image: url('{background}');">
 {if:else}
 <header class="headline">
 {/if}
-{/article_banner}
+{/policy_banner}
 
 	<div class="overlay" 
-		{article_banner}
+		{policy_banner}
 		style="background-color: rgba(17, 17, 17, 0.{overlay});"
 		}
-		{/article_banner}
+		{/policy_banner}
 	>
 		<div class="headline__content">
 			<div class="headline-categories">
@@ -37,7 +37,7 @@
 	<div class="main-container">
 		<article class="article">
 			<div class="article__body article__body-alt">
-				{article_body}
+				{policy_body}
 					{heading}
 						<header class="article__header">
 							{value}
@@ -100,14 +100,14 @@
 						</div>
 						{/if}
 					{/gallery}
-				{/article_body}
+				{/policy_body}
 				<div class="share-bar">
 					{exp:hj_social_bookmarks sites="Facebook|Google+|Twitter|LinkedIn" entry_id="{entry_id}"}
 				</div>
 			</div>
 			<div class="article__aside">
-				{categories}
-				{embed="partials/_policy-asides" cat_id="{category_id}" editorial="yes"}
+				{categories limit="1"}
+				{embed="partials/_policy-asides" entry_id="{entry_id}" editorial="yes"}
 				{/categories}
 			</div>
 		</article>

@@ -1,5 +1,5 @@
 {if embed:editorial == "yes"}
-	{if embed:cat_id != "7"}
+	
 	<div class="card">
 		<header class="card__header text-center">
 			<h2>Regional Issues</h2>
@@ -11,6 +11,7 @@
 				disable="member_data|trackbacks"
 				dynamic="off"
 				limit="3"
+				entry_id="not {embed:entry_id}"
 			}
 			<div class="post post--micro">
 				<div class="post__body">
@@ -25,7 +26,7 @@
 					</div>
 					<p class="post-excerpt">
 						{exp:eehive_hacksaw chars="80" append="..."}
-						{article_excerpt:excerpt}
+						{policy_excerpt:excerpt}
 						{/exp:eehive_hacksaw}
 					</p>
 				</div>
@@ -36,8 +37,8 @@
 			<a href="/resources/policy-updates/category/regional-issues">More Regional Issues</a>
 		</footer>
 	</div>
-	{/if}
-	{if embed:cat_id != "8"}
+	
+	
 	<div class="card">
 		<header class="card__header text-center">
 			<h2>National Issues</h2>
@@ -63,7 +64,7 @@
 					</div>
 					<p class="post-excerpt">
 						{exp:eehive_hacksaw chars="80" append="..."}
-						{article_excerpt:excerpt}
+						{policy_excerpt:excerpt}
 						{/exp:eehive_hacksaw}
 					</p>
 				</div>
@@ -74,8 +75,8 @@
 			<a href="/resources/policy-updates/category/national-issues">More National Issues</a>
 		</footer>
 	</div>
-	{/if}
-	{if embed:cat_id != "9"}
+	
+	
 	<div class="card">
 		<header class="card__header text-center">
 			<h2>UK/Intl. Issues</h2>
@@ -101,7 +102,7 @@
 					</div>
 					<p class="post-excerpt">
 						{exp:eehive_hacksaw chars="80" append="..."}
-						{article_excerpt:excerpt}
+						{policy_excerpt:excerpt}
 						{/exp:eehive_hacksaw}
 					</p>
 				</div>
@@ -112,7 +113,7 @@
 			<a href="/resources/policy-updates/category/uk-intl-issues">More UK/Intl. Issues</a>
 		</footer>
 	</div>
-	{/if}
+	
 {if:else}
 <div class="card">
 	<header class="card__header text-center">
@@ -139,7 +140,7 @@
 				</div>
 				<p class="post-excerpt">
 					{exp:eehive_hacksaw chars="80" append="..."}
-					{article_excerpt:excerpt}
+					{policy_excerpt:excerpt}
 					{/exp:eehive_hacksaw}
 				</p>
 			</div>
@@ -175,7 +176,7 @@
 				</div>
 				<p class="post-excerpt">
 					{exp:eehive_hacksaw chars="80" append="..."}
-					{article_excerpt:excerpt}
+					{policy_excerpt:excerpt}
 					{/exp:eehive_hacksaw}
 				</p>
 			</div>
@@ -211,7 +212,7 @@
 				</div>
 				<p class="post-excerpt">
 					{exp:eehive_hacksaw chars="80" append="..."}
-					{article_excerpt:excerpt}
+					{policy_excerpt:excerpt}
 					{/exp:eehive_hacksaw}
 				</p>
 			</div>
@@ -223,9 +224,3 @@
 	</footer>
 </div>
 {/if}
-<div class="card">
-	<header class="card__header text-center">
-		<h2>Policy Resources</h2>
-	</header>
-	<div class="card__body"></div>
-</div>

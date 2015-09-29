@@ -938,6 +938,10 @@ body.alt-bg {
     margin-bottom: 2em;
     margin: auto; }
 
+.policy-cta {
+  text-align: center;
+  margin-top: 1.5em; }
+
 .signup-breadcrumb, .profile-tabbar {
   background-color: #01243D; }
   .signup-breadcrumb::after, .profile-tabbar::after {
@@ -4873,6 +4877,10 @@ body.stop-scrolling {
     width: 65.8807828007%; }
     .post--with-thumb .post__body:last-child {
       margin-right: 0; }
+  .post--micro .post-title {
+    text-transform: none;
+    font-size: 1.125rem;
+    letter-spacing: normal; }
   .post--micro .post__thumb {
     float: left;
     display: block;
@@ -5065,6 +5073,7 @@ body.stop-scrolling {
       text-transform: uppercase;
       letter-spacing: 1.4px;
       border-bottom: 3px solid #fff;
+      position: relative;
       -webkit-transition: border 0.25s ease-in-out;
       transition: border 0.25s ease-in-out; }
       .navigation--bar > li > a:hover, .navigation--bar > li > a:focus {
@@ -5074,10 +5083,17 @@ body.stop-scrolling {
       position: absolute;
       z-index: 3000;
       min-width: 170px;
-      background-color: #4577AA;
-      border-radius: 4px;
-      top: 73px;
-      left: -18px; }
+      background-color: #374A5E;
+      display: none;
+      box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2);
+      top: 68px;
+      left: 0;
+      border-top: 3px solid #4577AA;
+      border-bottom-right-radius: 4px;
+      border-bottom-left-radius: 4px; }
+      .navigation--bar > li .dropdown li a:last-child {
+        border-bottom-right-radius: 4px;
+        border-bottom-left-radius: 4px; }
       .navigation--bar > li .dropdown a {
         color: #fff;
         font-weight: 700;
@@ -5086,7 +5102,10 @@ body.stop-scrolling {
         display: block;
         padding: 0.75rem 0.75rem 0.75rem;
         text-transform: uppercase;
-        text-align: center; }
+        text-align: center;
+        border-bottom: none; }
+        .navigation--bar > li .dropdown a:hover, .navigation--bar > li .dropdown a:focus {
+          background-color: #2f5174; }
 
 .social-links {
   display: block;

@@ -169,4 +169,7 @@ $(function() {
 });
 
 // Superfish Dropdown Menus
-// $('#main-navigation').superfish();
+$('#main-navigation').superfish({
+  delay: 300,
+  speed: 'fast'
+});

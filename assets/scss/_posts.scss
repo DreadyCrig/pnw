@@ -48,6 +48,11 @@
 		}
 	}
 	&--micro {
+		.post-title {
+			text-transform: none;
+			font-size: 1.125rem;
+			letter-spacing: normal;
+		}
 		.post__thumb {
 			@include span-columns(12);
 			a { margin-bottom: rem(15); }
