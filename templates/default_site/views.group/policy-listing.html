@@ -1,5 +1,5 @@
 {layout="layouts/index"}
-{if logged_in}
+
 <main class="main main--home">
 	<div class="main-container">
 		<section class="section-row">
@@ -84,16 +84,3 @@
 		</section>		
 	</div>
 </main>
-{if:else}
-<section class="join" ng-controller="loginCtrl">
-	<div class="join__intro">
-		<header class="join__header">
-			<h2>Policy Updates</h2>
-			<p>Our policy updates are exclusive to BABC PNW members. Sign in if you're an existing member by clicking the "Member Login" button above, or consider joining us today by clicking the button below.</p>
-			<div class="policy-cta">
-				<a href="/join" class="btn btn--secondary">Join BABC Today</a>
-			</div>
-		</header>
-	</div>
-</section>
-{/if}
